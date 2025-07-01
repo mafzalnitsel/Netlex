@@ -11,8 +11,8 @@ export const environment = {
   // adminserviceURL:'https://server.netlex.se:30000/',
   // contactToBookLawyerUrl: 'https://netlex.se/scheduler',
   // accountSettingUrl: 'https://server.netlex.se:3000/accountSettings',
-  serviceURL: "https://api.netlex.se",
-  adminserviceURL: "https://admin-api.netlex.se",
+  serviceURL: "https://api.netlex.se/",
+  adminserviceURL: "https://admin-api.netlex.se/",
   contactToBookLawyerUrl: "https://netlex.se/scheduler",
   accountSettingUrl: "https://api.netlex.se/accountSettings",
   //================= Local ===================
