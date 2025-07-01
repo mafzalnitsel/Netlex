@@ -1,0 +1,409 @@
+<app-navbar></app-navbar>
+<!-- <div fxLayout.lt-lg="col" fxLayout.lg="row" fxLayoutGap="10px">
+        <mat-card class="addBox">
+            <div class="h-container">Profil</div>
+            <br>
+            <table class="table-size">
+                <tr>
+                    <td>ANVÄNDARNAMN</td>
+                    <td>:</td>
+                    <td>{{userName}}</td>
+                </tr>
+                <tr>
+                    <td>FÖRNAMN</td>
+                    <td>:</td>
+                    <td>{{firstName}}</td>
+                </tr>
+                <tr>
+                    <td>EFTERNAMN</td>
+                    <td>:</td>
+                    <td>{{lastName}}</td>
+                </tr>
+                <tr>
+                    <td>E-POST</td>
+                    <td>:</td>
+                    <td>{{email}}</td>
+                </tr>
+                <tr>
+                    <td>FULLSTÄNDIGA NAMN</td>
+                    <td>:</td>
+                    <td>{{fullName}}</td>
+                </tr>
+                <tr>
+                    <td>ROLL</td>
+                    <td>:</td>
+                    <td>{{role}}</td>
+                </tr>
+            </table>
+            <br>
+            <table class="table-size">
+                <tr>
+                    <td colspan="2"> <button  routerLink="/home" mat-button class="saveBtn" >Tillbaka</button></td>
+                    <td colspan="2" ><button (click)="displayChangePassword()" (dblclick)="displayChangePassword2()"  mat-button class="saveBtn">Ändra lösenord</button></td>
+                </tr>
+
+            </table>
+            <table class="table-size" *ngIf="showChangePassword">
+                <tr>
+                    <td>
+                        <mat-label>Lösenord</mat-label>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <input matInput [(ngModel)]="password" type="password" placeholder="Lösenord"
+                                   id="password">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-label>Bekräfta lösenord</mat-label>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <input matInput [(ngModel)]="confirmPassword" type="password" id="confirmPassword"
+                                   placeholder="Bekräfta lösenord">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" (click)="changePassword()"   mat-button class="saveBtn">
+                                <span *ngIf="showLoader" role="status"
+                                      aria-hidden="true"></span>
+                            <span *ngIf="!showLoader">Skicka in</span>
+                        </button>
+
+                    </td>
+                </tr>
+            </table>
+            <table class="table-size" *ngIf="showChangeEmail">
+                <tr>
+                    <td>
+                        <mat-label>E-post</mat-label>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <input matInput [(ngModel)]="password" type="password" placeholder="Lösenord"
+                                   id="password">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-label>
+                            Bekräfta e-postadress</mat-label>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <input matInput [(ngModel)]="confirmPassword" type="password" id="confirmPassword"
+                                   placeholder="Bekräfta lösenord">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" (click)="changeEmail()" mat-button class="saveBtn">
+                                <span *ngIf="showLoader" role="status"
+                                      aria-hidden="true"></span>
+                            <span *ngIf="!showLoader">Skicka in</span>
+                        </button>
+
+                    </td>
+                </tr>
+            </table>
+        </mat-card>
+    </div> -->
+<div class="header-top" fxLayoutAlign="none center">
+    <span *ngIf="viewProfileDetails">Profil</span>
+    <span *ngIf="viewLawyerBusyTime">Profil / Schemalägg upptagen tid</span>
+    <span *ngIf="isEditOfficeTimes">Profil / Kontors tider</span>
+</div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row" fxLayoutGap="10px" fxLayoutAlign="center">
+    <mat-card class="addBox">
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="viewProfileDetails && !isEditOfficeTimes">
+            <div fxFlex.gt-sm="25" class="child-container-common">
+                <div fxLayout="column" class="profile_details_column">
+                    <!-- <span *ngIf="!profileImageExists">
+                            <mat-spinner diameter="26" strokeWidth=""></mat-spinner>
+                        </span> -->
+                    <div class="image_container">
+                        <!-- ---/\/\/\/\/\/\/\/\/\ If Have profile pic /\/\/\/\/\/\/\/\/\/\---- -->
+
+                        <img [src]="profileImgURL" *ngIf="!loadingProfileImage && profileImgURL"
+                            (click)="viewFullPicHandler()" [className]="viewFullPic ? 'full_pic' : 'profile_pic'">
+
+                        <!-- ---/\/\/\/\/\/\/\/\ If Don't have profile pic /\/\/\/\/\/\/\/\/\---- -->
+                        <img [src]="'./assets/images/NoProfileImage.png'"
+                            *ngIf="!loadingProfileImage  && !profileImgURL" class="no_profile_pic">
+
+                        <!-- ---/\/\/\/\/\/\/\/\/\ Loading profile pic /\/\/\/\/\/\/\/\/\/\/\---- -->
+                        <div class="dummy_profile_pic" *ngIf="loadingProfileImage">
+                            <span class="loading_profile_pic">
+                                <mat-spinner diameter="35" strokeWidth=""></mat-spinner>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ---/\/\/\/\/\/\/\/\/\ Edit profile pic button /\/\/\/\/\/\/\/\/\/\---- -->
+                    <div class="edit_profile_pic" *ngIf="!viewFullPic">
+                        <label for="image_input">
+                            <mat-icon>photo_camera</mat-icon>
+                        </label>
+                        <input type="file" [(ngModel)]="profilePic" (change)="onFileChange($event)" class="form-control"
+                            id="image_input">
+                    </div>
+
+                    <!-- ---/\/\/\/\/\/\/\/\/\ Profile Name and email text /\/\/\/\/\/\/\/\/\/\---- -->
+                    <div *ngIf="!fileSource">
+                        <div class="user_name">
+                            {{fullName}}
+                        </div>
+                        <div class="user_email">
+                            {{email}}
+                        </div>
+                        <div class="timeBtnContainer" *ngIf="lawyerid">
+                            <button (click)="editLawyerBusyTime()" mat-button class="busyTime-button">
+                                <!-- <span class="spinner-border" *ngIf="showLoader" aria-hidden="true">
+                                <mat-spinner diameter="26" strokeWidth=""></mat-spinner>
+                            </span>
+                            <span *ngIf="!showLoader"> Upptagna tider
+                            </span> -->
+                                <!-- Upptagna tider -->
+                                Kalender
+                                <mat-icon>calendar_today</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ---/\/\/\/\/\/\/\/\/\ Profile  Pic upload button /\/\/\/\/\/\/\/\/\/\---- -->
+                    <div *ngIf="fileSource">
+                        <button mat-button class="image-upload-button" (click)="changeProfile()">
+                            <!-- <mat-icon>edit</mat-icon> -->
+                            <span class="spinner-border" *ngIf="imageUploadingLoader" aria-hidden="true">
+                                <mat-spinner diameter="26" strokeWidth=""></mat-spinner>
+                            </span>
+                            <span *ngIf="!imageUploadingLoader"> Ladda upp bild </span>
+                        </button>
+                    </div>
+
+                    <!-- <div class="user_role">
+                        {{roleToShow}}
+                    </div> -->
+                </div>
+            </div>
+            <div fxFlex.gt-sm="70" class="profile_setting_column">
+                <div fxLayout="row" class="heading_n_button_container" fxHide.lt-md
+                    *ngIf="!isEditOfficeTimes && !editProfile">
+                    <label class="profile_setting_label">Profilinställning</label>
+                    <!-- <button mat-button (click)="editProfileHandler()" class="edit-button" fxHide.xs fxHide.sm *ngIf="!editProfile"> -->
+                    <div fxLayout="row">
+                        <div class="timeBtnContainer" *ngIf="roleToShow=='Administration'">
+                            <button (click)="editOfficeTimes()" mat-button class="officeTimeBtn">
+                                <!-- <span class="spinner-border" *ngIf="showLoader" aria-hidden="true">
+                                <mat-spinner diameter="26" strokeWidth=""></mat-spinner>
+                            </span>
+                            <span *ngIf="!showLoader"> Upptagna tider
+                            </span> -->
+                                Kontors tider
+                                <mat-icon>access_time</mat-icon>
+                            </button>
+                        </div>
+                        &nbsp;&nbsp;
+                        <!-- <div mat-button (click)="editProfileHandler()" class="edit-button" *ngIf="!editProfile"> -->
+                        <div mat-button (click)="editProfileHandler()" class="edit-button">
+                            <!-- <span> Redigera</span> -->
+                            <mat-icon>edit</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <!-- ||||||||||  Edit User details |||||||||||  -->
+                <div class="editable_fields" *ngIf="!isEditOfficeTimes">
+                    <!-- --------------First and last name fields-------------  -->
+                    <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="id-labels">Förnamn</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <input matInput type="text" maxlength="100" [(ngModel)]="firstName"
+                                        (change)="anyDataChangeHandler()" required [disabled]="!editProfile">
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="id-labels">Efternamn</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <input matInput type="text" maxlength="100" [(ngModel)]="lastName"
+                                        (change)="anyDataChangeHandler()" required [disabled]="!editProfile">
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <!-- --------------UserName and Email fields-------------  -->
+                    <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="id-labels">Användarnamn</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <input matInput type="text" maxlength="100" [(ngModel)]="userName"
+                                        (change)="anyDataChangeHandler()" required [disabled]="!editProfile">
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="id-labels">Epost</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <input matInput type="text" maxlength="100" [(ngModel)]="email" required
+                                        [disabled]="true">
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <!-- --------------Role Assigned field fields-------------  -->
+                    <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="id-labels">Roll</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <input matInput type="text" maxlength="100" [(ngModel)]="roleToShow" required
+                                        disabled="true">
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <!-- <div fxLayout="column" class="child-container-common" *ngIf="editProfile">
+                        <label class="id-labels">Profilbild</label>
+                        <div style="font-size:11px" appearance="outline">
+                            <input [(ngModel)]="profilePic" (change)="onFileChange($event)" type="file"
+                                class="form-control" name="password" id="profilePic" [disabled]="!editProfile">
+                        </div>
+                        <div *ngIf="imgURL" class="preview_image" fxLayout="column">
+                            <label fxLayout="row">Förhandsgranskning av hela bilden</label>
+                            <img fxLayout="row" [src]="imgURL">
+                        </div>
+                    </div> -->
+                    <!-- -----------------Change password checkbox------------  -->
+                    <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="editProfile">
+                        <div fxFlex.gt-sm="50" class="child-container-common2">
+                            <tr fxLayout="column">
+                                <label>
+                                    <input type="checkbox" [disabled]="false"
+                                        (change)="changePasswordHandler($event.target.checked)">ändra lösenord
+                                </label>
+                            </tr>
+                        </div>
+                    </div>
+                    <!------------- Password fields if need to change ---------------->
+                    <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="showChangePassword">
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="id-labels">Lösenord</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <!-- <mat-label>Lösenord</mat-label> -->
+                                    <input matInput [(ngModel)]="password" type="password" placeholder="Lösenord"
+                                        (change)="anyDataChangeHandler()">
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="id-labels">Bekräfta lösenord</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <!-- <mat-label>"Bekräfta lösenord"</mat-label> -->
+                                    <input matInput [(ngModel)]="confirmPassword" type="password"
+                                        placeholder="Bekräfta lösenord" (change)="anyDataChangeHandler()">
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <div fxLayoutAlign="end end " *ngIf="editProfile">
+                        <button (click)="cancelEditProfileHandler()" mat-button class="cancel-button">
+                            <span> Avbryt
+                            </span>
+                            <!-- <mat-icon>edit</mat-icon> -->
+                        </button>
+                        <button (click)="updateUserProfile()" mat-button class="update-button"
+                            [disabled]="!anyDataChange">
+                            <span class="spinner-border" *ngIf="showLoader" aria-hidden="true">
+                                <mat-spinner diameter="26" strokeWidth=""></mat-spinner>
+                            </span>
+                            <span *ngIf="!showLoader"> Uppdatering
+                            </span>
+                            <!-- <mat-icon>edit</mat-icon> -->
+                        </button>
+
+                    </div>
+                    <div fxLayoutAlign="center" *ngIf="!editProfile" fxHide.gt-sm>
+                        <div class="timeBtnContainer" *ngIf="roleToShow=='Administration'">
+                            <button (click)="editOfficeTimes()" mat-button class="officeTimeBtn">
+                                <!-- <span class="spinner-border" *ngIf="showLoader" aria-hidden="true">
+                                <mat-spinner diameter="26" strokeWidth=""></mat-spinner>
+                            </span>
+                            <span *ngIf="!showLoader"> Upptagna tider
+                            </span> -->
+                                Kontors tider
+                                <mat-icon>access_time</mat-icon>
+                            </button>
+                        </div>
+                        &nbsp;&nbsp;
+                        <div mat-button (click)="editProfileHandler()" class="edit-button-mobile" *ngIf="!editProfile">
+                            <span> Redigera</span>
+                            <mat-icon>edit</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="viewLawyerBusyTime">
+            <app-lawyer-busy-time></app-lawyer-busy-time>
+        </div> -->
+        <!-- <div *ngIf="viewLawyerBusyTime && lawyerid"> -->
+        <div *ngIf="viewLawyerBusyTime">
+            <app-lawyer-busy-time [lawyerId]="lawyerid"
+                (closeViewLawyerBusyTime)="closeBusyTimeHandler($event)"></app-lawyer-busy-time>
+        </div>
+        <!-- Edit office times  -->
+        <div *ngIf="isEditOfficeTimes">
+            <label class="office_timings_label">Kontors tider</label>
+            <div fxLayout="row" class="times_select_fields">
+                <div fxFlex="49" fxLayout="column">
+                    <mat-form-field class="select-a" appearance="outline">
+                        <mat-label><b>Från</b></mat-label>
+                        <mat-select (selectionChange)="startTimeChangeHandler()" [(value)]="officeStartTime"
+                            [disabled]="isAllDayBusy">
+                            <mat-option *ngFor="let option of timesOptions" value="{{option}}">
+                                <!-- {{option.value.split('-')[0]}} -->
+                                {{option.split('-')[0]}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="time-error" *ngIf="isSelectedTimeInvalid" (click)="errorClickHandler()">Ogiltig*
+                    </div>
+                </div>
+                &nbsp;&nbsp;
+                <div fxFlex="49" fxLayout="column">
+                    <mat-form-field class="select-a" appearance="outline">
+                        <mat-label><b>Till</b></mat-label>
+                        <mat-select (selectionChange)="endTimeChangeHandler()" [(value)]="officeEndTime"
+                            [disabled]="!officeStartTime || isAllDayBusy">
+                            <mat-option *ngFor="let option of timesOptions" value="{{option}}">
+                                <!-- {{option.value.split('-')[0]}} -->
+                                {{option.split('-')[0]}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="time-error" *ngIf="isSelectedTimeInvalid" (click)="errorClickHandler()">Ogiltig*
+                    </div>
+                    <!-- <div class="times-error" *ngIf="isSelectedTimeInvalid">Till tid borde vara större än Från tid*</div> -->
+                </div>
+            </div>
+            <div class="busyTimeBtnContainer" fxLayoutAlign="end end">
+                <button mat-button class="cancel-button" (click)="closeOfficeTimesHandler()"> Tillbaka </button>
+                <button mat-button class="update-button" (click)="onUpdateOfficeTimes()" *ngIf="officeTimesId">
+                    Uppdatering </button>
+            </div>
+        </div>
+    </mat-card>
+</div>

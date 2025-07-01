@@ -1,0 +1,34 @@
+<div class="cross_button_container">
+    <button class="cross_button" (click)="closeDateSelectionDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div class="date_time_header" fxLayoutAlign="center">Choose Date & Time</div>
+<!-- <full-calendar class="contentDiv" [options]="calendarOptions"></full-calendar> -->
+<!-- <div class="input-container">
+    <input type="date"/>
+</div> -->
+<!-- <mat-card class="demo-inline-calendar-card">
+    <mat-calendar [(selected)]="selected"></mat-calendar>
+</mat-card> -->
+<div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="date_n_time_main">
+    <div fxFlex.gt-md="50" fxFlex.gt-sm="50" class="" fxLayout="column" class="calendar_container">
+        <mat-card class="addBox" fxLayout="column">
+            <div>
+                <full-calendar class="contentDiv" [options]="calendarOptions"></full-calendar>
+            </div>
+        </mat-card>
+    </div>
+    <div fxFlex.gt-md="50" class="" fxLayout="column" class="times_radios">
+        <div class="available_times_heading">
+            Available Times
+        </div>
+        <div class="available_times_container" *ngIf="onDate">
+            <mat-radio-group name="servicesBgType" (change)="timeHandler($event)">
+                <mat-radio-button color="primary" *ngFor="let time of timesOptions" [checked]="time.checked"
+                    value="{{time.value}}">{{time.label}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+</div>

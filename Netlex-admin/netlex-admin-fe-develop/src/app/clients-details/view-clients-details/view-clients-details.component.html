@@ -1,0 +1,115 @@
+<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>Klients Detaljer / Redigera Klients Detaljer</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-user-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <h3 fxLayoutAlign="center"><b>Klients Detaljer</b></h3>
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <b fxLayoutAlign="center">Från</b>
+                    <tr fxLayout="column">
+                        <label class="id-labels">Namn</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                        <mat-label>Namn</mat-label>
+                            <input matInput type="text" maxlength="100" [(ngModel)]="fromName"
+                                   required>
+                        </mat-form-field>
+                    </tr>
+                    <tr  fxLayout="column">
+                        <label class="id-labels">Telefon Nummer</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <mat-label>Telefon Nummer</mat-label>
+                            <input matInput type="text"  maxlength="100" [(ngModel)]="fromPhoneNumber"
+                                   required>
+                        </mat-form-field>
+                    </tr>
+                    <tr  fxLayout="column">
+                        <label class="id-labels">E-post</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <mat-label>E-post</mat-label>
+                            <input matInput type="text" maxlength="100"
+                                   [(ngModel)]="fromEmail" required>
+                        </mat-form-field>
+                    </tr>
+                    <tr  fxLayout="column">
+                        <label class="id-labels">Social Säkerhet Nummer</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <mat-label>Social Säkerhet Nummer</mat-label>
+                            <input matInput type="text" maxlength="100"
+                                   [(ngModel)]="fromSsn" required>
+                        </mat-form-field>
+                    </tr>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <b fxLayoutAlign="center">till
+                    </b>
+                    <tr fxLayout="column">
+                        <label class="id-labels">Namn</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                        <mat-label>Namn</mat-label>
+                            <input matInput type="text" maxlength="100" [(ngModel)]="toName"
+                                   required>
+                        </mat-form-field>
+                    </tr>
+                    <tr  fxLayout="column">
+                        <label class="id-labels">Telefon Nummer</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <mat-label>Telefon Nummer</mat-label>
+                            <input matInput type="text"  maxlength="100" [(ngModel)]="toPhoneNumber"
+                                   required>
+                        </mat-form-field>
+                    </tr>
+                    <tr  fxLayout="column">
+                        <label class="id-labels">E-post</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <mat-label>E-post</mat-label>
+                            <input matInput type="text" maxlength="100"
+                                   [(ngModel)]="toEmail" required>
+                        </mat-form-field>
+                    </tr>
+                    <tr  fxLayout="column">
+                        <label class="id-labels">Social Säkerhet Nummer</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <mat-label>Social Säkerhet Nummer</mat-label>
+                            <input matInput type="text" maxlength="100"
+                                   [(ngModel)]="toSsn" required>
+                        </mat-form-field>
+                    </tr>
+                </div>
+            </div>
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+                <button [routerLink]="'/clients-details'" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon>
+                    Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="update()" mat-button class="user-create-button"><span
+                        class="spinner-border spinner-border-sm"
+                        *ngIf="showloading" role="status" aria-hidden="true"></span><span *ngIf="!showloading">
+                     Uppdatering</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

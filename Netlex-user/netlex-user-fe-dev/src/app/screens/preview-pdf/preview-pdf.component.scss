@@ -1,0 +1,77 @@
+.pdfLogo {
+  height: 100%;
+  background-color: #F8F8F8;
+}
+
+
+.PdfDiv{
+  background-color: #F8F8F8;
+  width: 100%;
+}
+
+.cardActionBtn{
+  width: 560px !important;
+  text-align-last: center;
+}
+
+.pdf-viewer {
+  display: block;
+  height: 695px;
+  width: 742px;
+}
+
+//.marginSet{
+//  position: absolute;
+//}
+//
+//@media screen and (min-width: 1023px) {
+//  .marginSet{
+//    margin: 270px 0 0 150px
+//  }
+//}
+//
+//@media screen and (min-width: 1439px) {
+//  .marginSet{
+//    margin: 350px 0 0 350px
+//  }
+//}
+//
+//@media screen and (min-width: 2559px) {
+//  .marginSet{
+//    margin: 790px 0 0 950px
+//  }
+//}
+
+::ng-deep .ng2-pdf-viewer-container {
+  //overflow: hidden;
+  position: absolute;
+  width: 100% !important;
+  height: 80% !important;
+}
+
+.button-nav-preview{
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.07em;
+  color: #FFFFFF;
+  width: 110px;
+  height: 40px;
+  background: #D6DDD8;
+  border-radius: 6px;
+}
+
+.prevButton {
+  padding-left: 75px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 960px) {
+  .prevButton{
+    padding-left: 22px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+}

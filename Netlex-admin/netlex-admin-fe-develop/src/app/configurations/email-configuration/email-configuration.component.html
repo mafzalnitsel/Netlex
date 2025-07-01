@@ -1,0 +1,48 @@
+<!-- <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar> -->
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>Redigera E-post Konfiguration</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-about-us-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <tr fxLayout="column">
+                <label class="id-labels"><b>OAuth Client Id</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>OAuth Client Id</mat-label> -->
+                <textarea matInput type="text" [(ngModel)]="oauth_client_id" required placeholder="OAuth Client Id"></textarea>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>OAuth Client Secret</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>OAuth Client Secret</mat-label> -->
+                <textarea matInput type="text" [(ngModel)]="oauth_client_secret" required placeholder="OAuth Client Secret"></textarea>
+                </mat-form-field>
+            </tr><tr fxLayout="column">
+                <label class="id-labels"><b>OAuth Authority</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>OAuth Authority</mat-label> -->
+                <textarea matInput type="text" [(ngModel)]="oauth_authority" required placeholder="OAuth Authority"></textarea>
+                </mat-form-field>
+            </tr><tr fxLayout="column">
+                <label class="id-labels"><b>User Id</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>User Id</mat-label> -->
+                <textarea matInput type="text" [(ngModel)]="user_id" required placeholder="User Id"></textarea>
+                </mat-form-field>
+            </tr>
+
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="center center">
+                <!-- <button [routerLink]="'/home'" mat-button class="back-button" >
+                    <mat-icon>chevron_left</mat-icon>
+                    Tillbaka
+                </button> -->
+                &nbsp;&nbsp;
+                <button (click)="openDialog()" mat-button class="update-button"><span
+                        class="spinner-border spinner-border-sm"
+                        *ngIf="showloading" role="status" aria-hidden="true"></span><span *ngIf="!showloading">
+                     Uppdatering</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+$table-full-width: 100%;
+.noMargin{
+  margin-top: 0;
+}
+.h-container {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 1px;
+}
+
+.addBox {
+  // height: 400px;
+  height: 100%;
+  width: 600px;
+  border-radius: unset;
+  border: 3px solid var(--netlex-primary);
+  // margin-top: 10px;
+  margin-top: -50px;
+}
+
+.space {
+  padding: 10px !important;
+  flex: auto;
+}
+
+.mat-form-field-underline {
+  background-color: white !important;
+}
+
+.moveCenter {
+  margin-left: -5%;
+}
+
+.back-button {
+  background-color: #4060D4;
+  color: white;
+  box-shadow: 2px 5px 6px -3px #888888;
+  margin-top: 30px;
+}
+
+.create-question-answer-table-container {
+  height: 100%;
+  width: 100%;
+}
+
+.profile-button {
+  color: #ffffff;
+  background-color: var(--netlex-primary);
+}
+
+.button-center {
+  text-align: center !important;
+}
+
+.text-center {
+  margin-left: 5%;
+  background-color: var(--netlex-primary);
+  color: white;
+}
+
+.create-question-answer-input-field {
+  width: 250px;
+  height: 40px;
+  left: 0px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 2px 5px 6px -3px #888888;
+}
+
+
+.table-top {
+  padding: 40px 30px 10px 30px;
+  tr{
+    padding: 10px;
+  }
+}
+
+.question-answer-create-button{
+  background-color: var(--netlex-primary);
+  color: white;
+  box-shadow: 2px 5px 6px -3px #888888;
+  margin-top: 30px;
+}
+
+.buttons-container{
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: 0px !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0px !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline{
+  color: black!important;
+}
+
+@media only screen and (max-width: 800px) {
+  .addBox {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .addBox {
+    width: 400px;
+    margin-top: 5px;
+
+  }
+}
+@media only screen and (max-width: 600px) {
+  .addBox {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .addBox {
+    width: auto;
+  }
+}

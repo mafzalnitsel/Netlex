@@ -1,0 +1,118 @@
+.cross_button_container {
+    // height: 30px;
+    // align-items: end center;
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+}
+
+.cross_button {
+    // padding: 20px;
+    all: unset;
+    cursor: pointer;
+}
+.date_time_header{
+    font-family:'Playfair Display,serif !important';    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    // font-size: 27px;
+    // line-height: 28px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    // color: #1F2A53;
+    color: #000234;
+    margin-top: -40px;
+    border-bottom: #000234 solid 3px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 5px;
+    // position: fixed;
+    // width: 900px;
+    // text-align: center;
+    // z-index: 1;
+    // background-color: #FFFFFF;
+}
+// .demo-inline-calendar-card {
+//     width: 300px;
+//   }
+.date_n_time_main {
+    padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 85%;
+}
+
+// .input-container input {
+//     border: none;
+//     box-sizing: border-box;
+//     outline: 0;
+//     padding: .75rem;
+//     position: relative;
+//     width: 100%;
+// }
+
+// input[type="date"]::-webkit-calendar-picker-indicator {
+//     background: transparent;
+//     bottom: 0;
+//     color: transparent;
+//     cursor: pointer;
+//     height: auto;
+//     left: 0;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     width: auto;
+// }
+.addBox {
+    height: 100%;
+    // width: 300px;
+    // border-radius: unset;
+    border: 3px solid #000234;
+    cursor: pointer;
+    // margin-top: 5px;
+}
+
+.calendar_container {
+    padding: 0 10px 10px 10px;
+
+}
+.times_radios{
+    // display: flex;
+    // flex-wrap: wrap;
+    text-align: center;
+}
+.available_times_heading{
+    // display: flex;
+    // flex-wrap: wrap;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    // padding: 5px 0 5px 10%;
+}
+.available_times_container{
+    // display: flex;
+    // align-items: center;
+    margin-top: 20px;
+    max-width: 1000px
+}
+.mat-radio-button{
+    // padding: 5px;
+    padding: 5px 0 5px 10%;
+}
+@media screen and (max-width:960px) {
+    .calendar_container {
+        // padding: 0;
+        width: 60%;
+    }
+}
+@media screen and (max-width:600px) {
+    // .date_n_time_main {
+    //     padding: 0;
+    // }
+
+    // .calendar_container {
+    //     padding: 0;
+    // }
+}

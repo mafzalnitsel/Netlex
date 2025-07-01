@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>Om Oss / SKAPA Om Oss</span></div> 
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-about-us-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Rubrik</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Rubrik</mat-label> -->
+                    <textarea matInput type="text" [(ngModel)]="aboutUs.heading" required placeholder="Rubrik"></textarea>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <!-- <label class="id-labels"><b>Beskrivning</b></label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                    <mat-label>Beskrivning</mat-label>
+                                <div class="contentDiv">
+
+                <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+                    [(ngModel)]="heading"></ckeditor>
+
+            </div>
+                    </mat-form-field> -->
+                    <label class="id-labels"><b>Beskrivning</b></label>
+                <div class="field-container">
+                    <div class="contentDiv">
+
+                        <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+                            [(ngModel)]="aboutUs.description"></ckeditor>
+                    </div>
+                </div>
+            </tr>
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+                <button (click)="redirect(3)" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon> Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="onsubmit()" mat-button class="about-us-create-button"><span
+                        class="spinner-border spinner-border-sm">
+                        Lägg till</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

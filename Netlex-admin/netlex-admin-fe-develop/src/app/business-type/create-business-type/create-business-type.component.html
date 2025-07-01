@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>Affärs Typ / Skapa Affärs Typ</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-user-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <h3 fxLayoutAlign="center">Affärstyper</h3>
+                <tr fxLayout="column">
+                    <label class="id-labels">Namn</label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Namn</mat-label> -->
+                        <input matInput type="text" maxlength="100" [(ngModel)]="businesstype.name" required placeholder="Namn">
+                    </mat-form-field>
+                </tr>
+                <tr  fxLayout="column">
+                    <label class="id-labels">Belopp</label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                        <!-- <mat-label>Belopp</mat-label> -->
+                        <input matInput type="text"  maxlength="100" [(ngModel)]="businesstype.amount" required placeholder="Belopp">
+                    </mat-form-field>
+                </tr>
+                <tr  fxLayout="column">
+                    <label class="id-labels">Moms</label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                        <!-- <mat-label>"Moms"</mat-label> -->
+                        <input matInput type="text" maxlength="100" [(ngModel)]="businesstype.vat" required placeholder="Moms">
+                    </mat-form-field>
+                </tr>
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="start center">
+                <button [routerLink]="'/businesstype'" mat-button class="back-button"><mat-icon>chevron_left</mat-icon> Tillbaka</button>
+                &nbsp;&nbsp;
+                <button (click)="onsubmit()" mat-button class="user-create-button"><span class="spinner-border spinner-border-sm"
+                      role="status" aria-hidden="true"></span><span>
+                        Lägg till Affärs</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

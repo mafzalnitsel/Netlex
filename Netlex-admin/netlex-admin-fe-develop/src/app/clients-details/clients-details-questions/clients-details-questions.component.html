@@ -1,0 +1,97 @@
+<!-- <div class="header-top noMargin" fxLayoutAlign="none center"><span>FÄRG / SKAPA FÄRG</span></div> -->
+<!-- <br><br><br> -->
+<div class="question-create-main" fxLayout.lt-lg="col" fxLayout.lg="row" *ngIf="isCreateQuestion || isEditQuestion">
+    <div fxFlex.gt-md="100" class="create-question-answer-table-container" fxLayout="column"
+        fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <br>
+            <div class="inputs_container">
+                <tr fxLayout="column">
+                    <!-- <input matInput type="text" maxlength="100" [(ngModel)]="colorCode" required> -->
+                    <label class="id-labels"><b>Skriv Frågor</b></label>
+                    <input type="text" placeholder="Ange namn" class="q_input" [(ngModel)]="questionDetails.question"
+                        required />
+                </tr>
+                <tr fxLayout="column">
+                    <label class="id-labels"><b>Skriv Platshållare</b></label>
+                    <input type="text" class="q_input" placeholder="Sara Andersson"
+                        [(ngModel)]="questionDetails.placeholder" />
+                </tr>
+                <!-- <tr fxLayout="column">
+                    <label class="id-labels"><b>Svar typ</b></label>
+                    <input type="text" class="q_input" [(ngModel)]="questionDetails.type" />
+                </tr> -->
+                <tr fxLayout="column">
+                    <label class="id-labels"><b>Svar typ</b></label>
+                    <mat-select class="selectWidth" [(ngModel)]="questionDetails.type">
+                        <mat-option *ngFor="let type of answerTypeOptions " value="{{type.value}}">
+                            {{type.label}}
+                        </mat-option>
+                    </mat-select>
+                </tr>
+            </div>
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+                <button mat-button class="back-button" (click)="backClickHandler()">
+                    <mat-icon>chevron_left</mat-icon> Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="onsubmit()" mat-button *ngIf="isCreateQuestion" class="question-answer-create-button"><span
+                        class="spinner-border spinner-border-sm"> Lägg till</span>
+                </button>
+                <button (click)="update()" mat-button *ngIf="isEditQuestion" class="question-answer-create-button"><span
+                        class="spinner-border spinner-border-sm"> Uppdatering</span>
+                </button>
+                <!-- <button mat-button class="back-button" (click)="checkColor($event)">check</button> -->
+            </div>
+        </mat-card>
+    </div>
+</div>
+<div *ngIf="isShowQuestionList">
+    <div fxLayout.lt-lg="col" fxLayout.lg="row">
+        <div class="addBox1" fxLayout="column">
+            <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+                <button mat-button class="saveBtn create-user-button" (click)="createQuestionButtonHandler()">Ny
+                    Fråga</button>
+            </div>
+            <div class="table-container">
+                <table class="table-size" id="table">
+                    <thead>
+                        <tr class="table-header">
+                            <th>Fråga</th>
+                            <th>Platshållare</th>
+                            <th>Svar typ</th>
+                            <th *ngIf="this.authService.isAdmin()"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="user-row" *ngFor="let item of asyncItems| async | paginate: { id: 'server', itemsPerPage: perPage,
+                         currentPage: p, totalItems: total }">
+                            <td>{{item.question}}</td>
+                            <td>{{item.placeholder}}</td>
+                            <td>{{item.type!=='text'? 'Nummer': 'Text'}}</td>
+                            <!-- <span fxHide.lt-md>Aktivera</span> -->
+                            <!-- <span fxHide.gt-sm>Pdf</span> -->
+                            <!-- <td class="pdf_col" (click)="activateUserAccount(item._id)">
+                    <mat-icon>done_outline</mat-icon>
+                    <span>Aktivera</span>
+                </td> -->
+                            <!-- <button mat-raised-button class="edit-button">Redigera</button> -->
+                            <button (click)="editQuestionButtonHandler(item._id)" mat-raised-button class="edit-button">
+                                <span>Redigera</span>
+                            </button>
+                            <td *ngIf="authService.isAdmin()">
+                                <button mat-button class="delete-user-button"
+                                    (click)="deleteClientsDetailsQuestion(item._id);">
+                                    <mat>Radera</mat>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="!total" class="text-center" style="text-align: center;">
+                            <td colspan="5">Det finns ingen fråga</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

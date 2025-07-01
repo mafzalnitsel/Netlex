@@ -1,0 +1,271 @@
+<app-navbar></app-navbar>
+<!-- <div class="header-top" fxLayoutAlign="none center"><span>SCHEMALÄGG ETT MÖTE</span></div> -->
+
+<div fxLayout="column" class="container">
+
+    <div fxLayoutAlign="center cetner" class="content-top">
+        <!-- <form> -->
+        <div class="scheduler-container" fxLayout="column">
+            <span fxLayoutAlign="center" class="title-sc">SCHEMALÄGG ETT MÖTE</span>
+            <div fxFlex.gt-md="35" class="scheduler">
+                <div fxLayout="column" class="s-padding">
+                    <span class="fields-labels"><b>{{focnonfoc === 'Foc' ? 'Inledande Rådgivningsmöte' : 'Betalt'}}</b></span>
+                </div>
+                <div fxLayout="column" class="s-padding" *ngIf="focnonfoc == 'Foc'">
+                    <span class="fields-labels"><b>Mötesbeskrivning</b></span>
+                    <span class="first-label">{{reasonOfFoc}}</span>
+                </div>
+                <div fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Rubrik
+                        <span class="required">*</span>
+                    </span> -->
+                    <div class="labelContainer"><span class="fields-labels">Rubrik
+                        <!-- <span class="required">*</span> -->
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span></div>
+                    <!-- <input class="input-meet" [(ngModel)]="heading" type="text"  matInput
+                            placeholder="Rubrik" required> -->
+                    <span class="readOnly_field">
+                        {{heading}}
+                    </span>
+                </div>
+                <div fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Användarnamn</span> -->
+                    <div class="labelContainer"><span class="fields-labels">Användarnamn
+                        <!-- <span class="required">*</span> -->
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span></div>
+                    <span class="readOnly_field">
+                        {{clientName}}
+                    </span>
+                </div>
+                <div fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Användarens e-post</span> -->
+                    <div class="labelContainer"><span class="fields-labels">Användarens e-post
+                        <!-- <span class="required">*</span> -->
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span></div>
+                    <span class="readOnly_field">
+                        {{clientEmail}}
+                    </span>
+                </div>
+
+                <span class="break"></span>
+
+                <div fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Datum
+                        <span class="required">*</span>
+                    </span> -->
+                    <div class="labelContainer"><span class="fields-labels">Datum
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span></div>
+                    <!-- <input [min]="minDate" class="input-meet" [(ngModel)]="dateOf"
+                            type="date" matInput placeholder="YYYYMMDD" required> -->
+                    <span class="readOnly_field">
+                        {{dateOf}}
+                    </span>
+                </div>
+
+                <div fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Tid
+                        <span class="required">*</span>
+                    </span> -->
+                    <div class="labelContainer">
+                        <span class="fields-labels">Tid
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span></div>
+                    <!-- <mat-select class="input-meet" placeholder="Tid" [(ngModel)]="time">
+                            <mat-option *ngFor="let session of sessionValue " value="{{session}}">{{session}}
+                            </mat-option>
+                        </mat-select> -->
+                    <span class="readOnly_field">
+                        {{time}}
+                    </span>
+                </div>
+
+                <div fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Beskrivning<span class="required"></span></span> -->
+                    <div class="labelContainer"><span class="fields-labels">Beskrivning
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span></div>
+                    <!-- <textarea class="input-meet" [(ngModel)]="description" matInput placeholder="Beskrivning">
+                        </textarea> -->
+                    <span class="readOnly_field">
+                        {{description}}
+                    </span>
+                </div>
+
+                <div fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Språk
+                        <span class="required">*</span>
+                    </span> -->
+                    <div class="labelContainer"><span class="fields-labels">Språk
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span>
+                    </div>
+                    <!-- <mat-select class="input-meet" placeholder="Språk" 
+                            [(ngModel)]="language">
+                            <mat-option *ngFor="let language of languageValue " value="{{language}}">{{language}}
+                            </mat-option>
+                        </mat-select> -->
+                    <span class="readOnly_field">
+                        {{language}}
+                    </span>
+                </div>
+                <div *ngIf="heading !== 'Migrationsrätt' && heading !== 'Migrationsverket'" fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Språk
+                        <span class="required">*</span>
+                    </span> -->
+                    <div class="labelContainer"><span class="fields-labels">Ange för- och efternamn/Företagsnamn
+
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span>
+                    </div>
+                    <!-- <mat-select class="input-meet" placeholder="Språk" 
+                            [(ngModel)]="language">
+                            <mat-option *ngFor="let language of languageValue " value="{{language}}">{{language}}
+                            </mat-option>
+                        </mat-select> -->
+                    <span class="readOnly_field">
+                        {{counterpartyName}}
+                    </span>
+                </div>
+                <div *ngIf="heading !== 'Migrationsrätt' && heading !== 'Migrationsverket'" fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels">Språk
+                        <span class="required">*</span>
+                    </span> -->
+                    <div class="labelContainer"><span class="fields-labels">Ange person/org. nummer
+
+                    </span>
+                    <span >                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span>
+                    </div>
+                    <!-- <mat-select class="input-meet" placeholder="Språk" 
+                            [(ngModel)]="language">
+                            <mat-option *ngFor="let language of languageValue " value="{{language}}">{{language}}
+                            </mat-option>
+                        </mat-select> -->
+                    <span class="readOnly_field">
+                        {{counterPartyssn}}
+                    </span>
+                </div>
+                <div *ngIf="focnonfoc !== 'Foc'" fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels" translate>Affärs Typ<span class="required">*</span></span> -->
+                    <div class="labelContainer"><span class="fields-labels">Affärs Typ
+                        <span class="required">*</span>
+                    </span>
+                    <span>
+                    <mat-icon class="edit_icon">edit</mat-icon>
+                    </span>
+                </div>
+                    <mat-select class="input-meet" placeholder="Affärs Typ..." [(ngModel)]="businessTypeId">
+                        <mat-option *ngFor="let businesstype of allBusinessTypes " value="{{businesstype._id}}">
+                            {{businesstype.name}}</mat-option>
+                    </mat-select>
+                    
+                    <!-- <span class="readOnly_field">
+                        {{lawyer}}
+                    </span> -->
+                </div>
+
+                
+              
+                <div fxLayout="column" class="s-padding">
+                    <div class="labelContainer"><span class="fields-labels">Status
+                            <span class="required">*</span>
+                        </span>
+                        <span  *ngIf="!businessTypeId">                            
+                        <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                        <mat-icon class="disabled_icon">not_interested</mat-icon>
+                        </span>
+                        <span  *ngIf="businessTypeId">
+                        <mat-icon class="edit_icon">edit</mat-icon>
+                        </span>
+                    </div>
+
+                    <mat-select class="input-meet" placeholder="Status" [(ngModel)]="status"
+                        [disabled]="!businessTypeId && focnonfoc !== 'Foc'">
+                        <mat-option *ngFor="let Status of statusValue " value="{{Status}}">{{Status}}</mat-option>
+                    </mat-select>
+                </div>
+
+                <div fxLayout="column" class="s-padding">
+                    <!-- <span class="fields-labels" translate>Advokat<span class="required">*</span></span> -->
+                    <div class="labelContainer"><span class="fields-labels">Advokat
+                        <span class="required">*</span>
+                    </span>
+                    <span  *ngIf="!businessTypeId">                            
+                    <mat-icon class="edit_icon_disabled">edit</mat-icon>
+                    <mat-icon class="disabled_icon">not_interested</mat-icon>
+                    </span>
+                    <span  *ngIf="businessTypeId">
+                    <mat-icon class="edit_icon">edit</mat-icon>
+                    </span>
+                    </div>
+                    <mat-select class="input-meet" placeholder="Advokat..." [(ngModel)]="lawyerId"
+                        [disabled]="!businessTypeId  && focnonfoc !== 'Foc'">
+                        <mat-option *ngFor="let lawyervalues of lawyerGet " value="{{lawyervalues._id}}">
+                            {{lawyervalues.firstName}} {{lawyervalues.lastName }}</mat-option>
+                    </mat-select>
+                    <!-- <span class="readOnly_field">
+                        {{lawyer}}
+                    </span> -->
+                </div>
+
+                <!-- <div fxLayout="column" class="file">
+                    <span for="singleFile">Anknytning</span>
+                    <input id="singleFile" [(ngModel)]="attachment" type="file">
+                </div> -->
+                <div fxLayoutAlign="start" fxLayout="column" class="view-btn-container" *ngIf="viewattachment">
+                    <button mat-stroked-button (click)="viewAttachment()" mat-button class="view-btn">
+                        <span class="spinner-border spinner-border-sm" *ngIf="showloading" aria-hidden="true"></span>
+                        <!-- <span *ngIf="!showloading">Visa bilaga</span> -->
+                        <span>Visa bilaga</span>
+                    </button>
+                </div>
+
+                <span class="button-container-top"></span>
+
+                <div fxLayoutAlign="center center" fxLayout="column" class="button-container-scheduler">
+
+                    <div>
+                        <button mat-stroked-button (click)="update()" mat-button class="update-btn">
+                            <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="status"
+                                aria-hidden="true"></span>
+                            <!-- <span *ngIf="!showloading">Uppdatering</span> -->
+                            <span>Uppdatering</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- </form> -->
+    </div>
+</div>

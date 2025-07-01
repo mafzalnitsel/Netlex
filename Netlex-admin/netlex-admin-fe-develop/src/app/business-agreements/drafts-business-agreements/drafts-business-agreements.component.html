@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="drafts-business-agreements.component.scss">
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>Utkast Företag Avtal Lista</span></div>
+<div class="create-button-container" fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button class="createBtn create-user-button" [routerLink]="'/business-agreements'">Ny Företag Avtal</button>
+</div>
+<div *ngIf="documents.length > 0">
+    <mat-list class="list-position" *ngFor="let document of documents">
+        <div class="border-bottom">
+            <h2 class="alphabet-letter">{{document.key}}</h2>
+            <div fxLayout="column" fxFlex class="list-container">
+                <div *ngFor="let documentValue of document.title; let i = index;">
+                    <div class="list-name {{i !== document.title.length-1 ? 'border-bottom': ''}}" fxLayout.gt-md="row" fxLayout.sm="column" fxLayoutAlign.gt-md="none center">
+                        <h3 fxFlex.gt-md="40" class="title-of-document">{{documentValue.documentTitle}}</h3>
+                        <span class="draft" fxFlex.gt-md="30">Utkast</span>
+                        <div fxFlex.gt-md="40" fxLayoutAlign.gt-md="end center">
+                            <button mat-button class="edit-button common-button" (click)="edit(documentValue._id)"><span fxLayoutAlign="center center">Redigera</span>
+                            </button>
+                            <button mat-button class="delete-button common-button"
+                                    (click)="openDialog(documentValue._id)">
+                                <span fxLayoutAlign="center center">Radera</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-list>
+</div>
+<div *ngIf="documents.length <= 0" fxLayout="row" class="no-records-found" fxLayoutAlign="center center">
+    <h3>Inget företag avtal hittades!</h3>
+</div>

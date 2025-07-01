@@ -1,0 +1,69 @@
+<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>HITTA OSS / REDIGERA</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-question-answer-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <tr fxLayout="column">
+                <!-- <label class="id-labels"><b>Fråga</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <mat-label>Fråga</mat-label>
+                <textarea matInput type="text" [(ngModel)]="office_Name"
+                           required></textarea>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Svar</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <mat-label>Svar</mat-label>
+                <textarea matInput type="text" [(ngModel)]="answer"
+                           required></textarea>
+                </mat-form-field>
+            </tr> -->
+
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Kontorets namn</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>Kontorets namn</mat-label> -->
+                <input matInput type="text" [(ngModel)]="office_Name"
+                           required placeholder="Kontorets namn">
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Kontorsadress</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>Kontorsadress</mat-label> -->
+                <textarea matInput type="text" [(ngModel)]="office_Address"
+                           required placeholder="Kontorsadress"></textarea>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Kontor E-post</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>Kontor E-post</mat-label> -->
+                <input matInput type="text" [(ngModel)]="office_Email"
+                           required placeholder="Kontor E-post">
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Kontor Kontakt</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>Kontor Kontakt</mat-label> -->
+                <input matInput type="text" [(ngModel)]="office_Contact"
+                           required placeholder="Kontor Kontakt">
+                </mat-form-field>
+            </tr>
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end center">
+                <button (click)="redirect(5)" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon>
+                    Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="update()" mat-button class="question-answer-create-button"><span
+                        class="spinner-border spinner-border-sm"
+                        *ngIf="showloading" role="status" aria-hidden="true"></span><span *ngIf="!showloading">
+                     Uppdatering</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

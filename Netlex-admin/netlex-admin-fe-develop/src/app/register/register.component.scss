@@ -1,0 +1,68 @@
+$font-family: Roboto, Serif;
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Pattern styles */
+.input-fields-create {
+  width: 290px;
+  height: 40px;
+  margin-top: 20px;
+  bottom: 20px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}
+
+.textNetlex {
+  height: 59px;
+  margin-left: 15px;
+  margin-top: -25px;
+  margin-bottom: -15px;
+  cursor: pointer;
+}
+
+.saveBtn {
+  margin-top: 2%;
+  margin-left: 5%;
+  border-radius: unset;
+  background-color: var(--netlex-primary);
+  color: white;
+  font-family: $font-family;
+}
+
+.navbar {
+  text-align: left;
+  background-color: var(--netlex-primary);
+  border-radius: unset;
+}
+
+.fields {
+  background-color: #F8F8F8;
+}
+
+.register {
+  display: grid;
+  place-items: center;
+  padding: 15px;
+}
+
+.main-container {
+  height: available;
+}
+
+.fields-container {
+  padding: 80px 0 0 0;
+
+}
+
+.required {
+  color: red;
+}
+
+.fields-labels{
+  font-family: $font-family;
+  font-size: 15px;
+  font-weight: 400;
+}

@@ -1,0 +1,178 @@
+$font-family: Roboto, serif;
+
+.list-name {
+  height: 89px;
+  padding: unset;
+  h3 {
+    margin: unset;
+    padding: 15px;
+    font-family: $font-family;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--netlex-primary);
+  }
+}
+
+.edit-button {
+  background-color: #637ACB;
+  color: var(--netlex-primary);
+  font-family: $font-family;
+}
+
+.delete-button {
+  color: #EE0505;
+  font-family: $font-family;
+}
+
+.common-button {
+  height: 34px;
+  width: 75px;
+  margin-left: 10px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.alphabet-letter {
+  text-align: center;
+  top: 0;
+  width: 60px;
+  font-family: $font-family;
+  font-size: 48px;
+  font-weight: 700;
+  padding: 20px;
+  color: var(--netlex-primary);
+  background-color: #E0E0E0;
+}
+
+.list-position {
+  padding: unset;
+  background-color: #E0E0E0;
+}
+
+.border-bottom {
+  border-bottom: var(--netlex-primary) solid 2px;
+}
+
+.hide {
+  color: rgba(154, 75, 68, 0);
+  background-color: #E0E0E0;
+}
+
+.border-top {
+  border-top: var(--netlex-primary) solid 2px;
+}
+
+.dialog-container {
+  height: 202px;
+  width: 284px;
+  border-radius: 40px;
+  //border: var(--netlex-primary) solid 3px;
+  background-color: white;
+  display: grid;
+  place-items: center;
+}
+
+::ng-deep.mat-dialog-container {
+  padding: 0px !important;
+}
+
+.saveButton {
+  background-color: white;
+  border: var(--netlex-primary) solid 3px;
+  color: var(--netlex-primary);
+}
+
+.button-publish {
+  background-color: var(--netlex-primary);
+  color: white;
+  width: 75px;
+  height: 34px;
+  border-radius: 6px;
+}
+
+.publish-label {
+  margin-left: 20px;
+  color: #DB0000;
+  font-family: Roboto, serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 10%;
+}
+
+.publish-content {
+  color: var(--netlex-primary);
+  font-family: Roboto Slab, serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+::ng-deep .mat-dialog-container {
+  border-radius: 40px !important;
+  border: var(--netlex-primary) solid 3px !important;
+  overflow: hidden !important;
+}
+
+.publish-text {
+  padding: 20px 45px 0 45px;
+  display: grid;
+  place-items: center;
+}
+
+.delete-button-dialog {
+  background-color: white;
+  color: var(--netlex-primary);
+  border-style: solid;
+  border-color: var(--netlex-primary);
+  margin-left: 15px;
+  width: 75px;
+  height: 34px;
+  border-radius: 6px;
+}
+
+@media only screen and (max-width: 960px) {
+  .list-name{
+    height: 110px!important;
+  }
+  .common-button{
+    height: 24px;
+    width: 65px;
+    margin-left: 10px;
+    border-radius: 6px;
+    font-size: 10px;
+  }
+  .title-of-document{
+    width: 150px;
+    white-space: nowrap;
+    overflow: scroll;
+  }
+}
+
+.draft{
+  font-family: $font-family;
+  font-size: 21px;
+  font-weight: 500;
+  color: #949494;
+  margin-left: 166px;
+}
+
+@media only screen and (max-width: 960px){
+  .draft{
+    margin-left: 10px!important;
+  }
+}
+
+.list-container{
+  background-color: white;
+}
+.create-button-container {
+  padding: 20px 60px 20px 0;
+  // border-bottom: #000234 solid 2px;
+  border-bottom: rgba(11, 31, 102, 0.68) solid 3px;
+}
+.createBtn {
+  background-color: var(--netlex-primary);
+  color: white;
+  // width: 150px;
+  height: 45px;
+  border-radius: 7px;
+}

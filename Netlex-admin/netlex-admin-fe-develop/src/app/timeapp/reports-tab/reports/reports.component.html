@@ -1,0 +1,86 @@
+<!-- <div class="header-top" fxLayoutAlign="start center"><span class="header-top-text">Rapporter</span></div> -->
+<div class="header-top" fxLayoutAlign="center"><span>Rapporter</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div class="addBox" fxLayout="column">
+        <!-- <div class="save-button-container" fxLayout="row" fxLayoutAlign="start center">
+            <button (click)="show()" mat-button class="saveBtn">Show</button>
+        </div> -->
+        <!-- /\/\/\/\/\/\/\/\------First Column------/\/\/\/\/\/\/\/\/\/\ -->
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+            <div fxFlex.gt-sm="50" class="child-container-common">
+                <tr fxLayout="column">
+                    <div class="first-accordion">
+                        <cdk-accordion class="example-accordion1">
+                            <cdk-accordion-item *ngFor="let firstItem of firstAccordion; let index = index;" #accordionItem="cdkAccordionItem"
+                                class="example-accordion-item1" role="button" tabindex="0" [attr.id]="'accordion-header-' + index"
+                                [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-' + index">
+                                <div class="example-accordion-item-header1" (click)="accordionItem.toggle()">
+                                    <b>{{ firstItem }}</b>
+                                    <span class="example-accordion-item-description1">
+                                        Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                                    </span>
+                                </div>
+                                <div class="example-accordion-item-body1" role="region"
+                                    [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-' + index"
+                                    [attr.aria-labelledby]="'accordion-header-' + index">
+                                    <!-- <div *ngIf="item==='Inställningar'"> -->
+                                        <label>Rapporter</label><br /><br />
+                                        <!-- <label>Profile picture</label><br /><br />
+                                        <label>Language</label><br /><br />
+                                        <label>Theme</label><br /><br /> -->
+                                    <!-- </div> -->
+                                </div>
+                            </cdk-accordion-item>
+                        </cdk-accordion>
+                    </div>
+                </tr>
+            </div>
+            <div fxFlex.gt-sm="50" class="child-container-common">
+                <tr fxLayout="column">
+        <!-- /\/\/\/\/\/\/\/\------Second Column------/\/\/\/\/\/\/\/\/\/\ -->
+        <div class="second-accordion">
+            <cdk-accordion class="example-accordion2">
+                <cdk-accordion-item *ngFor="let secondItem of secondAccordion; let index = index;" #accordionItem="cdkAccordionItem"
+                    class="example-accordion-item2" role="button" tabindex="0" [attr.id]="'accordion-header-' + index"
+                    [attr.aria-expanded]="accordionItem.expanded" [attr.aria-controls]="'accordion-body-' + index">
+                    <div class="example-accordion-item-header2" (click)="accordionItem.toggle()">
+                        <b>{{ secondItem }}</b>
+                        <span class="example-accordion-item-description2">
+                            Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                        </span>
+                    </div>
+                    <div class="example-accordion-item-body2" role="region"
+                        [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-' + index"
+                        [attr.aria-labelledby]="'accordion-header-' + index">
+                        <!-- <div *ngIf="item==='Inställningar'"> -->
+                            <label class="lable_border_bottom">(empty)</label><br /><br />
+                            <!-- <label>Profile picture</label><br /><br />
+                            <label>Language</label><br /><br />
+                            <label>Theme</label><br /><br /> -->
+                        <!-- </div> -->
+                    </div>
+                </cdk-accordion-item>
+            </cdk-accordion>
+        </div>
+                </tr>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div>
+
+</div>
+
+<!-- <div *ngIf="showValue">
+    <label class="Heading_lable"><b>Reports:</b></label><br />
+    <label class="lable">Reports</label><br />
+    <label class="lable">Complilations</label><br />
+    <label class="lable">Reports</label><br/>
+    <label class="lable">News</label><br />
+    <label class="lable">Articles</label><br />
+    <label class="lable">Billing</label><br />
+    <label class="lable">Register</label><br />
+    <label class="lable">Chart</label><br />
+</div> -->

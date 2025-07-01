@@ -1,0 +1,63 @@
+<div fxLayout="column" class="top">
+    <div fxLayout="row" fxLayoutAlign="start center" class="acchd" ><span ><h3>Account</h3></span></div>
+    <mat-divider class="accdv"></mat-divider>
+
+    <div fxLayout.lt-lg="col" fxLayout.lg="row" fxLayoutGap="10px" fxHide.xs fxHide.sm>
+        <div  fxFlex.gt-md="23" class="contentDiv">
+            <mat-card class="sidemenu">
+                <span  class="vertical"></span>
+                <button mat-button class="side-button" [routerLink]="['/id',true]"><mat-icon>settings_applications</mat-icon>Settings</button>
+                <button mat-button class="side-button space" [routerLink]="'/nyttAvtal'"><span class="material-icons">edit_note</span>Last edited agreements</button>
+                <button mat-button class="side-button space" [routerLink]="'/documentList'"><span class="material-icons">post_add</span>Create new agreement</button>
+                <button mat-button class="side-button space" [routerLink]="'/documentDraftList'"><span class="material-icons">credit_card</span>My purchases</button>
+                <button mat-button class="side-button space" [routerLink]="'/userDocument'"><span class="material-icons">mail_outline</span>Accept request</button>
+            </mat-card>
+        </div>
+        <div class="dialog-container">
+            <div class="publish-text">
+                <h3 class="publish-label">Profile<br>
+        </h3>
+                <button class="corner" mat-fab><label class="num">D</label></button><span class="centre">Dilba Dahl</span>
+
+                <div fxLayout="column" class="ssn-padding">
+                    <span class="text">Name</span>
+                    <input class="fields-labels" type="text">
+                </div>
+
+                <div fxLayout="column" class="ssn-padding">
+                    <span class="SurName">SurName</span>
+                    <input class="fields" type="text">
+                </div>
+
+                <div fxLayout="column" class="ssn-padding">
+                    <span class="Email">Email</span>
+                    <input class="fields-label" type="text">
+                </div>
+
+                <div fxLayout="column" class="ssn-padding">
+
+                    <label class="delete">Delete Account</label>
+
+                </div>
+
+                <div fxLayout="column" class="ssn-padding">
+
+                    <span class="delete">Delete Account</span>
+
+                </div>
+
+                <div fxLayout="column" class="ssn-padding">
+
+                    <span class="list">All of your personal information will be removed</span>
+
+                </div>
+
+                <button mat-raised-button class="submit" type="submit">Delete</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

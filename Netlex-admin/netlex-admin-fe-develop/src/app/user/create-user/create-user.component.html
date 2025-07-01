@@ -1,0 +1,326 @@
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>ANVÄNDARE / SKAPA ANVÄNDARE</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-user-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+             <!-- -------------Type Of User----------- -->
+
+             <!-- <label class="child-container-common usertype_label">Kan logga in</label> -->
+             <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="usertype_container">
+                <div fxFlex.gt-sm="70" class="child-container-common usertype_checkboxes">
+                    <div  fxFlex.gt-sm="50">
+                         <input [checked]="itsAdminUser" type="checkbox"
+                        (change)="userTypeHandler($event.target.checked,'adminUser')">Admin Portal
+                    </div>
+                   <div  fxFlex.gt-sm="50">
+                     <input [checked]="itsLawyerUser" type="checkbox"
+                        (change)="userTypeHandler($event.target.checked,'lawyerUser')">Advokat Portal
+                   </div>
+                   
+                    <!-- <label class="id-labels">Användartyp</label>
+                     <mat-radio-group name="servicesBgType" (change)="changeUserTypeHandler($event)">
+                        <mat-radio-button color="primary" class="usertype_radios"
+                            *ngFor="let option of userTypesRadios" [checked]="option.checked" value="{{option.value}}">
+                            {{option.label}}
+                        </mat-radio-button>
+                    </mat-radio-group> -->
+                </div>
+            </div>
+            <!-- ------------------- Row1 ------------------------------ -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="100" class="child-container-common0">
+                    <tr fxLayout="column">Roll
+                        <!-- <label class="id-labels">
+                            <span [ngStyle]="{'color': roleRequired ? 'red ' : 'black'}">Roll</span>
+                        </label> -->
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <!-- <mat-label>"Roll"</mat-label> -->
+                            <mat-select [(ngModel)]="user.roleID" (valueChange)="onChangeRole($event)" placeholder="Välj Roll">
+                                <mat-option *ngFor="let role of role " [value]="role">{{role.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </tr>
+                </div>
+            </div>
+            <!-- ------------------- Row2 ------------------------------ -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <!-- <label class="id-labels">
+                            <span [ngStyle]="{'color': lawyerAlreadyExisting && lawyerRequired ? 'red ' : 'black'}">
+                                Förnamn
+                                <span *ngIf="lawyerAlreadyExisting">Av Advokat</span>
+                            </span>
+                        </label> -->
+                        <label class="id-labels">
+                            Förnamn</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <!-- <mat-label>Förnamn</mat-label> -->
+                            <!-- <mat-label *ngIf="!lawyerAlreadyExisting">Förnamn</mat-label>
+                            <mat-label *ngIf="lawyerAlreadyExisting">(Oredigerbar)</mat-label> -->
+                            <input matInput type="text" maxlength="100" [(ngModel)]="user.firstName" required placeholder="Förnamn">
+                        </mat-form-field>
+                    </tr>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">
+                            Efternamn</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <!-- <mat-label>"Efternamn"</mat-label> -->
+                            <!-- <mat-label *ngIf="!lawyerAlreadyExisting">Efternamn</mat-label>
+                            <mat-label *ngIf="lawyerAlreadyExisting">(Oredigerbar)</mat-label> -->
+                            <input matInput type="text" maxlength="100" [(ngModel)]="user.lastName" required placeholder="Efternamn">
+                        </mat-form-field>
+                    </tr>
+                </div>
+            </div>
+            <!-- ------------------- Row3 ------------------------------ -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">
+                            Användarnamn</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <!-- <mat-label>"Användarnamn"</mat-label> -->
+                            <!-- <mat-label *ngIf="!lawyerAlreadyExisting">Användarnamn</mat-label>
+                            <mat-label *ngIf="lawyerAlreadyExisting">(Oredigerbar)</mat-label> -->
+                            <input matInput type="text" maxlength="100" [(ngModel)]="user.userName" required placeholder="Användarnamn">
+                        </mat-form-field>
+                    </tr>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">
+                            Epost</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <!-- <mat-label>"Epost"</mat-label> -->
+                            <!-- <mat-label *ngIf="!lawyerAlreadyExisting">Epost</mat-label>
+                            <mat-label *ngIf="lawyerAlreadyExisting">(Oredigerbar)</mat-label> -->
+                            <input matInput type="text" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" maxlength="100"
+                                [(ngModel)]="user.email"  placeholder="xyz@netlex.se" >
+                            <!-- <input matInput type="text"   (change)="getLawyersEmailWithAvailability()" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" maxlength="100"
+                                        [(ngModel)]="user.email" required> -->
+                        </mat-form-field>
+                    </tr>
+                </div>
+            </div>
+
+            <tr fxLayout="column" class="child-container-common2">
+                <label class="id-labels">Profilbild</label>
+                <div style="font-size:11px" appearance="outline">
+                    <input [(ngModel)]="profilePic" (change)="onFileChange($event)" type="file" class="form-control"
+                        name="password" id="profilePic">
+                    <img [src]="imgURL" height="200" *ngIf="imgURL" style="width:7em; height:11em;">
+                </div>
+            </tr>
+
+            <!-- ------------------- Row4 ------------------------------ -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="itsLawyerUser">
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label>
+                            <input [checked]="itsForLawyer" type="checkbox"
+                                (change)="itsForLawyerCheckHandler($event.target.checked)">Det är för advokat
+                        </label>
+                    </tr>
+                </div>
+            </div>
+            <!-- ------------------- Row5 ----------Ck editor----------- -->
+            <div class="ckeditor_container" *ngIf="itsForLawyer && itsLawyerUser">
+                <label class="id-labels">Erfarehet</label>
+                <div class="field-container">
+                    <div class="contentDiv">
+                        <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+                            [(ngModel)]="lawyer.training"></ckeditor>
+                    </div>
+                </div>
+            </div>
+            <!-- ------------------- Row 6 --------Area of Activity----- -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="itsForLawyer && itsLawyerUser">
+                <div fxFlex.gt-sm="50"
+                    [className]="editLaws ? 'child-container-common-edit' : 'child-container-common'">
+                    <div class="edit_languages_label" *ngIf="editLaws">Redigera Aktivitetsområde</div>
+                    <div fxLayout="row">
+                        <tr fxFlex.gt-sm="80" class="grid">
+                            <label class="id-labels">Aktivitetsområde</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <!-- <mat-label>"Aktivitetsområde"</mat-label> -->
+                                <mat-select [(ngModel)]="selectedActivityArea" multiple placeholder="Titel">
+                                    <mat-option *ngFor="let law of activityAreaOptions " value="{{law}}"
+                                        style="--color:'#3f51b5'">
+                                        {{law}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </tr>
+                        <tr fxLayout="column" fxFlex.gt-sm="15" class="">
+                            <div mat-button class="edit-button" (click)="editLawsHandler()">
+                                <mat-icon>edit</mat-icon>
+                            </div>
+                        </tr>
+                    </div>
+                    <div *ngIf="editLaws">
+                        <div class="grid">
+                            <mat-radio-group name="servicesBgType" (change)="checkForMoreLaws($event)" class="grid">
+                                <mat-radio-button color="primary" style="height: 25px;"
+                                    *ngFor="let option of editLawsRadios" [checked]="option.checked"
+                                    value="{{option.value}}">{{option.label}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div fxLayout="row" *ngIf="editLawsAction==='add'">
+                            <tr fxFlex.gt-sm="80" class="grid">
+                                <!-- <label class="id-labels">Ange språk(Differentiera med kommatecken)</label> -->
+                                <label class="id-labels">Ange Aktivitetsområde</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <!-- <mat-label>"Differentiera med kommatecken"</mat-label> -->
+                                    <input matInput type="text" maxlength="100" [(ngModel)]="moreLaws" required
+                                        placeholder="Lag1 , Lag2">
+                                </mat-form-field>
+                            </tr>
+                            <tr fxLayout="column" fxFlex.gt-sm="15" class="">
+                                <div mat-button class="add-button" (click)="addMoreLawsHandler()">
+                                    <mat-icon>add</mat-icon>
+                                </div>
+                            </tr>
+                        </div>
+                        <div fxLayout="row" *ngIf="editLawsAction==='remove'">
+                            <tr fxFlex.gt-sm="80" class="grid">
+                                <label class="id-labels">Ta bort aktivitetsområde</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <!-- <mat-label>"Alla Aktivitetsområde"</mat-label> -->
+                                    <mat-select [(ngModel)]="removeLaws" multiple>
+                                        <mat-option *ngFor="let lang of activityAreaOptions" [value]="lang"
+                                            style="--color:'red'">
+                                            {{lang}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </tr>
+                            <tr fxLayout="column" fxFlex.gt-sm="15" class="">
+                                <div mat-button class="remove-button" (click)="removeLawsHandler()">
+                                    <mat-icon>delete</mat-icon>
+                                </div>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">Telefonnummer</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <!-- <mat-label>Telefonnummer</mat-label> -->
+                            <input matInput type="text" maxlength="100" [(ngModel)]="lawyer.phoneNumber" required placeholder="Telefonnummer">
+                        </mat-form-field>
+                    </tr>
+                </div>
+            </div>
+            <!-- ------------------- Row 6 ----------Languages----------- -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="itsForLawyer && itsLawyerUser">
+                <div fxFlex.gt-sm="50"
+                    [className]="editLanguages ? 'child-container-common-edit' : 'child-container-common'">
+                    <div class="edit_languages_label" *ngIf="editLanguages">Redigera språk</div>
+                    <div fxLayout="row">
+                        <tr fxFlex.gt-sm="80" class="grid">
+                            <label class="id-labels">Språk</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <!-- <mat-label>"Språk"</mat-label> -->
+                                <mat-select [(ngModel)]="selectedLanguages" multiple placeholder="Språk">
+                                    <mat-option *ngFor="let lang of languagesOptions " value="{{lang}}"
+                                        style="--color:'#3f51b5'">
+                                        {{lang}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </tr>
+                        <tr fxLayout="column" fxFlex.gt-sm="15" class="">
+                            <div mat-button class="edit-button" (click)="editLanguagesHandler()">
+                                <mat-icon>edit</mat-icon>
+                            </div>
+                        </tr>
+                    </div>
+                    <div *ngIf="editLanguages">
+                        <div class="grid">
+                            <mat-radio-group name="servicesBgType" (change)="checkForMoreLanguages($event)"
+                                class="grid">
+                                <mat-radio-button color="primary" style="height: 25px;"
+                                    *ngFor="let option of editlanguagesRadios" [checked]="option.checked"
+                                    value="{{option.value}}">{{option.label}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div fxLayout="row" *ngIf="editLanguagesAction==='add'">
+                            <tr fxFlex.gt-sm="80" class="grid">
+                                <!-- <label class="id-labels">Ange språk(Differentiera med kommatecken)</label> -->
+                                <label class="id-labels">Ange språk</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <!-- <mat-label>"Differentiera med kommatecken"</mat-label> -->
+                                    <input matInput type="text" maxlength="100" [(ngModel)]="moreLanguages" required
+                                        placeholder="Språk1 , Språk2">
+                                </mat-form-field>
+                            </tr>
+                            <tr fxLayout="column" fxFlex.gt-sm="15" class="">
+                                <div mat-button class="add-button" (click)="addMoreLanguagesHandler()">
+                                    <mat-icon>add</mat-icon>
+                                </div>
+                            </tr>
+                        </div>
+                        <div fxLayout="row" *ngIf="editLanguagesAction==='remove'">
+                            <tr fxFlex.gt-sm="80" class="grid">
+                                <label class="id-labels">Välj språk att ta bort</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <!-- <mat-label>"Alla Språk"</mat-label> -->
+                                    <mat-select [(ngModel)]="removeLanguages" multiple>
+                                        <mat-option *ngFor="let lang of languagesOptions" [value]="lang"
+                                            style="--color:'red'">
+                                            {{lang}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </tr>
+                            <tr fxLayout="column" fxFlex.gt-sm="15" class="">
+                                <div mat-button class="remove-button" (click)="removeLanguagesHandler()">
+                                    <mat-icon>delete</mat-icon>
+                                </div>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">Titel</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <!-- <mat-label>Titel</mat-label> -->
+                            <input matInput type="text" maxlength="100" [(ngModel)]="lawyer.title" required placeholder="Titel">
+                        </mat-form-field>
+                    </tr>
+                </div>
+            </div>
+            <!-- ------------------- Row 6 ------Lawyer show to user----- -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="itsForLawyer && itsLawyerUser">
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label>
+                            <input [checked]="checkNotCheck==1" checked type="checkbox"
+                                (change)="showLawyerToUserHandler($event.target.checked)">Visa för frontend-användare
+                        </label>
+                    </tr>
+                </div>
+            </div>
+            <!-- ------------------- Row 6 -------------Buttons----------- -->
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end center">
+                <button [routerLink]="'/user'" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon> Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="onsubmit()" mat-button class="user-create-button"><span class="spinner-border"
+                        *ngIf="showloading" role="status" aria-hidden="true">
+                        <mat-spinner diameter="26" strokeWidth=""></mat-spinner>
+                    </span><span *ngIf="!showloading">
+                        Lägg till användare</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

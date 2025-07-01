@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>Innehållssida</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div class="addBox" fxLayout="column">
+       
+        <div class="table-container">
+            <table class="table-size" id="table">
+                <thead>
+                <tr class="table-header">
+                    <th>Namn</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="user-row" *ngFor="let item of asyncItems| async | paginate: { id: 'server', itemsPerPage:
+                    perPage, currentPage: p, totalItems: total }">
+                    <td>{{item.name}}</td>
+                    <button (click)="edit(item._id)" mat-raised-button class="edit-button">Uppdatering</button>
+                   
+                </tr>
+                
+                </tbody>
+                <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button routerLink="/home" mat-button class="saveBtn">Tillbaka</button>
+        </div>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

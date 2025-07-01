@@ -1,0 +1,47 @@
+<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>Redigera Misslyckat mejl</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-about-us-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Användare E-post</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <mat-label>Användare E-post</mat-label>
+                <textarea matInput type="text" [(ngModel)]="emailAddress"
+                           required></textarea>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Ämne</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <mat-label>Ämne</mat-label>
+                <textarea matInput type="text" [(ngModel)]="subject"
+                           required></textarea>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Meddelandeinnehåll</b></label>
+                <div class="field-container">
+                    <div class="contentDiv">
+                        <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+                            [(ngModel)]="content"></ckeditor>
+                    </div>
+                </div>
+            </tr>
+
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+                <button [routerLink]="'/email-failed'" mat-button class="back-button" >
+                    <mat-icon>chevron_left</mat-icon>
+                    Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="update()" mat-button class="about-us-create-button"><span
+                        class="spinner-border spinner-border-sm"
+                        *ngIf="showloading" role="status" aria-hidden="true"></span><span *ngIf="!showloading">
+                     Uppdatering</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

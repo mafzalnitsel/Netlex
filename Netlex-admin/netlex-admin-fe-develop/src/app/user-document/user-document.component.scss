@@ -1,0 +1,361 @@
+.MatMobile {
+  box-shadow: none;
+  border: none;
+  padding-bottom: 80px;
+}
+
+.questionStyleMobile {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.07em;
+  color: #000000;
+  margin-bottom: 10px;
+  text-align: left;
+  padding-bottom: 3px;
+  width: 250px;
+}
+.subQmark{
+  display: flex;
+}
+.questionStyle {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.07em;
+  color: #000000;
+  margin-bottom: 10px;
+  text-align: left;
+  padding-bottom: 3px;
+}
+
+
+
+
+.user-document{
+  background-color: #E0E0E0;
+}
+.document-input{
+  background-color: white;
+}
+.container-input{
+  height: 100%;
+}
+.user-fields{
+  text-align: center;
+}
+.button-nav{
+  background-color: #4060D4;
+  border: 1px var(--netlex-primary) solid;
+  border-radius: 6px;
+  color: #ffffff;
+  width: 98px;
+  height: 37px;
+  font-size: 13px;
+}
+
+.button-nav:disabled, .button-nav[aria-disabled]{
+  background-color: rgba(64, 96, 212, 0.83);
+  color: #c4c4c4;
+}
+
+.button-submit{
+  background-color: #0ad059;
+  color: #ffffff;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+.id-radio-button:hover .circle {
+  background-color: #ccc;
+}
+.id-radio-button input:checked + .circle {
+  background-color: var(--netlex-primary);
+}
+.UserInput {
+  border: 1.5px solid #a8b2d4;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 30px;
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.07em;
+  width: 280px !important;
+  color: rgba(37, 34, 34, 0.7);
+}
+.textBox {
+  padding: 2px 0 0 11px;
+  text-align: left;
+  width: 300px;
+  height: 38px;
+  margin-left: 0;
+  margin-top: -10px;
+  margin-right: 8px;
+  font-size: 14px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+::ng-deep.buttonRadio {
+  margin-top: 9px;
+  background-color: #a8b2d4;
+  height: 35px;
+  width: 151px !important;
+  padding: 4px 19px 1px 13px !important;
+  border-radius: 7px;
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.07em;
+  color: #FFFFFF;
+  cursor: pointer;
+
+  input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -5px;
+    left: -2px;
+    position: relative;
+    background-color: #FFFFFF;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+
+  input[type='radio']:checked:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: -5px;
+    left: -2px;
+    position: relative;
+    background-color: #DFDAD6;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 5px solid white;
+  }
+}
+
+
+
+.id-radio-button input:checked + .circle:after {
+  content: "";
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.outerbox{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.fieldBox{
+  width: 394px;
+ // height: 160px;
+ // height: 369px;
+
+  
+  border-radius: unset;
+
+
+}
+// .dropdown{
+//   width: 153px;
+//   height: 25px;
+// }
+.dropdown{
+  // width: 153px;
+  // height: 25px;
+  border: 1.5px solid #a8b2d4;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 30px;
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  display: flex;
+  //align-items: center;
+ // text-align: center;
+  letter-spacing: 0.07em;
+  width: 280px !important;
+ //width: 100px;
+  color: rgba(37, 34, 34, 0.7);
+}
+.document-change{
+  padding: 10px;
+}
+.toolTipRadioSubQuestion {
+  position: relative;
+  margin-top: -72px;
+  margin-left: -160px;
+}
+.matUserInput {
+  background: #E5E5E5;
+  padding-top: 129px;
+  padding-bottom: 23px;
+  height: 150%;
+  text-align: -webkit-center;
+}
+
+::ng-deep.toolTipRadio {
+  float: right;
+  margin-top: -109px !important;
+  margin-right: -64px;
+}
+::ng-deep.toolTipRadioMain {
+  float: right;
+  margin-right: -25px;
+  margin-top: -72px !important;
+}
+
+
+
+.button-container{
+  height: 100%;
+}
+.help-tip {
+  text-align: center;
+  background-color: #1f2a53;
+  border-radius: 50%;
+  width: 19px;
+  height: 19px;
+  font-size: 11px;
+  line-height: 19px;
+  cursor: default;
+  margin-top: -5px;
+}
+
+// .help-tip{
+//   position: absolute;
+//   top: 18px;
+//   right: 18px;
+//   text-align: center;
+//   background-color: var(--netlex-primary);
+//   border-radius: 50%;
+//   width: 15px;
+//   height: 15px;
+//   font-size: 11px;
+//   line-height: 17px;
+//   cursor: default;
+//   z-index: 1;
+// }
+
+.help-tip:before{
+  content:'?';
+  font-weight: bold;
+  color:#fff;
+}
+.subq{
+  
+  margin-right: 69px;
+  
+
+
+}
+.help-tip:hover p{
+  display:block;
+  transform-origin: 100% 0%;
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.help-tip p{    /* The tooltip */
+  display: none;
+  text-align: left;
+  background-color: #1E2021;
+  padding: 20px;
+  width: 300px;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -4px;
+  color: #FFF;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.help-tip p:before{ /* The pointer of the tooltip */
+  position: absolute;
+  content: '';
+  width:0;
+  height: 0;
+  border:6px solid transparent;
+  border-bottom-color:#1E2021;
+  right:10px;
+  top:-12px;
+}
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+  width:100%;
+  height:40px;
+  content:'';
+  position: absolute;
+  top:-40px;
+  left:0;
+}
+::ng-deep.toolTipAlign {
+  float: right;
+  margin-right: -68px;
+  margin-top: -37px !important ;
+}
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity:100%;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:100%; }
+}
+
+.number-input{
+  border: 0.5px solid #333333;
+}
+
+::ng-deep.questionLabel{
+  width: 336px;
+  text-align: -webkit-left!important;
+}
+
+::ng-deep.user-input{
+  text-align: -webkit-left!important;
+}

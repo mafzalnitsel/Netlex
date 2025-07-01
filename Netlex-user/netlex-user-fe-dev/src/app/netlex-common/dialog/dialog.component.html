@@ -1,0 +1,101 @@
+<div class="mat-dialog-primary" fxLayout="column">
+    <div class="dialog-header-primary"></div>
+    <div class="i-icon" fxLayoutAlign="center center" *ngIf="data.component !== 'done'">
+        <img  src="assets/images/infoIcon.svg" alt="infoIcon">&nbsp;
+    </div>
+
+    <div class="i-icon" fxLayoutAlign="center center" *ngIf="data.component === 'done'">
+        <img  src="assets/images/done.svg" alt="done">&nbsp;
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center" class="dialog-content-action">
+        <div *ngIf="data.component === 'saveForLater'" fxLayout="column" fxLayoutAlign="none center">
+            <div fxLayoutAlign="center" class="textLimitHeader" ><h1 class="dialog-header-save-for-later">{{data.header}} [0:4]:'{{data.header | slice:0:4}}'</h1></div>
+            <div fxLayoutAlign="center">
+                <div fxLayoutAlign="center" *ngIf="data.component !== 'purchase'"
+                     class="dialog-content-save-for-later textLimit"
+                     matTooltip="{{data.content}}" matTooltipPosition="above"><p>{{data.content}}</p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="data.component !== 'saveForLater'">
+            <h1 class="dialog-header textLimitHeader" fxLayoutAlign="center "> {{data.header | slice:0:50}}</h1>
+            <div *ngIf="data.component !== 'purchase'" class="dialog-content textLimit"
+                 matTooltip="{{data.content}}"
+                 matTooltipPosition="above"
+                 fxLayoutAlign="center"><p fxLayoutAlign="center" class="data-content-font textLimit">{{data?.isMobile === 'mobile' ? 'Pris: ' + data.price + ' Kr' : data.content}}</p>
+            </div>
+        </div>
+
+        <div *ngIf="data.component === 'purchase'" class="purchase-dialog-content">
+            <div class="dialog-content" fxLayout="row">
+                <span fxFlex="50" fxLayoutAlign="start">{{'MY_PURCHASE.AGREEMENT' | translate}}:</span>
+                <span fxFlex="50" fxLayoutAlign="end">{{data.content.title}}</span></div>
+            <div class="dialog-content" fxLayout="row">
+                <span fxFlex="50" fxLayoutAlign="start">{{'MY_PURCHASE.DATE_OF_PURCHASE' | translate}}:</span>
+                <span fxFlex="50" fxLayoutAlign="end">{{data.content.date | date: 'dd/MM/yyyy'}}</span></div>
+            <div class="dialog-content" fxLayout="row">
+                <span fxFlex="50" fxLayoutAlign="start">{{'MY_PURCHASE.PRICE' | translate}}:</span>
+                <span fxFlex="50" fxLayoutAlign="end">{{data.content.price}}</span></div>
+            <div class="dialog-content" fxLayout="row">
+                <span fxFlex="50" fxLayoutAlign="start">{{'MY_PURCHASE.PAYMENT_METHOD' | translate}}:</span>
+                <span fxFlex="50" fxLayoutAlign="end">{{data.content.method}}</span></div>
+        </div>
+        <div *ngIf="data.component === 'agreementList' || data.component === 'settings'|| data.component === 'accountSettingsComponent'">
+            <div fxLayoutAlign="center">
+                <button class="button-create-agreement" (click)="onClickFirstButton()">{{data.action}}</button>
+            </div>
+            <div fxLayoutAlign="center">
+                <button class="button-cancel" (click)="onNoClick('')"><span translate>USERINPUTS.CANCEL</span></button>
+            </div>
+        </div>
+        <div *ngIf="data.component === 'register'">
+            <div fxLayoutAlign="center">
+                <button class="button-create" (click)="onNoClick('')">OK</button>
+            </div>
+        </div>
+        <div *ngIf="data.component === 'login'">
+            <div fxLayoutAlign="center">
+                <button class="button-create" (click)="onNoClick('')">OK</button>
+            </div>
+        </div>
+        <div *ngIf="data.component === 'purchase'">
+            <div fxLayoutAlign="center">
+                <button class="button-create" (click)="onNoClick('')"><span translate>USERINPUTS.CANCEL</span></button>
+            </div>
+        </div>
+        <div *ngIf="data.component === 'organization'">
+            <div fxLayoutAlign="center">
+                <button class="button-create" (click)="onNoClick('')">OK</button>
+            </div>
+        </div>
+        <div *ngIf="data.component === 'userInput'">
+            <div fxLayoutAlign="center">
+                <button class="button-create-safe" (click)="onClickFirstButton()">{{data.action}}</button>
+            </div>
+            <div fxLayoutAlign="center">
+                <button class="button-cancel" (click)="onNoClick('')"><span translate>USERINPUTS.CANCEL</span></button>
+            </div>
+        </div>
+        <div *ngIf="data.component === 'userInput2'">
+            <div fxLayoutAlign="center">
+                <button class="button-create-safee" (click)="onClickFirstButton()">{{data.action}}</button>
+            </div>
+            <div fxLayoutAlign="center">
+                <button class="button-create-safee" (click)="onNoClick('request')"><span translate>USERINPUTS.NEW_AGREEMENT</span></button>
+            </div>
+        </div>
+        <div *ngIf="data.component === 'done'" fxLayoutAlign="center" class="button-ok-outer-container">
+            <div fxLayoutAlign="center" >
+                <button class="button-create-agreement" [routerLink]="'/agreements'" (click)="onNoClick('')">OK</button>
+            </div>
+        </div>
+        <div *ngIf="data.component === 'cancel'">
+            <div fxLayoutAlign="center">
+                <button class="button-create" (click)="onClickFirstButton()">{{data.action}}</button>
+            </div>
+            <div fxLayoutAlign="center">
+                <button class="button-cancel" (click)="onNoClick('')"><span translate>USERINPUTS.BACK</span></button>
+            </div>
+        </div>
+    </div>
+</div>

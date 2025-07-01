@@ -1,0 +1,101 @@
+
+<div class="banner-dark-img">
+    <div class="banner-image" *ngIf="!ownedHeroBanner" [ngStyle]="{'background-image': globalHeaderImage}"></div>
+    <div class="banner-image" *ngIf="ownedHeroBanner" [ngStyle]="{'background-image': uniqueHeaderImage}"></div>
+</div>
+<div fxLayout="column" class="main-container">
+    <!-- <div fxHide.lt-md class="header-top" fxLayoutAlign="none center">
+    <span translate>AGREEMENTSCONFIRM.TITLE</span>
+</div> -->
+
+    <div class="content-top">
+        <!-- <div fxHide.lt-md class="top_heading" fxLayoutAlign="none center">
+        <span translate>AGREEMENTSCONFIRM.TITLE</span>
+    </div>
+    <div fxHide.gt-sm class="top_heading" fxLayoutAlign="center center">
+        <span class="agreement-confirm-mobile" translate>AGREEMENTSCONFIRM.TITLE</span>
+    </div> -->
+        <!-- <div class="" *ngIf="bookButton"> -->
+        <!-- <div class="">
+            <div class="agreement_confirm_fix_btn">
+                <div class="">
+                    <div class="book_agreement_container" *ngIf="!showUserInputQuestions">
+                        <div>
+                            <button mat-button class="bookFixBtn" (click)="submit()"><span
+                                    translate>SCHEDULER.SEND</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="agreement_confirm_row1">
+            <div fxFlex.gt-sm="80" class="agreement_confirm_title_desc">
+                <div class="agreement_confirm_title_Large" *ngIf="documentTitleWords<5">
+                    {{documentTitle}}
+                </div>
+                <div class="agreement_confirm_title_small" *ngIf="documentTitleWords>5">
+                    {{documentTitle}}
+                </div>
+                <!-- <div class="agreement_confirm_description">
+                {{documentDescription}}
+                {{documentDescription | slice:0:800}}
+            </div> -->
+            </div>
+        </div>
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="agreement_confirm_row2">
+            <!-- <div fxFlex.gt-md="65" class="agreement_confirm_description">
+                {{documentDescription}} -->
+                <!-- {{documentDescription | slice:0:800}} -->
+            <!-- </div> -->
+            <p fxFlex.gt-md="65" class="agreement_confirm_description" [innerHTML]="documentDescription|safeHtml| translate "> </p>
+            <div fxFlex.gt-md="35" class="agreement_confirm_details">
+                <div class="agreement_confirm_container" fxLayout="column">
+                    <!-- ----||||||||-----AgreementConfirm Prices-----|||||||----- -->
+                    <div class="agreement_confirm agreement_confirm2">
+                        <!-- <div fxLayout.gt-sm="column" fxLayout.lt-md="column">
+                            <div class="agreement_confirm_data_box">
+                                <div fxLayout="row" class="prices_details">
+                                    <h4 class="total_price">
+                                        Pris :</h4>
+                                    <h4 class="total_price">
+                                        {{documentTotal}}&nbsp; Kr</h4>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div fxLayoutAlign="center center" fxLayout="column">
+                            <!-- <button mat-button class="saveBtn" (click)="showUserInputsHandler()" -->
+                            <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center"><span
+                                    translate fxLayoutAlign="center center">SCHEDULER.SEND</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div fxLayout.gt-sm="column" fxLayout.lt-md="column" class="agreement_confirm_row3" *ngIf="videosExists">
+            <div fxFlex.gt-sm="100" fxLayoutAlign="center" class="video_n_button_container" *ngFor="let video of videos">
+                <div class="video_button_container" *ngIf="!video.value"
+                    (mouseover)="onVideoHoverHandler($event,video.id)"
+                    (mouseout)="onVideoHoverHandler($event,video.id)">
+                    <div class="video_button_container_inner"
+                        [ngStyle]="{'background-color': video.value ? 'unset':'#00000075'}">
+                        <button class="video_btn">
+                            <mat-icon>play_arrow</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <video class="agreement_confirm_video" [id]="video.id"
+                    (mouseover)="onVideoHoverHandler($event,video.id)" (mouseout)="onVideoHoverHandler($event,video.id)"
+                    controlsList="nodownload">
+                    <!-- <source src="assets/videos/video1.mp4"> -->
+                    <source [src]="video.path">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>

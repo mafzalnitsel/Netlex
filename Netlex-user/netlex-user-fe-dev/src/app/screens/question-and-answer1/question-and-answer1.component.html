@@ -1,0 +1,73 @@
+<div>
+    <!-- <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+            <span class=" ">Q&A</span></div>
+    <div class="header" fxLayoutAlign="start center" fxHide.lt-md>
+            <p class="heading">Q&A</p>
+    </div> -->
+    <!-- <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+        <span class=" " translate>Q&A</span>
+    </div>
+    <div fxHide.lt-md class="header-top" fxLayoutAlign="none center">
+        <span translate>Q&A</span>
+    </div> -->
+    <div class="panel-container">
+        <!-- <p class="paragraph" [innerHTML]="heading | safeHtml"></p> -->
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+            <div fxFlex.gt-sm="60" fxLayoutAlign="center start">
+                <div class="accordion-container">
+                <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+                    <span class=" " translate>Q&A</span>
+                </div>
+                <div fxHide.lt-md class="header-top" fxLayoutAlign="center center">
+                    <span translate>Q&A</span>
+                </div>
+                <div class="accordion-container-inner">
+                    <mat-accordion class="accordion mat-shadow">
+                        <mat-expansion-panel *ngFor="let value of qaList">
+                            <mat-expansion-panel-header class="accordion-header" fxLayoutAlign="none center">
+                                <mat-panel-title fxLayoutAlign="none center">
+                                    <span class="question" fxLayoutAlign="none center">{{value.question}}</span>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="answer" fxLayoutAlign="none center">
+                                {{value.answer}}
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+            </div>
+            
+            <div fxFlex.gt-sm="40" class="text-box-container">
+                <div class="text-box">
+                    <div class="text-box-text" [innerHTML]="description | safeHtml">
+                        <!-- <div fxLayout="column" class="text-container">
+                            <span class="text">Hittade du inte vilket svar på din fråga? Du kan alltid kontakta för mer specifik frågor.
+                            </span>
+                            <span class="horizontal-bar"></span>
+                            <div fxLayout="column">
+                                <div class="text-box-content-container" fxLayout="column">
+                                    <span class="text-box-content-title">Tel:</span>
+                                    <span class="text-box-content-desc">Telefonnummer här</span>
+                                </div>
+                                <div class="text-box-content-container" fxLayout="column">
+                                    <span class="text-box-content-title">E-post:</span>
+                                    <span class="text-box-content-desc">E -postadress här</span>
+                                </div>
+                                <div class="text-box-content-container" fxLayout="column">
+                                    <span class="text-box-content-title">Boka ett möte:</span>
+                                    <span class="text-box-content-desc" [routerLink]="'/scheduler'">Länk till mötet här</span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="banner-dark-img">
+        <div class="banner-image">
+        </div>
+    </div>
+</div>

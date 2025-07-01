@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>
+    ROLE-ACTION</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div class="addBox" fxLayout="column">
+        <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button mat-button class="saveBtn create-role-button" [routerLink]="'/roleaction/create'">
+                Skapa Roll-Action</button>
+        </div>
+        <div class="table-container">
+            <table class="table-size" id="table">
+                <thead>
+                <tr class="table-header">
+                    <th>Namn</th>
+                    
+                    <th *ngIf="this.authService.isAdmin()"></th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr class="role-row" *ngFor="let data of asyncPersons | async | paginate: { id: 'serveri', itemsPerPage:
+                 perPage, currentPage: p, totalItems: total }">
+                    <td (click)="viewRoleAction(data)">{{data.name}}</td>
+                    
+                    <button (click)="viewRoleAction(data)" mat-raised-button class="edit-button">Redigera</button>
+                    <td *ngIf="authService.isAdmin()">
+                        <button mat-button class="delete-role-button" (click)="deleteRoleAction(data._id);">
+                            <mat>Radera</mat>
+                        </button>
+      
+
+
+                    </td>
+                </tr>
+                <tr *ngIf="!total" class="text-center">
+                    <td colspan="4">Inga Roll-Action hittades</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div fxLayoutAlign="center none" class="pagination-button-container">
+            <pagination-controls (pageChange)="getPage($event)" id="serveri"></pagination-controls>
+        </div>
+        <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button routerLink="/home" mat-button class="saveBtn">Tillbaka</button>
+        </div>
+    </div>
+</div>
+
+
+

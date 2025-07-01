@@ -1,0 +1,100 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>Avtal Försäljnings</span></div>
+<!-- <tr class="select-container" fxLayout="row" fxLayoutAlign="left">
+    <mat-form-field class="select-a" appearance="outline">
+        <mat-label><b>"Betalnings Metod"</b></mat-label>
+        <mat-select (selectionChange)="changeData()" [(value)]="selectedPaymentMethod">
+            <mat-option *ngFor="let methods of paymentMethodValues " value="{{methods}}">{{methods}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="select-a" appearance="outline">
+        <mat-label><b>"Status"</b></mat-label>
+        <mat-select (selectionChange)="changeData()" [(ngModel)]="status" [(value)]="status">
+            <mat-option *ngFor="let status of statusValue " value="{{status}}">{{status}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</tr> -->
+<div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+    <tr class="select-container" fxLayoutAlign="left">
+        <mat-form-field class="select-a" appearance="outline">
+            <mat-label><b>Betalnings Metod</b></mat-label>
+            <mat-select (selectionChange)="changeData()" [(value)]="selectedPaymentMethod">
+                <mat-option *ngFor="let methods of paymentMethodValues " value="{{methods}}">{{methods}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="select-a" appearance="outline">
+            <mat-label><b>Status</b></mat-label>
+            <mat-select (selectionChange)="changeData()" [(ngModel)]="status" [(value)]="status">
+                <mat-option *ngFor="let status of statusValue " value="{{status}}">{{status}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </tr>
+    <tr class="" fxLayoutAlign="left">
+        <!-- <input class="date-input" [(ngModel)]="fromDate"  (change)="filterByDateHandler('fromDate')" [max]="maxToDate" type="date" matInput >
+        <input class="date-input" [(ngModel)]="toDate" (change)="filterByDateHandler('toDate')" [min]="minFromDate" type="date" matInput > -->
+        <div class="input-container">
+            <label class="from-label"> From </label>
+            <input class="date-input" [(ngModel)]="fromDate" (change)="changeData()" type="date" matInput>
+        </div>
+        <div class="input-container">
+            <label class="to-label"> To </label>
+            <input class="date-input" [(ngModel)]="toDate" (change)="changeData()" [min]="fromDate" type="date"
+                matInput>
+        </div>
+    </tr>
+</div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div class="addBox" fxLayout="column">
+        <div class="table-container">
+            <table class="table-size" id="table">
+                <thead>
+                    <tr class="table-header">
+                        <th>Användare</th>
+                        <!-- <th>Datum & Tid</th> -->
+                        <th>Datum</th>
+                        <th>Tid</th>
+                        <th>Belopp</th>
+                        <th>Betalnings Metod</th>
+                        <!-- <th>Betalnings Datum</th> -->
+                        <th>Status</th>
+                        <!-- <th>Transaktions_Id</th> -->
+                        <!-- <th *ngIf="this.authService.isAdmin()"></th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="user-row" *ngFor="let item of asyncItems| async | paginate: { id: 'server', itemsPerPage:
+                    perPage, currentPage: p, totalItems: total }">
+                        <td (click)="viewPayment(item)">{{item.userName}}</td>
+                        <!-- <td (click)="viewPayment(item)">{{item.paymentDate}}</td> -->
+                        <td (click)="viewSales(item)">{{item.date}}</td>
+                        <td (click)="viewSales(item)">{{item.time}}</td>
+                        <td (click)="viewPayment(item)"><u>{{item.amount}}</u></td>
+                        <td (click)="viewPayment(item)">{{item.paymentMethod}}</td>
+                        <td (click)="viewPayment(item)">{{item.status}}</td>
+                        <td class="pdf_col" (click)="generatePaymentPdf(item)">
+                            <span fxHide.lt-md>Skapa Pdf</span>
+                            <!-- <span fxHide.gt-sm>Pdf</span> -->
+                            <mat-icon>picture_as_pdf</mat-icon>
+                        </td>
+                        <!-- <button mat-raised-button class="edit-button" (click)="viewPayment(item)">Visa</button> -->
+                    </tr>
+                    <tr *ngIf="!total" class="text-center">
+                        <td colspan="4">Inga användare hittades</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div fxLayoutAlign="center none" class="pagination-button-container">
+            <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getPage($event)" id="server">
+            </pagination-controls>
+        </div>
+        <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+            <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+        </div>
+        <!-- <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button routerLink="/home" mat-button class="saveBtn">Tillbaka</button>
+        </div> -->
+    </div>
+</div>

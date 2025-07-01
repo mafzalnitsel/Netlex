@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div fxLayout.lt-lg="col" fxLayout.lg="row" fxLayoutGap="10px">
+<!--        <app-alert [state]="alert"></app-alert>-->
+        <mat-card class="addBox">
+            <div class="h-container">Visa Avtal Försäljning</div>
+            <br>
+            <table class="table-size">
+                <tr>
+                    <td>Användare</td>
+                    <!-- <td>:</td> -->
+                    <td>{{this.userName}}</td>
+                </tr>
+                <tr>
+                    <td>Belopp</td>
+                    <!-- <td>:</td> -->
+                    <td>{{this.amount}}</td>
+                </tr>
+                <tr>
+                    <td>Betalnings Datum</td>
+                    <!-- <td>:</td> -->
+                    <td>{{this.paymentDate}}</td>
+                </tr>
+                <tr>
+                    <td>Betalnings Tid</td>
+                    <!-- <td>:</td> -->
+                    <td>{{this.paymentTime}}</td>
+                </tr>
+                <tr>
+                    <td>Betalnings Metod</td>
+                    <!-- <td>:</td> -->
+                    <td>{{this.paymentMethod}}</td>
+                </tr>
+                <tr class="breakLongText">
+                    <td>transaktion_Id</td>
+                    <!-- <td>:</td> -->
+                    <td class="break-line">{{this.transaction_Id}}</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <!-- <td>:</td> -->
+                    <td>{{this.status}}</td>
+                </tr>
+            </table>
+            <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+                <button routerLink="/sales" mat-button class="saveBtn">Tillbaka</button>
+            </div>
+          
+        </mat-card>
+    </div>
+

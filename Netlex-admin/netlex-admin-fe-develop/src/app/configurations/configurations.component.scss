@@ -1,0 +1,10 @@
+.configuration-container{
+    z-index: 0;
+    position: relative;
+    margin-top: 70px;
+}
+@media screen and(max-width: 960px) {
+    .configuration-container{
+        margin-top: 50px;
+    }
+}

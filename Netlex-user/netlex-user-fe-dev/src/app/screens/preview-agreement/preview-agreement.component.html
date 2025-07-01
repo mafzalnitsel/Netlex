@@ -1,0 +1,140 @@
+<!-- <mat-toolbar class="toolbar">
+    <span class="documentTitle marginTitle" fxHide.lt-md>{{'USERINPUTS.SUMMARY' | translate}}</span>
+    <span class="documentTitle" fxHide.gt-sm>{{'USERINPUTS.SUMMARY' | translate}}</span>
+</mat-toolbar> -->
+<div class="previewMargin">
+
+    <mat-card class="previewQuestion spaceBottom">
+        <!-- <div ngClass.gt-sm="headerDiv"> -->
+        <!-- <h3 class="matHeader" fxHide.xs fxHide.sm translate>USERINPUTS.SUMMARY</h3> -->
+        <!--            <h3 class="matMobileHeader" fxHide.gt-sm translate>USERINPUTS.SUMMARY</h3>-->
+        <!-- <h5 class="subHeader" fxHide.xs fxHide.sm translate>USERINPUTS.SUBHEADER</h5>
+            <h5 class="subHeaderMobile" fxHide.gt-sm translate>USERINPUTS.SUBHEADER_MOB</h5>
+        </div> -->
+        <!-- <div class="previewList" fxLayout="row" *ngFor="let question of questionList;let i=index" fxHide.xs fxHide.sm> -->
+        <div class="previewList" *ngFor="let question of questionList;let i=index">
+            <div fxLayout="row">
+                <div class="doneDiv">
+                    <mat-icon class="doneIcon">done</mat-icon>
+                </div>
+                <div class="questionPreviewDiv" fxLayout="column" fxLayoutAlign="none start">
+                    <!-- <p class="questionNameAlign" matTooltip="{{question.question}}" matTooltipPosition="above">
+                        {{question.question}} :</p>
+                    <p *ngIf="question.answer" class="answerTextAlign text-limit" matTooltip="{{question.answer}}"
+                        matTooltipPosition="above" fxLayoutAlign="start">{{question.answer}}</p> -->
+                    <p class="questionNameAlign" matTooltip="{{question.question}}" matTooltipPosition="above">
+                        {{question.question}} :</p>
+                    <p *ngIf="question.answer" class="answerTextAlign text-limit" matTooltip="{{question.answer}}"
+                        matTooltipPosition="above">{{question.answer}}</p>
+                    <p *ngIf="!question.answer" class="answerTextAlign redColor text-limit"
+                        matTooltip="*Fråga inte ifylld" matTooltipPosition="above" fxLayoutAlign="start">*Fråga inte
+                        ifylld</p>
+                </div>
+            </div>
+            <div class="editBtnDiv">
+                <button class="editBtn" (click)="editFields(question.index)">
+
+                    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g filter="url(#filter0_d)">
+                            <path
+                                d="M4 4C4 1.79086 5.79086 0 8 0H30C32.2091 0 34 1.79086 34 4V26C34 28.2091 32.2091 30 30 30H8C5.79086 30 4 28.2091 4 26V4Z"
+                                fill="white" />
+                        </g>
+                        <path d="M25.0635 6.56738L27.6914 9.19531L15.6807 21.206L13.0528 18.5781L25.0635 6.56738Z"
+                            fill="black" />
+                        <path d="M13.9844 17.6328L16.632 20.2805L15.694 21.2185L13.0463 18.5709L13.9844 17.6328Z"
+                            fill="white" />
+                        <path d="M12.1333 22.1284L13.1587 18.4751L15.7866 21.103L12.1333 22.1284Z" fill="black" />
+                        <path d="M24.4082 7.21387L27.0555 9.86119L26.1035 10.8132L23.4562 8.16591L24.4082 7.21387Z"
+                            fill="white" />
+                        <defs>
+                            <filter id="filter0_d" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse"
+                                color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                <feOffset dy="4" />
+                                <feGaussianBlur stdDeviation="2" />
+                                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                            </filter>
+                        </defs>
+                    </svg>
+                </button>
+            </div>
+
+
+        </div>
+        <!--        <div class="previewListMobile" fxLayout="row" *ngFor="let question of questionList;let i=index" fxHide.gt-sm>-->
+        <!--            <div fxLayout="row">-->
+        <!--                <div class="doneDivMobile">-->
+        <!--                    <mat-icon class="doneIcon">done</mat-icon>-->
+        <!--                </div>-->
+        <!--                <div class="questionDivMobile" fxLayout="column" fxLayoutAlign="none start">-->
+        <!--                    <p class="questionMobView textLimit" matTooltip="{{question.question}}"-->
+        <!--                       matTooltipPosition="above">{{question.question}} :</p>-->
+        <!--                    <p *ngIf="question.answer"  class="answerTextAlign text-limit" matTooltip="{{question.answer}}"-->
+        <!--                       matTooltipPosition="above" fxLayoutAlign="start">{{question.answer}}</p>-->
+        <!--                    <p *ngIf="!question.answer"  class="answerTextAlign redColor text-limit" matTooltip="*Fråga inte ifylld"-->
+        <!--                       matTooltipPosition="above" fxLayoutAlign="start">*Fråga inte ifylld</p>-->
+        <!--                </div>-->
+        <!--                <div class="editBtnDivMobile">-->
+        <!--                    <button class="editBtn" (click)="editFields(i)">-->
+        <!--                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--                            <g filter="url(#filter0_d)">-->
+        <!--                                <path d="M4 4C4 1.79086 5.79086 0 8 0H30C32.2091 0 34 1.79086 34 4V26C34 28.2091 32.2091 30 30 30H8C5.79086 30 4 28.2091 4 26V4Z"-->
+        <!--                                      fill="white"/>-->
+        <!--                            </g>-->
+        <!--                            <path d="M25.0635 6.56738L27.6914 9.19531L15.6807 21.206L13.0528 18.5781L25.0635 6.56738Z"-->
+        <!--                                  fill="black"/>-->
+        <!--                            <path d="M13.9844 17.6328L16.632 20.2805L15.694 21.2185L13.0463 18.5709L13.9844 17.6328Z"-->
+        <!--                                  fill="white"/>-->
+        <!--                            <path d="M12.1333 22.1284L13.1587 18.4751L15.7866 21.103L12.1333 22.1284Z" fill="black"/>-->
+        <!--                            <path d="M24.4082 7.21387L27.0555 9.86119L26.1035 10.8132L23.4562 8.16591L24.4082 7.21387Z"-->
+        <!--                                  fill="white"/>-->
+        <!--                            <defs>-->
+        <!--                                <filter id="filter0_d" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse"-->
+        <!--                                        color-interpolation-filters="sRGB">-->
+        <!--                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>-->
+        <!--                                    <feColorMatrix in="SourceAlpha" type="matrix"-->
+        <!--                                                   values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"-->
+        <!--                                                   result="hardAlpha"/>-->
+        <!--                                    <feOffset dy="4"/>-->
+        <!--                                    <feGaussianBlur stdDeviation="2"/>-->
+        <!--                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>-->
+        <!--                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>-->
+        <!--                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>-->
+        <!--                                </filter>-->
+        <!--                            </defs>-->
+        <!--                        </svg>-->
+        <!--                    </button>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!-- <mat-card-actions class="btnAlignDeskTop" fxHide.xs fxHide.sm> -->
+        <!-- <button mat-button class="previewBtn" (click)="previewPage()">
+               <span fxLayoutAlign="center center" translate>USERINPUTS.SEEPREVIEW</span>
+           </button> -->
+        <!--            <span class="space"></span>-->
+        <!-- <button mat-button class="previewCheckoutBtnDeskTop" (click)="movePurchase()"><span
+                    fxLayoutAlign="center center" translate>USERINPUTS.CHECKOUT</span>
+            </button>
+        </mat-card-actions> -->
+        <!-- <mat-card-actions class="btnAlign" fxLayout="column" fxLayoutAlign="center center" fxHide.gt-sm> -->
+        <mat-card-actions class="btnAlign" fxLayout="column" fxLayoutAlign="center center">
+            <span class="space"></span>
+            <button mat-button class="previewBtnMobile marginMove" (click)="saveForLater()">
+                <span fxLayoutAlign="center center" translate>USERINPUTS.SAVE</span>
+            </button>
+            <span class="space"></span>
+            <button mat-button class="previewCheckoutBtn marginMove" (click)="movePurchase()">
+                <span fxLayoutAlign="center center" translate>USERINPUTS.CHECKOUT</span>
+            </button>
+        </mat-card-actions>
+        <span class="spaceBottom"></span>
+    </mat-card>
+</div>
+<div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>

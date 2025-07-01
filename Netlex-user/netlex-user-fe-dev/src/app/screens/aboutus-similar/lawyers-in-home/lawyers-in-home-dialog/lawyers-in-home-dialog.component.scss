@@ -1,0 +1,112 @@
+// .lawyer_details_dialog_main {
+//     // padding: 20px;
+// }
+.dialog_close_icon{
+    padding-top: 15px;
+    padding-right: 20px;
+    // width: 100%;
+    display: flex;
+    justify-content: end;
+    .mat-icon{
+    font-size: 30px;
+    cursor: pointer;
+    }
+}
+.lawyer_details_container{
+    padding: 30px 0 0 50px;
+}
+.bio_lawyer_name{
+    // margin-top: 30px;
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+    color: #000234;
+}
+.bio_heading{
+    margin-top: 70px;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.596);
+}
+.bio_description{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-right: 70px;
+    // color: rgba(0, 0, 0, 0.541);
+    // text-align: justify;
+}
+// .activity_area{
+//     // margin-top: 30px;
+// }
+.activity_area_heading{
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.596);
+}
+.activity_area_desc{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-right: 70px;
+    // color: rgba(0, 0, 0, 0.541);
+    // text-align: justify;
+}
+.lawyer_image_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.lawyer_img_style {
+    width: 250px;
+    height: 361px;
+    // width: 291px;
+    // height: 421px;
+    // margin-top: 20px;
+    border-radius: 20px;
+}
+.lawyer_languages_container{
+    justify-content: center;
+    display: flex;
+    padding: 20px 20px 0 20px;
+    span{
+        font-size: 18px;
+        font-weight: 500;
+        margin-right: 10px;
+    }
+}
+.schedule_meeting_btn_container {
+    // padding: 20px 0 0 0;
+    padding: 20px;
+    margin-left: 10px;
+    // width: 100%;
+}
+
+.schedule_meeting_button {
+    // all: unset;
+    height: 50px;
+    width: 250px;
+    // background-color: #1F2A53;
+    background-color: #000234;
+    border: 0;
+    color: #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+
+    outline: none;
+    span {
+        font-family:'Playfair Display,serif !important';        letter-spacing: 0.1em;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 18px;
+    }
+}
+
+.schedule_meeting_button:hover {
+    background-color: #000234d5;
+
+    // box-shadow: inset 20em 0 0 0 #9abeeb80;
+    // transition: 0.7s;
+}

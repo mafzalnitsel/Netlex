@@ -1,0 +1,130 @@
+// .date_n_time_main {
+//     padding: 20px;
+//     overflow-y: scroll;
+//     overflow-x: hidden;
+//     height: 85%;
+// }
+
+.calendar_container {
+    padding: 0 10px 10px 10px;
+}
+
+.times_container {
+    padding: 0 10px 10px 10px;
+    // padding: 10px;
+    // width: 100%;
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.heading_bar {
+    // display: flex;
+    // flex-wrap: wrap;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 7px;
+    // span{
+    //     background-color: gray;
+    //     width: 100%;
+    // }
+    // padding: 5px 0 5px 10%;
+}
+
+.heading_background {
+    background-color: #000234;
+    // width: 70%;
+    width: 100%;
+    padding: 5px;
+    color: white;
+}
+
+// .times_select_fields{
+//     margin-top: 5px;
+// }
+// .select_container{
+//     margin: 0 2px;
+// }
+.time-error {
+    color: red;
+    padding: 0 5px;
+    margin-top: -20px;
+    z-index: 1;
+    cursor: pointer;
+}
+.custom_label{
+    font-size: 13px;
+}
+.redStar{
+    color: red;
+    font-weight: 500;
+}
+// .custom_input {
+//     // height: 25px;
+// }
+
+.delete-button {
+    background-color: red;
+    color: white;
+    box-shadow: 2px 5px 6px -3px #888888;
+    // margin-top: 10px;
+    margin-right: 10px;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.back-button {
+    background-color: #4060D4;
+    color: white;
+    box-shadow: 2px 5px 6px -3px #888888;
+    height: 35px;
+    // width: 70px;
+    margin-right: 10px;
+}
+
+.update-button {
+    background-color: #000234;
+    box-shadow: 2px 5px 6px -3px #888888;
+    color: white;
+    height: 35px;
+    width: 110px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    .mat-icon {
+        // padding-top: 20px;
+        font-size: 21px;
+    }
+}
+
+@media screen and (max-width:960px) {
+    .calendar_container {
+        padding: 0;
+    }
+
+    .times_container {
+        padding: 0;
+        padding-top: 15px;
+    }
+
+    .heading_background {
+        width: 100%;
+    }
+
+    .heading_bar {
+        // display: flex;
+        // flex-wrap: wrap;
+        font-size: 17px;
+        font-weight: 500;
+    }
+}

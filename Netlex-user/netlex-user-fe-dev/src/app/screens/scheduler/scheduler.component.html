@@ -1,0 +1,271 @@
+<div fxLayout="column" class="container-login">
+    <!-- <div fxHide.lt-md class="header-top" fxLayoutAlign="none center">
+        <span translate>SCHEDULER.TITLE</span>
+    </div>
+    <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+        <span class="scheduler-mobile" translate>SCHEDULER.TITLE_MOBILE</span>
+    </div> -->
+    <div fxLayoutAlign="center center" class="content-top">
+        <form [formGroup]="schedulerForm">
+            <div class="scheduler-container" fxLayout="column">
+                <div class="scheduler fields">
+                    <div fxHide.lt-md class="header-top" >
+                        <span translate>SCHEDULER.TITLE</span>
+                    </div>
+                    <div fxHide.gt-sm class="header-top" fxLayoutAlign="center center">
+                        <span class="scheduler-mobile" translate>SCHEDULER.TITLE_MOBILE</span>
+                    </div>
+                    <!-- <div class="scheduler_inner"> -->
+                        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                            <div fxFlex.gt-sm="50" class="child-container-common">
+                                <!-- //////////////---NEW---/////////////// -->
+                                <div fxLayout="column" class="ssn-padding" fxLayoutAlign="center none">
+                                    <!-- <span class="fields-labels" translate>SCHEDULER.LAW_TYPE<span -->
+                                        <span class="fields-labels" translate>SCHEDULER.HEADING<span
+                                            class="required">*</span></span>
+                                    <mat-select  class="ssn-input" placeholder="{{'SCHEDULER.LAW_TYPE_PLACEHOLDER' | translate}}"
+                                        formControlName="heading" (selectionChange)="lawTypeFun($event)">
+                                        <mat-option *ngFor="let law of lawType " value="{{law}}">{{law}}
+                                        </mat-option>
+                                    </mat-select>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['heading'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div>
+                                </div>
+                                <!-- //////////////---NEW---/////////////// -->
+                                <!-- <div fxLayout="column" class="ssn-padding">
+                                    <span class="fields-labels" translate>SCHEDULER.HEADING<span
+                                            class="required">*</span></span>
+                                    <input formControlName="heading" class="ssn-input-field" type="text" matInput
+                                        placeholder="{{'SCHEDULER.HEADING_PLACEHOLDER' | translate}}" required>
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['heading'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div>
+                                </div> -->
+                                <span class="break"></span>
+                                <div fxLayout="column" class="ssn-padding">
+                                    <!-- <span class="fields-labels" translate>SCHEDULER.DATE<span
+                                            class="required">*</span></span> -->
+                                            <span class="fields-labels" translate>Meeting Date<span
+                                                class="required">*</span></span>
+                                    <!-- <input formControlName="dateOf" class="ssn-input-field" type="date" matInput
+                                        placeholder="ååååmmddxxxx" required (change)="getLawyersWithAvailability()"> -->
+    
+                                    <!-- <input [min]="minDate" [(ngModel)]="alreadySelectedDate" formControlName="dateOf" class="ssn-input-field" type="date" -->
+                                    <!-- <input [min]="minDate" formControlName="dateOf" class="ssn-input-field" type="date"
+                                        matInput placeholder="ååååmmddxxxx" required (change)="getLawyersWithAvailability()"> -->
+                                    <!-- <input [min]="minDate" formControlName="dateOf" class="ssn-input-field" type="text"
+                                        matInput placeholder="ååååmmddxxxx" required (change)="getLawyersWithAvailability()" disable> -->
+                                        <input [placeholder]="placeholderForAutoFill" matInput class="ssn-input-field"  type="text" disabled="true" required [value]="selectedDate">
+                                    <!-- <div  class="ssn-div">
+                                        {{selectedDate}}
+                                        {{selectedDate2}}
+                                    </div> -->
+                                    <!-- <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['dateOf'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div> -->
+                                </div>
+                                
+                                <div fxLayout="column" class="ssn-padding" fxLayoutAlign="center none">
+                                    <!-- <span class="fields-labels" translate>SCHEDULER.TIME<span
+                                            class="required">*</span></span> -->
+                                    <!-- <mat-select class="ssn-input" placeholder="{{'SCHEDULER.TIME_PLACEHOLDER' | translate}}"
+                                        formControlName="time" (selectionChange)="checkLawyerAvailability()">
+                                        <mat-option *ngFor="let session of sessionValue " value="{{session}}">{{session}}
+                                        </mat-option>
+                                    </mat-select> -->
+                                    <!-- <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['time'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div> -->
+                                    <span class="fields-labels" translate>Meeting Time<span
+                                        class="required">*</span></span>
+                                    <input [placeholder]="placeholderForAutoFill" matInput class="ssn-input-field"  type="text"  disabled="true" required [value]="selectedTime">
+                                </div>
+    
+                                <div fxLayout="column" class="ssn-padding">
+                                    <!-- <span class="fields-labels" translate>SCHEDULER.SELECT_LAWYER<span
+                                            class="required">*</span></span> -->
+                                    <!-- <mat-select class="ssn-input" placeholder="{{'SCHEDULER.SELECT_LAWYER' | translate}}"
+                                        formControlName="lawyer" (selectionChange)="checkLawyerAvailability()">
+                                        <mat-option value="Any">Any</mat-option>
+    
+                                        <mat-option *ngFor="let lawyer of lawyerList " [value]="lawyer">
+                                            {{lawyer.lawyer.firstName}} {{lawyer.lawyer.lastName}}
+                                        </mat-option>
+                                    </mat-select> -->
+    
+                                    <!-- <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['lawyer'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div> -->
+    
+                                    <!-- <div class="required" *ngIf="schedulerForm.controls['lawyer'].value && schedulerForm.controls['lawyer'].value !='Any'
+                             && schedulerForm.controls['time'].value
+                             && schedulerForm.controls['dateOf'].value && !lawyerAvailable">
+                                        {{'SCHEDULER.LAWYER_NOT_AVAILABLE' | translate}}
+                                    </div> -->
+    
+                                    <!-- <div class="successMsg"
+                                        *ngIf="schedulerForm.controls['lawyer'].value && schedulerForm.controls['lawyer'].value !='Any'
+                             && schedulerForm.controls['time'].value && schedulerForm.controls['dateOf'].value && lawyerAvailable">
+                                        {{'SCHEDULER.LAWYER_AVAILABLE' | translate}}
+                                    </div> -->
+                                    <span class="fields-labels" translate>Meeting with Lawyer<span
+                                        class="required">*</span></span>
+                                    <input [placeholder]="placeholderForAutoFill" matInput class="ssn-input-field"  type="text"  disabled="true" required [value]="selectedLawyerName">
+    
+                                </div>
+                                    
+                                <div fxLayout="column" class="ssn-padding">
+                                    <span class="fields-labels" translate>SCHEDULER.DESCRIPTION</span>
+                                    <textarea formControlName="description" class="ssn-input" matInput
+                                        placeholder="{{'SCHEDULER.DESCRIPTION_PLACEHOLDER' | translate}}">
+                                </textarea>
+                                </div>
+
+                                <div fxLayout="column" class="ssn-padding">
+                                    <label class="fields-labels">
+                                        <input type="checkbox" (change)="onChangeFOC($event.target.checked)"
+                                            formControlName="focnonfoc">
+                                        <!-- Foc / NonFoc -->
+                                        Fri av kosta(Inga avgifter)
+                                    </label>
+                                </div>
+    
+                                <div fxLayout="column" class="ssn-padding" *ngIf="Foc == 'Foc'">
+                                    <!-- <span class="fields-labels" translate>Anledning till Foc<span
+                                            class="required">*</span></span> -->
+                                    <span class="fields-labels" translate>Anledning till fri av kosta<span
+                                            class="required">*</span></span>
+                                    <input formControlName="reasonOfFoc" [(ngModel)]="reasonOfFoc" class="ssn-input-field"
+                                        type="text" matInput placeholder="Beskriv anledningen till Foc" required>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['reasonOfFoc'].errors?.pattern">Fyll i
+                                        alla fält
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div fxFlex.gt-sm="50" class="child-container-common">
+    
+                                <div fxLayout="column" class="ssn-padding">
+                                    <span class="fields-labels" translate>SCHEDULER.NAME<span
+                                            class="required">*</span></span>
+                                    <input formControlName="userName" class="ssn-input-field" type="text" matInput
+                                        placeholder="{{'SCHEDULER.NAME_PLACEHOLDER' | translate}}" required>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['userName'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div>
+                                </div>
+    
+                                <div fxLayout="column" class="ssn-padding">
+                                    <span class="fields-labels" translate>SCHEDULER.EMAIL<span
+                                            class="required">*</span></span>
+                                    <input formControlName="userEmail" class="ssn-input-field" type="email" matInput
+                                        placeholder="{{'SCHEDULER.EMAIL_PLACEHOLDER' | translate}}" required>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['userEmail'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['userEmail'].errors?.email">
+                                        {{'COMMON.INVALID_EMAIL' | translate}}
+                                    </div>
+                                </div>
+    
+                                <div fxLayout="column" class="ssn-padding">
+                                    <span class="fields-labels" translate>SCHEDULER.SSN<span
+                                            class="required">*</span></span>
+                                    <input formControlName="userSSN" class="ssn-input-field" type="text" matInput
+                                        placeholder="{{'SCHEDULER.SSN_PLACEHOLDER' | translate}}" required>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['userSSN'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div>
+                                </div>
+    
+                                <div fxLayout="column" class="ssn-padding">
+                                    <span class="fields-labels" translate>SCHEDULER.MOBILE_PHONE<span
+                                            class="required">*</span></span>
+                                    <input formControlName="userPhoneNo" class="ssn-input-field" type="text" matInput
+                                        placeholder="{{'SCHEDULER.MOBILE_PHONE_PLACEHOLDER' | translate}}" required>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['userPhoneNo'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['userPhoneNo'].errors?.pattern">
+                                        {{'COMMON.INVALID_MOBILE' | translate}}
+                                    </div>
+                                </div>
+    
+                                <div fxLayout="column" class="ssn-padding">
+                                    <span class="fields-labels" translate>SCHEDULER.LANGUAGE<span
+                                            class="required">*</span></span>
+                                    <mat-select class="ssn-input"
+                                        placeholder="{{'SCHEDULER.LANGUAGE_PLACEHOLDER' | translate}}"
+                                        formControlName="language" [(value)]="language">
+                                        <mat-option *ngFor="let language of languageValue " value="{{language}}">
+                                            {{language}}</mat-option>
+                                    </mat-select>
+    
+                                    <div class="required"
+                                        *ngIf="docSubmit && schedulerForm.controls['language'].errors?.required">
+                                        {{'HOMEPAGE.REQUIRED_FIELD' | translate}}
+                                    </div>
+    
+    
+                                </div>
+                                <div fxLayout="column" class="fields-labels">
+                                    <span translate>SCHEDULER.ATTACHMENT</span>
+                                    <div class="file" fxLayout="row">
+                                        <label class="button-mask" for="singleFile" fxLayoutAlign="center center">Välj
+                                            fil</label>
+                                        <input formControlName="attachment" id="singleFile" type="file" class="ssn-input-file"
+                                            (change)="onFileSelection($event)"
+                                            placeholder="{{'SCHEDULER.ATTACH_PLACEHOLDER' | translate}}">
+    
+                                        <div class="fields-labels" fxLayoutAlign="center center" *ngIf="selectedAttachment">
+                                            &nbsp;&nbsp;{{selectedAttachment.name}}
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                        <span class="button-container-top"></span>
+    
+                        <div fxLayoutAlign="center center" fxLayout="column">
+                            <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center"><span
+                                    translate fxLayoutAlign="center center">SCHEDULER.SEND</span>
+                            </button>
+                        </div>
+                        <!-- //////////////---NEW---/////////////// -->
+                        <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+                            <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+                        </div>
+                        <!-- //////////////---NEW---/////////////// -->
+                    <!-- </div> -->
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>
+<div class="banner-dark-img">
+    <div class="banner-image">
+    </div>
+</div>

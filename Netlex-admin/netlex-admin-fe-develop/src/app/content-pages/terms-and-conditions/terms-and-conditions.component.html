@@ -1,0 +1,17 @@
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>Villkor och betingelser</span></div>
+<!-- <label class="heading-labels"><b>Rubrik</b></label> -->
+<div class="field-container">
+    <div class="contentDiv">
+        <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+            [(ngModel)]="paragraphs"></ckeditor>
+    </div>
+</div>
+
+
+<div class="save-button-container" fxLayoutAlign="end center">
+    <!-- <button routerLink="/home" mat-button class="backBtn">Tillbaka</button> -->
+    <button mat-button class="updateBtn" (click)="updateTermsAndConditions()">
+        Uppdatering
+    </button>
+
+</div>

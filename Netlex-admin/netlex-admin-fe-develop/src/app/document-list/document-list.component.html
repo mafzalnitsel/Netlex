@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+<div class="header-top-new">
+    <span>ÄNDRA I BEFINTLIGA AVTAL</span>
+    <!-- <span>checkbox</span> -->
+    
+    <div class="checkboxes">       
+        <div class="checkbox_container"> 
+            <input  type="checkbox" [checked]="this.privatechecked"  [(ngModel)]="isChecked" (change)="onCheckboxChange()">
+            Privatpersonskontrakt kommer snart    
+            &nbsp;&nbsp;&nbsp;
+            <input type="checkbox" [(ngModel)]="IsInput" [checked]="this.fortagchecked" (change)="OnInInput()">Företagskontrakt kommer snart 
+            &nbsp;&nbsp;&nbsp; 
+            <input [checked]="askQuestionFirst" type="checkbox"
+                (change)="askQuestionFirstHandler($event.target.checked)">
+            Ställ frågor först
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="checkbox_container">     
+            <input [checked]="isEditPrices" type="checkbox" (change)="editPricesHandler($event.target.checked)">
+            Redigera priser
+        </div>
+    </div>
+    </div>
+
+<div *ngIf="showloading" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>
+<div *ngIf="documents">
+    <mat-list class="list-position" *ngFor="let document of documents">
+        <div class="border-bottom">
+            <h2 class="alphabet-letter">{{document.key}}</h2>
+            <div fxLayout="column" fxFlex class="list-container">
+                <div *ngFor="let documentValue of document.title; let i = index;">
+                    <div class="list-name {{i !== document.title.length-1 ? 'border-bottom': ''}}" fxLayout="row"
+                        fxLayout.sm="row" fxLayoutAlign.gt-md="none center">
+                        <h3 fxFlex="60" fxLayoutAlign.gt-md="none center">
+                            {{documentValue.documentTitle}}
+                        </h3>
+                        <div fxFlex="40" fxLayoutAlign.gt-md="end center">
+                            <!--                            <button mat-button class="publish-button common-button"-->
+                            <!--                                    (click)="openDialog(documentValue._id, 'publish')">Publicera</button>-->
+                            <div class="price_input_container" *ngIf="isEditPrices">
+                                <mat-form-field appearance="outline" class="custom_input">
+                                    <mat-label><b style="font-size: 13px;">Pris</b>
+                                        <span class="redStar">*</span></mat-label>
+                                    <input matInput type="number" maxlength="7"
+                                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        [(ngModel)]="documentValue.documentPrice"
+                                        (ngModelChange)="taxAddition($event,documentValue,i)">
+                                </mat-form-field>
+                                &nbsp;
+                                <mat-form-field appearance="outline" class="custom_input">
+                                    <mat-label><b style="font-size: 13px;">Beskatta</b>
+                                        <span class="redStar">*</span></mat-label>
+                                    <input matInput type="text" maxlength="100" [(ngModel)]="documentValue.documentTax"
+                                        [value]="documentValue.documentTax">
+                                </mat-form-field>
+                                <!-- &nbsp;
+                                <button mat-button class="edit-button"
+                                    (click)="updateDocumentPrice(documentValue)">Förändra</button>
+                                &nbsp;&nbsp; -->
+                            </div>
+                            <button mat-button class="update-button" *ngIf="isEditPrices"
+                                (click)="updateDocumentPrice(documentValue,documentValue.status)">Uppdatering</button>
+                            <h3 style="width:70px; text-align:center" *ngIf="!isEditPrices && documentValue.attachmentExist">
+                                Pdf</h3>
+                            <h3 style="width:70px; text-align:center" *ngIf="!isEditPrices && !documentValue.attachmentExist">
+                                No pdf</h3>
+                            <h3 style="width:70px; text-align:center" *ngIf="!isEditPrices">
+                                {{documentValue.documentPrice+documentValue.documentTax}}</h3>
+                            <button fxLayoutAlign="center" mat-button class="edit-button"
+                                (click)="edit(documentValue._id)" *ngIf="!isEditPrices">Redigera
+                            </button>
+                            <!-- &nbsp;&nbsp;&nbsp;&nbsp;fxHide.gt-sm -->
+                            <button fxLayoutAlign="center" mat-button class="unpublish-button"
+                                (click)="updateDocumentPrice(documentValue,'Draft')" *ngIf="!isEditPrices">Avpublicera
+                            </button>
+                            <button mat-button class="delete-button" (click)="openDialog(documentValue._id)"
+                                *ngIf="!isEditPrices">Radera
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-list>
+</div>
+<div *ngIf="documents.length <= 0" fxLayout="row" class="no-records-found" fxLayoutAlign="center center">
+    <h3>Inget dokument hittades!</h3>
+</div>

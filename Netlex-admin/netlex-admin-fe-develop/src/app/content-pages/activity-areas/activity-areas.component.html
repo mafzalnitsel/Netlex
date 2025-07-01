@@ -1,0 +1,42 @@
+<div class="header-top-copy noMargin" fxLayoutAlign="none center">
+    <span>Rubrik och Beskrivning</span>
+    <mat-form-field class="select" appearance="outline">
+        <mat-label><b>"Användartyp"</b></mat-label>
+        <mat-select (selectionChange)="changeExpertiseHandler()" [(value)]="selectedExpertise">
+        <!-- <mat-select [(value)]="selectedExpertise"> -->
+            <mat-option *ngFor="let type of expertiseOptions " value="{{type}}">{{type}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div *ngIf="editorloading" fxLayout="row" fxLayoutAlign="space-around center" class="spinnerContainer">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>
+<div class="field-container" *ngIf="!editorloading">
+    <div class="contentDiv">
+        <ckeditor *ngIf="selectedExpertise=='Familjerätt'" [config]="editorConfig" #ckEditorComp (ready)="onReady($event)"
+            [editor]="ckEditor" [(ngModel)]="expertise1"></ckeditor>
+        <ckeditor *ngIf="selectedExpertise=='Brottmål'" [config]="editorConfig" #ckEditorComp (ready)="onReady($event)"
+            [editor]="ckEditor" [(ngModel)]="expertise2"></ckeditor>
+        <ckeditor *ngIf="selectedExpertise=='Tvistemål'" [config]="editorConfig" #ckEditorComp (ready)="onReady($event)"
+            [editor]="ckEditor" [(ngModel)]="expertise3"></ckeditor>
+        <ckeditor *ngIf="selectedExpertise=='Migrationsrätt'" [config]="editorConfig" #ckEditorComp (ready)="onReady($event)"
+            [editor]="ckEditor" [(ngModel)]="expertise4"></ckeditor>
+        <ckeditor *ngIf="selectedExpertise=='Notarius Publicus'" [config]="editorConfig" #ckEditorComp (ready)="onReady($event)"
+            [editor]="ckEditor" [(ngModel)]="expertise5"></ckeditor>
+        <ckeditor *ngIf="selectedExpertise=='Socialrätt'" [config]="editorConfig" #ckEditorComp (ready)="onReady($event)"
+            [editor]="ckEditor" [(ngModel)]="expertise6"></ckeditor>
+
+    </div>
+</div>
+<div *ngIf="showloading" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>
+
+<div class="save-button-container" fxLayoutAlign="end center" *ngIf="!editorloading">
+    <!-- <button routerLink="/home" mat-button class="backBtn">Tillbaka</button> -->
+    <button mat-button class="updateBtn" (click)="updatetActivityAreas()">
+        Uppdatering
+    </button>
+
+</div>

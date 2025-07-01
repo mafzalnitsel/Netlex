@@ -1,0 +1,54 @@
+.button-accept{
+  width: 85px;
+  height: 30px;
+  border-radius: 6px;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 2px solid #C1C8DF;
+  background-color: #A8B2D4;
+  color: #FFFFFF;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+.button-reject{
+  width: 85px;
+  height: 30px;
+  border-radius: 6px;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 2px solid #C1C8DF;
+  color: #A8B2D4;
+  background-color: #FFFFFF;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+.button-accept:hover{
+  background-color: #aba8d4;
+}
+.button-reject:hover{
+  background-color: #aba8d4;
+  color: #FFFFFF;
+}
+.user-name{
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+}
+.request-container{
+  padding: 20px;
+  width: 90%;
+}
+.headings{
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+}
+.action{
+  padding-right: 65px;
+}
+
+.button-container{
+  padding: 0 5px 0 5px;
+}

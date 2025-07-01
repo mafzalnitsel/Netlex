@@ -1,0 +1,33 @@
+<!-- <p>control-panel-tab works!</p> -->
+<mat-tab-group animationDuration="0ms" [selectedIndex]="5" (selectedIndexChange)="controlPanelTabChanged($event)">
+  <!-- -----------------InnerTabs2-------Control Panel------------ -->
+  <mat-tab label="Kontroll Panel">
+    <app-control-panel></app-control-panel>
+  </mat-tab>
+  <!-- ---------------InnerTabs2---------Activities---------------- -->
+  <mat-tab label="Aktivitet">
+    <app-activity></app-activity>
+  </mat-tab>
+  <!-- ---------------InnerTabs2--------Counterparties------------- -->
+  <mat-tab label="Integrationer">
+    <app-integration></app-integration>
+  </mat-tab>
+  <!-- ---------------InnerTabs2------------Codes------------------ -->
+  <mat-tab label="Koder">
+    <app-codes></app-codes>
+  </mat-tab>
+  <!-- ---------------InnerTabs2---------Codes Groups-------------- -->
+  <!-- <mat-tab label="Koder Grupper"> -->
+    <!-- <app></app>Co-Fester -->
+  <!-- </mat-tab> -->
+  <!-- ----------InnerTabs2----------------Articles---------------- -->
+  <mat-tab label="Artiklar">
+    <app-articles></app-articles>
+  </mat-tab>
+  <!-- --vv-- To get Tab Index --vv-- -->
+  <mat-tab disabled></mat-tab>
+  <!-- --^^-- To get Tab Index --^^-- -->
+</mat-tab-group>
+<div *ngIf="ReportsTabIntial">
+  <app-control-panel></app-control-panel>
+</div>

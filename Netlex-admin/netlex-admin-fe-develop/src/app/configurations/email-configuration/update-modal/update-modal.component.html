@@ -1,0 +1,35 @@
+<!-- <div *ngIf="dateExpired=='YES'"> -->
+    <div fxLayout.lt-lg="col" fxLayout.lg="row">
+      <div fxFlex.gt-md="100" class="configuration_modal_container" fxLayout="column" fxLayoutAlign="none center">
+        <span class="button-container-top"></span>
+        <div>
+          <mat-icon class="info-icon">info</mat-icon>
+        </div>
+        <div>
+          <span fxLayoutAlign="center center" class="modal-heading">
+            <b>Är du säker ?</b></span><br>
+          <div class="modal-text"><span>
+            <!-- Klicka på knappen Uppdatera för att bekräfta -->
+            <b>Notera:</b> Om du anger fel e-post konfiguration kommer det att orsaka problem när du skickar e-post.<br/><br/> Klicka på knappen Uppdatera för att bekräfta och uppdatera ny konfiguration.
+          </span></div>
+        </div><br/>
+              <!-- ----------Buttons----------- -->
+      <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+        <button (click)="closeDialog()" mat-button class="back-button">
+          Avbryt
+          <!-- <mat-icon>close</mat-icon> -->
+        </button>
+        &nbsp;&nbsp;
+        <button (click)="updateRequest()" mat-button class="edit-button"><span
+            class="spinner-border spinner-border-sm">
+            Uppdatera</span>
+        </button>
+      </div>
+              <!-- <div fxLayoutAlign="center center" class="button-container-config">
+          <button mat-stroked-button (click)="closeDialog()" mat-button class="ok-button">
+            <span>Ok</span>
+          </button>
+        </div> -->
+      </div>
+    </div>
+  <!-- </div> -->

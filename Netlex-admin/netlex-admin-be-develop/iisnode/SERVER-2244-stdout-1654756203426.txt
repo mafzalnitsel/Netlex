@@ -1,0 +1,44 @@
+Https server listing on port : undefined
+listening on port \\.\pipe\a86be850-c52a-4253-8f2f-70529129d6f4
+hostname  SERVER
+MongoDb: Connected to MongoDB.
+[0mGET / [33m404[0m 8.003 ms - 139[0m
+req.params.name home
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/home [36m304[0m 26.732 ms - -[0m
+req.params.name home
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/home [36m304[0m 8.896 ms - -[0m
+req.params.name home
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/home [36m304[0m 8.293 ms - -[0m
+req.params.name home
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/home [36m304[0m 7.231 ms - -[0m
+[0mGET /documentListByStatus/Published [36m304[0m 12.913 ms - -[0m
+[0mGET /documentListByStatus/Published [36m304[0m 9.291 ms - -[0m
+req.params.name home
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/home [36m304[0m 8.295 ms - -[0m
+req.params.name home
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/home [36m304[0m 6.105 ms - -[0m
+[0mGET /documentListByStatus/Published [36m304[0m 9.444 ms - -[0m
+QuestionAndAnswer get request call from DB Successfully
+req.params.name questionAndAnswer
+[0mGET /questionAndAnswer [36m304[0m 6.293 ms - -[0m
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/questionAndAnswer [36m304[0m 10.617 ms - -[0m
+AboutUs get request call from DB Successfully
+[0mGET /aboutUs [36m304[0m 5.362 ms - -[0m
+[0mGET /getaboutus [36m304[0m 3.015 ms - -[0m
+req.params.name aboutUs
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/aboutUs [36m304[0m 5.443 ms - -[0m
+req.params.name undefined
+Lawyer get request call from DB Successfully
+[0mGET /getActiveshowLawyerToUser [36m304[0m 6.236 ms - -[0m
+[0mGET /documentListByStatus/Published [36m304[0m 9.649 ms - -[0m
+req.params.name home
+ContentPage get request call from DB Successfully
+[0mGET /contentPage/home [36m304[0m 7.066 ms - -[0m

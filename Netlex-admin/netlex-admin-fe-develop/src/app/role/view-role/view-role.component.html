@@ -1,0 +1,52 @@
+<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>ROLL / REDIGERA ROLL</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-role-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <tr fxLayout="column">
+                <label class="id-labels">Namn</label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <mat-label>Namn</mat-label>
+                    <input matInput type="text" maxlength="50" placeholder="Förnamn" [(ngModel)]="name"
+                           required>
+                </mat-form-field>
+            </tr>
+
+
+
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="start center">
+                <button [routerLink]="'/role'" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon>
+                    Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="update()" mat-button class="role-create-button"><span
+                        class="spinner-border spinner-border-sm"
+                        *ngIf="showloading" role="status" aria-hidden="true"></span><span *ngIf="!showloading">
+                     Uppdatering</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

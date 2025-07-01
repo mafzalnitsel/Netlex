@@ -1,0 +1,69 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>
+        Om Oss</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div class="addBox" fxLayout="column">
+        <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button mat-button class="saveBtn" [routerLink]="'/about-us/create'">
+                Skapa Om Oss</button>
+        </div>
+        <div class="table-container">
+            <div class="table-class">
+                <table class="table-size" id="table">
+                    <thead>
+                        <tr class="table-header">
+                            <th>Rubrik</th>
+                            <th>Beskrivning</th>
+
+                            <th *ngIf="this.authService.isAdmin()"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="about-us-table" *ngFor="let data of asyncPersons | async | paginate: { id: 'serverid', itemsPerPage:
+                 perPage, currentPage: p, totalItems: total }">
+                            <td (click)="viewAboutUs(data)">{{data.heading | slice:0:30}}</td>
+                            <td (click)="viewAboutUs(data)" [innerHTML]="data.description | slice:0:50|safeHtml ">
+
+                            </td>
+
+                            <button (click)="viewAboutUs(data)" mat-raised-button class="edit-button">Redigera</button>
+                            <td *ngIf="authService.isAdmin()">
+                                <button mat-button class="delete-about-us-button" (click)="deleteAboutUs(data._id);">
+                                    <mat>Radera</mat>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="!total" class="text-center">
+                            <td colspan="4">Inga Om Oss Lista hittades</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div fxLayoutAlign="center none" class="pagination-button-container">
+            <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getPage($event)" id="serverid">
+            </pagination-controls>
+        </div>
+        <div class="header-top" fxLayoutAlign="none center"><span>Rubrik och Beskrivning</span></div>
+        <label class="id-labels"><b>Om Oss Rubrik</b></label>
+        <div class="field-container" fxFlex.lt-md="100">
+            <div class="contentDiv">
+                <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+                    [(ngModel)]="aboutUsHeader"></ckeditor>
+            </div>
+        </div>
+        <label class="id-labels"><b>Om Oss Advokat Rubrik</b></label>
+        <div class="field-container" fxFlex.lt-md="100">
+            <div class="contentDiv">
+                <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+                    [(ngModel)]="aboutUsLawyerHeading"></ckeditor>
+            </div>
+        </div>
+        <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button routerLink="/home" mat-button class="backBtn">Tillbaka</button>
+            <button mat-button class="updateBtn" (click)="updateAboutUsHeader()">
+                Uppdatering
+            </button>
+        </div>
+    </div>
+</div>

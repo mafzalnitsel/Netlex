@@ -1,0 +1,39 @@
+<div class="dialog-container" *ngIf="!isDelete && !isCloning">
+    <div class="publish-text" fxLayout="column">
+        <span class="publish-label" fxLayoutAlign="center">{{data.dialogType === 'documentChange' ? 'Dokumentändring'
+            :'PUBLICERA/SPARA'}}</span>
+        <span class="publish-content">{{data.dialogType === 'documentChange' ? 'När du ändrar avtalet kommer data' +
+            ' att gå förlorade' :'Vill du publicera detta avtal eller spara det för senare redigering'}}
+        </span>
+    </div>
+    <div *ngIf="data.dialogType === 'documentChange'" class="publish-button" fxLayout="row">
+        <button mat-button fxLayoutAlign="center center" class="button-publish" (click)="ok()">Ok</button>
+        <button mat-button fxLayoutAlign="center center" class="button" (click)="cancel()">Annullera</button>
+    </div>
+    <div *ngIf="data.dialogType === 'publishSave'" class="publish-button" fxLayout="row">
+        <button mat-button fxLayoutAlign="center center" class="button-publish" (click)="view()">Visa PDF</button>
+        <button mat-button fxLayoutAlign="center center" class="button-publish" (click)="publish()">Publicera</button>
+        <button mat-button fxLayoutAlign="center center" class="button" (click)="save()">Spara</button>
+    </div>
+</div>
+<div class="dialog-container" *ngIf="isDelete">
+    <div class="publish-text">
+        <h3 class="publish-label">Är du säker på att du raderar fältet?</h3>
+    </div>
+    <div class="publish-button" fxLayout="row">
+        <button mat-button fxLayoutAlign="center center" class="button-publish" (click)="delete(false)">Avbryt</button>
+        <button mat-button fxLayoutAlign="center center" class="button" (click)="delete(true)">Radera</button>
+    </div>
+</div>
+<div class="dialog-container" *ngIf="isCloning">
+    <div class="publish-text">
+        <!-- <h4 class="publish-label">Denna åtgärd konverterar alla dina lokala variabler till globala. Är du säker på att
+            du fortsätter?</h4> -->
+        <h6 class="cloning-label">Denna åtgärd konverterar alla dina lokala variabler till globala. Är du säker på att
+                du fortsätter?</h6>
+    </div>
+    <div class="publish-button" fxLayout="row">
+        <button mat-button fxLayoutAlign="center center" class="button-publish" (click)="clone(true)">Fortsätta</button>
+        <button mat-button fxLayoutAlign="center center" class="button" (click)="clone(false)">Avbryt</button>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>Företag Avtal Lista</span></div>
+<div class="create-button-container" fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button class="createBtn create-user-button" [routerLink]="'/business-agreements'">Ny Företag Avtal</button>
+</div>
+<div *ngIf="documents">
+    <mat-list class="list-position" *ngFor="let document of documents">
+        <div class="border-bottom">
+            <h2 class="alphabet-letter">{{document.key}}</h2>
+            <div fxLayout="column" fxFlex class="list-container">
+                <div *ngFor="let documentValue of document.title; let i = index;">
+                    <div class="list-name {{i !== document.title.length-1 ? 'border-bottom': ''}}"
+                         fxLayout="row" fxLayout.sm="row" fxLayoutAlign.gt-md="none center">
+                        <h3 fxFlex="60" fxLayoutAlign.gt-md="none center">{{documentValue.documentTitle}}</h3>
+                        <div fxFlex="40" fxLayoutAlign.gt-md="end center">
+<!--                            <button mat-button class="publish-button common-button"-->
+<!--                                    (click)="openDialog(documentValue._id, 'publish')">Publicera</button>-->
+                            <button fxLayoutAlign="center" mat-button class="edit-button common-button" (click)="edit(documentValue._id)">
+                                Redigera
+                            </button>
+                            <button mat-button class="delete-button common-button"
+                                    (click)="openDialog(documentValue._id)">
+                                Radera
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-list>
+</div>
+<div *ngIf="documents.length <= 0" fxLayout="row" class="no-records-found" fxLayoutAlign="center center">
+    <h3>Inget dokument hittades!</h3>
+</div>

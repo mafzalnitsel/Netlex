@@ -1,0 +1,98 @@
+<div class="agreement-container playfairFont">
+    <div class="header-top-documents" fxLayout.lt-md="column" fxLayoutAlign="none center" fxHide.xs fxHide.sm>
+        <span class="agreementTitle" fxFlex.gt-md="50" translate>NAVIGATION_BAR.AGREEMENTS</span>
+        <div fxFlex.gt-md="50" class="search-input" fxLayoutAlign.gt-md="end">
+            <div class="search-input-container">
+                <input autocomplete="off" (input)="searchTimer($event.target.value)" class="search-filter playfairFont"
+                       [(ngModel)]="searchValue" fxFlex="80" type="text" placeholder="Sök efter avtal">
+                <div fxFlex="20" fxLayoutAlign="center end">
+                    <mat-icon fxLayoutAlign="center center" style="height: 100%" class="mat-icon-search-center">search
+                    </mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="documents">
+        <div fxHide.gt-sm>
+            <div>
+                <div class="agreement-header-container-mobile" fxLayoutAlign="center">
+                    <span class="agreement-header">{{"AGREEMENTS.AGREEMENTS" | translate}}</span>
+                </div>
+                <div fxLayoutAlign="center center">
+                    <div class="search-input-container-mobile">
+                        <input autocomplete="off" (input)="searchTimer($event.target.value)" class="search-filter-mobile playfairFont"
+                               [(ngModel)]="searchValue" fxFlex="80" type="text" placeholder="Sök efter avtal">
+                        <div fxFlex="20" fxLayoutAlign="center end">
+                            <mat-icon fxLayoutAlign="start center" style="height: 100%" class="mat-icon-search-center">search
+                            </mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="document-list-content-mobile">
+                <div *ngFor="let document of filterDocuments; let i = index">
+                    <div fxLayoutAlign="start">
+                        <h2 class="alphabet-letter-mobile">{{document.key}}</h2>
+                    </div>
+                    <div *ngFor="let documentValue of document.title">
+                        <div (click)="openDialog(documentValue.documentTitle, documentValue.documentDescription,
+                                                this.translate.instant('AGREEMENTS.AGREEMENT-DIALOG-ACTION'),
+                                                documentValue._id,  getTotalAmount(documentValue.documentPrice, documentValue.documentTax), 'mobile')">
+                            <div class="title-of-document-container-mobile" fxLayout="row">
+                                <span class="title-no-wrap" fxLayoutAlign="none center">
+                                    <span fxLayoutAlign="center center" class="horizontal-bar-mobile"></span>
+                                    {{documentValue.documentTitle}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxHide.lt-md>
+            <div>
+                <mat-list class="list-position" *ngFor="let document of filterDocuments; let i = index" fxHide.lt-md>
+                    <div fxLayout="row" class="agreement-list-header">
+                        <div fxFlex="71" fxLayoutAlign="start center">
+                            <h2 class="alphabet-letter">{{document.key}}</h2>
+                        </div>
+                        <div fxFlex="29" fxLayoutAlign="end center">
+                            <h2 *ngIf="i === 0" class="alphabet-letter-price">{{'COMMON.PRICE_LIST' | translate}}</h2>
+                        </div>
+                    </div>
+                    <div class="border-bottom">
+                        <div fxLayout="column">
+                            <div *ngFor="let documentValue of document.title; let i = index;">
+                                <div class="list-name" (click)="openDialog(documentValue.documentTitle, documentValue.documentDescription,
+                                                this.translate.instant('AGREEMENTS.AGREEMENT-DIALOG-ACTION'),
+                                                documentValue._id, documentValue.documentPrice, 'desktop')">
+                                    <div class="title-of-document-container" fxLayout="row" fxLayoutAlign="row">
+
+                                        <div fxLayoutAlign="start center" fxFlex="75"
+                                             class="title-of-document title-margin-unset" fxLayout="row">
+                                            <span fxLayoutAlign="center center" class="horizontal-bar"></span>
+                                            {{documentValue.documentTitle}}
+                                        </div>
+                                        <div fxLayoutAlign="end center" fxFlex="25" class="title-of-document-price">
+                                            <div class="list-price-container">
+                                                    <span fxLayoutAlign="start center" fxLayout="row">
+                                                    {{ getTotalAmount(documentValue.documentPrice, documentValue.documentTax)}} kr
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-list>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isSearchEmpty" fxLayout="row" class="no-records-found" fxLayoutAlign="center center">
+        <h3>Inga uppgifter funna!</h3>
+    </div>
+    <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+        <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+    </div>
+</div>

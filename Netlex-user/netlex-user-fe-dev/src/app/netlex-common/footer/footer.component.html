@@ -1,0 +1,443 @@
+<div class="footer_component playfairFont" fxLayout="column" *ngIf="utilService.visible">
+    <div fxHide.lt-md>
+        <div class="footer-dark-img" *ngIf="footer_Bg_type==='imageFooter'">
+            <div class="footer-background">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <div class="footer">
+                        <div class="">
+                            <div fxFlex.gt-sm="35">
+                                <div class="footer_column1">
+                                    <!-- <div class="footer_netlex_icon_container">
+                                        <img class="textNetlex" height="40" width="133" src="assets/images/netlex.png"
+                                            alt="Netlex">
+                                    </div> -->
+                                    <div class="footer_mirlex_logo_container">
+                                        <img class="mirlex_logo"
+                                            src="assets/images/Mirlex_footer_logo.png" alt="Netlex">
+                                    </div>
+                                    <tr fxLayout="column">
+                                        <div class="footer_col_0">
+                                            <!-- <p>
+                                                We aim to lead in each practice and area of law we work in. Coming from
+                                                in-depth understanding of the law and the industry, capitalizing on
+                                                extensive experience, we provide hands-on advice that speaks the language of
+                                                our client's business. Whether in aviation, sales and distribution,
+                                                antitrust, corporate and M&A, finance etc.
+                                            </p> -->
+                                            <!-- <p>
+                                                Vi strävar efter att vara ledande inom varje praxis och juridikområde vi
+                                                arbetar inom. Med utgångspunkt från en djupgående förståelse av juridik
+                                                och branschen, med stor erfarenhet, ger vi praktisk rådgivning som talar
+                                                språket i vår klients verksamhet. Oavsett om det gäller flyg,
+                                                försäljning och distribution, antitrust, företag och M&A, finans etc.
+                                            </p> -->
+                                            <p>{{footerparagraphTexts && footerparagraphTexts[0].value}}</p>
+                                            <span class="footer_col_3_logos">
+                                                <div class="social_img_container"><img
+                                                        src="assets/images/facebook_logo.png" alt=""
+                                                        class="footer_social_logo">Facebook</div>
+                                                <div class="border_line"></div>
+                                                <div class="social_img_container"><img
+                                                        src="assets/images/twitter_logo.png" alt=""
+                                                        class="footer_social_logo">Twitter</div>
+                                                <div class="border_line"></div>
+                                                <div class="social_img_container"><img
+                                                        src="assets/images/linkedIn_logo.png" alt=""
+                                                        class="footer_social_logo">LinkedIn</div>
+                                            </span>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </div>
+                            <div fxFlex.gt-sm="25">
+                                <div class="footer_column2">
+                                    <img src="assets/images/sa_ledamoter_logo_white.png" alt="" class="ledamot_logo">
+                                    <!-- <p>The advice in Netlex's legal practice and our lawyers are supervised by the Norwegian Bar Association.</p> -->
+                                    <!-- <p>Rådgivningen i Netlex advokatverksamhet och våra advokater övervakas av det
+                                        norska advokatsamfundet.</p> -->
+                                    <p>{{footerparagraphTexts && footerparagraphTexts[1].value}}</p>
+                                </div>
+                                <div class="footer_column3">
+                                    <tr fxLayout="column">
+                                        <div class="footer_col_3">
+                                            <b>Trygg och säker betalning</b><br /><br />
+                                            <span class="footer_col_3_logos">
+
+                                                <img src="assets/images/swish_logo2.png" alt=""
+                                                    class="footer_swish_logo">
+                                              
+                                                <img src="assets/images/klarna_logo.png" alt=""
+                                                    class="footer_klarna_logo">
+                                                <img src="assets/images/bankId_logo2.png" alt=""
+                                                    class="footer_bankId_logo">
+                                            </span>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </div>
+                            <div fxFlex.gt-sm="25">
+                                <div class="footer_column3">
+                                    <tr fxLayout="column">
+                                        <div class="footer_col_2">
+                                            <b>Kontakta oss</b>    <!--Mobile View-->
+                                            <!-- <p>netlex@mirlex.se</p> -->
+                                            <a [href]="'mailto:netlex@mirlex.se'"><p>netlex@mirlex.se</p></a>
+                                            <a [href]="'mailto:netlex@mirlex.se'"><p>netlex@mirlex.se</p></a>
+                                            <p>0102008078</p>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </div>
+                        </div>
+                        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                        </div>
+                        <p class="footer_copyright_text">
+                            <span>Copyright ©️ 2022 Alla rättigheter reserverade</span>
+                            <span style="cursor:pointer;" [routerLink]="'/privacy-and-policy'"> | Sekretesspolicy
+                            </span>
+                            <span style="cursor:pointer;" [routerLink]="'/terms-and-conditions'"> | Villkor</span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="" *ngIf="footer_Bg_type==='colorFooter'">
+            <div class="footer-background" [ngStyle]="{'background': footer_Bg_Color}">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <div class="footer">
+                        <div class="">
+                            <div fxFlex.gt-sm="35">
+                                <div class="footer_column1">
+                                    <!-- <div class="footer_netlex_icon_container">
+                                        <img class="textNetlex" height="40" width="133" src="assets/images/netlex.png"
+                                            alt="Netlex">
+                                    </div> -->
+                                    <div class="footer_mirlex_logo_container">
+                                        <img class="mirlex_logo"
+                                            src="assets/images/Mirlex_footer_logo.png" alt="Netlex">
+                                    </div>
+                                    <tr fxLayout="column">
+                                        <div class="footer_col_0">
+                                            <!-- <p>
+                                                We aim to lead in each practice and area of law we work in. Coming from
+                                                in-depth understanding of the law and the industry, capitalizing on
+                                                extensive experience, we provide hands-on advice that speaks the language of
+                                                our client's business. Whether in aviation, sales and distribution,
+                                                antitrust, corporate and M&A, finance etc.
+                                            </p> -->
+                                            <!-- <p>Vi strävar efter att vara ledande inom varje praxis och juridikområde vi
+                                                arbetar inom. Med utgångspunkt från en djupgående förståelse av juridik
+                                                och branschen, med stor erfarenhet, ger vi praktisk rådgivning som talar
+                                                språket i vår klients verksamhet. Oavsett om det gäller flyg, försäljning och distribution, antitrust, företag och M&A, finans etc.</p> -->
+                                            <p>{{footerparagraphTexts && footerparagraphTexts[0].value}}</p>
+                                            <span class="footer_col_3_logos">
+                                                <div class="social_img_container"><img
+                                                        src="assets/images/facebook_logo.png" alt=""
+                                                        class="footer_social_logo">Facebook</div>
+                                                <div class="border_line"></div>
+                                                <div class="social_img_container"><img
+                                                        src="assets/images/twitter_logo.png" alt=""
+                                                        class="footer_social_logo">Twitter</div>
+                                                <div class="border_line"></div>
+                                                <div class="social_img_container"><img
+                                                        src="assets/images/linkedIn_logo.png" alt=""
+                                                        class="footer_social_logo">LinkedIn</div>
+                                            </span>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </div>
+                            <div fxFlex.gt-sm="25">
+                                <div class="footer_column2">
+                                    <img src="assets/images/sa_ledamoter_logo_white.png" alt="" class="ledamot_logo">
+                                    <!-- <p>The advice in Netlex's legal practice and our lawyers are supervised by the Norwegian Bar Association.</p> -->
+                                    <p>
+                                        Rådgivningen i Netlex följer god advokatsed och våra advokater står under  
+                                        tillsyn av Sveriges advokatsamfund.
+                                    </p>
+                                </div>
+                                <div class="footer_column3">
+                                    <tr fxLayout="column">
+                                        <div class="footer_col_3">
+                                            <b>Trygg och säker betalning</b><br /><br />
+                                            <span class="footer_col_3_logos">
+
+                                                <img src="assets/images/swish_logo2.png" alt=""
+                                                    class="footer_swish_logo">
+                                                    <!-- Temporary Comment -->
+                                                <!-- <img src="assets/images/stripe_logo2.png" alt=""
+                                                    class="footer_stripe_logo"> -->
+                                                <img src="assets/images/klarna_logo.png" alt=""
+                                                    class="footer_klarna_logo">
+                                                <img src="assets/images/bankId_logo2.png" alt=""
+                                                    class="footer_bankId_logo">
+                                            </span>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </div>
+                            <div fxFlex.gt-sm="25">
+                                <div class="footer_column3">
+                                    <tr fxLayout="column">
+                                        <div class="footer_col_2">
+                                            <b>Kontakta oss</b> <!--Window View-->
+                                            <!-- <p>netlex@mirlex.se</p> -->
+                                            <a [href]="'mailto:netlex@mirlex.se'"><p>netlex@mirlex.se</p></a>
+                                            <p>0102008078</p>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </div>
+                            <!-- <div fxFlex.gt-sm="30">
+                                <tr fxLayout="column">
+                                    <div class="footer_col_1">
+                                        <img src="assets/images/sa_ledamot_logo_blue.png" alt="" class="ledamot_logo">
+                                    </div>
+                                </tr>
+                            </div> -->
+                        </div>
+                        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                            <!-- <div fxFlex.gt-sm="25" class="child-container-common">
+                                <tr fxLayout="column">
+                                    <div class="footer_col_0">
+                                        <p>
+                                            We aim to lead in each practice and area of law we work in. Coming from
+                                            in-depth understanding of the law and the industry, capitalizing on
+                                            extensive experience, we provide hands-on advice that speaks the language of
+                                            our client's business. Whether in aviation, sales and distribution,
+                                            antitrust, corporate and M&A, finance etc.
+                                        </p>
+                                        <span class="footer_col_3_logos">
+                                            <div class="social_img_container"><img src="assets/images/facebook_logo.png"
+                                                    alt="" class="footer_social_logo">Facebook</div>
+                                            <div class="border_line"></div>
+                                            <div class="social_img_container"><img src="assets/images/twitter_logo.png"
+                                                    alt="" class="footer_social_logo">Twitter</div>
+                                            <div class="border_line"></div>
+                                            <div class="social_img_container"><img src="assets/images/linkedIn_logo.png"
+                                                    alt="" class="footer_social_logo">LinkedIn</div>
+                                        </span>
+                                    </div>
+                                </tr>
+                            </div> -->
+
+
+                            <!-- <div fxFlex.gt-sm="30">
+                                <tr fxLayout="column">
+                                    <div class="footer_col_1">
+                                        <img src="assets/images/sa_ledamot_logo_blue.png" alt=""
+                                        class="ledamot_logo">
+                                    </div>
+                                </tr>
+                            </div> -->
+                            <!-- <div fxFlex.gt-sm="30">
+                                <tr fxLayout="column">
+                                    <div class="footer_col_1">
+                                        <b>Important Links</b>
+                                        <p>
+                                            <span class="dot"></span>
+                                            <span>Om oss</span>
+                                        </p>
+                                        <p>
+                                            <span class="dot"></span>
+                                            <span>Allmänna villkor</span>
+                                        </p>
+                                        <p>
+                                            <span class="dot"></span>
+                                            <span>Frågor och svar</span>
+                                        </p>
+                                    </div>
+                                </tr>
+                            </div> -->
+                            <!-- <tr fxLayout="column">
+                                    <div class="footer_col_1">
+                                        <b>Trygg och säker betalning</b><br /><br />
+                                        <span class="footer_col_3_logos">
+                                            <img src="assets/images/stripe_logo2.png" alt="" class="footer_stripe_logo">
+                                            <img src="assets/images/swish_logo2.png" alt="" class="footer_swish_logo">
+                                            <img src="assets/images/klarna_logo.png" alt="" class="footer_klarna_logo">
+                                        </span>
+                                    </div>
+                                </tr> -->
+                            <!-- <div fxFlex.gt-sm="15">
+                                <tr fxLayout="column">
+                                    <div class="footer_col_2">
+                                        <b>SOCIALT</b>
+                                        <p>LinkedIn</p>
+                                        <p>Facebook</p>
+                                        <p>Twitter</p>
+                                        <p>Instagram</p>
+                                    </div>
+                                </tr>
+                            </div> -->
+
+                            <!-- <div fxFlex.gt-sm="25">
+                                <tr fxLayout="column">
+                                    <div class="footer_col_2">
+                                        <b>Kontakta oss</b>
+                                        <p>netlex@mirlex.se</p>
+                                    </div>
+                                </tr>
+                            </div> -->
+                        </div>
+                        <p class="footer_copyright_text">
+                            <span>Copyright ©️ 2022 Alla rättigheter reserverade</span>
+                            <span style="cursor:pointer;" [routerLink]="'/privacy-and-policy'"> | Sekretesspolicy
+                            </span>
+                            <span style="cursor:pointer;" [routerLink]="'/terms-and-conditions'"> | Villkor</span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm>
+        <div class="footer-dark-img" *ngIf="footer_Bg_type==='imageFooter'">
+            <div class="footer-background-mobile ">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <div class="footer_mobile">
+                        <div class="footer_mobile_cols">
+                            <!-- <div fxFlex.gt-sm="35">
+                                <div class="footer_column1">
+                                    <div class="footer_mirlex_logo_container">
+                                        <img class="mirlex_logo"
+                                            src="assets/images/Mirlex_footer_logo.png" alt="Netlex">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="footer_col_1_mobile">
+                                <!-- <img src="assets/images/sa_ledamoter_logo_white.png" alt="" class="ledamot_logo_mobile">
+                                 -->
+                                <img class="mirlex_logo_mbl" height="40"
+                                    src="assets/images/Mirlex_footer_logo.png" alt="Netlex">
+                                <!-- <p>The advice in Netlex's legal practice and our lawyers are supervised by the Norwegian Bar Association.</p> -->
+                                <!-- <p>Rådgivningen i Netlex advokatverksamhet och våra advokater övervakas av det
+                                norska advokatsamfundet.</p> -->
+                                <p>{{footerparagraphTexts && footerparagraphTexts[0].value}}</p>
+                            </div>
+                            <div class="footer_col_2_mobile">
+                                <img src="assets/images/sa_ledamoter_logo_white.png" alt="" class="ledamot_logo_mobile">
+                                <!-- <p>The advice in Netlex's legal practice and our lawyers are supervised by the Norwegian Bar Association.</p> -->
+                                <!-- <p>Rådgivningen i Netlex advokatverksamhet och våra advokater övervakas av det
+                                norska advokatsamfundet.</p> -->
+                                <p>{{footerparagraphTexts && footerparagraphTexts[1].value}}</p>
+                            </div>
+                            <div class="footer_col_2b_mobile">
+                                <b class="contact_us">Kontakta oss</b>
+                                <!-- <p>netlex@mirlex.se</p> -->
+                                <a [href]="'mailto:netlex@mirlex.se'"><p>netlex@mirlex.se</p></a>
+                                <p>0102008078</p>
+                            </div>
+                            <div class="footer_col_3_mobile">
+                                <b>Trygg och säker betalning</b><br /><br />
+                                <span class="footer_col_3_logos_mobile">
+                                    <img src="assets/images/swish_logo2.png" alt="" class="footer_swish_logo_mobile">
+                                    <!-- Temporary Comment -->
+                                    <!-- <img src="assets/images/stripe_logo2.png" alt="" class="footer_stripe_logo_mobile"> -->
+                                    <img src="assets/images/klarna_logo.png" alt="" class="footer_klarna_logo_mobile">
+                                    <img src="assets/images/bankId_logo2.png" alt="" class="footer_bankId_logo_mobile">
+                                </span>
+                            </div>
+                            <div class="footer_col_4_mobile">
+                                <b>SOCIALT</b>
+                                <span class="social_images_container">
+                                    <div class="social_img_container_mobile"><img src="assets/images/facebook_logo.png"
+                                            alt="" class="footer_social_logo_mobile">Facebook</div>
+                                    <div class="border_line_mobile"></div>
+                                    <div class="social_img_container_mobile"><img src="assets/images/twitter_logo.png"
+                                            alt="" class="footer_social_logo_mobile">Twitter</div>
+                                    <div class="border_line_mobile"></div>
+                                    <div class="social_img_container_mobile"><img src="assets/images/linkedIn_logo.png"
+                                            alt="" class="footer_social_logo_mobile">LinkedIn</div>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- <div class="footer_netlex_icon_container_mobile">
+                            <img class="textNetlex" height="40" width="133" src="assets/images/netlex.png" alt="Netlex">
+                        </div> -->
+                        <p class="footer_copyright_text_mobile">
+                            <span>Copyright ©️ 2022 Alla rättigheter reserverade</span>
+                            <span style="cursor:pointer;" [routerLink]="'/privacy-and-policy'"> | Sekretesspolicy
+                            </span>
+                            <span style="cursor:pointer;" [routerLink]="'/terms-and-conditions'"> | Villkor</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="" *ngIf="footer_Bg_type==='colorFooter'">
+            <div class="footer-background-mobile " [ngStyle]="{'background': footer_Bg_Color}">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <div class="footer_mobile">
+                        <div class="footer_mobile_cols">
+                            <!-- <div fxFlex.gt-sm="35">
+                                <div class="footer_column1">
+                                    <div class="footer_mirlex_logo_container">
+                                        <img class="mirlex_logo" height="60" width="166"
+                                            src="assets/images/Mirlex_footer_logo.png" alt="Netlex">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="footer_col_1_mobile">
+                                <!-- <img src="assets/images/sa_ledamoter_logo_white.png" alt="" class="ledamot_logo_mobile">
+                                 -->
+                                <img class="mirlex_logo_mbl"
+                                    src="assets/images/Mirlex_footer_logo.png" alt="Netlex">
+                                <!-- <p>The advice in Netlex's legal practice and our lawyers are supervised by the Norwegian Bar Association.</p> -->
+                                <!-- <p>Rådgivningen i Netlex advokatverksamhet och våra advokater övervakas av det
+                                norska advokatsamfundet.</p> -->
+                                <p >{{footerparagraphTexts && footerparagraphTexts[0].value}}</p>
+                            </div>
+                            <div class="footer_col_2_mobile">
+                                <img src="assets/images/sa_ledamoter_logo_white.png" alt="" class="ledamot_logo_mobile">
+                                <!-- <p>The advice in Netlex's legal practice and our lawyers are supervised by the Norwegian Bar Association.</p> -->
+                                <!-- <p>Rådgivningen i Netlex advokatverksamhet och våra advokater övervakas av det
+                                norska advokatsamfundet.</p> -->
+                                <p>{{footerparagraphTexts && footerparagraphTexts[1].value}}</p>
+                            </div>
+                            <div class="footer_col_2b_mobile">
+                                <b class="contact_us">Kontakta oss</b>
+                                <!-- <p>netlex@mirlex.se</p> -->
+                                <a [href]="'mailto:netlex@mirlex.se'"><p>netlex@mirlex.se</p></a>
+                                <p>0102008078</p>
+                            </div>
+                            <div class="footer_col_3_mobile">
+                                <b>Trygg och säker betalning</b><br /><br />
+                                <span class="footer_col_3_logos_mobile">
+                                    <img src="assets/images/swish_logo2.png" alt="" class="footer_swish_logo_mobile">
+                                    <!-- <img src="assets/images/stripe_logo2.png" alt="" class="footer_stripe_logo_mobile"> -->
+                                    <img src="assets/images/klarna_logo.png" alt="" class="footer_klarna_logo_mobile">
+                                    <img src="assets/images/bankId_logo2.png" alt="" class="footer_bankId_logo_mobile">
+                                </span>
+                            </div>
+                            <div class="footer_col_4_mobile">
+                                <b>SOCIALT</b>
+                                <span class="social_images_container">
+                                    <div class="social_img_container_mobile"><img src="assets/images/facebook_logo.png"
+                                            alt="" class="footer_social_logo_mobile">Facebook</div>
+                                    <div class="border_line_mobile"></div>
+                                    <div class="social_img_container_mobile"><img src="assets/images/twitter_logo.png"
+                                            alt="" class="footer_social_logo_mobile">Twitter</div>
+                                    <div class="border_line_mobile"></div>
+                                    <div class="social_img_container_mobile"><img src="assets/images/linkedIn_logo.png"
+                                            alt="" class="footer_social_logo_mobile">LinkedIn</div>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- <div class="footer_netlex_icon_container_mobile">
+                            <img class="textNetlex" height="40" width="133" src="assets/images/netlex.png" alt="Netlex">
+                        </div> -->
+                        <p class="footer_copyright_text_mobile">
+                            <span>Copyright ©️ 2022 Alla rättigheter reserverade</span>
+                            <span style="cursor:pointer;" [routerLink]="'/privacy-and-policy'"> | Sekretesspolicy
+                            </span>
+                            <span style="cursor:pointer;" [routerLink]="'/terms-and-conditions'"> | Villkor</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="dialog_close_icon">
+    <mat-icon (click)="closeDialog()">close</mat-icon>
+</div>
+<div class="bio_lawyer_name playfairFont">{{lawyerDetails.firstName}} {{lawyerDetails.lastName}}</div>
+
+<div class="lawyer_details_dialog_main playfairFont" fxHide.lt-md>
+    <div class="lawyer_details_dialog_container">
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="lawyer_details_container">
+            <div fxFlex.gt-sm="70" class="lawyer_details_title_desc">
+                <div class="lawyer_details_bio">
+                    <!-- <div class="bio_lawyer_name">{{lawyerDetails.firstName}}</div> -->
+                    <div class="bio_heading playfairFont">Erfarenhet</div>
+                    <!-- <div class="bio_description">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book. It has survived not
+                        only five centuries, but also the leap into electronic typesetting, remaining essentially
+                        unchanged.
+                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                        passages,
+                        and more recently with desktop publishing software like Aldus PageMaker including versions of
+                        Lorem
+                        Ipsum</div> -->
+                    <!-- <div class="bio_description">{{lawyerDetails.training}}</div> -->
+                    <p class="bio_description playfairFont"
+                    [innerHTML]="lawyerDetails.training|safeHtml| translate "> </p>
+                </div>
+                <div class="activity_area ">
+                    <div class="activity_area_heading playfairFont">Verksamhetsområde</div>
+                    <!-- <div class="activity_area_desc">{{lawyerDetails.activityArea}}</div> -->
+                    <div class="abc">
+                        <div class="activity_area_desc" *ngFor="let item of lawyerDetails.activityArea; let i= index;">
+                            {{item}}<span *ngIf="i<lawyerDetails.activityArea.length-1">,</span><span *ngIf="i===lawyerDetails.activityArea.length-1">.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity_area playfairFont">
+                    <div class="languages_heading">Språk:</div>
+                    <div class="abc">
+                        <div class="languages_desc" *ngFor="let item of lawyerDetails.languages; let i= index;">
+                            {{item}}<span *ngIf="i<lawyerDetails.languages.length-1">,</span><span *ngIf="i===lawyerDetails.languages.length-1">.</span>
+                        </div>
+                    </div>
+
+                    <!-- <span>Languages:</span>
+                    <span>{{lawyerDetails.languages}}</span> -->
+                </div>
+                <!-- <div class="activity_area">
+                <div class="activity_area_heading">Activity Area</div>
+                <div class="activity_area_desc">{{lawyerDetails.activityArea}}</div>
+            </div> -->
+            </div>
+            <div fxFlex.gt-sm="30" class="lawyer_details_image">
+                <div class="lawyer_image_container">
+                    <img [src]="showimage+lawyerDetails.lawyerPic" alt="Paris" class="lawyer_img_style">
+                </div>
+                <!-- <div class="lawyer_languages_container">
+                    <span>Languages:</span>
+                    <span>{{lawyerDetails.languages}}</span>
+                </div> -->
+                <div class="schedule_meeting_btn_container">
+                    <button class="schedule_meeting_button" (click)="scheduleMeeting()"><span translate>Boka
+                            möte</span></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="lawyer_details_dialog_main playfairFont" fxHide.gt-sm>
+    <div class="lawyer_details_dialog_container">
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="lawyer_details_container">
+            <div fxFlex.gt-sm="30" class="lawyer_details_image">
+                <div class="lawyer_image_container">
+                    <img [src]="showimage+lawyerDetails.lawyerPic" alt="Paris" class="lawyer_img_style">
+                </div>
+                <!-- <div class="lawyer_languages_container">
+                    <span>Språk:</span>
+                    <span>{{lawyerDetails.languages}}</span>
+                </div> -->
+                <div class="schedule_meeting_btn_container">
+                    <button class="schedule_meeting_button" (click)="scheduleMeeting()"><span translate>Boka
+                            möte</span></button>
+                </div>
+
+            </div>
+            <div fxFlex.gt-sm="70" class="lawyer_details_title_desc playfairFont">
+                <div class="lawyer_details_bio">
+                    <!-- <div class="bio_lawyer_name">{{lawyerDetails.firstName}}</div> -->
+                    <div class="bio_heading playfairFont">Erfarenhet</div>
+                    <!-- <div class="bio_description">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book. It has survived not
+                        only five centuries, but also the leap into electronic typesetting, remaining essentially
+                        unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                        passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
+                        Lorem Ipsum</div> -->
+                    <!-- <div class="bio_description">{{lawyerDetails.training}}</div> -->
+                    <p class="bio_description playfairFont"
+                    [innerHTML]="lawyerDetails.training|safeHtml| translate "> </p>
+                </div>
+                <div class="activity_area ">
+                    <div class="activity_area_heading playfairFont">Verksamhetsområde</div>
+                    <!-- <div class="activity_area_desc">{{lawyerDetails.activityArea}}</div> -->
+                    <div class="abc">
+                        <div class="activity_area_desc playfairFont" *ngFor="let item of lawyerDetails.activityArea; let i= index;">
+                            {{item}}
+                            <span *ngIf="i<lawyerDetails.activityArea.length-1">,</span> 
+                            <span *ngIf="i===lawyerDetails.activityArea.length-1">.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity_area ">
+                    <div class="languages_heading playfairFont">Språk:</div>
+                    <div class="abc">
+                        <div class="languages_desc playfairFont" *ngFor="let item of lawyerDetails.languages; let i= index;">
+                            {{item}}
+                            <span *ngIf="i<lawyerDetails.languages.length-1">,</span>
+                            <span *ngIf="i===lawyerDetails.languages.length-1">.</span>
+                        </div>
+                    </div>
+
+                    <!-- <span>Languages:</span>
+                    <span>{{lawyerDetails.languages}}</span> -->
+                </div>
+                <!-- <div class="activity_area">
+                <div class="activity_area_heading">Activity Area</div>
+                <div class="activity_area_desc">{{lawyerDetails.activityArea}}</div>
+            </div> -->
+            </div>
+        </div>
+    </div>
+</div>

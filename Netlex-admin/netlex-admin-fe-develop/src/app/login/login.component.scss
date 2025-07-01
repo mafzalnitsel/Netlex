@@ -1,0 +1,108 @@
+.ForgotP{
+  font-size: 12px;
+  color: black;
+  text-decoration-line: none;
+  text-align: center;
+}
+.loginAsCheckbox{
+  font-size: 12px;
+  color: black;
+  text-decoration-line: none;
+  // text-align: end;
+  margin-bottom: 15px;
+  margin-top: -10px;
+  //   height: 35px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.create{
+  color: black;
+  text-align: center;
+}
+$font-family: Roboto, Serif;
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Pattern styles */
+.input-fields-create {
+  width: 290px;
+  height: 40px;
+  margin-top: 20px;
+  bottom: 20px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}
+
+.textNetlex {
+  //height: 59px;
+  // margin-left: 15px;
+  margin-left: 37px;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer;
+}
+
+.saveBtn {
+  border-radius: unset;
+  background-color: var(--netlex-primary);
+  color: white;
+  height: 40px;
+  width: 152px;
+  font-family: $font-family;
+}
+
+.navbar {
+  height: 70px;
+  padding: 12px;
+  text-align: left;
+  // background-color: var(--netlex-primary);
+  background-color: #000234;
+  border-radius: unset;
+}
+
+.fields {
+  background-color: #F8F8F8;
+}
+
+.register {
+  display: grid;
+  place-items: center;
+  padding: 15px;
+}
+
+.main-container {
+  height: available;
+}
+
+.fields-container {
+  padding: 80px 0 0 0;
+
+}
+
+.required {
+  color: red;
+}
+
+.fields-labels{
+  font-family: $font-family;
+  font-size: 15px;
+  font-weight: 400;
+}
+.container-login{
+  background-color: #F8F8F8;
+  height: 100%;
+}
+.welcome-note{
+  height: auto;
+  // height: 100%;
+  background-color: white;
+}
+
+.register-container{
+  height: 100%;
+}

@@ -1,0 +1,57 @@
+<!-- <div class="header-top" fxLayoutAlign="none center"><span>Nya användarförfrågningar</span></div> -->
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div class="addBox" fxLayout="column">
+        <!-- <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button mat-button class="saveBtn create-user-button" [routerLink]="'/businesstype/create'">Ny Affärs </button>
+        </div> -->
+        <div class="margin"></div>
+        <div class="table-container">
+            <table class="table-size" id="table">
+                <thead>
+                    <tr class="table-header">
+                        <th>Namn</th>
+                        <th>Personnummer(SSN)</th>
+                        <th>E-post</th>
+                        <th>Kontotyp</th>
+                        <th *ngIf="this.authService.isAdmin()"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="user-row" *ngFor="let item of asyncItems| async | paginate: { id: 'server', itemsPerPage:
+                    perPage, currentPage: p, totalItems: total }">
+                        <td>{{item.userName}}</td>
+                        <td>{{item.ssn}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.accountType}}</td>
+                        <!-- <span fxHide.lt-md>Aktivera</span> -->
+                        <!-- <span fxHide.gt-sm>Pdf</span> -->
+                        <!-- <td class="pdf_col" (click)="activateUserAccount(item._id)">
+                            <mat-icon>done_outline</mat-icon>
+                            <span>Aktivera</span>
+                        </td> -->
+                        <!-- <button mat-raised-button class="edit-button">Redigera</button> -->
+                        <button (click)="activateUserAccount(item._id)" mat-raised-button class="edit-button">
+                            <mat-icon>done_outline</mat-icon>
+                            <span>Aktivera</span>
+                        </button>
+                        <!-- <td *ngIf="authService.isAdmin()">
+                        <button mat-button class="delete-user-button" (click)="deleteBusinessType(item._id);">
+                            <mat>Radera</mat>
+                        </button>
+                    </td> -->
+                    </tr>   
+                    <tr *ngIf="!total" class="text-center">
+                        <td colspan="5">Ingen förfrågan hittades</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div fxLayoutAlign="center none" class="pagination-button-container">
+            <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getPage($event)"
+                id="server"></pagination-controls>
+        </div>
+        <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button routerLink="/home" mat-button class="saveBtn">Tillbaka</button>
+        </div>
+    </div>
+</div>

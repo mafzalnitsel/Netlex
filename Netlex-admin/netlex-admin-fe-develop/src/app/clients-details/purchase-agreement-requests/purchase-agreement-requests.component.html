@@ -1,0 +1,63 @@
+<!-- <div class="header-top" fxLayoutAlign="none center"><span>Nya användarförfrågningar</span></div> -->
+<div fxLayout.lt-lg="col" fxLayout.lg="row"  *ngIf="isRequestList">
+    <div class="addBox" fxLayout="column">
+        <!-- <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button mat-button class="saveBtn create-user-button" [routerLink]="'/businesstype/create'">Ny Affärs </button>
+        </div> -->
+        <div class="margin"></div>
+        <div class="table-container">
+            <table class="table-size" id="table">
+                <thead>
+                    <tr class="table-header">
+                        <th>Användarnamn</th>
+                        <th>Personnummer</th>
+                        <th>E-post</th>
+                        <th>Avtal</th>
+                        <th>Datum</th>
+                        <th *ngIf="this.authService.isAdmin()"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="user-row" *ngFor="let item of asyncItems| async | paginate: { id: 'server', itemsPerPage:
+                    perPage, currentPage: p, totalItems: total }">
+                        <td>{{item.user.userName}}</td>
+                        <td>{{item.user.ssn}}</td>
+                        <td>{{item.user.email}}</td>
+                        <td>{{item.documentTitle}}</td>
+                        <td>{{item.createdAt.split("T")[0]}}</td>
+                        <!-- <span fxHide.lt-md>Aktivera</span> -->
+                        <!-- <span fxHide.gt-sm>Pdf</span> -->
+                        <!-- <td class="pdf_col" (click)="activateUserAccount(item._id)">
+                            <mat-icon>done_outline</mat-icon>
+                            <span>Aktivera</span>
+                        </td> -->
+                        <!-- <button mat-raised-button class="edit-button">Redigera</button> -->
+                        <button (click)="viewDetails(item._id)" mat-raised-button class="edit-button">
+                            <!-- <mat-icon>done_outline</mat-icon> -->
+                            <!-- <span>Aktivera</span> -->
+                            <span>Visa</span>
+                        </button>
+                        <!-- <td *ngIf="authService.isAdmin()">
+                        <button mat-button class="delete-user-button" (click)="deleteBusinessType(item._id);">
+                            <mat>Radera</mat>
+                        </button>
+                    </td> -->
+                    </tr>   
+                    <tr *ngIf="!total" class="text-center">
+                        <td colspan="5">Ingen förfrågan hittades</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div fxLayoutAlign="center none" class="pagination-button-container">
+            <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getPage($event)"
+                id="server"></pagination-controls>
+        </div>
+        <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button routerLink="/home" mat-button class="saveBtn">Tillbaka</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="isViewOneRequest">
+    <app-check-in-clients-details [requestId]= "viewRequestId" (closeViewDetails)="closeViewDetailsHandler($event)"></app-check-in-clients-details>
+</div>

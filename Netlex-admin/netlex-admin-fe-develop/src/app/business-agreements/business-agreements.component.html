@@ -1,0 +1,168 @@
+<app-navbar [isNewDealComponent]=true></app-navbar>
+<div class="header-top" fxLayoutAlign="none center" *ngIf="!id"><span>Företag avtal / Skapa Företag avtal</span></div>
+<div class="header-top" fxLayoutAlign="none center" *ngIf="id"><span>Företag avtal / Redigera Företag avtal</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-about-us-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <!-- <label class="id-labels"><b>Rubrik</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <input matInput maxlength="27" [(ngModel)]="documentTitle" [formControl]="documentTitleErr"
+                        placeholder="Dokument titel *">
+                    <mat-error *ngIf="documentTitleErr.hasError('required')"></mat-error>
+                </mat-form-field> -->
+            <div fxLayout.gt-sm="row" class="input-field-row">
+                <mat-form-field class="inputField1">
+                    <input matInput maxlength="27" [(ngModel)]="documentTitle" [formControl]="documentTitleErr"
+                        placeholder="Dokument titel *">
+                    <mat-error *ngIf="documentTitleErr.hasError('required')"></mat-error>
+                </mat-form-field>
+                &nbsp;&nbsp;&nbsp;
+                <mat-form-field class="inputField1">
+                    <input matInput type="number" maxlength="7"
+                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        [(ngModel)]="documentPrice" [formControl]="documentPriceErr" placeholder="Pris *"
+                        (ngModelChange)="taxAddition($event)">
+                    <mat-error *ngIf="documentPriceErr.hasError('required')"></mat-error>
+                </mat-form-field>
+                &nbsp;&nbsp;&nbsp;
+                <mat-form-field class="inputField1">
+                    <input matInput type="number" disabled maxlength="10" [(ngModel)]="documentTax"
+                        [formControl]="documentTaxErr" placeholder="Beskatta *">
+                    <mat-error *ngIf="documentTaxErr.hasError"></mat-error>
+                </mat-form-field>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Beskrivning</b></label>
+                <div class="field-container">
+                    <div class="contentDiv">
+                        <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+                            [(ngModel)]="documentDescription"></ckeditor>
+                        <!-- documentTax -->
+                    </div>
+                </div>
+            </tr>
+            <div class="upload_pdf_container">
+                <label class="id-labels"><b>Bifoga</b></label>
+                <tr fxLayout="column">
+                    <!-- <input [(ngModel)]="pdfAttachment" (change)="onBusimessAgreementPdfChange($event)" type="file"
+                        class="form-control" id="pdfAttachment" accept="pdf/*"> -->
+                    <input (change)="onBusimessAgreementPdfChange($event)" type="file" class="form-control"
+                        id="pdfAttachment" accept="pdf/*">
+                </tr>
+                <div *ngIf="id && pdfAttachment">
+                    <button type="button" (click)="viewFileHandler()" class="viewFileBtn">
+                        <span>Visa fil</span>
+                    </button>
+                </div>
+                <!-- <div class="upload_btn_container">
+                    <button *ngIf="!pdfUploadingLoader" type="button" (click)="uploadBusimessAgreementPdf()"
+                        class="uploadBtn">
+                        <span>Ladda upp Pdf</span>
+                    </button>
+                    <button *ngIf="pdfUploadingLoader" type="button" class="uploadBtnLoading">
+                        <mat-spinner diameter="20" strokeWidth="2"></mat-spinner>
+                    </button>
+                </div> -->
+            </div>
+
+            <div class="pusblish_container" fxLayoutAlign="end end">
+                <!-- <button [routerLink]="'/businessAgreementsList'" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon> Tillbaka
+                </button> -->
+                <button mat-button class="button_submit" (click)="openDialog('publishSave')" *ngIf="!pdfUploadingLoader"
+                    [disabled]="showLoader || uploadingLoader">
+                    <!-- PUBLICERA / SPARA -->
+                    PUBLICERA
+                </button>
+                <button mat-button class="button_submit_loading" *ngIf="pdfUploadingLoader"
+                    [disabled]="showLoader || uploadingLoader">
+                    <mat-spinner diameter="20" strokeWidth="2"></mat-spinner>
+                </button>
+                <!-- <button mat-button class="button_submit" (click)="openDialog('publishSave')" [disabled]="showLoader || uploadingLoader">
+                         PUBLICERA / SPARA  </button> -->
+            </div>
+            <!-- <div class="pusblish_container" fxLayoutAlign="end end" *ngIf="!pdfAttachmentSource">
+                <button mat-button class="button_submit" (click)="openDialog('publishSave')" [disabled]="showLoader || uploadingLoader">
+                    PUBLICERA
+                  </button>
+            </div> -->
+            <!-- <div class="pusblish_container" fxLayoutAlign="end end" *ngIf="!id">
+                <button mat-button class="button_submit" (click)="openDialog('publishSave')" [disabled]="showLoader || uploadingLoader">
+                    PUBLICERA
+                  </button>
+            </div> -->
+            <!--<div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+                 <button routerLink="/home" mat-button class="back-button" *ngIf="!id">
+                    <mat-icon>chevron_left</mat-icon> Tillbaka
+                </button>
+                 <button routerLink="/home" mat-button class="back-button" *ngIf="id">
+                    <mat-icon>chevron_left</mat-icon> Tillbaka
+                </button> 
+                &nbsp;&nbsp;
+                <button (click)="openDialog('publishSave')" mat-button class="about-us-create-button"><span
+                        class="spinner-border spinner-border-sm">
+                        PUBLICERA / SPARA</span>
+                </button>
+            </div>-->
+
+            <!-- &nbsp;&nbsp;&nbsp; -->
+            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\-----Upload Videos-----/\/\/\/\/\/\/\/\/\/\/\/\/\/\  -->
+            <!-- <div fxLayout.gt-sm="row" class="input-field-row">
+                <div class="desc_editor">
+                    <ckeditor [config]="editorConfig2" #ckEditorComp (ready)="onReady($event)"
+                        [editor]="ckEditor" [(ngModel)]="documentDescription"></ckeditor>
+                </div>
+                <tr fxLayout="column" class="upload_video_container" *ngIf="id">
+                    <label class="upload_video_text">Välj video</label>
+                    <div style="font-size:11px" appearance="outline">
+                        <input multiple [(ngModel)]="agreementVideo" (change)="onVideoChange($event)"
+                            type="file" class="form-control" id="agreementVideo"
+                            accept="video/*">
+                    </div>
+                    <div class="upload_btn_container">
+                        <button *ngIf="!uploadingLoader" type="button" (click)="uploadVideoHandler()"
+                            class="uploadBtn">
+                            <span>Ladda upp Video</span>
+                        </button>
+                        <button *ngIf="uploadingLoader" type="button" class="uploadBtnLoading">
+                            <mat-spinner diameter="20" strokeWidth="2"></mat-spinner>
+                        </button>
+                    </div>
+                </tr>
+            </div>
+            &nbsp;&nbsp;&nbsp; -->
+            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\-----Selected Videos Preview-----/\/\/\/\/\/\/\/\/\/\/\/\/\/\  -->
+            <!-- <label class="preview_heading_vid" *ngIf="id && videoUrl!=''">Videominiatyrer</label>
+            <div class="input-field-row" class="videos_preview_container" *ngIf="id && videoUrl!=''">
+                <div *ngIf="showLoader" class="video_preview_loading">
+                    <mat-spinner diameter="40" strokeWidth="4"></mat-spinner>
+                </div>
+                <tr fxLayout="column" class="videos_preview" *ngFor="let video of videoUrl">
+                    <video [src]="video.url" *ngIf="!videoEdit && videoUrl"
+                        style="width:12em; height:8em;"></video>
+                    <video [src]="editVideoUrl + video.url" *ngIf="videoEdit && videoUrl"
+                        style="width:12em; height:8em;"></video>
+                </tr>
+            </div> -->
+            <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\-----Upload Image-----/\/\/\/\/\/\/\/\/\/\/\/\/\/\  -->
+            <!-- <div fxLayout.gt-sm="row" class="input-field-row image_upload">
+                <tr fxLayout="column" class="image_preview" *ngIf="agreementHeaderPicUrl">
+                    <img [src]="agreementHeaderPicUrl" height="200" style="width:12em; height:8em;" />
+                </tr>
+                <tr fxLayout="column" class="upload_image_container" *ngIf="id">
+                    <label class="upload_image_text">Välj Bild</label>
+                    <div style="font-size:11px" appearance="outline">
+                        <input [(ngModel)]="agreementImage" (change)="onImageChange($event)" type="file"
+                            class="form-control" name="password" id="agreementImage" accept="image/*">
+                    </div>
+                    <div class="upload_btn_container">
+                        <button type="button" (click)="changeAgreementHeaderPic()" class="uploadBtn">
+                            <span>Ladda upp Bild</span>
+                        </button>
+                    </div>
+                </tr>
+            </div> -->
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<!-- <div class="header-top mobile-tooltip" fxLayoutAlign="center center" fxHide.gt-sm>
+    <span class="about-mobile">{{'ABOUT_US.TITLE' | translate}}</span>
+</div>
+<div class="header" fxLayoutAlign="start center" fxHide.lt-md>
+    <p class="heading">{{'ABOUT_US.TITLE' | translate}}</p>
+</div> -->
+
+
+
+<!-- <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+    <span class="scheduler-mobile" translate>ABOUT_US.TITLE_MOBILE</span>
+</div>
+<div fxHide.lt-md class="header-top" fxLayoutAlign="none center">
+    <span translate>ABOUT_US.TITLE</span>
+</div> -->
+<div>
+    <div class="main-container">
+        <div class="about_us_container">
+            <!-- <div class="title" fxLayoutAlign="center">
+                <div fxLayoutAlign="center" [innerHTML]="aHeading|safeHtml| translate "> </div>
+            </div> -->
+            <div class="about_us_heading" fxLayoutAlign="center">
+                <span>{{aboutusHeading[0].heading | translate}}</span>
+            </div>
+
+            <div class="about_us_heading_desc" fxLayoutAlign="center">
+                <span [innerHTML]="aboutusHeading[0].description|safeHtml| translate "></span>
+            </div>
+            <div class="about_us_container_inner">
+                <div class="title">
+                    <div [innerHTML]="aHeading|safeHtml| translate "> </div>
+                </div>
+                <div fxLayout="column">
+                    <div class="content-container-first" *ngFor="let aboutusheading of aboutUsDataArray">
+                        <div class="content-title-first">
+                            <span>{{aboutusheading.heading | translate}}</span>
+                        </div>
+
+                        <div class="content-desc-first">
+                            <span [innerHTML]="aboutusheading.description|safeHtml| translate "></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-dark-img">
+            <div class="banner-image">
+            </div>
+        </div>
+    </div>
+<app-lawyers-in-home></app-lawyers-in-home>
+
+</div>

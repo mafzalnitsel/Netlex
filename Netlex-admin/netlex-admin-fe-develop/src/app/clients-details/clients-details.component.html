@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<!-- <div class="header-top" fxLayoutAlign="none center"><span>Blockeringslista</span></div> -->
+<div class="header-top" fxLayoutAlign="none center"><span>Jävskontroll</span></div>
+<mat-tab-group animationDuration="500ms" [selectedIndex]="'0'" class="content-pages-container">
+    <mat-tab label="Klient & Motparter" translate>
+        <div fxLayout.lt-lg="col" fxLayout.lg="row">
+            <div class="addBox" fxLayout="column">
+                <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+                    <button mat-button class="saveBtn create-user-button" [routerLink]="'/clients-details/create'">Ny
+                        Klients Detaljer </button>
+                </div>
+                <div class="table-container">
+                    <table class="table-size" id="table">
+                        <thead>
+                            <tr class="table-header">
+                                <th colspan="2">
+                                    <h2><b>Klient</b></h2>
+                                </th>
+                                <th colspan="2">
+                                    <h2><b>Motparter</b></h2>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Namn</th>
+                                <th>Social Säkerhet Nummer(SSN)</th>
+                                <th>Namn</th>
+                                <th>Social Säkerhet Nummer(SSN)</th>
+                                <th *ngIf="this.authService.isAdmin()"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="user-row" *ngFor="let item of asyncItems| async | paginate: { id: 'server', itemsPerPage:
+                            perPage, currentPage: p, totalItems: total }">
+                                <td (click)="viewClientsDetails(item)">{{item.fromName}}</td>
+                                <td (click)="viewClientsDetails(item)">{{item.fromSsn}}</td>
+                                <td (click)="viewClientsDetails(item)">{{item.toName}}</td>
+                                <td (click)="viewClientsDetails(item)">{{item.toSsn}}</td>
+                                <button (click)="viewClientsDetails(item)" mat-raised-button
+                                    class="edit-button">Redigera</button>
+                                <td *ngIf="authService.isAdmin()">
+                                    <button mat-button class="delete-user-button"
+                                        (click)="deleteClientsDetails(item._id);">
+                                        <mat>Radera</mat>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr *ngIf="!total" class="text-center">
+                                <td colspan="4">Inga användare hittades</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div fxLayoutAlign="center none" class="pagination-button-container">
+                    <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getPage($event)"
+                        id="server"></pagination-controls>
+                </div>
+                <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+                    <button routerLink="/home" mat-button class="saveBtn">Tillbaka</button>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Jävskontroll Frågor"><app-clients-details-questions></app-clients-details-questions></mat-tab>
+    <mat-tab
+        label="Avtal Köpförfrågningar"><app-purchase-agreement-requests></app-purchase-agreement-requests></mat-tab>
+    <mat-tab label="Nya användarförfrågningar"><app-new-user-requests></app-new-user-requests></mat-tab>
+</mat-tab-group>

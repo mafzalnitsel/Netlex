@@ -1,0 +1,35 @@
+<!-- <div *ngIf="dateExpired=='YES'"> -->
+    <div fxLayout.lt-lg="col" fxLayout.lg="row">
+        <div fxFlex.gt-md="100" class="configuration_modal_container" fxLayout="column" fxLayoutAlign="none center">
+          <span class="button-container-top"></span>
+          <div>
+            <mat-icon class="info-icon">info</mat-icon>
+          </div>
+          <div>
+            <span fxLayoutAlign="center center" class="modal-heading">
+              <b>Är du säker ?</b></span><br>
+            <div class="modal-text"><span>Klicka på knappen Skicka Epost för att bekräfta.
+              <!-- Detta process kommer inte att vändas -->
+            </span></div>
+          </div><br/>
+                <!-- ----------Buttons----------- -->
+        <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+          <button (click)="closeDialog()" mat-button class="back-button">
+            Avbryt
+            <!-- <mat-icon>close</mat-icon> -->
+          </button>
+          &nbsp;&nbsp;
+          <button (click)="updateRequest()" mat-button class="edit-button"><span
+              class="spinner-border spinner-border-sm">
+              Skicka Epost</span>
+          </button>
+        </div>
+                <!-- <div fxLayoutAlign="center center" class="button-container-config">
+            <button mat-stroked-button (click)="closeDialog()" mat-button class="ok-button">
+              <span>Ok</span>
+            </button>
+          </div> -->
+        </div>
+      </div>
+    <!-- </div> -->
+  

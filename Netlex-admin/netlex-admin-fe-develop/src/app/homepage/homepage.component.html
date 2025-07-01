@@ -1,0 +1,46 @@
+    <!-- <app-navbar (nameEmitter)="receivename($event)"></app-navbar> -->
+    <app-navbar></app-navbar>
+
+    <div class="main-container">
+    <div fxHide.gt-sm>
+        <mat-card class="MobileCard">
+
+            <div class="inner-container-mobile">
+                <mat-card-title class="welcome">
+                    Välkommen
+                </mat-card-title>
+                <mat-card-subtitle class="boldFont">
+                    <div>
+                        Du är inloggad som <b>{{name}}</b>.
+                    </div>
+                    <div>
+                        Använd kategorierna för att navigera genom portalen.
+                    </div>
+                </mat-card-subtitle>
+            </div>
+        </mat-card>
+    </div>
+
+    <div class="home-container" fxLayout="row" fxHide.lt-md *ngIf="showSidebar">
+        <div fxFlex.gt-md="20">
+
+        </div>
+        <div class="home-container" fxFlex.gt-md="77">
+            <div class="title home-container" fxLayout="column" fxLayoutAlign="none center">
+                <div class="inner-container">
+                    <div class="welcome">
+                        <span fxLayoutAlign="start">Välkommen</span>
+                    </div>
+                    <div class="boldFont">
+                        <div>
+                            Du är inloggad som <b>{{name}}</b>.
+                        </div>
+                        <div>
+                            Använd kategorierna för att navigera genom portalen.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

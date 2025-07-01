@@ -1,0 +1,3 @@
+(node:2244) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 connected listeners added to [NativeConnection]. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2244) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.

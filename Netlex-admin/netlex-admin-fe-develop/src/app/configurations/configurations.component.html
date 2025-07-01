@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<!-- <ng-container *ngIf="(asyncTabs | async) === null">
+    Loading tabs...
+  </ng-container> -->
+  
+  <mat-tab-group animationDuration="500ms" [selectedIndex]="tabID" class="configuration-container">
+    <!-- <mat-tab *ngFor="let tab of asyncTabs | async">
+      <ng-template mat-tab-label >{{tab.label}}</ng-template>
+      {{tab.content}}
+    </mat-tab> -->
+    
+    <mat-tab label="Betalningar Konfiguration" >
+        <!-- <app-about-us></app-about-us> -->
+        <mat-tab-group animationDuration="500ms" [selectedIndex]="innerTabID">
+            <mat-tab label="För Klarna" >
+                <app-klarna-configuration></app-klarna-configuration>
+            </mat-tab>
+            <mat-tab label="För Stripe" >
+                <app-stripe-configuration></app-stripe-configuration>
+            </mat-tab>
+            <mat-tab label="För Swish" >
+                <app-swish-configuration></app-swish-configuration>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-tab>
+    <mat-tab label="E-post Konfiguration" translate>
+        <app-email-configuration></app-email-configuration>
+    </mat-tab>
+    <mat-tab label="BankID Konfiguration" translate>
+        <app-bank-id-configuration></app-bank-id-configuration>
+    </mat-tab>
+  </mat-tab-group>

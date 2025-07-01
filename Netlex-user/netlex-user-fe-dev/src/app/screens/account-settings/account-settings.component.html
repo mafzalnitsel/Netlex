@@ -1,0 +1,796 @@
+<div fxLayout="column" class="top" fxHide.lt-md>
+    <div fxHide.lt-md fxLayout="row" class="header-desktop" fxLayoutAlign="none center"><span
+            class="account-heading">Account</span>
+    </div>
+    <div class="main-container-account" fxLayout.lt-lg="col" fxLayout.lg="row" fxHide.xs fxHide.sm>
+        <div fxFlex.gt-md="28" class="contentDiv">
+            <mat-card class="sidemenu" fxLayout="row">
+                <span class="left-bar"></span>
+                <mat-list>
+                    <mat-accordion>
+                        <div>
+                            <mat-expansion-panel hideToggle (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header class="account-settings-header">
+                                    <mat-panel-title class="menu-item-title" fxLayoutAlign="none center">
+                                        <span class="divider"></span>
+                                        <div class="svg-icon" fxLayoutAlign="none center">
+                                            <svg width="30" height="21" viewBox="0 0 30 21" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="1" y="1" width="28" height="8" rx="4" stroke="#A8B2D4"
+                                                    stroke-width="2" />
+                                                <ellipse cx="25.3125" cy="5" rx="1.875" ry="2" fill="#A8B2D4" />
+                                                <rect x="1" y="12" width="28" height="8" rx="4" stroke="#A8B2D4"
+                                                    stroke-width="2" />
+                                                <ellipse cx="4.6875" cy="16" rx="1.875" ry="2" fill="#A8B2D4" />
+                                            </svg>
+                                        </div>
+                                        <span class="menu-list-items" fxLayoutAlign="none center"
+                                            translate>ACCOUNT.SETTINGS</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="accordion-list-option upperBorderRadius option-separator {{this.option === 'userInformation' ? 'selected' : ''}}"
+                                    fxLayout="row" (click)="settingsScreenOption('userInformation')">
+                                    <div class="svg-icon" fxLayoutAlign="none center">
+                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="13" cy="13" r="12" stroke="#A8B2D4" stroke-width="2" />
+                                            <circle cx="13" cy="10" r="4" fill="#A8B2D4" />
+                                            <path
+                                                d="M21 21.5C21 24.8137 16.3137 25 13 25C9.68629 25 5 24.8137 5 21.5C5 18.1863 9.68629 15 13 15C16.3137 15 21 18.1863 21 21.5Z"
+                                                fill="#A8B2D4" />
+                                        </svg>
+                                    </div>
+                                    <span class="menu-list-items" fxLayoutAlign="none center"
+                                        translate>ACCOUNT.USERS_INFORMATION</span>
+                                </div>
+                                <div class="accordion-list-option lowerBorderRadius {{this.option === 'addOrganization' ? 'selected' : ''}}"
+                                    fxLayout="row" (click)="settingsScreenOption('addOrganization')">
+                                    <div class="svg-icon" fxLayoutAlign="none center">
+                                        <svg width="32" height="28" viewBox="0 0 32 28" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="13" cy="15" r="12" stroke="#A8B2D4" stroke-width="2" />
+                                            <circle cx="13" cy="12" r="4" fill="#A8B2D4" />
+                                            <path
+                                                d="M21 23.5C21 26.8137 16.3137 27 13 27C9.68629 27 5 26.8137 5 23.5C5 20.1863 9.68629 17 13 17C16.3137 17 21 20.1863 21 23.5Z"
+                                                fill="#A8B2D4" />
+                                            <path
+                                                d="M28.3423 3.1333H31.1255V4.75928H28.3423V7.93066H26.6138V4.75928H23.8159V3.1333H26.6138V0.166992H28.3423V3.1333Z"
+                                                fill="#A8B2D4" />
+                                        </svg>
+                                    </div>
+                                    <span class="menu-list-items" fxLayoutAlign="none center"
+                                        translate>ACCOUNT.ADD_ORGANIZATION</span>
+                                </div>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel hideToggle (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header class="account-settings-header">
+                                    <mat-panel-title class="menu-item-title">
+                                        <span class="divider"></span>
+                                        <div fxLayout="row" (click)="onClickLastEditAgreement()">
+                                            <div class="svg-icon" fxLayoutAlign="none center">
+                                                <svg width="24" height="23" viewBox="0 0 24 23" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 2V22H22" stroke="#A8B2D4" stroke-width="2" />
+                                                    <rect width="13" height="2" rx="1" fill="#A8B2D4" />
+                                                    <rect x="22" y="22" width="13" height="2" rx="1"
+                                                        transform="rotate(-90 22 22)" fill="#A8B2D4" />
+                                                    <rect width="2" height="2" fill="#A8B2D4" />
+                                                    <path
+                                                        d="M21.9746 0L23.7423 1.76769L11.7316 13.7784L9.96391 12.0107L21.9746 0Z"
+                                                        fill="#A8B2D4" />
+                                                    <path
+                                                        d="M9.36323 14.3787L9.96344 12.0108L11.7311 13.7784L9.36323 14.3787Z"
+                                                        fill="#A8B2D4" />
+                                                </svg>
+                                            </div>
+                                            <span class="menu-list-items"
+                                                translate>ACCOUNT.LAST_EDITED_AGREEMENTS</span>
+                                        </div>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel hideToggle (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false" [routerLink]="'/agreements'">
+                                <mat-expansion-panel-header class="account-settings-header">
+                                    <mat-panel-title class="menu-item-title">
+                                        <span class="divider"></span>
+                                        <div class="svg-icon" fxLayoutAlign="none center">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 3V23H22" stroke="#A8B2D4" stroke-width="2" />
+                                                <rect y="1" width="13" height="2" rx="1" fill="#A8B2D4" />
+                                                <rect x="22" y="23" width="13" height="2" rx="1"
+                                                    transform="rotate(-90 22 23)" fill="#A8B2D4" />
+                                                <rect y="1" width="2" height="2" fill="#A8B2D4" />
+                                                <rect x="22" y="22" width="2" height="2" fill="#A8B2D4" />
+                                                <path
+                                                    d="M20.5615 4.51709H23.9316V5.96973H20.5615V9.78809H19.0176V5.96973H15.6475V4.51709H19.0176V0.989258H20.5615V4.51709Z"
+                                                    fill="#A8B2D4" />
+                                            </svg>
+                                        </div>
+                                        <span class="menu-list-items" fxLayoutAlign="none center"
+                                            translate>ACCOUNT.CREATE_NEW_AGREEMENT</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel hideToggle (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header class="account-settings-header">
+                                    <mat-panel-title class="menu-item-title">
+                                        <span class="divider"></span>
+                                        <div fxLayout="row" (click)="onClickMyPurchase()">
+                                            <div class="svg-icon" fxLayoutAlign="none center">
+                                                <svg width="32" height="20" viewBox="0 0 32 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="4" y="5" width="24" height="2" rx="0.5" fill="#A8B2D4" />
+                                                    <rect x="22" y="13" width="6" height="3" rx="0.5" fill="#A8B2D4" />
+                                                    <rect x="1" y="1" width="30" height="18" rx="2" stroke="#A8B2D4"
+                                                        stroke-width="2" />
+                                                </svg>
+                                            </div>
+                                            <span class="menu-list-items" fxLayoutAlign="none center"
+                                                translate>ACCOUNT.MY_PURCHASES</span>
+                                        </div>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel hideToggle (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header class="account-settings-header">
+                                    <mat-panel-title class="menu-item-title">
+                                        <span class="divider"></span>
+                                        <div fxLayout="row" (click)="onClickMeetingSales()">
+                                            <div class="svg-icon" fxLayoutAlign="none center">
+                                                <svg width="32" height="28" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 241.46 247.56">
+                                                    <defs>
+                                                        <style>
+                                                            .cls-1,
+                                                            .cls-2,
+                                                            .cls-3 {
+                                                                fill: #a8b2d4;
+                                                            }
+
+                                                            .cls-1,
+                                                            .cls-2 {
+                                                                stroke: #a8b2d4;
+                                                                stroke-miterlimit: 10;
+                                                            }
+
+                                                            .cls-1 {
+                                                                stroke-width: 10px;
+                                                            }
+                                                        </style>
+                                                    </defs>
+                                                    <polygon class="cls-1"
+                                                        points="180.14 107.1 180.14 231.6 14.25 231.6 14.25 35.06 120.66 35.06 120.66 24.1 5 24.1 5 242.56 189.4 242.56 189.4 107.1 180.14 107.1" />
+                                                    <path class="cls-2"
+                                                        d="M797,276.23c53.17-50,93.4-72,94.92-70.19,1.68,2-35.39,37.47-96.63,102.57L753,259.55"
+                                                        transform="translate(-651 -205.44)" />
+                                                    <rect class="cls-3" x="49.59" y="132.94" width="95.17"
+                                                        height="13.31" />
+                                                    <rect class="cls-3" x="109.1" y="192.19" width="49.57"
+                                                        height="9.4" />
+                                                    <rect class="cls-3" x="49.59" y="161.91" width="95.17"
+                                                        height="13.31" />
+                                                    <path class="cls-3" d="M92,262"
+                                                        transform="translate(-651 -205.44)" />
+                                                </svg>
+                                            </div>
+                                            <span class="menu-list-items" fxLayoutAlign="none center"
+                                                translate>ACCOUNT.MEETING_SALES</span>
+                                        </div>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel *ngIf="isAdmin" hideToggle (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false" (click)="showRequests()">
+                                <mat-expansion-panel-header class="account-settings-header">
+                                    <mat-panel-title class="menu-item-title">
+                                        <span class="divider"></span>
+                                        <div class="svg-icon" fxLayoutAlign="none center">
+                                            <svg width="32" height="20" viewBox="0 0 32 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="1" y="1" width="30" height="18" rx="2" stroke="#A8B2D4"
+                                                    stroke-width="2" />
+                                                <line x1="1.5145" y1="2.14251" x2="16.5145" y2="11.1425"
+                                                    stroke="#A8B2D4" stroke-width="2" />
+                                                <line x1="15.4856" y1="11.1415" x2="30.4862" y2="2.14248"
+                                                    stroke="#A8B2D4" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                        <span class="menu-list-items" fxLayoutAlign="none center"
+                                            translate>ACCOUNT.ACCEPT_REQUEST</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                        </div>
+                    </mat-accordion>
+                </mat-list>
+            </mat-card>
+        </div>
+        <div fxFlex.gt-md="72" class="profile-view-screen" fxLayout.gt-md="column">
+            <div class="dialog-container {{settingsScreen ? 'container-height': 'container-height-twoh'}} ">
+                <div class="publish-text" fxLayout="column">
+                    <h3 class="publish-label">Profil</h3>
+                    <div fxLayout="row" fxLayoutAlign="none center">
+                        <div class="user-name-icon" fxLayoutAlign="center center">
+                            <span fxLayoutAlign="center center">{{userName.charAt(0)}}</span>
+                        </div>
+                        <span class="user-name-mobile">&nbsp;{{userName}}</span>
+                        <span class="admin-tag" fxLayoutAlign="center center" *ngIf="isAdmin">Admin</span>
+                    </div>
+                    <app-settings [option]="option" *ngIf="settingsScreen"></app-settings>
+                </div>
+            </div>
+            <app-requests *ngIf="requestsScreen"></app-requests>
+
+            <!-- last edited agreements -->
+            <table *ngIf="!settingsScreen && !requestsScreen && lastEdited" class="table-wd container-padding-bottom">
+                <thead class="table-th-bottom-border">
+                    <tr>
+                        <th class="table-th-font" translate>ID</th>
+                        <th fxLayoutAlign="start" class="table-th-font" translate>
+                            LAST_EDITED_AGREEMENTS_TABLE.FIRST_FIELD
+                        </th>
+                        <th class="table-th-font" translate>LAST_EDITED_AGREEMENTS_TABLE.SECOND_FIELD</th>
+                        <th class="table-th-font" translate>LAST_EDITED_AGREEMENTS_TABLE.THIRD_FIELD</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let agreement of lastEditedAgreementList;  let i = index" height="50px" translate>
+                        <td class="table-tr-font table-text-center pointer">{{agreement._id}}</td>
+                        <td class="table-tr-font table-text-padding pointer"
+                            (click)="onClickEditAgreement(agreement,agreement.documentTemplateId,agreement._id)">
+                            {{agreement.documentTitle}}
+                        </td>
+                        <td class="table-tr-font table-text-center pointer">{{agreement.lastUpdated | date:
+                            'yyyy-MM-dd'}}</td>
+                        <td> <button mat-button class="delete-button common-button"
+                                (click)="deleteDraftAgrement(agreement._id)">
+                                Radera
+                            </button></td>
+                    </tr>
+
+                    <tr height="50px" *ngIf="lastEditedAgreementList.length === 0">
+                        <td colspan="2" class="table-th-font table-text-center" translate>
+                            LAST_EDITED_AGREEMENTS_TABLE.No_DATA_FOUND</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+                <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+            </div>
+            <!-- purchase table -->
+            <table *ngIf="!settingsScreen && !requestsScreen && myPurchase" class="table-wd container-padding-bottom">
+                <thead>
+                    <tr class="table-th-bottom-border">
+                        <th fxLayoutAlign="start" class="table-th-font" translate>MY_PURCHASE.NAME</th>
+                        <th class="table-th-font" translate>MY_PURCHASE.TYPE</th>
+                        <th class="table-th-font" translate>MY_PURCHASE.DATE</th>
+                        <th class="table-th-font" translate>MY_PURCHASE.PRICE</th>
+                        <th fxLayoutAlign="center" class="table-th-font" translate>MY_PURCHASE.GETPDF</th>
+                        <th class="table-th-font" translate>MEETING_SALES.PAYMENT_RECIEPT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let purchase of myPurchaseList;  let i = index " translate height="50px">
+                        <td class="table-tr-font-purchase  pointer">
+                            {{this.documentDetails[i]?.documentTitle}}
+                </td>
+                        <td class="table-tr-font-purchase  pointer">
+                            {{this.documentDetails[i]?.agreementType}}
+                        </td>
+                        <td class="table-tr-font-purchase table-text-center pointer"
+                            (click)="onClickViewPurchasedAgreement(purchase._id,purchasedDocumentListMap.get(purchase.documentId),purchase.paymentDate,purchase.amount,purchase.paymentMethod)">
+                            {{purchase.paymentDate | date: 'yyyy-MM-dd'}}</td>
+                        <td class="table-tr-font-purchase table-text-end pointer">{{purchase.amount}} Kr</td>
+                        <td class="table-tr-font-purchase table-text-center pointer"
+                            (click)=" getAgreementPdf(purchase,purchase.documentId, purchase._id )" translate>
+                            MY_PURCHASE.DOWNLOAD</td>
+                        <td class="table-tr-font-purchase table-text-end pointer"
+                            (click)=" generateAgreementSalesPdf(purchase)" translate>Ladda ner</td>
+                    </tr>
+                    <tr height="50px" *ngIf="myPurchaseList.length === 0">
+                        <td colspan="2" class="table-th-font table-text-center" translate>MY_PURCHASE.No_DATA_FOUND</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <table *ngIf="!settingsScreen && !requestsScreen && meetingSales" class="table-wd container-padding-bottom">
+                <thead>
+                <tr class="table-th-bottom-border">
+                    <th fxLayoutAlign="start" class="table-th-font" translate>MY_PURCHASE.PURCHASES</th>
+                    <th class="table-th-font-purchase" translate>MY_PURCHASE.DATE</th>
+                    <th  class="table-th-font-purchase" translate>MY_PURCHASE.PRICE</th>
+                    <th fxLayoutAlign="end" class="table-th-font-purchase" translate>MY_PURCHASE.GETPDF</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let purchase of myPurchaseList;  let i = index "  translate height="50px" 
+                   >
+                    <td class="table-tr-font-purchase  pointer">
+                        {{this.documentDetails[i]?.documentTitle}}
+                    </td>
+                    <td class="table-tr-font-purchase table-text-center pointer"  (click)="onClickViewPurchasedAgreement(purchase._id,purchasedDocumentListMap.get(purchase.documentId),purchase.paymentDate,purchase.amount,purchase.paymentMethod)">{{purchase.paymentDate | date: 'yyyy-MM-dd'}}</td>
+                    <td class="table-tr-font-purchase table-text-end pointer" >{{purchase.amount}} Kr</td>
+                    <td  class="table-tr-font-purchase table-text-end pointer" (click)=" getAgreementPdf(purchase.documentId, purchase._id )" translate>MY_PURCHASE.DOWNLOAD</td>
+                </tr>
+                <tr height="50px" *ngIf="myPurchaseList.length === 0">
+                    <td colspan="2" class="table-th-font table-text-center" translate>MY_PURCHASE.No_DATA_FOUND</td>
+                </tr>
+                </tbody>
+            </table> -->
+            <!-- Meeting Sales table -->
+            <table *ngIf="!settingsScreen && !requestsScreen && meetingSales" class="table-wd container-padding-bottom">
+                <thead>
+                    <tr class="table-th-bottom-border">
+                        <th fxLayoutAlign="start" class="table-th-font" translate>MEETING_SALES.DATE</th>
+                        <th class="table-th-font" translate>MEETING_SALES.TIME</th>
+                        <th class="table-th-font" translate>MY_PURCHASE.PRICE</th>
+                        <!-- <th  class="table-th-font-purchase" translate>MEETING_SALES.PAYMENT_METHOD</th> -->
+                        <th class="table-th-font" translate>MEETING_SALES.MICROSFOT_TEAMS_MEETING</th>
+                        <th class="table-th-font" translate>MEETING_SALES.PAYMENT_RECIEPT</th>
+                        <!-- <th class="table-th-font" translate>MEETING_SALES.TRANSACTION_ID</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let purchase of meetingSalesList;  let i = index " translate height="50px">
+                        <!-- <td class="table-tr-font-purchase  pointer">
+                    {{this.documentDetails[i]?.documentTitle}}
+                    </td> -->
+                        <td class="table-tr-font-purchase table-text-center pointer" (click)="onClickViewMeetingSales(purchase._id,meetingSalesListMap.get(sales[0].documentId),
+                    sales[0].salesAt,sales[0].salesAmount,sales[0].paymentMethod)">
+                            {{this.meetingSalesList[0].salesAt | date: 'yyyy-MM-dd'}}
+                        </td>
+                        <td class="table-tr-font-purchase table-text-center pointer" (click)="onClickViewMeetingSales(purchase._id,meetingSalesListMap.get(sales[0].documentId),
+                    sales[0].salesAt,sales[0].salesAmount,sales[0].paymentMethod)">
+                            {{this.meetingSalesList[0].time }}
+                        </td>
+                        <!-- <td class="table-tr-font-purchase table-text-center  pointer">
+                        {{this.meetingSalesList[0].salesAmount}}
+                    </td> -->
+                        <!-- <td class="table-tr-font-purchase table-text-center  pointer">
+                            {{this.meetingSalesList[0].paymentMethod}}
+                        </td> -->
+                        <td class="table-tr-font-purchase table-text-center pointer" (click)="onClickViewMeetingSales(purchase._id,meetingSalesListMap.get(sales[0].documentId),
+                    sales[0].salesAt,sales[0].salesAmount,sales[0].paymentMethod)">
+                            {{this.meetingSalesList[0].salesAmount }}
+                        </td>
+                        <!-- <td class="table-tr-font-purchase table-text-start  pointer">
+                        {{this.meetingSalesList[0].transaction_Id}}
+                    </td> -->
+                        <td class="table-tr-font-purchase table-text-center  pointer"
+                            (click)=" teamsMeetingHandler(purchase)">
+                            Länk till möte
+                        </td>
+                        <td class="table-tr-font-purchase table-text-center  pointer"
+                            (click)=" generateMeetingSalesPdf(purchase)">
+                            Ladda ner
+                        </td>
+                    </tr>
+                    <tr height="50px" *ngIf="meetingSalesList.length === 0">
+                        <td colspan="2" class="table-th-font table-text-center" translate>MEETING_SALES.No_DATA_FOUND
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<div fxHide.gt-sm *ngIf="!settingsScreen" >
+    <div *ngIf="!requestsScreen && !lastEdited && !myPurchase && !meetingSales">
+        <div class="profile-header-mobile" *ngIf="!settings">
+            <div fxLayout="row" fxLayoutAlign="none center" class="profile-header-round-mobile">
+                <div class="user-name-icon-container">
+                    <div class="user-name-icon" fxLayoutAlign="center center">
+                        <span>{{userName.charAt(0)}}</span>
+                    </div>
+                </div>
+                <span class="user-name-mobile">&nbsp;{{userName}}</span>
+            </div>
+        </div>
+        <div class="menu-top-padding-mobile" *ngIf="!settings">
+            <div class="menu-item-title-mobile" fxLayout="row">
+                <div class="svg-icon-mobile" fxFlex="23">
+                    <svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2" />
+                        <ellipse cx="25.3125" cy="5" rx="1.875" ry="2" fill="#A8B2D4" />
+                        <rect x="1" y="12" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2" />
+                        <ellipse cx="4.6875" cy="16" rx="1.875" ry="2" fill="#A8B2D4" />
+                    </svg>
+                </div>
+                <span (click)="settings = true" fxFlex="67" class="menu-list-items-mobile"
+                    translate>ACCOUNT.SETTINGS</span>
+                <!-- <div fxFlex="10" (click)="settings = true"> -->
+                <div fxFlex="10" (click)="settings = true">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 17L9 9L1 1" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+            <div class="menu-item-title-mobile" fxLayout="row" (click)="onClickLastEditAgreement()">
+                <div class="svg-icon-mobile" fxFlex="23">
+                    <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 2V22H22" stroke="#A8B2D4" stroke-width="2" />
+                        <rect width="13" height="2" rx="1" fill="#A8B2D4" />
+                        <rect x="22" y="22" width="13" height="2" rx="1" transform="rotate(-90 22 22)" fill="#A8B2D4" />
+                        <path d="M21.9747 0L23.7424 1.76769L11.7317 13.7784L9.96403 12.0107L21.9747 0Z"
+                            fill="#A8B2D4" />
+                        <path d="M9.36371 14.3787L9.96393 12.0108L11.7316 13.7784L9.36371 14.3787Z" fill="#A8B2D4" />
+                    </svg>
+                </div>
+                <span fxFlex="67" class="menu-list-items-mobile" translate>ACCOUNT.LAST_EDITED_AGREEMENTS</span>
+                <div fxFlex="10">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 17L9 9L1 1" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+            <div class="menu-item-title-mobile" fxLayout="row" [routerLink]="'/agreements'">
+                <div class="svg-icon-mobile" fxFlex="23">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 3V23H22" stroke="#A8B2D4" stroke-width="2" />
+                        <rect y="1" width="13" height="2" rx="1" fill="#A8B2D4" />
+                        <rect x="22" y="23" width="13" height="2" rx="1" transform="rotate(-90 22 23)" fill="#A8B2D4" />
+                        <path
+                            d="M20.5615 4.51709H23.9316V5.96973H20.5615V9.78809H19.0176V5.96973H15.6475V4.51709H19.0176V0.989258H20.5615V4.51709Z"
+                            fill="#A8B2D4" />
+                    </svg>
+                </div>
+                <span fxFlex="67" class="menu-list-items-mobile" translate>ACCOUNT.CREATE_NEW_AGREEMENT</span>
+                <div fxFlex="10">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 17L9 9L1 1" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+            <div class="menu-item-title-mobile" fxLayout="row" (click)="onClickMyPurchase()">
+                <div class="svg-icon-mobile" fxFlex="23">
+                    <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="5" width="24" height="2" rx="0.5" fill="#A8B2D4" />
+                        <rect x="22" y="13" width="6" height="3" rx="0.5" fill="#A8B2D4" />
+                        <rect x="1" y="1" width="30" height="18" rx="2" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+                <span fxFlex="67" class="menu-list-items-mobile" translate>ACCOUNT.MY_PURCHASES</span>
+                <div fxFlex="10">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 17L9 9L1 1" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+            <div class="menu-item-title-mobile" fxLayout="row" (click)="onClickMeetingSales()">
+                <div class="svg-icon-mobile" fxFlex="23">
+                    <svg width="32" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.46 247.56">
+                        <defs>
+                            <style>
+                                .cls-1,
+                                .cls-2,
+                                .cls-3 {
+                                    fill: #a8b2d4;
+                                }
+
+                                .cls-1,
+                                .cls-2 {
+                                    stroke: #a8b2d4;
+                                    stroke-miterlimit: 10;
+                                }
+
+                                .cls-1 {
+                                    stroke-width: 10px;
+                                }
+                            </style>
+                        </defs>
+                        <polygon class="cls-1"
+                            points="180.14 107.1 180.14 231.6 14.25 231.6 14.25 35.06 120.66 35.06 120.66 24.1 5 24.1 5 242.56 189.4 242.56 189.4 107.1 180.14 107.1" />
+                        <path class="cls-2"
+                            d="M797,276.23c53.17-50,93.4-72,94.92-70.19,1.68,2-35.39,37.47-96.63,102.57L753,259.55"
+                            transform="translate(-651 -205.44)" />
+                        <rect class="cls-3" x="49.59" y="132.94" width="95.17" height="13.31" />
+                        <rect class="cls-3" x="109.1" y="192.19" width="49.57" height="9.4" />
+                        <rect class="cls-3" x="49.59" y="161.91" width="95.17" height="13.31" />
+                        <path class="cls-3" d="M92,262" transform="translate(-651 -205.44)" />
+                    </svg>
+                </div>
+                <span fxFlex="67" class="menu-list-items-mobile" translate>ACCOUNT.MEETING_SALES</span>
+                <div fxFlex="10">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 17L9 9L1 1" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+        <div *ngIf="settings">
+            <mat-toolbar class="toolbar" (click)="OnClickBack()">
+                <div class="settings-header-mobile" fxLayout="row">
+                    <div fxFlex="10" class="marginHeight">
+                        <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 1L2 8.5L10 16" stroke="#A8B2D4" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div fxLayoutAlign="center" fxFlex="90" class="settingAlign">
+                        <div class="padding-settings-icon">
+                            <svg width="30" height="21" viewBox="0 0 30 21" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="1" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2" />
+                                <ellipse cx="25.3125" cy="5" rx="1.875" ry="2" fill="#A8B2D4" />
+                                <rect x="1" y="12" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2" />
+                                <ellipse cx="4.6875" cy="16" rx="1.875" ry="2" fill="#A8B2D4" />
+                            </svg>
+                        </div>
+                        <span class="menu-list-items-mobile textAlignMob" translate>ACCOUNT.SETTINGS</span>
+                    </div>
+                </div>
+            </mat-toolbar>
+            <div class="menu-item-title-mobile" fxLayout="row">
+                <div class="svg-icon-mobile" fxFlex="23">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="13" cy="13" r="12" stroke="#A8B2D4" stroke-width="2" />
+                        <circle cx="13" cy="10" r="4" fill="#A8B2D4" />
+                        <path
+                            d="M21 21.5C21 24.8137 16.3137 25 13 25C9.68629 25 5 24.8137 5 21.5C5 18.1863 9.68629 15 13 15C16.3137 15 21 18.1863 21 21.5Z"
+                            fill="#A8B2D4" />
+                    </svg>
+                </div>
+                <span fxFlex="67" class="menu-list-items-mobile menuTextAlign" fxLayoutAlign="none center"
+                    translate>ACCOUNT.USERS_INFORMATION</span>
+                <div fxFlex="10" fxLayoutAlign="none center" (click)="settingsScreenOption('userInformation')">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 17L9 9L1 1" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+            <div class="menu-item-title-mobile" fxLayout="row">
+                <div class="svg-icon-mobile" fxFlex="23">
+                    <svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="13" cy="15" r="12" stroke="#A8B2D4" stroke-width="2" />
+                        <circle cx="13" cy="12" r="4" fill="#A8B2D4" />
+                        <path
+                            d="M21 23.5C21 26.8137 16.3137 27 13 27C9.68629 27 5 26.8137 5 23.5C5 20.1863 9.68629 17 13 17C16.3137 17 21 20.1863 21 23.5Z"
+                            fill="#A8B2D4" />
+                        <path
+                            d="M28.3423 3.1333H31.1255V4.75928H28.3423V7.93066H26.6138V4.75928H23.8159V3.1333H26.6138V0.166992H28.3423V3.1333Z"
+                            fill="#A8B2D4" />
+                    </svg>
+                </div>
+                <span fxFlex="67" class="menu-list-items-mobile menuTextAlign" fxLayoutAlign="none center"
+                    translate>ACCOUNT.ADD_ORGANIZATION</span>
+                <div fxFlex="10" fxLayoutAlign="none center" (click)="settingsScreenOption('addOrganization')">
+                    <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 17L9 9L1 1" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!settingsScreen && !requestsScreen && !meetingSales && !myPurchase && lastEdited" class="mobile-table">
+        <mat-toolbar class="toolbar" (click)="OnClickBack()">
+            <div class="settings-header-mobile" fxLayout="row">
+                <div fxFlex="10" class="marginHeight">
+                    <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 1L2 8.5L10 16" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+                <div fxLayoutAlign="center" fxFlex="90" class="settingAlign">
+                    <div class="padding-settings-icon">
+                        <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 2V22H22" stroke="#A8B2D4" stroke-width="2" />
+                            <rect width="13" height="2" rx="1" fill="#A8B2D4" />
+                            <rect x="22" y="22" width="13" height="2" rx="1" transform="rotate(-90 22 22)"
+                                fill="#A8B2D4" />
+                            <path d="M21.9747 0L23.7424 1.76769L11.7317 13.7784L9.96403 12.0107L21.9747 0Z"
+                                fill="#A8B2D4" />
+                            <path d="M9.36371 14.3787L9.96393 12.0108L11.7316 13.7784L9.36371 14.3787Z"
+                                fill="#A8B2D4" />
+                        </svg>
+                    </div>
+                    <span class="menu-list-items-mobile textAlignMob" translate>ACCOUNT.LAST_EDITED_AGREEMENTS</span>
+                </div>
+            </div>
+        </mat-toolbar>
+        <table class="table-wd container-padding-bottom table-mobile-screen">
+            <thead class="table-th-bottom-border">
+                <tr>
+                    <th fxLayoutAlign="start" class="table-th-font table-header-text" translate>
+                        LAST_EDITED_AGREEMENTS_TABLE.FIRST_FIELD
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td class="table-th-font table-last-date" translate>LAST_EDITED_AGREEMENTS_TABLE.SECOND_FIELD</td>
+                </tr>
+
+                <tr class="title-no-wrap" *ngFor="let agreement of lastEditedAgreementList;  let i = index"
+                    height="50px" translate (click)="onClickEditAgreement(agreement,agreement.documentTemplateId, agreement._id)">
+
+                    <td class="table-tr-font table-text-padding-Mobile pointer">
+                        <span class="horizontal-bar-mobile"></span> {{agreement.documentTitle}}
+                    </td>
+                    <td class="table-tr-font table-text-center pointer">{{agreement.lastUpdated | date: 'yyyy-MM-dd'}}
+                    </td>
+                </tr>
+
+                <tr height="50px" *ngIf="lastEditedAgreementList.length === 0">
+                    <td colspan="2" class="table-th-font table-text-center" translate>
+                        LAST_EDITED_AGREEMENTS_TABLE.No_DATA_FOUND</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="!settingsScreen && !meetingSales &&  !requestsScreen  && myPurchase" class="mobile-table">
+        <mat-toolbar class="toolbar" (click)="OnClickBack()">
+            <div class="settings-header-mobile" fxLayout="row">
+                <div fxFlex="10" class="marginHeight">
+                    <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 1L2 8.5L10 16" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+                <div fxLayoutAlign="center" fxFlex="90" class="settingAlign">
+                    <div class="padding-settings-icon">
+                        <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 2V22H22" stroke="#A8B2D4" stroke-width="2" />
+                            <rect width="13" height="2" rx="1" fill="#A8B2D4" />
+                            <rect x="22" y="22" width="13" height="2" rx="1" transform="rotate(-90 22 22)"
+                                fill="#A8B2D4" />
+                            <path d="M21.9747 0L23.7424 1.76769L11.7317 13.7784L9.96403 12.0107L21.9747 0Z"
+                                fill="#A8B2D4" />
+                            <path d="M9.36371 14.3787L9.96393 12.0108L11.7316 13.7784L9.36371 14.3787Z"
+                                fill="#A8B2D4" />
+                        </svg>
+                    </div>
+                    <span class="menu-list-items-mobile textAlignMob" translate>ACCOUNT.MY_PURCHASES</span>
+                </div>
+            </div>
+        </mat-toolbar>
+        <table class="table-wd-mobile">
+            <thead>
+                <tr class="table-th-bottom-border" fxLayout="row">
+                    <th fxFlex="70" fxLayoutAlign="start center" class="table-th-font" translate>MY_PURCHASE.PURCHASES
+                    </th>
+                    <th fxFlex="30" fxLayoutAlign="end center" class="table-th-font-purchase" translate>
+                        MY_PURCHASE.PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr fxLayoutAlign="none center" *ngFor="let purchase of myPurchaseList;  let i = index" translate
+                    class="document-mobile" (click)="onClickViewPurchasedAgreement(purchase._id,purchasedDocumentListMap.get(purchase.documentId),
+                    purchase.paymentDate,purchase.amount,purchase.paymentMethod)">
+                    <td fxLayoutAlign="none center" fxFlex="70" class="table-tr-font-purchase  pointer">
+                        {{this.documentDetails[i]?.documentTitle}}
+                    </td>
+                    <td fxLayoutAlign="end center" fxFlex="30" class="table-tr-font-purchase table-text-end pointer">
+                        {{purchase.amount}} Kr
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="11" stroke="#DCE0EE" stroke-width="2" />
+                            <rect x="10.667" y="9.12183" width="2.66684" height="8.8779" fill="#D6DDD8" />
+                            <rect x="9" y="9.12183" width="1.66677" height="2.21947" fill="#D6DDD8" />
+                            <rect x="9" y="15.7804" width="1.66677" height="2.21947" fill="#D6DDD8" />
+                            <rect x="13.333" y="15.7804" width="1.66677" height="2.21947" fill="#D6DDD8" />
+                            <ellipse cx="11.833" cy="6.74387" rx="1.83345" ry="1.74387" fill="#D6DDD8" />
+                        </svg>
+
+                    </td>
+                </tr>
+                <tr *ngIf="myPurchaseList.length === 0">
+                    <td colspan="2" class="table-th-font table-text-center" translate>MY_PURCHASE.No_DATA_FOUND</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="!settingsScreen && !requestsScreen && meetingSales && !myPurchase " class="mobile-table">
+        <mat-toolbar class="toolbar" (click)="OnClickBack()">
+            <div class="settings-header-mobile" fxLayout="row">
+                <div fxFlex="10" class="marginHeight">
+                    <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 1L2 8.5L10 16" stroke="#A8B2D4" stroke-width="2" />
+                    </svg>
+                </div>
+                <div fxLayoutAlign="center" fxFlex="90" class="settingAlign">
+                    <div class="padding-settings-icon">
+                        <svg width="32" height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.46 247.56">
+                            <defs>
+                                <style>
+                                    .cls-1,
+                                    .cls-2,
+                                    .cls-3 {
+                                        fill: #a8b2d4;
+                                    }
+
+                                    .cls-1,
+                                    .cls-2 {
+                                        stroke: #a8b2d4;
+                                        stroke-miterlimit: 10;
+                                    }
+
+                                    .cls-1 {
+                                        stroke-width: 10px;
+                                    }
+                                </style>
+                            </defs>
+                            <polygon class="cls-1"
+                                points="180.14 107.1 180.14 231.6 14.25 231.6 14.25 35.06 120.66 35.06 120.66 24.1 5 24.1 5 242.56 189.4 242.56 189.4 107.1 180.14 107.1" />
+                            <path class="cls-2"
+                                d="M797,276.23c53.17-50,93.4-72,94.92-70.19,1.68,2-35.39,37.47-96.63,102.57L753,259.55"
+                                transform="translate(-651 -205.44)" />
+                            <rect class="cls-3" x="49.59" y="132.94" width="95.17" height="13.31" />
+                            <rect class="cls-3" x="109.1" y="192.19" width="49.57" height="9.4" />
+                            <rect class="cls-3" x="49.59" y="161.91" width="95.17" height="13.31" />
+                            <path class="cls-3" d="M92,262" transform="translate(-651 -205.44)" />
+                        </svg>
+                    </div>
+                    <span class="menu-list-items-mobile textAlignMob" translate>ACCOUNT.MEETING_SALES</span>
+                </div>
+            </div>
+        </mat-toolbar>
+        <table class="table-wd-mobile">
+            <thead>
+                <tr class="table-th-bottom-border" fxLayout="row">
+                    <th fxFlex="35" fxLayoutAlign="start center" class="table-th-font1" translate>MEETING_SALES.DATE
+                    </th>
+                    <th fxFlex="35" fxLayoutAlign="start center" class="table-th-font1" translate>MEETING_SALES.TIME
+                    </th>
+                    <th fxFlex="35" fxLayoutAlign="start center" class="table-th-font1" translate>MEETING_SALES.AMOUNT
+                    </th>
+                    <th fxFlex="35" fxLayoutAlign="start center" class="table-th-font1" translate>
+                        MEETING_SALES.MICROSFOT_TEAMS_MEETING</th>
+                    <th fxFlex="35" fxLayoutAlign="start center" class="table-th-font1" translate>
+                        MEETING_SALES.PAYMENT_RECIEPT</th>
+                    <!-- <th fxFlex="30" fxLayoutAlign="end center" class="table-th-font-purchase" translate>
+                        MEETING_SALES.PAYMENT_METHOD</th> -->
+                    <!-- <th class="table-th-font" translate>MEETING_SALES.TRANSACTION_ID</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr fxLayoutAlign="none center" *ngFor="let sales of meetingSalesList;  let i = index " translate
+                    height="50px" translate class="document-mobile" (click)="onClickViewMeetingSales(sales[0]._id,meetingSalesListMap.get(sales[0].documentId),
+                sales[0].salesAt,sales[0].salesAmount,sales[0].paymentMethod)">
+                    <!-- <td fxLayoutAlign="none center"  fxFlex="70" class="table-tr-font-purchase  pointer">
+                    {{this.documentDetails[i]?.documentTitle}}
+                </td> -->
+                    <td fxLayoutAlign="none center" fxFlex="35" class="table-tr-font-purchase1  pointer">
+                        {{this.meetingSalesList[0].salesAt | date: 'yyyy-MM-dd'}}
+                    </td>
+                    <td fxLayoutAlign="none center" fxFlex="35" class="table-tr-font-purchase1  pointer">
+                        {{this.meetingSalesList[0].time}}
+                    </td>
+                    <!-- <td class="table-tr-font-purchase1 table-text-start  pointer">
+                        {{this.meetingSalesList[0].salesAt | date: 'yyyy-MM-dd'}}
+                    </td> -->
+                    <td fxLayoutAlign="none center" fxFlex="35" class="table-tr-font-purchase1  pointer">
+                        {{this.meetingSalesList[0].salesAmount}}
+                    </td>
+                    <td fxLayoutAlign="none center" fxFlex="35" class="table-tr-font-purchase1  pointer"
+                        (click)=" teamsMeetingHandler(purchase)">
+                        Länk till möte
+                    </td>
+                    <td fxLayoutAlign="none center" fxFlex="35" class="table-tr-font-purchase1  pointer"
+                        (click)=" generateMeetingSalesPdf(purchase)">
+                        Ladda ner
+                    </td>
+                    <!-- <td class="table-tr-font-purchase table-text-center  pointer">
+                        {{this.meetingSalesList[0].salesAmount}}
+                    </td> -->
+                    <!-- <td fxLayoutAlign="end center" fxFlex="30" class="table-tr-font-purchase table-text-end pointer">
+                        {{this.meetingSalesList[0].paymentMethod}}
+                    </td> -->
+                    <!-- <td class="table-tr-font-purchase table-text-start  pointer">
+                        {{this.meetingSalesList[0].transaction_Id}}
+                    </td> -->
+                </tr>
+                <tr height="50px" *ngIf="meetingSalesList.length === 0">
+                    <td colspan="2" class="table-th-font table-text-center" translate>MEETING_SALES.No_DATA_FOUND</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+<app-settings (settingsBack)="screenReset($event)" [option]="option" *ngIf="settingsScreen" fxHide.gt-sm></app-settings>

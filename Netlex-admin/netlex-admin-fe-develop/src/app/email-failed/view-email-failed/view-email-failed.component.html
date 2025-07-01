@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div fxLayout.lt-lg="col" fxLayout.lg="row" fxLayoutGap="10px">
+<!--        <app-alert [state]="alert"></app-alert>-->
+        <mat-card class="addBox">
+            <div class="h-container">E-post Skicka Misslyckad Detaljer</div>
+            <br>
+            <table class="table-size">
+                <tr>
+                    <td>Användare</td>
+                    <td>:</td>
+                    <td>{{this.userName}}</td>
+                </tr>
+                <tr>
+                    <td>E-Post</td>
+                    <td>:</td>
+                    <td>{{this.emailAddress}}</td>
+                </tr>
+                <tr>
+                    <td>Datum</td>
+                    <td>:</td>
+                    <td>{{this.date}}</td>
+                </tr>
+                <tr>
+                    <td>Ämne</td>
+                    <td>:</td>
+                    <td>{{this.subject}}</td>
+                </tr>
+                <tr class="breakLongText">
+                    <td>Meddelandeinnehåll</td>
+                    <td>:</td>
+                    <td class="break-line">{{this.content}}<br/>Netlex</td>
+                </tr>
+                <tr>
+                    <td>Misslyckad Issue</td>
+                    <td>:</td>
+                    <td>{{this.reason}}</td>
+                </tr>
+                <tr class="breakLongText">
+                    <td>Issue Detaljer</td>
+                    <td>:</td>
+                    <td class="break-line">{{this.reasonDetails}}</td>
+                </tr>
+            </table>
+            <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+                <button routerLink="/email-failed" mat-button class="saveBtn">Tillbaka</button>
+            </div>
+          
+        </mat-card>
+    </div>
+

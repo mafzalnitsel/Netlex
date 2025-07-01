@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>HITTA OSS / SKAPA</span></div> <br><br><br>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-question-answer-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <br>
+                <tr fxLayout="column">
+                    <label class="id-labels"><b>Kontorets namn</b></label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Kontorets namn</mat-label> -->
+                    <input matInput type="text" [(ngModel)]="findUs.office_Name"
+                               required placeholder="Kontorets namn">
+                    </mat-form-field>
+                </tr>
+                <tr fxLayout="column">
+                    <label class="id-labels"><b>Kontorsadress</b></label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Kontorsadress</mat-label> -->
+                    <textarea matInput type="text" [(ngModel)]="findUs.office_Address"
+                               required placeholder="Kontorsadress"></textarea>
+                    </mat-form-field>
+                </tr>
+                <tr fxLayout="column">
+                    <label class="id-labels"><b>Kontor E-post</b></label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Kontor E-post</mat-label> -->
+                    <input matInput type="text" [(ngModel)]="findUs.office_Email"
+                               required placeholder="Kontor E-post">
+                    </mat-form-field>
+                </tr>
+                <tr fxLayout="column">
+                    <label class="id-labels"><b>Kontor Kontakt</b></label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Kontor Kontakt</mat-label> -->
+                    <input matInput type="number" [(ngModel)]="findUs.office_Contact"
+                               required placeholder="Kontor Kontakt">
+                    </mat-form-field>
+                </tr>
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+                <button (click)="redirect(5)" mat-button class="back-button"><mat-icon>chevron_left</mat-icon> Tillbaka</button>
+                &nbsp;&nbsp;
+                <button (click)="onsubmit()" mat-button class="question-answer-create-button"><span class="spinner-border spinner-border-sm"
+                     >
+                     Lägg till</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

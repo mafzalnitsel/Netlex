@@ -1,0 +1,93 @@
+// .timeapp_page{
+//   width: 1000px;
+// }
+.time-app-header {
+  margin-top: 5px;
+  font-size: 28px;
+  // color: var(--netlex-primary);
+  color: rgba(11, 31, 102, 0.7);
+  padding: 15px;
+}
+
+.Heading_lable {
+  margin: 50px 0 0 50px;
+  font-size: large;
+}
+
+.lable {
+  margin: 10px 0 0 90px;
+  font-size: medium;
+}
+
+// ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+//   color: red;
+//   background-color: green;
+// }
+
+// .mat-tab-label {
+//   min-width: 25px !important;
+//   padding: 5px;
+//   background-color: transparent;
+//   color: green;
+//   font-weight: 700;
+// }
+// .mat-tab-label.mat-tab-label-active {
+//   // min-width: 25px !important;
+//   // padding: 5px;
+//   // background-color: transparent;
+//   color: var(--netlex-primary);
+//   // font-weight: 700;
+// }
+// .mat-ink-bar {
+//   background-color: green;
+// }
+
+.tab_navbar {
+  // margin-top: 150px;
+  height: 53px;
+  text-align: left;
+  // background-color: var(--netlex-primary);
+  background-color: rgba(46, 76, 180, 0.7);
+  border-radius: unset;
+  padding: unset;
+  width: 100%;
+}
+
+// @media screen and (max-width: 960px) {
+//   .navbar {
+//     height: 62px;
+//   }
+  
+// }
+// @media screen and (max-width: 800px) {
+//   .timeapp_page{
+//     width: 800px;
+//   }
+// }
+.tab-name-container {
+  // padding: 5px 10px 5px 10px;
+  padding: 5px 10px 8px 10px;
+  // width: 150px;
+  cursor: pointer;
+  // border-bottom: red 3px solid;
+}
+
+.tab-name-container:hover {
+  // background-color: #2a3356;
+  background-color: rgb(79, 105, 197,0.7);
+
+}
+.nav_tab_names{
+  // background-color: var(--netlex-primary);
+  color: white;
+  // margin-top: -7px;
+  font-weight: 500;
+  text-align: center;
+  justify-content: center;
+  font-size: medium;
+  padding: 10px;
+}
+.nav_tab_names:hover {
+  // background-color: red;
+  color: rgb(240, 240, 240);
+}

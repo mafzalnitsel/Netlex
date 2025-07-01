@@ -1,0 +1,384 @@
+<!-- <mat-toolbar class="toolbar">
+    <span *ngIf="paymentCard" class="documentTitle" translate>USERINPUTS.PURCHASE</span>
+    <span *ngIf="!paymentCard" class="documentTitle" fxHide.xs fxHide.sm><span
+            translate>USERINPUTS.AGREEMENTS </span>/{{documentTitle  | slice:0:30 }}</span>
+    <div fxHide.gt-sm>
+        <span *ngIf="!paymentCard" class="documentTitleMobile">
+            {{documentTitle | slice:0:20}}
+        </span>
+    </div>
+</mat-toolbar> -->
+<div class="banner-dark-img">
+    <div class="banner-image">
+    </div>
+</div>
+<div fxLayout="column" class="main-container">
+<!-- <div fxHide.lt-md class="header-top" fxLayoutAlign="none center">
+    <span translate>AGREEMENTSCONFIRM.TITLE</span>
+</div> -->
+
+<div class="content-top">
+    <!-- <div fxHide.lt-md class="top_heading" fxLayoutAlign="none center">
+        <span translate>AGREEMENTSCONFIRM.TITLE</span>
+    </div>
+    <div fxHide.gt-sm class="top_heading" fxLayoutAlign="center center">
+        <span class="agreement-confirm-mobile" translate>AGREEMENTSCONFIRM.TITLE</span>
+    </div> -->
+    <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="agreement_confirm_row1">
+        <div fxFlex.gt-sm="75" class="agreement_confirm_title_desc">
+            <div class="agreement_confirm_title_Large" *ngIf="documentTitleWords<5">
+                {{documentTitle}}
+            </div>
+            <div class="agreement_confirm_title_small" *ngIf="documentTitleWords>5">
+                {{documentTitle}}
+            </div>
+            <!-- <div class="agreement_confirm_description">
+                {{documentDescription}}
+                {{documentDescription | slice:0:800}}
+            </div> -->
+        </div>
+        <div fxFlex.gt-sm="25" class="agreement_confirm_details">
+            <div class="agreement_confirm_container" fxLayout="column">
+                <!-- ----||||||||-----AgreementConfirm Prices-----|||||||----- -->
+                <div class="agreement_confirm agreement_confirm2" *ngIf="!showUserInputQuestions">
+                    <div fxLayout.gt-sm="column" fxLayout.lt-md="column">
+                        <!-- <div fxFlex.gt-sm="100" class="agreement_confirm_data_box"> -->
+                        <div class="agreement_confirm_data_box">
+                            <!-- <div class="title_details">
+                                <h4 fxLayoutAlign="center" class="title_name">{{documentTitle}}</h4>
+                            </div>
+                            <div class="divide_line"></div>
+                            <div fxLayout="row" class="prices_details">
+                                <h4 class="price_title">{{'AGREEMENTS.PRICE' |
+                                    translate}} :</h4>
+                                <h4 class="price_title">{{documentPrice}}&nbsp; Kr
+                                </h4>
+                            </div>
+                            <div fxLayout="row" class="prices_details">
+                                <h4 class="price_title">{{'AGREEMENTS.TAX' |
+                                    translate}} :</h4>
+                                <h4 class="price_title">{{documentTax}}&nbsp; Kr
+                                </h4>
+                            </div>
+                            <div class="divide_line"></div> -->
+                            <!-- <div fxLayout="row" class="prices_details">
+                                <h4 class="total_price">
+                                    {{'AGREEMENTS.TOTAL_PRICE' | translate}} :</h4>
+                                <h4 class="total_price">
+                                    {{documentTotal}}&nbsp; Kr</h4>
+                            </div> -->
+                            <div fxLayout="row" class="prices_details">
+                                <h4 class="total_price">
+                                    Pris :</h4>
+                                <h4 class="total_price">
+                                    {{documentTotal}}&nbsp; Kr</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayoutAlign="center center" fxLayout="column">
+                        <!-- <button mat-button class="saveBtn" (click)="showUserInputsHandler()" -->
+                        <button mat-button class="saveBtn"  (click)="submit()"
+                            fxLayoutAlign="center center"><span translate
+                                fxLayoutAlign="center center">SCHEDULER.SEND</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- ----||||||||-----AgreementConfirm User Input Questions-----|||||||----- -->
+                <div class="agreement_confirm" *ngIf="showUserInputQuestions">
+                    <!-- User_Inputs_Close_Icon -->
+                    <!-- <div fxLayoutAlign="end" class="close_user_inputs"><mat-icon class="mat_icon_close">close</mat-icon></div> -->
+                    <!-- ^^^^^^^^^^^^^^^^^^^^^^ -->
+                    <div class="matUserInput agreement_confirm2" *ngIf="userInputCard">
+                        <div class="fieldBox">
+                            <div class="cardContent">
+                                <ng-container *ngFor="let fields of fieldList; let index = index">
+                                    <div *ngIf="index < this.nextFields && (index >= this.previewFields)">
+                                        <div class="user-fields" fxLayout="row" fxLayoutAlign="start center">
+                                            <div>
+                                                <input type="hidden" [(ngModel)]="userInputs[index].fieldId">
+                                                <label class="questionStyle" fxLayoutAlign="start none">{{index + 1
+                                                    + '.'}}
+                                                    {{fields.fieldId.field.question}}</label>
+                                                <div fxLayout="row">
+                                                    <div [ngSwitch]="fields?.fieldId.field.answerType">
+                                                        <div *ngSwitchCase="'Flervalsalternativ'">
+                                                            <select name="answer" class="dropdown UserInput textBox"
+                                                                (click)="checkMainQuestion(index)" required
+                                                                [(ngModel)]="userInputs[index].answer">
+                                                                <option value="" selected disabled>
+                                                                    {{fields?.fieldId.field.placeHolder}}</option>
+                                                                <option
+                                                                    *ngFor="let answer of fields.fieldId.field.answerValue"
+                                                                    [value]="answer">{{answer}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <div *ngSwitchCase="'Text'">
+                                                            <textarea matInput class="UserInput textBox textAlign"
+                                                                (ngModelChange)="checkMainQuestion(index)"
+                                                                placeholder="{{fields.fieldId.
+                                                field.placeHolder}}" required
+                                                                [(ngModel)]="userInputs[index].answer">
+                                                </textarea>
+                                                        </div>
+                                                        <div *ngSwitchCase="'Nummer'">
+                                                            <input matInput type="number"
+                                                                (ngModelChange)="checkMainQuestion(index)"
+                                                                class="UserInput textBox" required
+                                                                [placeholder]="fields?.fieldId.field.placeHolder"
+                                                                [(ngModel)]="userInputs[index].answer">
+                                                        </div>
+                                                        <div *ngSwitchCase="'Stämmer/ Stämmer inte'">
+                                                            <div class="buttonRadio" fxLayout="row"
+                                                                fxLayoutAlign="none center">
+                                                                <span fxFlex="90"
+                                                                    fxLayoutAlign="start">Stämmer</span>
+                                                                <input fxFlex="10" name="radioBtn{{index}}"
+                                                                    type="radio" value="Stämmer"
+                                                                    [(ngModel)]="userInputs[index].answer"
+                                                                    (ngModelChange)="checkMainQuestion(index)">
+                                                            </div>
+                                                            <div class="buttonRadio" fxLayout="row"
+                                                                fxLayoutAlign="none center">
+                                                                <span fxFlex="90" fxLayoutAlign="start">Stämmer
+                                                                    inte</span>
+                                                                <input fxFlex="10" name="radioBtn{{index}}"
+                                                                    type="radio" value="Stämmer inte"
+                                                                    [(ngModel)]="userInputs[index].answer"
+                                                                    (ngModelChange)="checkMainQuestion(index)">
+                                                            </div>
+                                                        </div>
+                                                        <div *ngSwitchCase="'Datum'">
+                                                            <input type="date" name="dateQuestion"
+                                                                class="UserInput textBox"
+                                                                (ngModelChange)="checkMainQuestion(index)"
+                                                                [(ngModel)]="userInputs[index].answer" required>
+                                                        </div>
+                                                        <div *ngIf="fields?.fieldId.field.answerType === 'Stämmer/ Stämmer inte'"
+                                                            class="help-tip  toolTipRadioMain"
+                                                            matTooltip="{{fieldList[this.index].fieldId.field.questionMark}}"
+                                                            matTooltipPosition="right">
+                                                        </div>
+                                                        <div *ngIf="(fields?.fieldId.field.answerType !== 'Stämmer/ Stämmer inte') && (fields?.fieldId.field.answerType === 'Datum' || 'Nummer' || 'Text' || 'Flervalsalternativ')"
+                                                            class="help-tip toolTipAlign"
+                                                            matTooltip="{{fieldList[this.index].fieldId.field.questionMark}}"
+                                                            matTooltipPosition="right"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <br />
+
+                                        <!--                    {{index}}  - - - - {{this.subQuestionInputs[index] | json}}-->
+
+                                        <div *ngIf="fieldList[index].fieldId.subQuestion != null"
+                                            class="subQuestion">
+                                            <input type="hidden" [(ngModel)]="subQuestionInputs[index].fieldId">
+                                            <div *ngIf="this.fieldList[index].isSubQuestionEligible ||  this.subQuestionInputs[index].answer"
+                                                class="subQuestionMarginAdded">
+                                                <label
+                                                    class="questionStyle">{{fieldList[index].fieldId.subQuestion.field.question}}</label>
+                                                <div
+                                                    [ngSwitch]="fieldList[index].fieldId.subQuestion.field.answerType">
+                                                    <div *ngSwitchCase="'Flervalsalternativ'" fxLayoutAlign="start">
+                                                        <select name="answer" class="dropdown UserInput textBox"
+                                                            [(ngModel)]="subQuestionInputs[index].answer"
+                                                            *ngSwitchCase="'Flervalsalternativ'">
+                                                            <option value="" selected disabled>
+                                                                {{fields?.fieldId.subQuestion.field.placeHolder}}
+                                                            </option>
+                                                            <option
+                                                                *ngFor="let answer of fieldList[index].fieldId.subQuestion.field.answerValue"
+                                                                [value]="answer">{{answer}}</option>
+                                                        </select>
+                                                    </div>
+                                                    <div *ngSwitchCase="'Text'" class="textDiv"
+                                                        fxLayoutAlign="start">
+                                                        <textarea *ngSwitchCase="'Text'"
+                                                            class="UserInput textBox textAlign"
+                                                            [placeholder]="fields?.fieldId.subQuestion.field.placeHolder"
+                                                            [(ngModel)]="subQuestionInputs[index].answer"></textarea>
+                                                    </div>
+                                                    <div *ngSwitchCase="'Nummer'" class="textDiv"
+                                                        fxLayoutAlign="start">
+                                                        <input type="text" inputmode="numeric"
+                                                            class="UserInput textBox"
+                                                            [placeholder]="fields?.fieldId.subQuestion.field.placeHolder"
+                                                            [(ngModel)]="subQuestionInputs[index].answer"
+                                                            *ngSwitchCase="'Nummer'">
+                                                    </div>
+                                                    <div *ngSwitchCase="'Stämmer/ Stämmer inte'" fxLayout="column"
+                                                        fxLayoutAlign="none start" class="radio-option">
+                                                        <div class="subRadioBtn" fxLayout="row"
+                                                            fxLayoutAlign="none center">
+                                                            <span fxFlex="90" fxLayoutAlign="start"
+                                                                translate>Stämmer</span>
+                                                            <input fxFlex="10" name="subRadioBtn{{index}}"
+                                                                type="radio" [value]="'Stämmer'"
+                                                                [(ngModel)]="subQuestionInputs[index].answer">
+                                                        </div>
+                                                        <div class="subRadioBtn" fxLayout="row"
+                                                            fxLayoutAlign="none center">
+                                                            <span fxFlex="90" fxLayoutAlign="start"
+                                                                translate>Stämmer inte</span>
+                                                            <input fxFlex="10" name="subRadioBtn{{index}}"
+                                                                type="radio" [value]="'Stämmer inte'"
+                                                                [(ngModel)]="subQuestionInputs[index].answer">
+                                                        </div>
+                                                    </div>
+                                                    <div *ngSwitchCase="'Datum'" class="textDiv"
+                                                        fxLayoutAlign="start">
+                                                        <input type="date" class="UserInput textBox"
+                                                            [(ngModel)]="subQuestionInputs[index].answer"
+                                                            *ngSwitchCase="'Datum'">
+                                                    </div>
+                                                    <div *ngIf="fields?.fieldId.subQuestion.field.answerType === 'Stämmer/ Stämmer inte'"
+                                                        class="help-tip toolTipRadioSubQuestion"
+                                                        matTooltip="{{fieldList[this.index].fieldId.subQuestion.field.questionMark}}"
+                                                        matTooltipPosition="right"></div>
+                                                    <div *ngIf="(fields?.fieldId.subQuestion.field.answerType !== 'Stämmer/ Stämmer inte') && (fields?.fieldId.subQuestion.field.answerType ==='Datum' || 'Nummer' || 'Text' || 'Flervalsalternativ')"
+                                                        class="help-tip toolTipAlign"
+                                                        matTooltip="{{fieldList[this.index].fieldId.subQuestion.field.questionMark}}"
+                                                        matTooltipPosition="right"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <!--    </div>-->
+
+                            <div class="mat-action">
+                                <button mat-button class="saveForLaterBtn" (click)="saveForLater()"><span
+                                        translate>USERINPUTS.SAVEFORLATER</span>
+                                </button>
+                                <div class="btn_next_pre">
+                                    <button [disabled]="isPreviousButtonDisable" *ngIf="!this.isEdit"
+                                        fxLayoutAlign="center center" mat-button class="button-nav"
+                                        (click)="onPrev()">
+                                        <mat-icon class="mat_icon_L"
+                                            [ngStyle]="{'color': isPreviousButtonDisable ?'#071c6996':'white'}">
+                                            chevron_left
+                                        </mat-icon>
+                                        <span translate>USERINPUTS.PREVIOUS</span>
+                                    </button>
+
+                                    <button mat-button class="button-submit" *ngIf="this.isSubmit && !this.isEdit"
+                                        fxLayoutAlign="center center" (click)="submit()"><span
+                                            translate>USERINPUTS.SUBMIT</span>
+                                    </button>
+                                    <button mat-button class="button-submit editDoneBtn"
+                                        fxLayoutAlign="center center" *ngIf="this.isEdit" (click)="submit()"><span
+                                            translate>USERINPUTS.DONEEDIT</span>
+                                    </button>
+                                    <button mat-button class="next-button btn" (click)="onNext()"
+                                        fxLayoutAlign="center center" *ngIf="this.nextBtn"><span
+                                            translate>USERINPUTS.NEXT</span>
+                                        <mat-icon class="mat_icon_R">chevron_right</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="agreement_confirm_row1_Desc">
+         <div class="agreement_confirm_description">
+                {{documentDescription}}
+                <!-- {{documentDescription | slice:0:800}} -->
+            </div>
+    </div>
+    
+    <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="agreement_confirm_row2" *ngIf="videosExists">
+        <div fxFlex.gt-sm="100" class="agreement_confirm_videos_container" >
+            <!-- <div class="video_n_button_container">
+                <video width="420" class="agreement_confirm_video" id="banner-video" preload="auto" loop>
+                    <source src="assets/videos/video1.mp4">
+                </video>
+            </div> -->
+            <div class="video_n_button_container" *ngFor="let video of videos">
+                <div class="video_button_container" *ngIf="!video.value" (mouseover)="onVideoHoverHandler($event,video.id)"
+                    (mouseout)="onVideoHoverHandler($event,video.id)">
+                    <div class="video_button_container_inner"
+                        [ngStyle]="{'background-color': video.value ? 'unset':'#00000075'}">
+                        <button class="video_btn">
+                            <mat-icon>play_arrow</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <video class="agreement_confirm_video" [id]="video.id" 
+                    (mouseover)="onVideoHoverHandler($event,video.id)" (mouseout)="onVideoHoverHandler($event,video.id)"
+                    controlsList="nodownload">
+                    <!-- <source src="assets/videos/video1.mp4"> -->
+                    <source [src]="video.path">
+                </video>
+            </div>
+
+        </div>
+        
+        <!-- <div fxFlex.gt-sm="40" class="agreement_confirm_image_container">
+            <img alt="Banner" class="agreement_confirm_image" src="assets/images/agreement_confirm_image.png"
+                alt="">
+        </div> -->
+    </div>
+    <!-- <form>
+        <div class="agreement-confirm-container" fxLayout="column">
+            <div class="agreement-confirm fields">
+                <div fxLayout.gt-sm="column" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="100" class="child-container-common">
+                        <div fxLayout="row" class="price-details">
+                            <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">{{'AGREEMENTS.TITLE' |
+                                translate}} :</h4>
+                            <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{documentTitle}}</h4>
+                        </div>
+                        <div class="divide_line"></div>
+                        <div fxLayout="row" class="price-details">
+                            <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">{{'AGREEMENTS.PRICE' |
+                                translate}} :</h4>
+                            <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{documentPrice}}&nbsp;
+                                Kr</h4>
+                        </div>
+                        <div fxLayout="row" class="price-details">
+                            <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">{{'AGREEMENTS.TAX' |
+                                translate}} :</h4>
+                            <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{documentTax}}&nbsp; Kr
+                            </h4>
+                        </div>
+                        <div fxLayout="row" class="price-details">
+                            <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePayBold">
+                                {{'AGREEMENTS.TOTAL_PRICE' | translate}} :</h4>
+                            <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOBold">
+                                {{documentTotal}}&nbsp; Kr</h4>
+                        </div>
+                        <div class="divide_line"></div>
+                        <div fxLayout="row" class="price-details">
+                            <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">{{'AGREEMENTS.DESC' |
+                                translate}} :</h4>
+                            <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{documentDescription}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <span class="button-container-top"></span>
+
+                <div fxLayoutAlign="center center" fxLayout="column">
+                    <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center"><span
+                            translate fxLayoutAlign="center center">SCHEDULER.SEND</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form> -->
+
+</div>
+</div>
+<!-- <div class="banner-dark-img">
+    <div class="banner-image">
+    </div>
+</div> -->
+<div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+<mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>

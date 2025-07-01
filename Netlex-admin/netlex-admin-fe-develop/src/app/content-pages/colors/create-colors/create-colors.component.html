@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>FÄRG / SKAPA FÄRG</span></div>
+<br><br><br>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-question-answer-table-container" fxLayout="column"
+        fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <br>
+            <div class="inputs_container">
+                <tr fxLayout="column">
+                    <!-- <input matInput type="text" maxlength="100" [(ngModel)]="colorCode" required> -->
+                    <label class="id-labels"><b>Skriv Namn</b></label>
+                    <input type="text" placeholder="Namnge denna färg" class="color_name_input" maxlength="15"
+                        [(ngModel)]="colors.colorName" required />
+                </tr>
+                <tr fxLayout="column">
+                    <label class="id-labels"><b>Färg Koda(Ej redigerbar)</b></label>
+                    <input type="text" class="color_name_input" maxlength="15" value={{colors.colorCode}} disabled />
+                </tr>
+                <tr fxLayout="column">
+                    <label class="id-labels"><b>Välja Färg</b></label>
+                    <input type="color" class="color_picker" id="favcolor" name="favcolor" [(ngModel)]="colors.colorCode" />
+                </tr>
+            </div>
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+                <button (click)="redirect(1)" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon> Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="onsubmit()" mat-button class="question-answer-create-button"><span
+                        class="spinner-border spinner-border-sm"> Lägg till</span>
+                </button>
+                <!-- <button mat-button class="back-button" (click)="checkColor($event)">check</button> -->
+            </div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div fxLayout="column" class="container-login">
+    <div class="header-top margin" fxLayout="row" fxLayoutAlign="none center"><span>SCHEMALAGD LISTA</span></div>
+    <div fxLayout="row" class="search-input-container">
+        <div fxFlex="70" fxLayoutAlign="start center" class="search-container">
+            <div fxLayout="row" class="search-input">
+                <input autocomplete="off" (input)="searchTimer($event.target.value)" class="search-filter"
+                       [(ngModel)]="searchValue" fxFlex="80" type="text" placeholder="Search for status">
+                <div fxLayoutAlign="none center" fxFlex="20">
+                    <mat-icon fxLayoutAlign="center center" style="height: 100%">search</mat-icon>
+                </div>
+            </div>
+        </div>
+        <div fxFlex="30" fxLayoutAlign.gt-sm="end center" fxLayoutAlign.lt-md="end center" class="button-container">
+            <button mat-button fxLayoutAlign="center center" class="button-create" (click)="showAddSchedule()">Skapa</button>
+        </div>
+    </div>
+    <div fxLayout.lt-lg="col" fxLayout.lg="row">
+        <div class="addBox" fxLayout="column">
+
+            <div class="table-container">
+                <table class="table-th" id="table" responsive>
+                    <thead class="table-th-font">
+                    <tr class="table-tr-font table-th-bottom-border">
+                        <th>Rubrik</th>
+                        <th>Datum</th>
+                        <th>Tid</th>
+                        <th>Beskrivning</th>
+                        <th>Språk</th>
+                        <th>advokat</th>
+                        <th>Status</th>
+                        <th>Handling</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr class="user-row" *ngFor="let lists of asyncLists | async | paginate: { id: 'server', itemsPerPage:
+                        perPage, currentPage: p, totalItems: total }">
+                        <td>{{lists.heading}}</td>
+                        <td>{{lists.dateOf}}</td>
+                        <td>{{lists.time}}</td>
+                        <td style="text-align: left">{{lists.description}}</td>
+                        <td>{{lists.language}}</td>
+                        <td>{{lists.lawyer}}</td>
+                        <td>{{lists.status}}</td>
+                        <td *ngIf="lists.Ispaid!=='YES'">
+                            <button class="edit-button" *ngIf="lists._id === userId || roleId === '629de34253fe6e4a98c09e56' || roleId === '62a053006b25ef2aa4191dbe' || roles === 'Administration'">
+                                <mat-icon (click)="viewScheduler(lists)">edit</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="!total" class="text-center">
+                        <td colspan="4">Ingen information hittad</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div fxLayoutAlign="center none" class="pagination-button-container">
+                <pagination-controls previousLabel="Föregående"
+                nextLabel="Nästa" (pageChange)="getPage($event)" id="server"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar>
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>FRÅGA OCH SVAR / REDIGERA FRÅGA OCH SVAR</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-question-answer-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <br>
+            <div fxFlex.gt-sm="100" [className]="editCategory ? 'child-container-common-edit' : 'child-container-common'">
+                <!-- <div class="edit_languages_label" *ngIf="editCategory">Redigera Frågekategori</div> -->
+                <div fxLayout="row">
+                    <tr fxFlex.gt-sm="95" class="grid categoryField">
+                        <label class="id-labels"><b>Frågekategori</b></label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <!-- <mat-label>"Frågekategori"</mat-label> -->
+                            <mat-select [(ngModel)]="selectedQuestionsCategory" placeholder="Frågekategori">
+                                <mat-option *ngFor="let category of questionsCategoryOptions " value="{{category}}">
+                                    {{category}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </tr>
+                    <tr fxLayout="column" fxFlex.gt-sm="10" class="">
+                        <div mat-button class="edit-button" (click)="editCategoryHandler()">
+                            <mat-icon *ngIf="!editCategory">edit</mat-icon>
+                            <mat-icon *ngIf="editCategory">done_outline</mat-icon>
+                        </div>
+                    </tr>
+                </div>
+                <div *ngIf="editCategory" class="edit_items">
+                    <div class="grid">
+                        <mat-radio-group name="servicesBgType" (change)="checkForMoreCategory($event)" class="grid">
+                            <mat-radio-button color="primary" style="height: 30px;" fxFlex.gt-sm="50"
+                                *ngFor="let option of editCategoryRadios" [checked]="option.checked"
+                                value="{{option.value}}">{{option.label}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div fxLayout="row" *ngIf="editCategoryAction==='add'">
+                        <tr fxFlex.gt-sm="95" class="grid">
+                            <label class="id-labels">Ange Kategori</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <input matInput type="text" maxlength="100" [(ngModel)]="moreCategory" required
+                                    placeholder="Kategori1 , Kategori2">
+                            </mat-form-field>
+                        </tr>
+                        <tr fxLayout="column" fxFlex.gt-sm="10" class="">
+                            <div mat-button class="add-button" (click)="addMoreCategoryHandler()">
+                                <mat-icon>add</mat-icon>
+                            </div>
+                        </tr>
+                    </div>
+                    <div fxLayout="row" *ngIf="editCategoryAction==='remove'">
+                        <tr fxFlex.gt-sm="95" class="grid">
+                            <label class="id-labels">Ta bort kategori</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <!-- <mat-label>"Alla Kategorier"</mat-label> -->
+                                <mat-select [(ngModel)]="removeCategory" multiple placeholder="Välj Kategorier">
+                                    <mat-option *ngFor="let category of questionsCategoryOptions" [value]="category"
+                                    style="--color:'red'">
+                                        {{category}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </tr>
+                        <tr fxLayout="column" fxFlex.gt-sm="10" class="">
+                            <div mat-button class="remove-button" (click)="removeCategoryHandler()">
+                                <mat-icon>delete</mat-icon>
+                            </div>
+                        </tr>
+                    </div>
+                </div>
+            </div>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Fråga</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <mat-label>Fråga</mat-label>
+                <textarea matInput type="text" [(ngModel)]="question"
+                           required placeholder="Fråga"></textarea>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Svar</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                <!-- <mat-label>Svar</mat-label> -->
+                <textarea matInput type="text" [(ngModel)]="answer"
+                           required placeholder="Svar"></textarea>
+                </mat-form-field>
+            </tr>
+
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end center">
+                <button (click)="redirect(2)" mat-button class="back-button">
+                    <span class="spinner-border" *ngIf="showBackLoading" role="status" aria-hidden="true">
+                        <mat-spinner diameter="26" strokeWidth=""></mat-spinner>
+                    </span>
+                    <mat-icon *ngIf="!showBackLoading">chevron_left</mat-icon>
+                    <span *ngIf="!showBackLoading">Tillbaka</span>
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="update()" mat-button class="question-answer-create-button" [disabled]="showloading">
+                    <!-- <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="status" aria-hidden="true"></span> -->
+                    <span class="spinner-border" *ngIf="showloading" role="status" aria-hidden="true">
+                        <mat-spinner diameter="26" strokeWidth=""></mat-spinner> </span>
+                        <span *ngIf="!showloading">Uppdatering</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

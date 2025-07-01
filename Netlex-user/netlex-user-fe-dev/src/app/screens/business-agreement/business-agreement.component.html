@@ -1,0 +1,146 @@
+<!-- <div class="agreement_background_containers">
+    <div class="agreement_background">
+    <img alt="Banner" class="banner-image" [src]="'../../../assets/images/agreements_background.jpg'">
+        <div></div>
+    </div>
+</div> -->
+<div class="agreement-container">
+    <div class="agreement-container-inner">
+        <div class="header-top-documents" fxLayout.lt-md="column" fxLayoutAlign="none center" fxHide.xs fxHide.sm>
+            <span class="agreementTitle" fxFlex.gt-md="50" translate>NAVIGATION_BAR.BUSINESS_AGREEMENTS</span>
+            <div fxFlex.gt-md="50" class="search-input" fxLayoutAlign.gt-md="end">
+                <div class="search-input-container">
+                    <input autocomplete="off" (input)="searchTimer($event.target.value)" class="search-filter"
+                           [(ngModel)]="searchValue" fxFlex="80" type="text" placeholder="Sök">
+                    <div fxFlex="20" fxLayoutAlign="center end">
+                        <mat-icon fxLayoutAlign="center center" style="height: 100%" class="mat-icon-search-center">search
+                        </mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="agreement-list-container">
+            <div *ngIf="documents">
+                <div fxHide.gt-sm>
+                    <div>
+                        <div class="agreement-header-container-mobile" fxLayoutAlign="center">
+                            <span class="agreement-header">{{"AGREEMENTS.BUSINESS_AGREEMENTS" | translate}}</span>
+                        </div>
+                        <div fxLayoutAlign="center center">
+                            <div class="search-input-container-mobile">
+                                <input autocomplete="off" (input)="searchTimer($event.target.value)" class="search-filter-mobile"
+                                       [(ngModel)]="searchValue" fxFlex="80" type="text" placeholder="Sök">
+                                <div fxFlex="20" fxLayoutAlign="center end">
+                                    <mat-icon fxLayoutAlign="start center" style="height: 100%" class="mat-icon-search-center">search
+                                    </mat-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-of-document-container-mobile">
+                        <div *ngFor="let document of filterDocuments; let i = index">
+                            <!-- <div fxLayoutAlign="start">
+                                <h2 class="alphabet-letter-mobile">{{document.key}}</h2>
+                            </div> -->
+                            <!-- <div fxFlex="29" fxLayoutAlign="end end">
+                                <h2 *ngIf="i === 0" class="alphabet-letter-price">{{'COMMON.PRICE_LIST' | translate}}</h2>
+                            </div> -->
+                            <div fxLayout="row" class="agreement-list-header">
+                                <div fxFlex="60" fxLayoutAlign="start center">
+                                    <div class="alphabet-letter-mobile">{{document.key}}</div>
+                                </div>
+                                <div fxFlex="30" fxLayoutAlign="start start">
+                                    <div *ngIf="i === 0" class="alphabet-letter-price-mobile">{{'COMMON.PRICE_LIST' | translate}}</div>
+                                </div>
+                            </div>
+                            <div class="border-bottom">
+                                <div fxLayout="column">
+                            <div *ngFor="let documentValue of document.title">
+                                <div (click)="openDialog(documentValue.documentTitle, documentValue.documentDescription,
+                                                        this.translate.instant('AGREEMENTS.AGREEMENT-DIALOG-ACTION'),
+                                                        documentValue._id,  getTotalAmount(documentValue.documentPrice, documentValue.documentTax), 'mobile')">
+                                    <div class="title-of-document-container-mobile" fxLayout="row" fxLayoutAlign="row">
+                                        <!-- <span class="title-no-wrap" fxLayoutAlign="none center">
+                                            {{documentValue.documentTitle}}
+                                        </span> -->
+                                        <div fxLayoutAlign="start center" fxFlex="65"
+                                                     class="title-no-wrap" fxLayout="row">
+                                                    {{documentValue.documentTitle}}
+                                                </div>
+                                                <div fxLayoutAlign="start center" fxFlex="30" class="title-of-document-price-mobile">
+                                                    <div class="list-price-container">
+                                                            <span fxLayoutAlign="start center" fxLayout="row">
+                                                            {{ getTotalAmount(documentValue.documentPrice, documentValue.documentTax)}} kr
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                    </div>
+                                    <!-- <div fxLayoutAlign="start center" fxFlex="30" class="title-of-document-price-mobile">
+                                        <div class="list-price-container">
+                                                <span fxLayoutAlign="start center" fxLayout="row">
+                                                {{ getTotalAmount(documentValue.documentPrice, documentValue.documentTax)}} kr
+                                            </span>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div fxHide.lt-md>
+                    <div>
+                        <mat-list class="list-position" *ngFor="let document of filterDocuments; let i = index" fxHide.lt-md>
+                            <div fxLayout="row" class="agreement-list-header">
+                                <div fxFlex="62" fxLayoutAlign="start center">
+                                    <div class="alphabet-letter">{{document.key}}</div>
+                                </div>
+                                <div fxFlex="30" fxLayoutAlign="start center">
+                                    <div *ngIf="i === 0" class="alphabet-letter-price">{{'COMMON.PRICE_LIST' | translate}}</div>
+                                </div>
+                            </div>
+                            <div class="border-bottom">
+                                <div fxLayout="column">
+                                    <div *ngFor="let documentValue of document.title; let i = index;">
+                                        <div class="list-name" (click)="openDialog(documentValue.documentTitle, documentValue.documentDescription,
+                                                        this.translate.instant('AGREEMENTS.AGREEMENT-DIALOG-ACTION'),
+                                                        documentValue._id, documentValue.documentPrice, 'desktop')">
+                                            <div class="title-of-document-container" fxLayout="row" fxLayoutAlign="row">
+        
+                                                <div fxLayoutAlign="start center" fxFlex="65"
+                                                     class="title-of-document title-margin-unset" fxLayout="row">
+                                                    <!-- <span fxLayoutAlign="center center" class="horizontal-bar"></span> -->
+                                                    {{documentValue.documentTitle}}
+                                                </div>
+                                                <div fxLayoutAlign="start center" fxFlex="30" class="title-of-document-price">
+                                                    <div class="list-price-container">
+                                                            <span fxLayoutAlign="start center" fxLayout="row">
+                                                            {{ getTotalAmount(documentValue.documentPrice, documentValue.documentTax)}} kr
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-list>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isSearchEmpty" fxLayout="row" class="no-records-found" fxLayoutAlign="center center">
+                <h3>Inga uppgifter funna!</h3>
+            </div>
+            <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+                <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+            </div>
+        </div>
+</div>
+</div>
+
+
+<div class="banner-dark-img">
+    <!-- <div class="banner-image"></div> -->
+    <div class="banner-image" [ngStyle]="{'background-image':headerImage && headerImage}"></div>
+</div>
+
+

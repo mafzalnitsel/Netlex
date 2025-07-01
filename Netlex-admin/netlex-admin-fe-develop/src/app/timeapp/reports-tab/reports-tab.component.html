@@ -1,0 +1,26 @@
+
+<!-- <mat-tab-group animationDuration="0ms" [selectedIndex]="2" (selectedIndexChange)="reportTabChanged($event)"> -->
+  <mat-tab-group animationDuration="0ms" [selectedIndex]="0" (selectedIndexChange)="reportTabChanged($event)">
+    <!-----------------InnerTabs4-------Counterparties-------- -->
+    <mat-tab label="Rapporter">
+      <app-reports></app-reports>
+    </mat-tab>
+    <!-- -------------InnerTabs4----------Chart--------------- -->
+    <mat-tab label="Diagram">
+      <app-chart></app-chart>
+    </mat-tab>
+    <!-- --vv-- To get Tab Index --vv-- -->
+    <mat-tab disabled></mat-tab>
+    <!-- --^^-- To get Tab Index --^^-- -->
+
+    <!-- ------------InnerTabs4---------Articles-------------- -->
+    <!-- <mat-tab label="Artiklar"></mat-tab> -->
+    <!-- ----------InnerTabs4----Billing-------- -->
+    <!-- <mat-tab label="Fakturering"></mat-tab> -->
+    <!-- ----------InnerTabs4----Register-------- -->
+    <!-- <mat-tab label="Registrera"></mat-tab> -->
+
+  </mat-tab-group>
+  <!-- <div *ngIf="ReportsTabIntial">
+    <app-reports></app-reports>
+  </div> -->

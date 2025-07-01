@@ -1,0 +1,227 @@
+<br>
+<br><br><br>
+<!-- <app-navbar></app-navbar> -->
+<!-- <app-navbar-new></app-navbar-new> -->
+
+<div class="container py-7">
+  <div class="row">
+    <div class="col-lg-9 ">
+      <p class="fontSizeP playfairFont"> Inledande rådgivningsavgift 2022 är 2000 kr <br>
+         Om det gäller önskemål gällande offentligt biträde i asyl, LVU, målsägandebiträde eller offentlig försvarare
+        vid misstanke av brott utgår ingen taxa. Likaså utgår ingen taxa vid förfrågan om ombud eller biträde i fråga om
+        vårdnad boende och umgänge. Viktigt att framföra vad saken gäller vid förfrågan.
+        Vi erbjuder även våra tjänster på svenska, engelska, arabiska, kurdiska, turkiska, assyriska/syrianska och
+        franska.</p>
+      <!-- <p class="fontSizeP"> Du kan även maila oss din förfrågan redan idag. Vi svarar inom 1-2 arbetsdagar och bokar ett möte. Ange om det
+        gäller Stockholms, Nyköping, Uppsala, Örebros- eller Göteborgskontoret.
+      </p> -->
+      <form #basicForm="ngForm" class="form-floating">
+        <div class="main">
+
+          <div class="form-group row my-2 "> 
+            <label for="inputPassword" class="col-sm-2 col-form-label playfairFont" >Ditt namn</label>
+            <div class="col-sm-10 ">
+              <input type="text" ngModel name="Ditt namn" class="form-control " id="inputPassword" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group row my-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label playfairFont" >Din e-postadress</label>
+            <div class="col-sm-10">
+              <input type="text" ngModel name="Din e-postadress" class="form-control" id="inputPassword" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group row my-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label playfairFont" >Amne</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" ngModel name="Amne" id="inputPassword" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group row my-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label playfairFont"  >Typ av ärende <br> (Familjerätt, arbetsrätt etc)</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" ngModel name="Typ av arende" id="inputPassword" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group row my-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label playfairFont" >Meddelande</label>
+            <div class="col-sm-10">
+              <textarea ngModel name="Meddelande" class="form-control"></textarea>
+            </div>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label playfairFont" for="inlineCheckbox1">Skicka en kopia av meddelandet till din egen
+              e-postadress</label>
+          </div>
+
+          <div class="form-group row my-2">
+            <label for="inputPassword" class="col-sm-2 col-form-label" >1+1=</label>
+            <div class="col-sm-10">
+              <input type="password" ngModel name="1+1=" class="form-control" id="inputPassword" placeholder="">
+            </div>
+          </div>
+          
+          <!-- <div class="col-lg-8">  
+            <div class="lef">
+            </div>
+            <div class="right" >
+              <div class="images" style="margin-left:auto;">
+                <img src="../../assets/Screenshot 2023-05-04 212100.png" usemap="#image_map" class="center">
+                  <map name="image_map">
+                    <area alt="Integritet" title="Integritet" href="https://policies.google.com/privacy?hl=sv" target="_blank" coords="22,20,45,18,60,20,65,27,61,38,62,51,61,62,41,66,20,58,13,42,14,33" shape="poly">
+                    <area alt="Integritet" title="Villkor" href="https://policies.google.com/terms?hl=sv" target="_blank" coords="40,30,106,87" shape="rect">
+                    </map>
+        
+              </div>
+            </div>
+          </div> -->
+
+          <button type="button" class="btn btn-primary" (click)="getvalue(basicForm.value)">Skicka</button>
+        </div>
+      </form>
+
+
+      <!-- /////   map   //// -->
+
+
+    </div>
+    <div class="col-lg-3">
+
+      <div class="Göteborg-01">
+        <label>
+          <h1><b class="Göteborg-1 playfairFont">Göteborg</b></h1>
+        </label>
+        <iframe width='100%' height='400px'
+          src="https://www.google.com/maps?q=Korsgatan+3+411+16+G%C3%B6teborg&z=15&t=m&output=embed" 
+          title="Streets" style="border:none;" width="100%" height="200" style="border:0;" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div style="margin-left: 6px;" class="playfairFont">
+
+          <b> Adress:</b>
+          <p class="Adress playfairFont" style="margin-top: -20px;margin-left: 58px; margin-bottom: 0px;"> Korsgatan 3 411 16 Göteborg
+          </p>
+          <p style="margin-top: -1px;">
+            <b>Kontakt:</b>
+          </p>
+          <p class="Kontakt playfairFont" style="margin-top: -29px;margin-left: 58px;">0102008078</p>
+          <p style="margin-top: -14px; margin-left: 2px;">
+            <b> E-post:</b>
+          </p>
+          <p class=" E-post playfairFont" style="margin-top: -32px;margin-left: 58px;">netlex@mirlex.se </p>
+          <!-- </div>   -->
+          <!-- <///////   2  ////////> -->
+          <div>
+            <label>
+              <h1><b class="Stockholm-Solna-2 playfairFont">Stockholm/Solna</b></h1>
+            </label>
+            <iframe width='100%' height='400px'
+             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8133.629672610577!2d18.001498!3d59.35953899999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d9561453b51%3A0x75a90d6974ad385e!2sBIBLIOTEKSTORGET%208%2C%20171%2045%20Solna%2C%20Sweden!5e0!3m2!1sen!2sus!4v1683722861621!5m2!1sen!2sus"
+              title="Streets" style="border:none;" width="100%" height="200" style="border:0;" allowfullscreen=""
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div style="margin-left: 6px;">
+
+              <b> Adress:</b>
+              <p class="Adress playfairFont" style="margin-top: -20px;margin-left: 58px; margin-bottom: 0px;"> Bibliotekstorget 8,
+                171 45</p>
+              <p style="margin-top: -1px;">
+                <b>Kontakt:</b>
+              </p>
+              <p class="Kontakt playfairFont" style="margin-top: -29px;margin-left: 58px;">0102008078</p>
+              <p style="margin-top: -14px; margin-left: 2px;">
+                <b> E-post:</b>
+              </p>
+              <p class=" E-post playfairFont" style="margin-top: -32px;margin-left: 58px;">netlex@mirlex.se </p>
+
+              <!-- </div>  -->
+              <!-- </div> -->
+              <br>
+
+              <!-- <///////   3  ////////> -->
+              <!-- <div>   -->
+              <label>
+                <h1><b class="Nyköping-3 playfairFont">Nyköping</b></h1>
+              </label>
+              <iframe width='100%' height='400px'
+               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8278.3254785782!2d17.01267!3d58.753858!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f2d71066add07%3A0x419b04daecfa05fb!2s%C3%96stra%20Storgatan%202%2C%20611%2034%20Nyk%C3%B6ping%2C%20Sweden!5e0!3m2!1sen!2sus!4v1683723916902!5m2!1sen!2sus"
+                title="Streets" style="border:none;" width="100%" height="200" style="border:0;" allowfullscreen=""
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div style="margin-left: 6px;">
+
+                <b> Adress:</b>
+                <p class="Adress playfairFont" style="margin-top: -20px;margin-left: 58px; margin-bottom: 0px;"> Östra Storgatan 2,
+                  611 34</p>
+                <p style="margin-top: -1px;">
+                  <b>Kontakt:</b>
+                </p>
+                <p class="Kontakt playfairFont" style="margin-top: -29px;margin-left: 58px;">0102008078</p>
+                <p style="margin-top: -14px; margin-left: 2px;">
+                  <b> E-post:</b>
+                </p>
+                <p class=" E-post playfairFont" style="margin-top: -32px;margin-left: 58px;">netlex@mirlex.se </p>
+              </div>
+              <!-- </div> -->
+              <br>
+
+              <!-- <///////   4  ////////> -->
+              <!-- <div> -->
+              <label>
+                <h1><b class="Örebro-4 playfairFont">Örebro</b></h1>
+              </label>
+              <iframe width='100%' height='400px'
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8154.938149501499!2d15.21038!3d59.270584!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465c14e3e862c281%3A0x6842df8233dfd8f6!2sDrottninggatan%2028%2C%20702%2010%20%C3%96rebro%2C%20Sweden!5e0!3m2!1sen!2sus!4v1683723488789!5m2!1sen!2sus" 
+                title="Streets" style="border:none;" width="100%" height="200" style="border:0;" allowfullscreen=""
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div style="margin-left: 6px;">
+
+                <b> Adress:</b>
+                <p class="Adress playfairFont" style="margin-top: -20px;margin-left: 58px; margin-bottom: 0px;"> Drottninggatan 28,
+                  702 10 </p>
+                <p style="margin-top: -1px;">
+                  <b>Kontakt:</b>
+                </p>
+                <p class="Kontakt playfairFont" style="margin-top: -29px;margin-left: 58px;">0102008078</p>
+                <p style="margin-top: -14px; margin-left: 2px;">
+                  <b> E-post:</b>
+                </p>
+                <p class=" E-post playfairFont" style="margin-top: -32px;margin-left: 58px;">netlex@mirlex.se </p>
+              </div>
+              <!-- </div> -->
+              <br>
+
+              <!-- <///////   5  ////////> -->
+              <!-- <div> -->
+              <label>
+                <h1><b class="Uppsala-5 playfairFont">Uppsala</b></h1>
+              </label>
+              <iframe width='100%' height='400px'
+               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8014.683481281821!2d17.652075!3d59.854606!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465fcbfc393c655f%3A0xeadaaf51e40c2907!2sKungsgatan%2062%2C%20753%2018%20Uppsala%2C%20Sweden!5e0!3m2!1sen!2sus!4v1683723367061!5m2!1sen!2sus" 
+                title="Streets" style="border:none;" width="100%" height="200" style="border:0;" allowfullscreen=""
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div style="margin-left: 6px;">
+
+                <b> Adress:</b>
+                <p class="Adress playfairFont" style="margin-top: -20px;margin-left: 58px; margin-bottom: 0px;"> Kungsgatan 62, 753
+                  41 </p>
+                <p style="margin-top: -1px;">
+                  <b>Kontakt:</b>
+                </p>
+                <p class="Kontakt playfairFont" style="margin-top: -29px;margin-left: 58px;">0102008078</p>
+                <p style="margin-top: -14px; margin-left: 2px;">
+                  <b> E-post:</b>
+                </p>
+                <p class=" E-post playfairFont" style="margin-top: -32px;margin-left: 58px;">netlex@mirlex.se </p>
+              </div>
+              <!-- </div> -->
+
+
+            </div>
+
+          </div>
+        </div>
+        <!-- </div> -->
+    

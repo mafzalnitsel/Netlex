@@ -1,0 +1,73 @@
+<!-- <div class="header-top mobile-tooltip" fxLayoutAlign="center center" fxHide.gt-sm>
+    <span class="about-mobile">{{'ABOUT_US.TITLE' | translate}}</span>
+</div>
+<div class="header" fxLayoutAlign="start center" fxHide.lt-md>
+    <p class="heading">{{'ABOUT_US.TITLE' | translate}}</p>
+</div> -->
+<!-- <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+    <span class="scheduler-mobile" translate>ABOUT_US.TITLE_MOBILE</span>
+</div>
+<div fxHide.lt-md class="header-top" fxLayoutAlign="none center">
+    <span translate>ABOUT_US.TITLE</span>
+</div> -->
+<div class="banner-dark-img" *ngIf="headerImageExist">
+    <!-- <div class="banner-image"></div> -->
+    <div class="banner-image" [ngStyle]="{'background-image':headerImage && headerImage}"></div>
+</div>
+<div class="marginTop" *ngIf="!headerImageExist"></div>
+<div fxHide.lt-md>
+    <!-- <div class="main-container" > -->
+    <div [ngClass]="[ headerImageExist?  'main-container playfairFont': 'main-container1 playfairFont' ]">
+        <!-- <div class="title" fxLayoutAlign="center">
+            <p fxLayoutAlign="center">Om oss</p>
+        </div> -->
+        <!-- <div fxLayoutAlign="start" [ngStyle]="{'color':headerImageExist ? 'white' : 'black' }" -->
+        <!-- <div fxLayoutAlign="start" [ngClass]="[ headerImageExist?  'title': 'title1' ]"> -->
+            <div fxLayoutAlign="start"  [ngClass]="[ headerImageExist?  'title1': 'title1' ]">
+            <p fxLayoutAlign="center"  [innerHTML]="aHeading|safeHtml| translate "> </p>
+        </div>
+        <div>
+
+            <div class="content-container-first" *ngFor="let aboutusheading of aboutusHeading;let i = index">
+                <div class="content-title-first">
+                    <!-- <p fxLayoutAlign="start" [innerHTML]="aHeading|safeHtml| translate " *ngIf="i<1"> </p> -->
+                    <span>{{aboutusheading.heading | translate}}</span>
+                </div>
+
+                <div class="content-desc-first">
+                    <span [innerHTML]="aboutusheading.description|safeHtml| translate "></span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="card-main-container" fxLayout="column">
+            <div class="card-title" fxLayoutAlign="center" [innerHTML]="aboutUsLawyerHeading|safeHtml| translate ">
+            </div>
+        </div> -->
+    </div>
+    <app-lawyers-in-home></app-lawyers-in-home>
+
+</div>
+<div fxHide.gt-sm>
+    <!-- <div class="main-container-mobile"> -->
+    <div [ngClass]="[ headerImageExist?  'main-container-mobile': 'main-container-mobile1' ]">
+
+        <div class="title-mobile" [ngClass]="[ headerImageExist?  'title-color': 'title-color1' ]" fxLayoutAlign="start">
+        <!-- <div [ngClass]="[ headerImageExist?  'title-mobile': 'title-mobile1' ]" fxLayoutAlign="start"> -->
+            <p fxLayoutAlign="center" [innerHTML]="aHeading|safeHtml| translate "></p>
+        </div>
+        <div fxLayout="column" *ngFor="let aboutusheading of aboutusHeading">
+            <!-- <span>{{aboutusheading.description | translate}}</span>
+         <span>{{aboutusheading.heading | translate}}</span> -->
+            <div class="content-title-first-mobile">
+                <span>{{aboutusheading.heading | translate}}</span>
+            </div>
+            <div class="content-desc-first-mobile">
+                <span [innerHTML]="aboutusheading.description|safeHtml| translate "></span>
+                <br>
+                <br>
+
+            </div>
+        </div>
+        <app-lawyers-in-home></app-lawyers-in-home>
+
+    </div>

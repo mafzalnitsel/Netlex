@@ -1,0 +1,334 @@
+$font-family:'Playfair Display,serif !important';
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+}
+
+.saveBtn {
+  background-color: var(--netlex-primary);
+  color: white;
+  width: 330px;
+  height: 50px;
+  border-radius: 6px;
+  font-family: $font-family;
+  letter-spacing: 0.07em;
+
+
+
+  span {
+    font-family:'Playfair Display,serif !important';    font-weight: 700;
+    font-size: 18px;
+  }
+
+  img {
+    padding-right: 14px;
+  }
+}
+
+.navbar {
+  height: 53px !important;
+  padding: 12px;
+  text-align: left;
+  background-color: var(--netlex-primary);
+  border-radius: unset;
+}
+
+.fields {
+  background-color: #FFFFFF;
+}
+
+.register {
+  display: grid;
+  place-items: center;
+  // padding-top: 42px;
+  height: 550px !important;
+}
+
+.register2 {
+  display: contents;
+  place-items: center;
+  padding-top: 42px;
+  height: 550px !important;
+}
+
+.loading_after_QR {
+  height: 256px;
+  width: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-mobile {
+  padding-top: 58px;
+}
+
+.required {
+  color: red;
+}
+
+.fields-labels {
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #0E0D0D;
+}
+
+.fields-labels-mobile {
+  font-family: $font-family;
+  font-size: 15px;
+  font-weight: 400;
+  padding-top: 30px;
+}
+
+.container-login {
+  background-color: #FFFFFF;
+  height: 100%;
+}
+
+.register-container {
+  width: 387px;
+  // height: 640px;
+  border: 2px solid #1F2A53;
+  border-radius: 10px;
+  padding: 25px 0 80px 0;
+}
+
+.register-container-mobile {
+  width: 387px;
+}
+
+.title-login {
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  // padding-top: 43px;
+}
+
+.content-top {
+  // padding: 40px 20px 20px 20px;
+  padding: 100px 20px 20px 20px;
+}
+
+.tittle-login-description {
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  // padding-top: 14px;
+  padding-top: 10px;
+  letter-spacing: 0.04em;
+}
+
+.account {
+  width: 330px;
+  padding: 12px 0 8px 0;
+  text-align: left;
+  letter-spacing: 0.04em;
+
+  a {
+    color: cornflowerblue;
+    text-decoration: unset;
+
+    span {
+      cursor: pointer;
+    }
+  }
+}
+
+.ssn-input {
+  padding-left: 11px;
+  width: 330px;
+  height: 50px;
+  background: #FFFFFF;
+  border: 2px solid #A8B2D4;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #AAAAAA;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+}
+
+.ssn-input:focus {
+  outline: unset;
+}
+
+.ssn-input::placeholder {
+  color: #AAAAAA;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+}
+
+.ssn-input::-ms-input-placeholder {
+  color: #AAAAAA;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+}
+
+.mobile-radio {
+  cursor: pointer;
+  width: 330px;
+  height: 45px;
+  border-radius: 7px;
+  background-color: #A8B2D4;
+  color: #ffffff;
+  font-family: Roboto, medium, serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  font-size: 16px;
+  text-align: left;
+
+  span {
+    padding: 15px 0 11px 9px;
+  }
+
+  input[type='radio'] {
+    background-color: #FFFFFF;
+    -webkit-appearance: none;
+    width: 17px;
+    height: 20px;
+    border-radius: 25px;
+    outline: none;
+    border: 4px solid #ffffff;
+  }
+
+  input[type='radio']:checked {
+    border-color: #ffffff;
+    background: #DFDAD6 content-box;
+  }
+}
+
+.break {
+  height: 5px !important;
+}
+
+.button-container-top {
+  padding-top: 12px;
+}
+
+.ssn-padding {
+  // padding-top: 46px;
+  padding-top: 20px;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .saveBtn,
+  .ssn-input,
+  .mobile-radio {
+    margin-top: 5px;
+    width: 300px;
+  }
+
+  .register-container {
+    width: 350px;
+    // height: 640px;
+    // border: unset;
+  }
+
+  .content-top {
+    padding-top: 80px;
+  }
+
+  .register {
+    padding-top: unset;
+  }
+
+  .account {
+    width: 280px;
+    padding: 12px 0 8px 0;
+  }
+
+  .ssn-padding {
+    // padding: unset;
+    padding-top: 10px;
+  }
+
+  .netlex-logo {
+    cursor: pointer;
+    margin-left: 0px;
+  }
+  
+}
+@media only screen and (max-width: 400px) {
+  .saveBtn,
+  .ssn-input{
+    margin-top: 5px;
+    width: 250px;
+  }
+  .mobile-radio {
+    margin-top: 5px;
+    width: 234px;
+  }
+  .account{
+    padding: 12px 10px 8px 15px;
+  }
+}
+.mobile-header {
+  border: #DCD2C8 1px solid;
+  font-family:'Playfair Display,serif !important';  font-weight: 300;
+  font-size: 25px;
+
+  span {
+    padding: 9px 17px 9px 17px;
+  }
+}
+
+.back-button {
+  height: 40px;
+  width: 110px;
+  border-radius: 6px;
+  border: 3px solid #1F2A53;
+}
+
+.paddingTop {
+  padding-top: 9px !important;
+}
+
+.signBtn {
+  margin-top: 20px;
+}
+
+.margin-small {
+  margin-bottom: 4px;
+
+}
+
+.mobile-radio-btn {
+  margin-bottom: 13px;
+}
+
+.mobile-radio{
+  a{
+    color: white;
+    padding-left: 8px;
+    text-decoration: none;
+    
+  }
+}

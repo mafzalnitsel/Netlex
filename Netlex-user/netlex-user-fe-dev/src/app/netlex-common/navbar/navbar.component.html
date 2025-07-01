@@ -1,0 +1,245 @@
+<!-- <mat-toolbar [class.animate_small_navbar_on]="large_Navbar" class="navbar animate_small_navbar_on" color="primary" fxHide.xs fxHide.sm *ngIf="utilService.visible && large_Navbar"
+    fxLayout="row"> -->
+<!-- ----|||||||||||||||||||||||--------Desktop Navbar--------|||||||||||||||||||||||---- -->
+<!-- ---------/\/\/\/\/\--------Crystal Navbar--------/\/\/\/\/\ -->
+<mat-toolbar class="crystal-navbar" [ngStyle]="{'background-color': crystal_navbar_color}" fxHide.xs fxHide.sm *ngIf="utilService.visible && large_Navbar"
+    fxLayout="row">
+    <div fxLayout="row" fxFlex="30" [class.animate_netlex_logo]="large_Navbar"
+        class="netlex-logo-container animate_netlex_logo">
+        <!-- <img class="textNetlex" height="35" width="118" [routerLink]="'/'" src="assets/images/netlex.png"  alt="Netlex"> -->
+        <img class="textNetlex" [routerLink]="'/'" src="assets/images/netlex.png" alt="Netlex">
+    </div>
+    <div fxLayout="row" fxFlex="70" fxLayoutAlign="end center">
+        <mat-menu #screen="matMenu" fxHide.gt-sm class="account-menu">
+            <button mat-menu-item class="Account" [routerLink]="'/accountSettings'"><span
+                    translate>COMMON.ACCOUNT</span></button>
+            <button mat-menu-item class="SignOut" (click)="auth.logout()" translate>COMMON.SIGN_OUT</button>
+        </mat-menu>
+
+        <div class="menu" fxLayout="row" fxLayoutAlign="end">
+            <!-- <div class="menu-item" [routerLink]="'/agreements'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.AGREEMENTS_OLD</span>
+            </div>
+             -->
+            <div class="menu-item" (click)="agreementOpenHandlerPrivatePerson('personal')"  fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.AGREEMENTS_OLD</span>
+            </div>
+            
+            <div class="menu-item"  [(ngModel)]="isChecked" (change)="onCheckboxChange()" (click)="agreementOpenHandlerForetag('business')" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.BUSINESS_AGREEMENTS</span>
+            </div>
+            <!-- <div class="menu-item" [routerLink]="'/scheduler'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.CONTACT_A_LAWYER</span>
+            </div> -->
+            <div class="menu-item" [routerLink]="'/allLawyers'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.CONTACT_A_LAWYER</span>
+            </div>
+            <!-- <div class="menu-item" [routerLink]="'/schedulerlist'"
+                 fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>schedulerlist</span>
+            </div> -->
+            <div class="menu-item" [routerLink]="'/questionAndAnswer'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.Q_&_A</span>
+            </div>
+            <div class="menu-item" [routerLink]="'/aboutUs'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.ABOUT_US</span>
+            </div>
+            <div class="menu-item" [routerLink]="'/findUs'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.FIND_US</span>
+            </div>
+            <!-- <div class="menu-item" [routerLink]="'/schedule-list'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>Listor</span>
+            </div> -->
+        </div>
+        <div class="profile-icon-container" *ngIf="this.auth.isUserLoggedIn()">
+            <div class="profile-icon" [matMenuTriggerFor]="screen" fxLayoutAlign="center center">
+                <span fxLayoutAlign="center center">{{this.auth.getFirst()?.charAt(0).toUpperCase()}}</span>
+            </div>
+        </div>
+        <div class="login-icon" *ngIf="!this.auth.isUserLoggedIn()" fxLayoutAlign="center center"
+            [routerLink]="'/login'">
+            <!-- <span translate>COMMON.LOGIN</span> -->
+            <mat-icon>person</mat-icon>
+        </div>
+    </div>
+</mat-toolbar>
+<!-- ---------/\/\/\/\/\---------Color Navbar----------/\/\/\/\/\ -->
+<mat-toolbar class="colored-navbar animate_small_navbar_on" [ngStyle]="{'background-color': colored_navbar_color}" [class.animate_small_navbar_on]="small_Navbar"  
+    fxHide.xs fxHide.sm *ngIf="utilService.visible && small_Navbar" fxLayout="row">
+    <div fxLayout="row" fxFlex="30" class="netlex-logo-container">
+        <img class="textNetlexSmall" [routerLink]="'/'" src="assets/images/netlex.png" alt="Netlex">
+    </div>
+    <div fxLayout="row" fxFlex="70" fxLayoutAlign="end center">
+        <mat-menu #screen="matMenu" fxHide.gt-sm class="account-menu">
+            <button mat-menu-item class="Account" [routerLink]="'/accountSettings'"><span
+                    translate>COMMON.ACCOUNT</span></button>
+            <button mat-menu-item class="SignOut" (click)="auth.logout()" translate>COMMON.SIGN_OUT</button>
+        </mat-menu>
+
+        <div class="menu" fxLayout="row" fxLayoutAlign="end">
+            <!-- <div class="menu-item" [routerLink]="'/agreements'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.AGREEMENTS_OLD</span>
+            </div>
+            <div class="menu-item" [routerLink]="'/business-agreements'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.BUSINESS_AGREEMENTS</span>
+            </div> -->
+            <div class="menu-item" (click)="agreementOpenHandler('personal')" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.AGREEMENTS_OLD</span>
+            </div>
+            <div class="menu-item" (click)="agreementOpenHandler('business')" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.BUSINESS_AGREEMENTS</span>
+            </div>
+            <div class="menu-item" [routerLink]="'/allLawyers'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.CONTACT_A_LAWYER</span>
+            </div>
+            <div class="menu-item" [routerLink]="'/questionAndAnswer'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.Q_&_A</span>
+            </div>
+            <div class="menu-item" [routerLink]="'/aboutUs'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.ABOUT_US</span>
+            </div>
+            <div class="menu-item" [routerLink]="'/findUs'" fxLayoutAlign="center center">
+                <span class="menu-item-content" translate>NAVIGATION_BAR.FIND_US</span>
+            </div>
+        </div>
+        <div class="profile-icon-container" *ngIf="this.auth.isUserLoggedIn()">
+            <div class="profile-icon" [matMenuTriggerFor]="screen" fxLayoutAlign="center center">
+                <span fxLayoutAlign="center center">{{this.auth.getFirst()?.charAt(0).toUpperCase()}}</span>
+            </div>
+        </div>
+        <div class="login-icon" *ngIf="!this.auth.isUserLoggedIn()" fxLayoutAlign="center center"
+            [routerLink]="'/login'">
+            <mat-icon>person</mat-icon>
+        </div>
+    </div>
+</mat-toolbar>
+
+<!-- ----|||||||||||||||||||||||--------Mobile Navbar--------|||||||||||||||||||||||---- -->
+<!-- ---------/\/\/\/\/\--------Crystal Navbar Mobile--------/\/\/\/\/\ -->
+<mat-toolbar class="crystal-navbar-mobile" [ngStyle]="{'background-color': crystal_navbar_color}" fxHide.gt-sm *ngIf="utilService.visible  && large_Navbar">
+    <div fxLayout="row" class="logo-container-mobile">
+        <div fxFlex="50" fxLayoutAlign="start">
+            <div class="homebtn">
+                <img alt="NETLEX" class="imgNetlex" height="35" src="assets/images/netlex.png" [routerLink]="'/'">
+            </div>
+        </div>
+        <div fxFlex="50" fxLayoutAlign="end">
+            <div>
+                <button mat-icon-button class="toolmenu" fxHide.gt-sm [matMenuTriggerFor]="topmenu">
+                    <mat-icon class="icon">menu</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <mat-menu #topmenu="matMenu" class="homeMatMenu">
+        <div class="mobile-menu" fxLayoutAlign="start" fxLayout="column" fxFlex>
+            <div class="profile-icon-mobile-container" *ngIf="this.auth.isUserLoggedIn()" fxLayout="row"
+                fxLayoutAlign="start center" [routerLink]="'/accountSettings'">
+                <div class="profile-icon-mobile" fxLayoutAlign="center center">
+                    <span fxLayoutAlign="center center">{{this.auth.getFirst()?.charAt(0).toUpperCase()}}</span>
+                </div>
+                <span class="user-name-mobile">&nbsp;{{this.auth.getFirst()}}</span>
+            </div>
+            <!-- <div class="mobile-menu-item" [routerLink]="'/agreements'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.AGREEMENTS_OLD</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/business-agreements'" fxLayoutAlign="start">
+                <span translate>NAVIGATION_BAR.BUSINESS_AGREEMENTS</span>
+            </div> -->
+            <div class="mobile-menu-item" (click)="agreementOpenHandlerPrivatePerson('personal')" fxLayoutAlign="start">
+                <span translate>NAVIGATION_BAR.AGREEMENTS_OLD</span>
+            </div>
+            <div class="mobile-menu-item" (click)="agreementOpenHandlerForetag('business')" fxLayoutAlign="start">
+                <span translate>NAVIGATION_BAR.BUSINESS_AGREEMENTS</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/allLawyers'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.CONTACT_A_LAWYER</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/questionAndAnswer'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.Q_&_A</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/aboutUs'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.ABOUT_US</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/findUs'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.FIND_US</span>
+            </div>
+            <div *ngIf="!this.auth.isUserLoggedIn()" class="login-button-container">
+                <div class="login-icon-mobile" fxLayout="row" fxLayoutAlign="center center">
+                    <span class="login-mobile" [routerLink]="'/login'" fxLayoutAlign="center"
+                        translate>COMMON.LOGIN</span>
+                </div>
+            </div>
+            <div *ngIf="this.auth.isUserLoggedIn()" class="login-button-container">
+                <div class="login-icon-mobile" fxLayout="row" fxLayoutAlign="center center">
+                    <span class="login-mobile" fxLayoutAlign="center" (click)="auth.logout()"
+                        translate>COMMON.SIGN_OUT</span>
+                </div>
+            </div>
+        </div>
+    </mat-menu>
+</mat-toolbar>
+<!-- ---------/\/\/\/\/\--------Color Navbar Mobile--------/\/\/\/\/\ -->
+<mat-toolbar class="colored-navbar-mobile animate_small_navbar_on" [ngStyle]="{'background-color': colored_navbar_color}"  fxHide.gt-sm *ngIf="utilService.visible && small_Navbar">
+    <div fxLayout="row" class="logo-container-mobile">
+        <div fxFlex="50" fxLayoutAlign="start">
+            <div class="homebtn">
+                <img alt="NETLEX" class="imgNetlex" height="35"  src="assets/images/netlex.png" [routerLink]="'/'">
+            </div>
+        </div>
+        <div fxFlex="50" fxLayoutAlign="end">
+            <div>
+                <button mat-icon-button class="toolmenu" fxHide.gt-sm [matMenuTriggerFor]="topmenu">
+                    <mat-icon class="icon">menu</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <mat-menu #topmenu="matMenu" class="homeMatMenu">
+        <div class="mobile-menu" fxLayoutAlign="start" fxLayout="column" fxFlex>
+            <div class="profile-icon-mobile-container" *ngIf="this.auth.isUserLoggedIn()" fxLayout="row"
+                fxLayoutAlign="start center" [routerLink]="'/accountSettings'">
+                <div class="profile-icon-mobile" fxLayoutAlign="center center">
+                    <span fxLayoutAlign="center center">{{this.auth.getFirst()?.charAt(0).toUpperCase()}}</span>
+                </div>
+                <span class="user-name-mobile">&nbsp;{{this.auth.getFirst()}}</span>
+            </div>
+            <!-- <div class="mobile-menu-item" [routerLink]="'/agreements'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.AGREEMENTS_OLD</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/business-agreements'" fxLayoutAlign="start">
+                <span translate>NAVIGATION_BAR.BUSINESS_AGREEMENTS</span>
+            </div> -->
+            <div class="mobile-menu-item" (click)="agreementOpenHandler('personal')" fxLayoutAlign="start">
+                <span translate>NAVIGATION_BAR.AGREEMENTS_OLD</span>
+            </div>
+            <div class="mobile-menu-item" (click)="agreementOpenHandler('business')" fxLayoutAlign="start">
+                <span translate>NAVIGATION_BAR.BUSINESS_AGREEMENTS</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/allLawyers'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.CONTACT_A_LAWYER</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/questionAndAnswer'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.Q_&_A</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/aboutUs'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.ABOUT_US</span>
+            </div>
+            <div class="mobile-menu-item" [routerLink]="'/findUs'" fxLayoutAlign="start ">
+                <span translate>NAVIGATION_BAR.FIND_US</span>
+            </div>
+            <div *ngIf="!this.auth.isUserLoggedIn()" class="login-button-container">
+                <div class="login-icon-mobile" fxLayout="row" fxLayoutAlign="center center">
+                    <span class="login-mobile" [routerLink]="'/login'" fxLayoutAlign="center"
+                        translate>COMMON.LOGIN</span>
+                </div>
+            </div>
+            <div *ngIf="this.auth.isUserLoggedIn()" class="login-button-container">
+                <div class="login-icon-mobile" fxLayout="row" fxLayoutAlign="center center">
+                    <span class="login-mobile" fxLayoutAlign="center" (click)="auth.logout()"
+                        translate>COMMON.SIGN_OUT</span>
+                </div>
+            </div>
+        </div>
+    </mat-menu>
+</mat-toolbar>

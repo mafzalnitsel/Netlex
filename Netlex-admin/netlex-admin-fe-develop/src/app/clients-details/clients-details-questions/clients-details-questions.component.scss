@@ -1,0 +1,253 @@
+$table-full-width: 100%;
+$font-family: Roboto, normal;
+
+.question-create-main{
+  margin-top: 50px;
+}
+.noMargin {
+  margin-top: 0;
+}
+
+.h-container {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 1px;
+}
+
+.addBox {
+  // height: 400px;
+  height: 100%;
+  // width: 600px;
+  width: 400px;
+  border-radius: unset;
+  border: 3px solid var(--netlex-primary);
+  // margin-top: 10px;
+}
+.addBox1 {
+  width: 100%;
+  vertical-align: middle;
+  text-align: center;
+}
+.space {
+  padding: 10px !important;
+  flex: auto;
+}
+
+.mat-form-field-underline {
+  background-color: white !important;
+}
+
+.moveCenter {
+  margin-left: -5%;
+}
+
+.back-button {
+  background-color: #4060D4;
+  color: white;
+  box-shadow: 2px 5px 6px -3px #888888;
+  margin-top: 30px;
+}
+
+.create-question-answer-table-container {
+  height: 100%;
+  width: 100%;
+}
+
+.profile-button {
+  color: #ffffff;
+  background-color: var(--netlex-primary);
+}
+
+.button-center {
+  text-align: center !important;
+}
+
+.text-center {
+  margin-left: 5%;
+  background-color: var(--netlex-primary);
+  color: white;
+}
+
+.create-question-answer-input-field {
+  width: 250px;
+  height: 40px;
+  left: 0px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 2px 5px 6px -3px #888888;
+}
+
+
+.table-top {
+  padding: 40px 30px 10px 30px;
+
+  tr {
+    padding: 10px;
+  }
+}
+
+.question-answer-create-button {
+  background-color: var(--netlex-primary);
+  color: white;
+  box-shadow: 2px 5px 6px -3px #888888;
+  margin-top: 30px;
+}
+
+// .buttons-container {}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: 0px !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0px !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: black !important;
+}
+
+// @media only screen and (max-width: 800px) {
+//   .addBox {
+//     width: 500px;
+//   }
+// }
+
+// @media only screen and (max-width: 700px) {
+//   .addBox {
+//     width: 400px;
+//     margin-top: 5px;
+
+//   }
+// }
+// @media only screen and (max-width: 600px) {
+//   .addBox {
+//     width: 300px;
+//   }
+// }
+
+
+.q_input {
+  border: rgba(0, 0, 0, 0.500) solid 1px;
+  // width: 99.5%;
+  width: 96.5%;
+  height: 40px;
+  // margin-bottom: 15px;
+  padding-left: 10px;
+
+}
+
+.selectWidth {
+  // width: 270px;
+  width: 96.5%;
+  // min-width: 190px;
+  height: 25px;
+  padding-top: 10px;
+  padding-left: 10px;
+  border: rgba(0, 0, 0, 0.500) solid 1px;
+  // border-radius: 8px;
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  // color: rgba(37, 34, 34, 0.7);
+  /* padding-left: 21px; */
+  /* box-sizing: border-box; */
+  /* line-height: 18px; */
+  /* height: 30px; */
+  // min-width: calc(100% + 32px);
+}
+
+input {
+  all: unset;
+  margin-bottom: 10px;
+  // padding-left: 10px;
+}
+.save-button-container {
+  padding: 40px 60px 40px 0;
+}
+.saveBtn {
+  background-color: var(--netlex-primary);
+  color: white;
+}
+.create-user-button {
+  width: 155px;
+  height: 40px;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 6px;
+}
+.delete-user-button {
+  color: #B70000;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $font-family;
+}
+.table-container {
+  border-top: #0B1F66 3px solid;
+}
+
+.table-size {
+  width: $table-full-width;
+  padding: 10px;
+}
+
+.table-header {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: $font-family;
+}
+
+
+.table thead tr th {
+  border: unset;
+  text-transform: capitalize;
+  color: gray;
+  font-size: 14px;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0 3px;
+}
+.user-row {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: $font-family;
+}
+.edit-button {
+  background-color: #637ACB;
+  // width: 95px;
+  width: auto;
+  height: 40px;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $font-family;
+}
+@media only screen and(max-width: 960px) {
+  .table-container {
+    overflow: scroll;
+  }
+
+  // .header-top {
+  //   margin-top: 50px;
+  // }
+
+  .content-pages-container {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .addBox {
+    // width: auto;
+    width: 80%;
+  }
+}

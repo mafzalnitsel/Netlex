@@ -1,0 +1,53 @@
+.main-container {
+  border: 1px solid #000000 !important;
+  height: 100%;
+}
+
+.reload-website-title {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  padding-right: 9px;
+}
+
+.reload-desc {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.button-save {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #1F2A53;
+  height: 35px;
+  width: 70px;
+  margin-right: 11px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  border: unset;
+}
+
+.button-cancel {
+  border: 1px #1F2A53 solid;
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #1F2A53;
+  background-color: #FFFFFF;
+  height: 35px;
+  width: 70px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.content-container{
+  padding: 15px 10px 13px 22px;
+}

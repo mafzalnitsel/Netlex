@@ -1,0 +1,248 @@
+<div fxHide.lt-md>
+    <div class="card-title" fxLayoutAlign="center">VÅRA ADVOKATER</div>
+
+    <div class="card-main-container">
+       
+        <!-- <div class="card-title" fxLayoutAlign="center" [innerHTML]="aboutUsLawyerHeading|safeHtml| translate "></div> -->
+        <!-- <div class="card-title" fxLayoutAlign="center">VÅRA ADVOKATER</div> -->
+        <div class="all-cards-container" id="scrollLawyersDiv">
+            <div class="left_scroll_button_container" fxLayoutAlign="start center" (mouseover)="lawyerAutoScrollHandler(true)" (mouseout)="lawyerAutoScrollHandler(false)">
+                <button mat-button class="left_scroll_button" id="myBtn" (click)="lawyerScrollLeftHandler()">
+                    <span>
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </span>
+                </button>
+            </div>
+            <div class="right_scroll_button_container" fxLayoutAlign="end center" (mouseover)="lawyerAutoScrollHandler(true)" (mouseout)="lawyerAutoScrollHandler(false)">
+                <button mat-button class="right_scroll_button" (click)="lawyerScrollRightHandler()">
+                    <span>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </span>
+                </button>
+            </div>
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutAlign="center" class="card-child-container" >
+                
+                <div class="card-container" fxLayout="column" *ngFor="let lawyerdetail of AllLawyerDetail " (mouseover)="lawyerAutoScrollHandler(true)" (mouseout)="lawyerAutoScrollHandler(false)" >
+                    <!-- <div *ngIf="lawyerdetail._id!=LawyerID" matRipple [matRippleColor]="'#1F2A53'"
+                        (click)="showCardNew(lawyerdetail._id)" class="card-first" fxLayoutAlign="center center">
+                        <span class="card-first-picture">
+                            <img width="250px" height="361px" [src]="showimage+lawyerdetail.lawyerPic">
+                        </span>
+                    </div> -->
+                    <div class="flip-box" (click)="lawyerCardClickHandler(lawyerdetail)">
+                        <div class="flip-box-inner">
+                            <div class="flip-box-front">
+                                <img [src]="showimage+lawyerdetail.lawyerPic" alt="Paris" class="lawyer_img_style">
+                            </div>
+                            <div class="flip-box-back">
+                                <div class="lawyer_img_backside_inner">
+                                    <div class="lawyer_img_backside_row" fxLayout="column">
+                                        <span>{{'ABOUT_US.CARD_CONTENT_FIRST' | translate}}:</span>
+                                        <span class="card-content-desc">{{lawyerdetail.training}}</span>
+                                    </div>
+
+                                    <div class="lawyer_img_backside_row" fxLayout="column">
+                                        <span>{{'ABOUT_US.CARD_CONTENT_SECOND' | translate}}:</span>
+                                        <span class="card-content-desc">{{lawyerdetail.languages | translate}} </span>
+                                    </div>
+                                    <div class="lawyer_img_backside_row" fxLayout="column">
+                                        <span>{{'ABOUT_US.CARD_CONTENT_THIRD' | translate}}:</span>
+                                        <span style="word-wrap:break-word" class="card-content-desc">
+                                            {{lawyerdetail.activityArea | translate}}
+                                        </span>
+                                    </div>
+                                    <div class="lawyer_img_backside_row" fxLayout="column">
+                                        <span>{{'ABOUT_US.CARD_CONTENT_FOURTH' | translate}}</span>
+                                        <span class="card-content-desc">{{lawyerdetail.phoneNumber | translate}}</span>
+                                        <span class="card-content-desc">{{lawyerdetail.email | translate}}</span>
+                                    </div>
+                                </div>
+                                <div fxLayoutAlign="center center" class="lawyer_img_backside_btn_container">
+                                    <button class="lawyer_img_backside_btn" (click)="redirect(lawyerdetail._id)"><span
+                                            translate>Boka möte</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div *ngIf="lawyerdetail._id==LawyerID " matRipple [matRippleColor]="'#C4C4C4'"
+                        (click)="hideCardNew(lawyerdetail._id)" class="card-first1" fxLayoutAlign="none start"
+                        fxLayout="column">
+                        <div class="card-content-container-inner">
+                            <div class="card-content-container" fxLayout="column">
+                                <span>{{'ABOUT_US.CARD_CONTENT_FIRST' | translate}}:</span>
+                                <span class="card-content-desc">{{lawyerdetail.training}}</span>
+                            </div>
+
+                            <div class="card-content-container" fxLayout="column">
+                                <span>{{'ABOUT_US.CARD_CONTENT_SECOND' | translate}}:</span>
+                                <span class="card-content-desc">{{lawyerdetail.languages | translate}} </span>
+                            </div>
+                            <div class="card-content-container" fxLayout="column">
+                                <span>{{'ABOUT_US.CARD_CONTENT_THIRD' | translate}}:</span>
+                                <span style="word-wrap:break-word" class="card-content-desc">
+                                    {{lawyerdetail.activityArea | translate}}
+                                </span>
+                            </div>
+                            <div class="card-content-container" fxLayout="column">
+                                <span>{{'ABOUT_US.CARD_CONTENT_FOURTH' | translate}}</span>
+                                <span class="card-content-desc">{{lawyerdetail.phoneNumber | translate}}</span>
+                                <span class="card-content-desc">{{lawyerdetail.email | translate}}</span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <p class="card-title-first">{{lawyerdetail.firstName | translate}} & {{lawyerdetail.lastName | translate}}</p> -->
+                    <p class="card-title-first">{{lawyerdetail.firstName | translate}} {{lawyerdetail.lastName |
+                        translate}}
+                    </p>
+                    <p class="card-header-first">{{lawyerdetail.title | translate}}</p>
+
+                </div>
+            </div>
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutAlign="center" class="card-child-container">
+                <div class="card-container" fxLayout="column" *ngFor="let lawyerdetailtwo of LawyerDetailtwo ">
+                    <div *ngIf="lawyerdetailtwo._id!=LawyerID" matRipple [matRippleColor]="'#1F2A53'"
+                        (click)="showCardNew(lawyerdetailtwo._id)" class="card-first" fxLayoutAlign="center center">
+                        <span class="card-first-picture">
+                            <!-- <img width="323px" height="434px" [src]="showimage+lawyerdetailtwo.lawyerPic"> -->
+                            <img width="250px" height="361px" [src]="showimage+lawyerdetailtwo.lawyerPic">
+                        </span>
+                    </div>
+
+                    <div *ngIf="lawyerdetailtwo._id==LawyerID " matRipple [matRippleColor]="'#C4C4C4'"
+                        (click)="hideCardNew(lawyerdetailtwo._id)" class="card-first1" fxLayoutAlign="none start"
+                        fxLayout="column">
+                        <div class="card-content-container-inner">
+                            <div class="card-content-container" fxLayout="column">
+                                <span>{{'ABOUT_US.CARD_CONTENT_FIRST' | translate}}:</span>
+                                <span class="card-content-desc">{{lawyerdetailtwo.training}}</span>
+                            </div>
+
+                            <div class="card-content-container" fxLayout="column">
+                                <span>{{'ABOUT_US.CARD_CONTENT_SECOND' | translate}}:</span>
+                                <span class="card-content-desc">{{lawyerdetailtwo.languages | translate}} </span>
+                            </div>
+                            <div class="card-content-container" fxLayout="column">
+                                <span>{{'ABOUT_US.CARD_CONTENT_THIRD' | translate}}:</span>
+                                <span style="word-wrap:break-word" class="card-content-desc">
+                                    {{lawyerdetailtwo.activityArea | translate}}
+                                </span>
+                            </div>
+                            <div class="card-content-container" fxLayout="column">
+                                <span>{{'ABOUT_US.CARD_CONTENT_FOURTH' | translate}}</span>
+                                <span class="card-content-desc">{{lawyerdetailtwo.phoneNumber | translate}}</span>
+                                <span class="card-content-desc">{{lawyerdetailtwo.email | translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="card-title-first">{{lawyerdetailtwo.firstName | translate}} & {{lawyerdetailtwo.lastName |
+                        translate}}</p>
+                    <p class="card-header-first">{{lawyerdetailtwo.title | translate}}</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="left_scroll_button_container">
+        <div >
+            <button mat-button class="left_scroll_button">
+                <span>
+                <mat-icon>keyboard_arrow_left</mat-icon>
+                </span>
+            </button>
+        </div>
+    </div> -->
+
+    <!-- <div fxLayoutAlign="end center" class="all-lawyers-btn-container">
+        <button class="all-lawyers-button"><span translate>Alla advokater</span>
+            <mat-icon class="arrow-right-icon">keyboard_arrow_right</mat-icon>
+        </button><br />
+    </div> -->
+</div>
+<div fxHide.gt-sm>
+    <div class="card-main-container" fxLayout="column">
+        <div class="card-title-mobile" fxLayoutAlign="center" [innerHTML]="aboutUsLawyerHeading|safeHtml| translate ">
+
+        </div>
+        <div fxLayout="column" fxLayoutAlign="none center">
+            <div fxLayout="column" *ngFor="let lawyerdetail of FirstTwoLawyersForMobile ; let i = index">
+                <!-- <div *ngIf="lawyerdetail._id!=LawyerID" matRipple [matRippleColor]="'#1F2A53'"
+                    (click)="showCardNew(lawyerdetail._id)" class="card-first-mobile" fxLayoutAlign="center center">
+                    <span class="card-first-picture">
+                        <img width="250px" height="361px" [src]="showimage+lawyerdetail.lawyerPic">
+                    </span>
+                </div> -->
+                <div class="flip-box">
+                    <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                            <img [src]="showimage+lawyerdetail.lawyerPic" alt="Paris" class="lawyer_img_style">
+                        </div>
+                        <div class="flip-box-back">
+                            <div class="lawyer_img_backside_inner">
+                                <div class="lawyer_img_backside_row" fxLayout="column">
+                                    <span>{{'ABOUT_US.CARD_CONTENT_FIRST' | translate}}:</span>
+                                    <span class="card-content-desc">{{lawyerdetail.training}}</span>
+                                </div>
+
+                                <div class="lawyer_img_backside_row" fxLayout="column">
+                                    <span>{{'ABOUT_US.CARD_CONTENT_SECOND' | translate}}:</span>
+                                    <span class="card-content-desc">{{lawyerdetail.languages | translate}} </span>
+                                </div>
+                                <div class="lawyer_img_backside_row" fxLayout="column">
+                                    <span>{{'ABOUT_US.CARD_CONTENT_THIRD' | translate}}:</span>
+                                    <span style="word-wrap:break-word" class="card-content-desc">
+                                        {{lawyerdetail.activityArea | translate}}
+                                    </span>
+                                </div>
+                                <div class="lawyer_img_backside_row" fxLayout="column">
+                                    <span>{{'ABOUT_US.CARD_CONTENT_FOURTH' | translate}}</span>
+                                    <span class="card-content-desc">{{lawyerdetail.phoneNumber | translate}}</span>
+                                    <span class="card-content-desc">{{lawyerdetail.email | translate}}</span>
+                                </div>
+                            </div>
+                            <div fxLayoutAlign="center center" class="lawyer_img_backside_btn_container">
+                                <button class="lawyer_img_backside_btn" [routerLink]="'/scheduler'"><span translate>Boka
+                                        möte</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="lawyerdetail._id==LawyerID" matRipple [matRippleColor]="'#C4C4C4'"
+                    (click)="hideCardNew(lawyerdetail._id)" class="card-first-content-mobile"
+                    fxLayoutAlign="start start" fxLayout="column">
+                    <div class="card-content-container-inner-mobile">
+                        <div class="card-content-container-mobile" fxLayout="column">
+                            <span>{{'ABOUT_US.CARD_CONTENT_FIRST' | translate}}</span>
+                            <span class="card-content-desc-mobile">{{lawyerdetail.training | translate}}</span>
+                        </div>
+                        <div class="card-content-container-mobile" fxLayout="column">
+                            <span>{{'ABOUT_US.CARD_CONTENT_SECOND' | translate}}</span>
+                            <span class="card-content-desc">{{lawyerdetail.languages| translate}}</span>
+                        </div>
+                        <div class="card-content-container-mobile" fxLayout="column">
+                            <span>{{'ABOUT_US.CARD_CONTENT_THIRD' | translate}}</span>
+                            <span class="card-content-desc">
+                                {{lawyerdetail.activityArea | translate}}
+                            </span>
+                        </div>
+                        <div class="card-content-container-mobile" fxLayout="column">
+                            <span>{{'ABOUT_US.CARD_CONTENT_FOURTH' | translate}}</span>
+                            <span class="card-content-desc-mobile">{{lawyerdetail.phoneNumber | translate}}</span>
+                            <span class="card-content-desc-mobile">{{ lawyerdetail.email | translate}}</span>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="card-name-mobile">{{lawyerdetail.firstName}} & {{lawyerdetail.lastName}} </p>
+                <p class="card-last-title-mobile">{{lawyerdetail.title}}</p>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- <div fxLayoutAlign="end center" class="all-lawyers-btn-container-mbl">
+        <button class="all-lawyers-button-mbl" [routerLink]="'/agreements'"><span translate>Alla advokater</span>
+            <mat-icon class="arrow-right-icon-mbl">keyboard_arrow_right</mat-icon>
+        </button>
+    </div> -->
+</div>

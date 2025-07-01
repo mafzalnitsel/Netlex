@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+<mat-tab-group animationDuration="500ms" [selectedIndex]="0" class="content-pages-container">
+    <!-- --------------||||||||||||||||| ----- Tab1 ----- ||||||||||||||||------------- -->
+    <mat-tab label="Möte Försäljnings" translate>
+        <div class="header-top" fxLayoutAlign="none center"><span>Möte Försäljnings</span></div>
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+            <tr class="select-container" fxLayoutAlign="left">
+                <mat-form-field class="select-a" appearance="outline">
+                    <mat-label><b>Betalnings Metod</b></mat-label>
+                    <mat-select (selectionChange)="changeData()" [(value)]="selectedPaymentMethod">
+                        <mat-option *ngFor="let methods of paymentMethodValues " value="{{methods}}">{{methods}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="select-a" appearance="outline">
+                    <mat-label><b>Status</b></mat-label>
+                    <mat-select (selectionChange)="changeData()" [(ngModel)]="status" [(value)]="status">
+                        <mat-option *ngFor="let status of statusValue " value="{{status}}">{{status}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </tr>
+            <tr class="" fxLayoutAlign="left">
+                <!-- <input class="date-input" [(ngModel)]="fromDate"  (change)="filterByDateHandler('fromDate')" [max]="maxToDate" type="date" matInput >
+                <input class="date-input" [(ngModel)]="toDate" (change)="filterByDateHandler('toDate')" [min]="minFromDate" type="date" matInput > -->
+                <div class="input-container">
+                    <label class="from-label"> From </label>
+                    <input class="date-input" [(ngModel)]="fromDate" (change)="changeData()" type="date" matInput>
+                </div>
+                <div class="input-container">
+                    <label class="to-label"> To </label>
+                    <input class="date-input" [(ngModel)]="toDate" (change)="changeData()" [min]="fromDate" type="date"
+                        matInput>
+                </div>
+            </tr>
+        </div>
+        <div fxLayout.lt-lg="col" fxLayout.lg="row">
+            <!--    <app-alert [state]="alert"></app-alert>-->
+
+            <div class="addBox" fxLayout="column">
+
+                <div class="table-container">
+                    <table class="table-size" id="table" bordered>
+                        <thead>
+                            <tr class="table-header">
+                                <!-- <th>Transaktion Id</th> -->
+                                <th>Användare</th>
+                                <th>Datum</th>
+                                <th>Tid</th>
+                                <th>Belopp</th>
+                                <th>Betalnings Metod</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- {{salesList | json}}-->
+
+                            <tr class="user-row" *ngFor="let sales of salesList | async | paginate: { id: 'serverr', itemsPerPage:
+                            perPage, currentPage: currentPage, totalItems: total }">
+                                <!-- <td (click)="viewSales(sales)">{{sales.transaction_Id}}</td> -->
+                                <td (click)="viewSales(sales)">{{sales.userName}}</td>
+                                <!-- <td (click)="viewSales(sales)">{{sales.salesAt}}</td> -->
+                                <td (click)="viewSales(sales)">{{sales.date}}</td>
+                                <td (click)="viewSales(sales)">{{sales.time}}</td>
+                                <td (click)="viewSales(sales)"><u>{{sales.salesAmount}}</u></td>
+                                <td (click)="viewSales(sales)">{{sales.paymentMethod}}</td>
+                                <td (click)="viewSales(sales)">{{sales.status}}</td>
+                                <td class="pdf_col" (click)="generateSalesPdf(sales)">
+                                    <span fxHide.lt-md>Skapa Pdf</span>
+                                    <!-- <span fxHide.gt-sm>Pdf</span> -->
+                                    <mat-icon>picture_as_pdf</mat-icon>
+                                </td>
+                                <!-- <button mat-raised-button class="edit-button" (click)="viewSales(sales)">Visa</button> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div fxLayoutAlign="center none" class="pagination-button-container">
+                    <!-- <pagination-controls (pageChange)="getSales($event)" id="server"></pagination-controls> -->
+                    <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getSales($event)"
+                        id="serverr"></pagination-controls>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+            <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+        </div>
+    </mat-tab>
+    <!-- --------------||||||||||||||||| ----- Tab2 ----- ||||||||||||||||------------- -->
+    <mat-tab label="Personligt Avtal Försäljnings">
+        <app-payments [paymentAgreementType]="'personal'"></app-payments>
+    </mat-tab>
+    <mat-tab label="Företag Avtal Försäljnings">
+        <app-payments [paymentAgreementType]="'business'"></app-payments>
+    </mat-tab>
+</mat-tab-group>

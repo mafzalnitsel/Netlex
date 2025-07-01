@@ -1,0 +1,28 @@
+<mat-tab-group animationDuration="0ms" [selectedIndex]="0">
+    <!-- -----------------InnerTabs2-------Client------------------------- -->
+    <mat-tab label="Klient">
+      <app-client></app-client>
+    </mat-tab>
+    <!-- ---------------InnerTabs2---------Matter------------------------- -->
+    <mat-tab label="Materia">
+      <app-matter></app-matter>
+    </mat-tab>
+    <!-- ---------------InnerTabs2--------Counterparties------------------ -->
+    <mat-tab label="Motparter">
+      <app-counter-parties></app-counter-parties>
+    </mat-tab>
+    <!-- ---------------InnerTabs2---------Co-Parties-------(Co-Fester)--- -->
+    <mat-tab label="Medparter">
+      <app-co-partners></app-co-partners>
+    </mat-tab>
+    <!-- ----------InnerTabs2----Extended Search/Confilict Control-------- -->
+    <mat-tab label="Förlängd Sök/Konflikt Kontrollera">
+      <app-extended-search></app-extended-search>
+    </mat-tab>
+    <!-- --vv-- To get Tab Index --vv-- -->
+    <!-- <mat-tab disabled></mat-tab> -->
+    <!-- --^^-- To get Tab Index --^^-- -->
+  </mat-tab-group>
+  <!-- <div *ngIf="ReportsTabIntial">
+    Klient
+  </div> -->

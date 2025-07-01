@@ -1,0 +1,297 @@
+<app-navbar [isNewDealComponent]=true></app-navbar>
+<!-- <span class="note-warn" fxLayoutAlign="center center"> * To format variables please include curly braces before and
+    after the variables.</span> -->
+<div class="total">
+    <div fxLayout.gt-md="row" fxLayout.lt-md="column" class="document-container">
+        <div class="field-container" fxFlex.lt-md="100" fxFlex.gt-md="70">
+            <div class="field-border">
+                <div fxLayout="row">
+                    <mat-card class="title idColumn" fxLayout="row" fxLayoutAlign="center none" fxFlex="32">
+                        <h4 class="document-column"><span>ID & ADMIN</span></h4>
+                    </mat-card>
+                    <mat-card class="title idColumn" fxLayoutAlign="center center" fxFlex="68">
+                        <h4 class="document-column"><span>FRITEXT KOLUMN</span></h4>
+                    </mat-card>
+                </div>
+                <div fxLayout.lt-lg="col" fxLayout.lg="row">
+                    <div fxFlex.gt-md="30" fxFlex.lt-sm="35" class="content-container">
+
+                        <!-- <div class="checkbox_container">
+                            <input [checked]="askQuestionFirst" type="checkbox"
+                                (change)="askQuestionFirstHandler($event.target.checked)">
+                            Ställ frågan först
+                        </div> -->
+                        <!-- <label class="footer_type_label">Dokumenttyp(Avtal typ)</label> -->
+                        <mat-accordion>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Local Variable
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <mat-selection-list multiple="false" (selectionChange)="fieldSelectionChange($event)">
+                                    <div *ngFor="let field of fieldList">
+                                        <div *ngIf="field.isGlobal === 'local'">
+                                            <div fxLayout="row" matTooltip="{{field.field.name}}">
+                                                <mat-list-option class="variable-wrap" checkboxPosition="before"
+                                                    [value]="field">
+                                                    <span>&#9679;{{field.field.name}}</span>
+                                                </mat-list-option>
+                                                <mat-icon class="main-question-delete" (click)="editField(field._id)">
+                                                    edit
+                                                </mat-icon>
+                                                <mat-icon class="main-question-delete" (click)="openDialog(field._id)">
+                                                    delete
+                                                </mat-icon>
+                                            </div>
+                                            <mat-list-option class="variable-wrap"
+                                                matTooltip="{{field.subQuestion.field.name}}" *ngIf="field.subQuestion"
+                                                checkboxPosition="before" [value]="field">
+                                                <span>{{'&nbsp;&nbsp;&nbsp;&#9679;' +
+                                                    field.subQuestion.field.name}}</span>
+                                            </mat-list-option>
+                                        </div>
+                                    </div>
+                                </mat-selection-list>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Global Variable
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <mat-selection-list multiple="false" (selectionChange)="fieldSelectionChange($event)">
+                                    <div *ngFor="let field of fieldList">
+                                        <div *ngIf="field.isGlobal === 'global'">
+                                            <div fxLayout="row" matTooltip="{{field.field.name}}">
+                                                <mat-list-option class="variable-wrap" checkboxPosition="before"
+                                                    [value]="field">
+                                                    <span>&#9679;{{field.field.name}}</span>
+                                                </mat-list-option>
+                                                <mat-icon class="main-question-delete" (click)="editField(field._id)">
+                                                    edit
+                                                </mat-icon>
+                                            </div>
+                                            <mat-list-option class="variable-wrap"
+                                                matTooltip="{{field.subQuestion.field.name}}" *ngIf="field.subQuestion"
+                                                checkboxPosition="before" [value]="field">
+                                                <span>{{'&nbsp;&nbsp;&nbsp;&#9679;' +
+                                                    field.subQuestion.field.name}}</span>
+                                            </mat-list-option>
+                                        </div>
+                                    </div>
+                                </mat-selection-list>
+                            </mat-expansion-panel>
+                            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        Global Key
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <mat-selection-list multiple="false">
+                                    <div fxLayout="row" matTooltip="'client'">
+                                        <mat-list-option class="variable-wrap2" checkboxPosition="before"
+                                            [value]="userDummyKey" (click)="addGlobalKeyHandler(userDummyKey)">
+                                            <span>&#9679;{{userDummyKey.question}}</span>
+                                        </mat-list-option>
+                                    </div>
+                                    <div fxLayout="row" matTooltip="'counterparties'">
+                                        <mat-list-option class="variable-wrap2" checkboxPosition="before"
+                                            [value]="counterPartiesDummyKey"
+                                            (click)="addGlobalKeyHandler(counterPartiesDummyKey)">
+                                            <span>&#9679;{{counterPartiesDummyKey.question}}</span>
+                                        </mat-list-option>
+                                    </div>
+                                    <!-- <div *ngFor="let key of globelKeys">
+                                            <div fxLayout="row" matTooltip="{{key.question}}">
+                                                <mat-list-option class="variable-wrap" checkboxPosition="before"
+                                                    [value]="key" (click)="addGlobalKeyHandler(key)">
+                                                    <span>&#9679;{{key.question}}</span>
+                                                </mat-list-option>
+                                            </div>
+                                    </div> -->
+                                </mat-selection-list>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                    <div fxFlex.gt-md="70" fxFlex.lt-sm="65" class="contentDiv">
+                        <!--                        <editor [init]="editorConfig" [(ngModel)]="htmlContent"></editor>-->
+                        <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor"
+                            [(ngModel)]="htmlContent"></ckeditor>
+                    </div>
+                </div>
+                <mat-card class="scanButtonCard" fxLayout.gt-md="row">
+                    <div class="font_name" fxFlex.gt-md="70">
+                        <div fxLayout.gt-md="row">
+                            <div class="footer_type_radios_container">
+                                <label class="footer_type_label">Dokumenttyp</label>
+                                <mat-radio-group class="radio_group" (change)="agreementTypeHandler($event.value)">
+                                    <mat-radio-button color="primary" class="radio_btn"
+                                        *ngFor="let option of agreementTypeOptions" [checked]="option.checked"
+                                        value="{{option.value}}">{{option.label}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div class="footer_type_radios_container">
+                                <button type="button" (click)="cloneWarningDialog('cloneWarning')"
+                                class="cloneDocumentBtn" *ngIf="!isCloneDocument">Klona Dokument</button>
+                                <!-- <div  *ngIf="isCloneDocument" class="clonedDocumentLabel">Duplicera dokument</div> -->
+                            </div>
+                        </div>
+
+                        <!-- <div class="footer_type_radios_container">
+                        <label class="footer_type_label">Dokumentet innehåller</label>
+                        <mat-radio-group class="radio_group" (change)="agreementContainsHandler($event.value)">
+                            <mat-radio-button color="primary" class="radio_btn"
+                                *ngFor="let option of agreementContainsOptions" [checked]="option.checked"
+                                value="{{option.value}}">{{option.label}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                        </div> -->
+                        <div fxLayout.gt-sm="row" class="input-field-row">
+                            <mat-form-field class="inputField1">
+                                <!-- <input matInput maxlength="27" [(ngModel)]="documentTitle" -->
+                                <input matInput [(ngModel)]="documentTitle" [formControl]="documentTitleErr"
+                                    placeholder="Dokument titel *">
+                                <mat-error *ngIf="documentTitleErr.hasError('required')"></mat-error>
+                            </mat-form-field>
+                            &nbsp;&nbsp;&nbsp;
+                            <mat-form-field class="inputField">
+                                <input matInput type="number" maxlength="7"
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                    [(ngModel)]="documentPrice" [formControl]="documentPriceErr" placeholder="Pris *"
+                                    (ngModelChange)="taxAddition($event)">
+                                <mat-error *ngIf="documentPriceErr.hasError('required')"></mat-error>
+                            </mat-form-field>
+                            &nbsp;&nbsp;&nbsp;
+                            <mat-form-field class="inputField">
+                                <input matInput type="number" disabled maxlength="10" [(ngModel)]="documentTax"
+                                    [formControl]="documentTaxErr" placeholder="Beskatta *">
+                                <mat-error *ngIf="documentTaxErr.hasError"></mat-error>
+                            </mat-form-field>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\-----Upload Videos-----/\/\/\/\/\/\/\/\/\/\/\/\/\/\  -->
+                        <div fxLayout.gt-sm="row" class="input-field-row">
+                            <!-- <mat-form-field class="inputFieldText">
+                                <textarea required class="big_text_Area" matInput maxlength="5000"
+                                    [(ngModel)]="documentDescription" placeholder="Dokumentbeskrivning..."></textarea>
+
+                            </mat-form-field> -->
+                            <div class="desc_editor">
+                                <!-- <ckeditor [config]="editorConfig2" #ckEditorComp (ready)="onReady($event)"
+                                    [editor]="ckEditor" [(ngModel)]="documentDescription"></ckeditor> -->
+                                <div class="contentDiv2">
+                                    <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)"
+                                        [editor]="ckEditor" [(ngModel)]="documentDescription"></ckeditor>
+                                    <!-- documentTax -->
+                                </div>
+                            </div>
+
+                            <tr fxLayout="column" class="upload_video_container" *ngIf="id">
+                                <label class="upload_video_text">Välj video</label>
+                                <div style="font-size:11px" appearance="outline">
+                                    <!-- <video autoplay [src]="videoUrl" height="200" *ngIf="videoUrl" style="width:14em; height:10em;"></video> -->
+                                    <!-- <video [src]="videoUrl" height="200" *ngIf="videoUrl" style="width:14em; height:10em;"></video> -->
+                                    <input multiple [(ngModel)]="agreementVideo" (change)="onVideoChange($event)"
+                                        type="file" class="form-control" name="password" id="agreementVideo"
+                                        accept="video/*">
+                                </div>
+                                <div class="upload_btn_container">
+                                    <!-- Förändra Sidfot Bg Bild<br> -->
+                                    <button *ngIf="!uploadingLoader" type="button" (click)="uploadVideoHandler()"
+                                        class="uploadBtn">
+                                        <span>Ladda upp Video</span>
+                                    </button>
+                                    <button *ngIf="uploadingLoader" type="button" class="uploadBtnLoading">
+                                        <mat-spinner diameter="20" strokeWidth="2"></mat-spinner>
+                                    </button>
+                                </div>
+                            </tr>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\-----Selected Videos Preview-----/\/\/\/\/\/\/\/\/\/\/\/\/\/\  -->
+                        <label class="preview_heading_vid" *ngIf="id && videoUrl!=''">Videominiatyrer</label>
+                        <div class="input-field-row" class="videos_preview_container" *ngIf="id && videoUrl!=''">
+                            <div *ngIf="showLoader" class="video_preview_loading">
+                                <mat-spinner diameter="40" strokeWidth="4"></mat-spinner>
+                            </div>
+                            <tr fxLayout="column" class="videos_preview" *ngFor="let video of videoUrl">
+                                <!-- <video [src]="video.url" height="200" *ngIf="videoUrl && !showLoader;" style="width:12em; height:8em;"></video> -->
+                                <video [src]="video.url" *ngIf="!videoEdit && videoUrl"
+                                    style="width:12em; height:8em;"></video>
+                                <video [src]="editVideoUrl + video.url" *ngIf="videoEdit && videoUrl"
+                                    style="width:12em; height:8em;"></video>
+                            </tr>
+                        </div>
+                        <!-- /\/\/\/\/\/\/\/\/\/\/\/\/\/\-----Upload Image-----/\/\/\/\/\/\/\/\/\/\/\/\/\/\  -->
+                        <!-- <label class="preview_heading_img" *ngIf="id && agreementHeaderPicUrl!=''">Förhandsgranskning av bild</label> -->
+                        <!-- <div fxLayout.gt-sm="row" class="input-field-row image_upload" *ngIf="id"> -->
+                        <div fxLayout.gt-sm="row" class="input-field-row image_upload">
+                            <tr fxLayout="column" class="image_preview" *ngIf="agreementHeaderPicUrl">
+                                <img [src]="agreementHeaderPicUrl" height="200" style="width:12em; height:8em;" />
+                            </tr>
+                            <tr fxLayout="column" class="upload_image_container">
+                                <label class="upload_image_text">Välj Bild</label>
+                                <div style="font-size:11px" appearance="outline">
+                                    <input [(ngModel)]="agreementImage" (change)="onImageChange($event)" type="file"
+                                        class="form-control" name="password" id="agreementImage" accept="image/*">
+                                </div>
+                                <!-- <div class="upload_btn_container">
+                                    <button type="button" (click)="changeAgreementHeaderPic()" class="uploadBtn">
+                                        <span>Ladda upp Bild</span>
+                                    </button>
+                                </div> -->
+                            </tr>
+                        </div>
+
+                        <div class="checkbox_container">
+                            <input [checked]="attachmentExist" type="checkbox"
+                                (change)="attachmentExistHandler($event.target.checked)">
+                            Bifoga fil också
+                        </div>
+                        <div class="upload_pdf_container">
+                            <label class="upload_pdf_text">Bifoga</label>
+                            <div style="font-size:11px" appearance="outline">
+                                <input (change)="onAgreementPdfChange($event)" [disabled]="!attachmentExist" type="file"
+                                    class="form-control" id="pdfAttachment">
+                            </div>
+                            <div *ngIf="id && pdfAttachment">
+                                <button type="button" (click)="viewFileHandler()" class="viewFileBtn">
+                                    <span>Visa fil</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pusblish-container" fxFlex.gt-md="30" fxLayoutAlign="center end">
+                        <button mat-button class="button-submit" (click)="openDialog('publishSave')"
+                            [disabled]="showLoader || uploadingLoader">
+                            PUBLICERA / SPARA
+                        </button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+        <div class="field-container" fxFlex.lt-md="100" fxFlex.gt-md="30">
+            <div class="field-border">
+                <mat-card class="title">
+                    <h4 class="edit-column">REDIGERINSKOLUMN</h4>
+                </mat-card>
+                <div class="add-screen " *ngIf="!add && !edit" fxLayout="column" fxLayoutAlign="center center">
+                    <label class="add-label" (click)="openAdd()" fxLayout="column">Skapa
+                        ett
+                        nytt ID och underfråga
+                    </label>
+                    <mat-icon (click)="openAdd()" class="circle-add-label">add_circle</mat-icon>
+                </div>
+                <mat-card class="id" *ngIf="add">
+                    <app-add-id [documentId]="id" (fieldReset)="screenReset($event)"></app-add-id>
+                </mat-card>
+                <mat-card class="id" *ngIf="edit">
+                    <app-exist-id [documentScreenFieldId]=editFieldId [documentScreen]=true
+                        (editScreenReset)="editScreenReset($event)"></app-exist-id>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

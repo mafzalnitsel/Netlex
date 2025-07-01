@@ -1,0 +1,31 @@
+<div class="banner-warn-container" fxFlexAlign="center">
+    <span fxLayoutAlign="center">
+        <img alt="" class="indication-icon" src="assets/images/Ellipse%2031.svg">
+    </span>
+</div>
+
+<mat-dialog-actions fxLayout="column" class="button-container-save-for-later" fxFlexAlign="center">
+    <!-- With Question Answer  -->
+    <!-- <div class="loginBtn" (click)="login()" *ngIf="askQuestionFirst">
+        <img alt="Login" src="assets/images/dialogLoginButton.svg">
+    </div>
+    <div class="loginBtn" (click)="register()" *ngIf="askQuestionFirst">
+        <img alt="Register" src="assets/images/dialogRegisterButton.svg">
+    </div> -->
+    <!-- Without Question Answer  -->
+    <!-- <div class="loginBtn" (click)="loginWithoutQA()"  *ngIf="!askQuestionFirst">
+        <img alt="Login" src="assets/images/dialogLoginButton.svg">
+    </div>
+    <div class="loginBtn" (click)="registerWithoutQA()"  *ngIf="!askQuestionFirst">
+        <img alt="Register" src="assets/images/dialogRegisterButton.svg">
+    </div> -->
+    <div class="loginBtn" (click)="loginNew()">
+        <img alt="Login" src="assets/images/dialogLoginButton.svg">
+    </div>
+    <div class="loginBtn" (click)="registerNew()">
+        <img alt="Register" src="assets/images/dialogRegisterButton.svg">
+    </div>
+    <!-- <div *ngIf="!saveForLater" class="loginBtn" (click)="skip()">
+        <img alt="Guest" src="assets/images/dialogGuestButton.svg">
+    </div> -->
+</mat-dialog-actions>

@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+<div fxLayout="column" class="container">
+
+    <div fxLayoutAlign="center cetner" class="content-top">
+        <form [formGroup]="schedulerForm">
+            <div class="scheduler-container" fxLayout="column">
+                <!-- <span fxLayoutAlign="center" fxHide.lt-md class="title-sc">SCHEMALÄGG ETT MÖTE</span> -->
+                <span fxLayoutAlign="center" class="title-sc">SCHEMALÄGG ETT MÖTE</span>
+                <div fxFlex.gt-md="35" class="scheduler fields">
+                    <div fxLayout="column" class="s-padding">
+                        <span class="fields-labels">Rubrik<span class="required">*</span></span>
+                        <input formControlName="heading" class="input-meet" value="{{heading}}" type="text" matInput
+                            placeholder="Rubrik" required>
+                    </div>
+                    <div class="required" *ngIf="docSubmit && schedulerForm.controls['heading'].errors?.required">
+                        Vänligen ange rubrik
+                    </div>
+
+                    <span class="break"></span>
+
+                    <div fxLayout="column" class="s-padding">
+                        <span class="fields-labels">Datum<span class="required">*</span></span>
+                        <input formControlName="dateOf" [min]="minDate" class="input-meet" value="{{dateOf}}"
+                            type="date" matInput placeholder="YYYYMMDD" required>
+                    </div>
+                    <div class="required" *ngIf="docSubmit && schedulerForm.controls['dateOf'].errors?.required">
+                        Välj datum
+                    </div>
+
+                    <div fxLayout="column" class="s-padding">
+                        <span class="fields-labels">Tid<span class="required">*</span></span>
+                        <mat-select class="input-meet" placeholder="Tid" formControlName="time" [(value)]="session">
+                            <mat-option *ngFor="let session of sessionValue " value="{{session}}">{{session}}
+                            </mat-option>
+                        </mat-select>
+                    </div>
+                    <div class="required" *ngIf="docSubmit && schedulerForm.controls['time'].errors?.required">
+                        Välj tid
+                    </div>
+
+                    <div fxLayout="column" class="s-padding">
+                        <span class="fields-labels">Beskrivning<span class="required"></span></span>
+                        <textarea formControlName="description" class="input-meet" value="{{description}}" matInput
+                            placeholder="Beskrivning">
+                        </textarea>
+                    </div>
+                    <div class="required" *ngIf="docSubmit && schedulerForm.controls['description'].errors?.required">
+                        Vänligen ange beskrivning
+                    </div>
+
+                    <div fxLayout="column" class="s-padding">
+                        <span class="fields-labels">Språk<span class="required">*</span></span>
+                        <mat-select class="input-meet" placeholder="Språk" formControlName="language"
+                            [(value)]="language">
+                            <mat-option *ngFor="let language of languageValue " value="{{language}}">{{language}}
+                            </mat-option>
+                        </mat-select>
+                    </div>
+                    <div class="required" *ngIf="docSubmit && schedulerForm.controls['language'].errors?.required">
+                        Välj språk
+                    </div>
+                    <div fxLayout="column" class="s-padding">
+                        <span class="fields-labels" translate>Affärs Typ<span class="required">*</span></span>
+                        <mat-select class="input-meet" placeholder="Affärs Typ..." [(value)]="businessTypeId">
+                            <mat-option *ngFor="let businesstype of allBusinessTypes " value="{{businesstype._id}}">
+                                {{businesstype.name}}</mat-option>
+                        </mat-select>
+                    </div>
+                    <div fxLayout="column" class="s-padding">
+                        <span class="fields-labels">Status<span class="required">*</span></span>
+                        <mat-select class="input-meet" placeholder="Status" formControlName="status" [(value)]="status">
+                            <mat-option *ngFor="let Status of statusValue " value="{{Status}}">{{Status}}</mat-option>
+                        </mat-select>
+                    </div>
+                    <div class="required" *ngIf="docSubmit && schedulerForm.controls['status'].errors?.required">
+                        Välj status
+                    </div>
+                    <div fxLayout="column" class="s-padding">
+                        <span class="fields-labels" translate>Advokat<span class="required">*</span></span>
+                        <mat-select class="input-meet" placeholder="Advokat..." formControlName="lawyerId"
+                            [(value)]="lawyerId">
+                            <mat-option *ngFor="let lawyervalues of lawyerGet " value="{{lawyervalues._id}}">
+                                {{lawyervalues.firstName}} {{lawyervalues.lastName }}</mat-option>
+                        </mat-select>
+                    </div>
+                    <div class="required" *ngIf="docSubmit && schedulerForm.controls['lawyerId'].errors?.required">
+                        Välj Advokat
+                    </div>
+                    <div fxLayout="column" class="file">
+                        <span for="singleFile">Anknytning</span>
+                        <input formControlName="attachment" id="singleFile" type="file">
+                    </div>
+                    <div class="required" *ngIf="docSubmit && schedulerForm.controls['attachment'].errors?.required">
+                        Välj bilaga
+                    </div>
+
+                    <span class="button-container-top"></span>
+
+                    <div fxLayoutAlign="center center" fxLayout="column" class="button-container-scheduler">
+                        <div class="scheduler-save-button-container">
+                            <button mat-raised-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center">
+                                <span translate fxLayoutAlign="center center">Schema</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

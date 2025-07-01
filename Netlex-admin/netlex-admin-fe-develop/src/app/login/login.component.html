@@ -1,0 +1,74 @@
+<div fxLayout="column" class="container-login">
+    <mat-toolbar class="navbar" color="primary">
+        <img class="textNetlex" src="./assets/netlex.png" height="50" width="150" alt="Netlex" [routerLink]="'/login'">
+    </mat-toolbar>
+    <div class="register-container">
+        <div fxFlex.gt-md="65" class="register welcome-note">
+            <div>
+                <h1>
+                    <!-- <b *ngIf="itsAdminUser && !itsLawyerUser">Välkommen till NETLEX Admin portal</b>
+                    <b *ngIf="itsLawyerUser && !itsAdminUser">Välkommen till NETLEX Advokat portal</b> -->
+                    <b *ngIf="itsAdminUser">Välkommen till NETLEX Admin portal</b>
+                    <b *ngIf="!itsAdminUser">Välkommen till NETLEX Advokat portal</b>
+                </h1>
+                <h4>Ange ditt användarnamn och lösenord</h4>
+            </div>
+        </div>
+        <div fxFlex.gt-md="35" class="register fields">
+            <div class="fields-container" *ngIf="!showForgotPassword">
+                <div fxLayout="column">
+                    <mat-label class="fields-labels">Användarnamn eller E-postadress<span class="required">*</span></mat-label>
+                    <mat-form-field class="input-fields-create">
+                        <input type="text" (keyup.enter)="submit()" matInput [(ngModel)]="userName" maxlength="100" required>
+                        <mat-error *ngIf="!userName">Användarnamn eller E-postadress krävs</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column">
+                    <mat-label class="fields-labels">Lösenord<span class="required">*</span></mat-label>
+                    <mat-form-field class="input-fields-create">
+                        <input type="password" (keyup.enter)="submit()" matInput [(ngModel)]="password" maxlength="100" required>
+                        <mat-error *ngIf="!password">Lösenord krävs</mat-error>
+                    </mat-form-field>
+                    <div fxLayoutAlign="end end" fxLayout="column">
+                        <a href="javascript: void(0)" class="loginAsCheckbox" (click)="loginAs()">
+                            <span *ngIf="itsAdminUser">Logga in som advokat</span>
+                            <span *ngIf="!itsAdminUser">Logga in som admin</span>
+                        </a>
+                    </div>
+                    <!-- <label>
+                        <input [checked]="checkNotCheck==1" checked type="checkbox" class="loginAsCheckbox"
+                            (change)="loginAs($event.target.checked)">Logga in som advokat
+                    </label> -->
+                </div>
+
+                <div fxLayoutAlign="center center" fxLayout="column">
+                    <button mat-button class="saveBtn" (click)="submit()">Logga in</button>
+                    <br>
+                    <a href="javascript: void(0)" class="ForgotP" (click)="displayForgotPassword();">Glömt ditt
+                        lösenord?</a>
+                </div>
+            </div>
+            <mat-card class="fCard" *ngIf="showForgotPassword">
+                <mat-card-title>Glömt ditt lösenord</mat-card-title>
+                <mat-card-content>
+                    <p>
+                        <mat-form-field class="fTxt">
+                            <input type="email" matInput placeholder="Skriv in epostadress"
+                                   [(ngModel)]="forgotEmail"
+                                   required autofocus autocomplete="email">
+                        </mat-form-field>
+                    </p>
+                    <div fxLayoutAlign="center">
+                        <a href="/login" mat-raised-button class="backbtn">Tillbaka</a>
+                        <button type="submit" class="button" color="primary" mat-raised-button
+                                (click)="submitForgotPassword()">Skicka in
+                        </button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>

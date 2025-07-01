@@ -1,0 +1,331 @@
+<div class="navbar">
+    <div fxHide.lt-md fxLayout="row" fxLayoutAlign="center center">
+        <div fxFlex="50" fxLayoutAlign="start center">
+            <div class="tool-menu" (click)="openSidebarHandler()">
+                <div class="menu-button-element"></div>
+                <div class="menu-button-element"></div>
+                <div class="menu-button-element"></div>
+            </div>
+            <a class="home-button" (click)="navigationPrevent(); close('homeNuttonClick');">
+                <img class="logo" src="./assets/netlex.png" alt="Netlex">
+            </a>
+        </div>
+        <div fxFlex="50" fxLayoutAlign="end center">
+            <div class="profile-container">
+                <div [matMenuTriggerFor]="logoutMenu">
+                    <div fxLayout="row" fxLayoutAlign="center center" class="profile-inner-container">
+<!--                        <div fxLayoutAlign="center">-->
+<!--                            <img class="profile-image" mat-card-avatar src="{{imgURL}}" alt="{{name}}"></div>-->
+                      <div class="profile-icon" fxLayoutAlign="center center">
+                        <span fxLayoutAlign="center center">{{name?.charAt(0).toUpperCase()}}</span>
+                      </div>
+                        <div fxLayoutAlign="start center">
+                            <div class="user-name">{{name}}</div>
+                        </div>
+                    </div>
+                </div>
+                <mat-menu #logoutMenu="matMenu" class="mat-menu-design">
+                    <button mat-menu-item [routerLink]="'/profile' " class="logoutBtn">Min profil</button>
+                    <button mat-menu-item (click)="logout()" class="logoutBtn">Logga ut</button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm class="menu">
+        <div class="menu-inner">
+            <div class="tool-menu-mobile" (click)="openSidebarHandler()">
+                <div class="menu-button-element"></div>
+                <div class="menu-button-element"></div>
+                <div class="menu-button-element"></div>
+            </div>
+            <a class="home-button-mobile"  (click)="navigationPrevent()">
+                <img class="logo" src="./assets/netlex.png" alt="Netlex">
+            </a>
+            <div class="profile-container-mobile">
+                <div [matMenuTriggerFor]="logoutMenu">
+                    <div fxLayout="row" fxLayoutAlign="center center" class="profile-inner-container">
+<!--                        <div fxLayoutAlign="center">-->
+<!--                            <img class="profile-image-mobile" mat-card-avatar src="{{imgURL}}" alt="{{name}}"></div>-->
+                      <div class="profile-icon-mobile" fxLayoutAlign="center center">
+                        <span fxLayoutAlign="center center">{{name?.charAt(0).toUpperCase()}}</span>
+                      </div>
+                    </div>
+                </div>
+                <mat-menu #logoutMenu="matMenu" class="mat-menu-design">
+                    <button mat-menu-item [routerLink]="'/profile' " class="logoutBtn">Min profil</button>
+                    <button mat-menu-item (click)="logout()" class="logoutBtn">Logga ut</button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <mat-drawer-container class="example-container" >
+    <mat-drawer  mode="side" [opened]="openSidebar" class="sidebar" >Drawer contentcontentcontent</mat-drawer>
+    <mat-drawer-content>Main content</mat-drawer-content>
+  </mat-drawer-container> -->
+
+  <!-- <mat-sidenav-container class="example-container" >
+    <mat-sidenav opened mode="side"  class="sidebar">Start content</mat-sidenav>
+    Implicit main content
+  </mat-sidenav-container> -->
+
+<mat-sidenav-container class="sidebar-container" (backdropClick)="close('backdrop')">
+  <mat-sidenav #sidenav class="sidebar">
+    <!-- <p> -->
+        <!-- <button mat-button (click)="close('toggle button')">Toggle</button> -->
+    <!-- </p> -->
+                    <!-- ---------////////------ Sidebar Submenu Menus -----///////------------- -->
+                    <div class="accordion-container">
+                        <cdk-accordion class="example-accordion1">
+                            <cdk-accordion-item *ngFor="let item of firstAccordion; let index = index;"
+                                #accordionItem="cdkAccordionItem" class="example-accordion-item1" role="button"
+                                tabindex="0" [attr.id]="'accordion-header-' + index"
+                                [attr.aria-expanded]="accordionItem.expanded"
+                                [attr.aria-controls]="'accordion-body-' + index">
+                                <!-- //////////////////////////////---------Accordion Header-----------////////////////////////////// -->
+                                <div class="example-accordion-item-header1" (click)="accordionItem.toggle()"
+                                    *ngIf="administrationButton && item==='Administrering'">
+                                    <b>
+                                        <!-- <mat-icon>verified_user</mat-icon> -->
+                                        <mat-icon>lock</mat-icon>
+                                        {{ item }}
+                                    </b>
+                                    <!-- <span class="example-accordion-item-description1">
+                                    Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                                </span> -->
+                                    <mat-icon *ngIf="!accordionItem.expanded">chevron_right</mat-icon>
+                                    <mat-icon *ngIf="accordionItem.expanded">expand_more</mat-icon>
+                                </div>
+                                <div class="example-accordion-item-header1" (click)="accordionItem.toggle()"
+                                    *ngIf="avtalButton && item==='Personligt Avtal'">
+                                    <b>
+                                        <mat-icon>collections_bookmark</mat-icon>
+                                        {{ item }}
+                                    </b>
+                                    <!-- <span class="example-accordion-item-description1">
+                                        Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                                    </span> -->
+                                    <mat-icon *ngIf="!accordionItem.expanded">chevron_right</mat-icon>
+                                    <mat-icon *ngIf="accordionItem.expanded">expand_more</mat-icon>
+                                </div>
+                                <div class="example-accordion-item-header1" (click)="accordionItem.toggle()"
+                                    *ngIf="businessAvtalButton && item==='Företag Avtal (För Sofia)'">
+                                    <b>
+                                        <mat-icon>book</mat-icon>
+                                        {{ item }}
+                                    </b>
+                                    <mat-icon *ngIf="!accordionItem.expanded">chevron_right</mat-icon>
+                                    <mat-icon *ngIf="accordionItem.expanded">expand_more</mat-icon>
+                                </div>
+                                <!-- <div class="example-accordion-item-header1" (click)="accordionItem.toggle()"
+                                    *ngIf="usersNLawyerButton && item==='Användare & Advokater'">
+                                    <b>{{ item }}</b>
+                                    <mat-icon *ngIf="!accordionItem.expanded">chevron_right</mat-icon>
+                                    <mat-icon *ngIf="accordionItem.expanded">expand_more</mat-icon>
+                                </div> -->
+                                <!-- <div class="example-accordion-item-header1" (click)="accordionItem.toggle()"
+                                    *ngIf="configNLogsButton && item==='Config & E-postloggar'">
+
+                                    <b>
+                                        <mat-icon>settings</mat-icon>{{ item }}
+                                    </b>
+                                    <mat-icon *ngIf="!accordionItem.expanded">chevron_right</mat-icon>
+                                    <mat-icon *ngIf="accordionItem.expanded">expand_more</mat-icon>
+                                </div> -->
+                                <div class="example-accordion-item-header1" (click)="accordionItem.toggle()"
+                                    *ngIf="salesButton && item==='Rapporter'">
+                                    <b>
+                                        <mat-icon>pie_chart</mat-icon>
+                                        {{ item }}
+                                    </b>
+                                    <mat-icon *ngIf="!accordionItem.expanded">chevron_right</mat-icon>
+                                    <mat-icon *ngIf="accordionItem.expanded">expand_more</mat-icon>
+                                </div>
+                                <!-- //////////////////////////////---------Accordion Body-----------////////////////////////////// -->
+                                <div class="example-accordion-item-body1" role="region"
+                                    [style.display]="accordionItem.expanded ? '' : 'none'"
+                                    [attr.id]="'accordion-body-' + index"
+                                    [attr.aria-labelledby]="'accordion-header-' + index">
+                                    <div class="sub-menu-button-container"
+                                        *ngIf="administrationButton && item==='Administrering'">
+                                        <!-- <div *ngFor="let item of salesSubMenuArray">
+                                            <button mat-button *ngIf="item.name==='Affärs Typ'"
+                                                class="sub-menu-button title_icons" (click)="menuClicked(item.url)">
+                                                {{item.name}}
+                                            </button>
+                                        </div> -->
+                                        <button *ngFor="let item of administratioSubMenuArray" mat-button
+                                            class="sub-menu-button" (click)="menuClicked(item.url)">
+                                            <mat-icon *ngIf="item.name==='Användare'">supervised_user_circle</mat-icon>
+                                            <mat-icon *ngIf="item.name==='Roll-handling'">widgets</mat-icon>
+                                            <mat-icon *ngIf="item.name==='Innehållssidor'">compare</mat-icon>
+                                            <mat-icon *ngIf="item.name==='Affärs Typ'">business_center</mat-icon>
+                                            {{item.name}}
+                                        </button>
+                                        <!------||||||||||||||||---- Inner Accordion ---||||||||||||||-------->
+                                            <cdk-accordion class="example-accordion1">
+                                                <cdk-accordion-item
+                                                    *ngFor="let item1 of firstAccordion; let index = index;"
+                                                    #accordionItem="cdkAccordionItem" class="example-accordion-item1"
+                                                    role="button" tabindex="0" [attr.id]="'accordion-header-' + index"
+                                                    [attr.aria-expanded]="accordionItem.expanded"
+                                                    [attr.aria-controls]="'accordion-body-' + index">
+                                                    <!-- //////////---------Inner Accordion Header-----------/////// -->
+                                                    <div class="example-accordion-item-header1 inner_accordion_header"
+                                                        (click)="accordionItem.toggle()"
+                                                        *ngIf="configNLogsButton && item1==='Config & E-postloggar'">
+                                                        <b>
+                                                            <mat-icon>settings</mat-icon>
+                                                            {{ item1 }}
+                                                        </b>
+                                                        <mat-icon *ngIf="!accordionItem.expanded">chevron_right
+                                                        </mat-icon>
+                                                        <mat-icon *ngIf="accordionItem.expanded">expand_more</mat-icon>
+                                                    </div>
+                                                    <div class="example-accordion-item-body1 inner_accordion_body"
+                                                        role="region"
+                                                        [style.display]="accordionItem.expanded ? '' : 'none'"
+                                                        [attr.id]="'accordion-body-' + index"
+                                                        [attr.aria-labelledby]="'accordion-header-' + index">
+                                                        <div class="sub-menu-button-container"
+                                                            *ngIf="configNLogsButton && item1==='Config & E-postloggar'">
+                                                            <button *ngFor="let item of configNLogsSubMenuArray"
+                                                                mat-button class="sub-menu-button title_icons"
+                                                                (click)="menuClicked(item.url)">
+                                                                <mat-icon
+                                                                    *ngIf="item.name==='Misslyckade e-postloggar'">
+                                                                    local_post_office
+                                                                </mat-icon>
+                                                                <mat-icon *ngIf="item.name==='Konfigurationer'">security
+                                                                </mat-icon>
+                                                                {{item.name}}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </cdk-accordion-item>
+                                            </cdk-accordion>
+                                        <!------||||||||||||||||------------------------||||||||||||||-------->
+
+                                    </div>
+                                    <div class="sub-menu-button-container"
+                                        *ngIf="avtalButton && item==='Personligt Avtal'">
+                                        <button *ngFor="let item of avtalSubMenuArray" mat-button
+                                            class="sub-menu-button" (click)="menuClicked(item.url)">
+                                            <mat-icon *ngIf="item.name==='id'">create</mat-icon>
+                                            <mat-icon *ngIf="item.name==='Nytt Avtal'">note_add</mat-icon>
+                                            <mat-icon *ngIf="item.name==='Ändra i Bef. avtal'">assignment</mat-icon>
+                                            <mat-icon *ngIf="item.name==='Utkast av avtal'">turned_in</mat-icon>
+                                            <mat-icon *ngIf="item.name==='Dokumentera Kolla'"> local_library</mat-icon>
+
+                                            {{item.name}}
+                                        </button>
+                                    </div>
+                                    <div class="sub-menu-button-container"
+                                        *ngIf="businessAvtalButton && item==='Företag Avtal (För Sofia)'">
+                                        <button *ngFor="let item of businessAvtalSubMenuArray" mat-button
+                                            class="sub-menu-button" (click)="menuClicked(item.url)">
+                                            <mat-icon *ngIf="item.name==='Företag Avtal Lista'">find_in_page</mat-icon>
+                                            <mat-icon *ngIf="item.name==='Utkast Företag Avtal'">turned_in</mat-icon>
+                                            {{item.name}}
+                                        </button>
+                                    </div>
+                                    <!-- <div class="sub-menu-button-container"
+                                        *ngIf="usersNLawyerButton && item==='Användare & Advokater'">
+                                        <button *ngFor="let item of usersNLawyerSubMenuArray" mat-button
+                                            class="sub-menu-button"
+                                            (click)="menuClicked(item.url)">{{item.name}}</button>
+                                    </div> -->
+                                    <!-- <div class="sub-menu-button-container"
+                                        *ngIf="configNLogsButton && item==='Config & E-postloggar'">
+                                        <button *ngFor="let item of configNLogsSubMenuArray" mat-button
+                                            class="sub-menu-button title_icons" (click)="menuClicked(item.url)">
+                                            <mat-icon *ngIf="item.name==='Misslyckade e-postloggar'"> local_post_office
+                                            </mat-icon>
+                                            <mat-icon *ngIf="item.name==='Konfigurationer'">security</mat-icon>
+                                            {{item.name}}
+                                        </button>
+                                    </div> -->
+                                   <div class="sub-menu-button-container" *ngIf="salesButton && item==='Rapporter'">
+                                        <!-- <div *ngFor="let item of salesSubMenuArray">
+                                            <button mat-button *ngIf="item.name==='Affärs Typ'"
+                                                class="sub-menu-button title_icons" (click)="menuClicked(item.url)">
+                                                <mat-icon>business_center</mat-icon>
+                                                {{item.name}}
+                                            </button>
+                                        </div> -->
+                                        <!------||||||||||||||||---- Inner Accordion ---||||||||||||||-------->
+                                        <cdk-accordion-item *ngFor="let item of firstAccordion; let index = index;"
+                                            #accordionItem="cdkAccordionItem" class="example-accordion-item1"
+                                            role="button" tabindex="0" [attr.id]="'accordion-header-' + index"
+                                            [attr.aria-expanded]="accordionItem.expanded"
+                                            [attr.aria-controls]="'accordion-body-' + index">
+                                            <!-- //////////////---------Inner Accordion Header-----------//////////////// -->
+                                            <div class="example-accordion-item-header1 inner_accordion_header"
+                                                (click)="accordionItem.toggle()"
+                                                *ngIf="salesButton && item==='Försäljning'">
+                                                <b>
+                                                    <mat-icon>monetization_on</mat-icon>
+                                                    {{ item }}
+                                                </b>
+                                                <mat-icon *ngIf="!accordionItem.expanded">chevron_right</mat-icon>
+                                                <mat-icon *ngIf="accordionItem.expanded">expand_more</mat-icon>
+                                            </div>
+                                            <!-- ///////////////---------Inner Accordion Body-----------/////////////// -->
+                                            <div class="example-accordion-item-body1 inner_accordion_body" role="region"
+                                                [style.display]="accordionItem.expanded ? '' : 'none'"
+                                                [attr.id]="'accordion-body-' + index"
+                                                [attr.aria-labelledby]="'accordion-header-' + index">
+                                                <div class="sub-menu-button-container"
+                                                    *ngIf="salesButton && item==='Försäljning'">
+                                                    <div *ngFor="let item of salesSubMenuArray">
+                                                        <button mat-button *ngIf="item.name==='Säljshistora'"
+                                                            class="sub-menu-button title_icons"
+                                                            (click)="menuClicked(item.url)">
+                                                            <mat-icon *ngIf="item.name==='Säljshistora'">history
+                                                            </mat-icon>
+                                                            {{item.name}}
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </cdk-accordion-item>
+                                        <!------||||||||||||||||------------------------||||||||||||||-------->
+
+                                    </div>
+                                </div>
+                            </cdk-accordion-item>
+                        </cdk-accordion>
+                    </div>
+                    <!-- ---------////////------ Sidebar Simple Menus -----///////------------- -->
+                    <div>
+                        <button *ngFor="let item of mainMenuButtons" mat-button class="button space title_icons"
+                            (click)="menuClicked(item.url)">
+                            <!-- <mat-icon *ngIf="item.name==='Roll-handling'">widgets</mat-icon> -->
+                            <!-- <mat-icon *ngIf="item.name==='Användare'">supervised_user_circle</mat-icon> -->
+                            <!-- <mat-icon *ngIf="item.name==='Säljshistora'">history</mat-icon> -->
+                            <mat-icon *ngIf="item.name==='Upptagen tidskalender'">calendar_today</mat-icon>
+                            <mat-icon *ngIf="item.name==='Schemalägg möte'">event_available</mat-icon>
+                            <!-- <mat-icon *ngIf="item.name==='Innehållssidor'">compare</mat-icon> -->
+                            <!-- <mat-icon *ngIf="item.name==='Affärs Typ'">business_center</mat-icon> -->
+                            <!-- <mat-icon *ngIf="item.name==='Jävskontroll'"> beenhere</mat-icon> -->
+                            <mat-icon *ngIf="item.name==='Jävskontroll'"> style</mat-icon>
+                            <!-- <mat-icon *ngIf="item.name==='Tid App'">account_balance</mat-icon> -->
+                            <mat-icon *ngIf="item.name==='Tid App'">stars</mat-icon>
+                            <!-- <mat-icon>view_comfy</mat-icon> -->
+                            <!-- <mat-icon>assistant_photo</mat-icon> -->
+                            {{item.name}}
+                        </button>
+                    </div>
+  </mat-sidenav>
+
+  <!-- <mat-sidenav-content class="sidebar-next">
+    :
+    <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+        <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+    </div>
+  </mat-sidenav-content> -->
+  <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>
+</mat-sidenav-container>

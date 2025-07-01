@@ -1,0 +1,136 @@
+<app-navbar *ngIf="!documentScreen"></app-navbar>
+<div class="{{documentScreen ? '' : 'global'}}" >
+    
+    <div fxLayout.lt-lg="col" fxLayout.lg="row" fxLayoutGap="10px" *ngIf="!subQuestion">
+        <div *ngIf="documentScreen" class="back-arrow">
+            <mat-icon (click)="backToAddScreen()">
+                arrow_back
+            </mat-icon>
+        </div>
+        
+        <div fxFlex.gt-md="100" class="content-container">
+            <div class="addBox">
+                <div fxLayout="column">
+                    <div fxLayout.md="row" fxLayoutAlign="center" *ngIf="!documentScreen">
+                        <mat-form-field class="field-selector">
+                            <!-- <mat-label>Global variabel</mat-label> -->
+                            <mat-select [(ngModel)]="selectedFieldId" (selectionChange)="getFieldData()" placeholder="Global variabel">
+                                <mat-option disabled>Select</mat-option>
+                                <mat-option *ngFor="let field of globalFields" [value]="field._id">{{field.field.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <label class="id-labels">1.Deklarera variabelt namn <span
+                        *ngIf="subQuestionLabels">för delfråga</span></label>
+                <mat-form-field appearance="outline">
+                    <!-- <mat-label>Variabelt namn</mat-label> -->
+                    <input required *ngIf="!subQuestionLabels" matInput [formControl]="addIdFieldControl" [(ngModel)]="name" readonly placeholder="Variabelt namn">
+                    <input required *ngIf="subQuestionLabels" matInput [formControl]="addIdFieldControl" [(ngModel)]="name" placeholder="Variabelt namn">
+                    <mat-error *ngIf="addIdFieldControl.hasError('required')">
+                        Variabelnamn är<strong>nödvändig</strong>
+                    </mat-error>
+                </mat-form-field>
+                     <label class="id-labels">2. förklara <span *ngIf="subQuestionLabels">sub</span>fråga till
+                        slutanvändaren</label>
+                    <mat-form-field appearance="outline">
+                        <!-- <mat-label>"ex. Vad heter dina partners?"</mat-label> -->
+                        <input required matInput class="label" [formControl]="questionFieldControl" [(ngModel)]="question" placeholder="ex. Vad heter dina partners?">
+                        <mat-error *ngIf="questionFieldControl.hasError('required')">
+                            Frågan är <strong>nödvändig</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <label class="id-labels"><span *ngIf="!subQuestionLabels">3. Välj svarstyp:</span>
+                        <span *ngIf="subQuestionLabels">3. Välj svarstyp:</span></label>
+                    <mat-form-field appearance="outline">
+                        <!-- <mat-label>"Svarstyp..."</mat-label> -->
+                        <mat-select required class="label" [formControl]="answerTypeFieldControl"
+                                    (valueChange)="onChangeAnswerType()" [(ngModel)]="selectedAnswerType" placeholder="Svarstyp...">
+                             <mat-option disable="false"  >-- Vaji typ --</mat-option> 
+                              
+                             <!-- <mat-option value="This is value"  >-- ho there text Vaji typ --</mat-option>  -->
+                              
+                             
+                             
+                             
+                             <mat-option *ngFor="let answer of answerType"
+                                        [value]="answer.answerType">{{answer.answerType}}
+                            </mat-option>            
+                        </mat-select>
+                           
+                    </mat-form-field>
+                    <mat-form-field *ngIf="selectedAnswerType === 'Flervalsalternativ'">
+                        <textarea required matInput [(ngModel)]="multiSelectionValue"></textarea>
+                    </mat-form-field>
+                    <span class="multi-select" *ngIf="selectedAnswerType === 'Flervalsalternativ'">* Add each option in separate line. Use enter key to add next option. </span>
+                    <label class="id-labels"><span *ngIf="!subQuestionLabels">4. Uppge ett svarsexemplar:</span>
+                        <span *ngIf="subQuestionLabels">4. Uppge ett svarsexemplar:</span></label>
+                    <mat-form-field appearance="outline">
+                        <!-- <mat-label>"ex. Lisa Olsson, Anton Johansson"</mat-label> -->
+                        <input required matInput class="label" [formControl]="placeHolderFieldControl" [(ngModel)]="placeHolder" placeholder="ex. Lisa Olsson, Anton Johansson">
+                        <mat-error *ngIf="placeHolderFieldControl.hasError('required')">
+                            Platshållare är <strong>nödvändig</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <label class="id-labels"><span *ngIf="!subQuestionLabels">5. Uppge ett svarsexemplar, synlig i
+                    anslutning till frågetecken-ikonen:</span>
+                        <span *ngIf="subQuestionLabels">5. Uppge ett svarsexemplar, synlig i anslutning till
+                        frågetecken-ikonen:</span></label>
+                    <mat-form-field appearance="outline">
+                        <!-- <mat-label>"Uppge ett svarsexemplar, synlig i anslutning till frågetecken-ikonen:"</mat-label> -->
+                        <input required matInput class="label" [formControl]="questionMarkFieldControl"
+                               [(ngModel)]="questionMark" placeholder="Uppge ett svarsexemplar, synlig i anslutning till frågetecken-ikonen">
+                        <mat-error *ngIf="questionMarkFieldControl.hasError('required')">
+                            Frågetecken är <strong>nödvändig</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+          
+            <div class="id-button-submit" *ngIf="!this.subQuestionLabels && !this.subQuestionValuesIsPresent">
+                <button mat-button class="subQuestBtn" *ngIf="prevDisable && nextDisable" (click)="addSubQuestion()">
+                    FÖLJDFRÅGA
+                </button>
+                <button mat-button class="saveBtn" *ngIf="!prevDisable || nextDisable" (click)="submit()">FÄRDIG
+                </button>
+            </div>
+            <div class="id-button-submit" *ngIf="this.subQuestionLabels || this.subQuestionValuesIsPresent">
+                <button mat-button class="subQuestBtn" *ngIf="prevDisable && nextDisable" (click)="addSubQuestion()">
+                    FÖLJDFRÅGA
+                </button>
+                <div *ngIf="this.subQuestionLabels">
+                    <button mat-button class="saveBtn" *ngIf="!prevDisable || nextDisable" (click)="submit()">FÄRDIG
+                    </button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="navigate-buttons" fxLayoutAlign="end end" *ngIf="!this.subQuestion">
+                <button mat-button class="prevBtn" [disabled]="prevDisable" (click)="prevScreen()">
+                    <mat-icon>chevron_left</mat-icon>
+                    Tidigare
+                </button>
+                &nbsp;&nbsp;
+                <button mat-button class="prevBtn" [disabled]="nextDisable" (click)="nextScreen()">
+                    Nästa
+                    <mat-icon>chevron_right</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+   
+    <!-- <div class="navigate-buttons" fxLayoutAlign="end end"  *ngIf="!this.subQuestion">
+        <button mat-button class="prevBtn" [disabled]="prevDisable" (click)="prevScreen()">
+            <mat-icon>chevron_left</mat-icon>
+            Tidigare
+        </button>
+        &nbsp;&nbsp;
+        <button mat-button class="prevBtn" [disabled]="nextDisable" (click)="nextScreen()">
+            Nästa
+            <mat-icon>chevron_right</mat-icon>
+        </button>
+    </div> -->
+    <app-sub-question *ngIf="this.subQuestion" [condition]="condition" [answerType]='mainQuestionAnswerType'
+                      [dropDown]='multiSelectionDropDown'
+                      (fieldType)="screenId($event)"></app-sub-question>
+    <ngx-spinner></ngx-spinner>
+</div>

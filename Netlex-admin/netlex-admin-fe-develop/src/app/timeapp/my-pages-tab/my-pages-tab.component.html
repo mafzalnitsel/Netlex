@@ -1,0 +1,193 @@
+<!-- <div class="header-top" fxLayoutAlign="start center"><span class="header-top-text">Mina Sidor</span></div> -->
+<div class="header-top" fxLayoutAlign="center"><span>Mina Sidor</span></div>
+<div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+    <div fxFlex.gt-sm="35" class="child-container-common">
+        <tr fxLayout="column">
+            <div>
+                <cdk-accordion class="example-accordion1">
+                    <cdk-accordion-item *ngFor="let item of items; let index = index;" #accordionItem="cdkAccordionItem"
+                        class="example-accordion-item" role="button" tabindex="0"
+                        [attr.id]="'accordion-header-' + index" [attr.aria-expanded]="accordionItem.expanded"
+                        [attr.aria-controls]="'accordion-body-' + index">
+                        <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                            <b>{{ item }}</b>
+                            <span class="example-accordion-item-description">
+                                Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                            </span>
+                        </div>
+                        <div class="example-accordion-item-body" role="region"
+                            [style.display]="accordionItem.expanded ? '' : 'none'" [attr.id]="'accordion-body-' + index"
+                            [attr.aria-labelledby]="'accordion-header-' + index">
+                            <!-- ----------------||---Row1---||----------------- -->
+                            <!-- <div *ngIf="item==='Byt Lösenord'">
+                                        <lable>Här kan du ändra ditt lösenord. Det nya lösenordet måste vara minst 4 tecken långt.
+                                        </lable>
+                                        <table class="table-size">
+                                            <tr>
+                                                <td>
+                                                    <mat-label>Gammal Lösenord</mat-label>
+                                                </td>
+                                                <td>
+                                                    <mat-form-field>
+                                                        <input matInput [(ngModel)]="password" type="password"
+                                                            placeholder="Ange gammalt lösenord" id="password">
+                                                    </mat-form-field>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <mat-label>Ny Lösenord</mat-label>
+                                                </td>
+                                                <td>
+                                                    <mat-form-field>
+                                                        <input matInput [(ngModel)]="password" type="password"
+                                                            placeholder="Ange nytt lösenord" id="password">
+                                                    </mat-form-field>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <mat-label>Bekräfta Ny Lösenord</mat-label>
+                                                </td>
+                                                <td>
+                                                    <mat-form-field>
+                                                        <input matInput [(ngModel)]="confirmPassword" type="password"
+                                                            id="confirmPassword" placeholder="Bekräfta ny lösenord">
+                                                    </mat-form-field>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="buttons-container" fxLayout="row" fxLayoutAlign="center">
+                                        <button type="button" (click)="changePassword()" mat-button class="saveBtn">
+                                            <span *ngIf="showLoader" aria-hidden="true"></span>
+                                            <span *ngIf="!showLoader">Byt Lösenord</span>
+                                        </button></div>
+                                    </div> -->
+                            <!-- ----------------||---Row2---||----------------- -->
+                            <div *ngIf="item==='Inställningar'">
+                                <!-- <label>Home page</label><br /><br />
+                                <label>Profile picture</label><br /><br />
+                                <label>Language</label><br /><br />
+                                <label>Theme</label><br /><br /> -->
+                                <cdk-accordion-item *ngFor="let innerItem of InnerItems; let index = index;"
+                                    #accordionItem="cdkAccordionItem" class="example-accordion-item-inner" role="button"
+                                    tabindex="0" [attr.id]="'accordion-header-' + index"
+                                    [attr.aria-expanded]="accordionItem.expanded"
+                                    [attr.aria-controls]="'accordion-body-' + index">
+                                    <!-- expanded -->
+                                    <div class="example-accordion-item-header-inner" (click)="accordionItem.toggle()">
+                                        <b>{{ innerItem }}</b>
+                                        <span class="example-accordion-item-description-inner"
+                                            *ngIf="!accordionItem.expanded">
+                                            <mat-icon>keyboard_arrow_down</mat-icon>
+                                        </span>
+                                        <span class="example-accordion-item-description-inner"
+                                            *ngIf="accordionItem.expanded">
+                                            <mat-icon>keyboard_arrow_up</mat-icon>
+                                        </span>
+                                    </div>
+                                    <div class="example-accordion-item-body-inner" role="region"
+                                        [style.display]="accordionItem.expanded ? '' : 'none'"
+                                        [attr.id]="'accordion-body-' + index"
+                                        [attr.aria-labelledby]="'accordion-header-' + index">
+                                        <div>
+                                            <lable>No content (empty)</lable>
+                                            <!-- <mat-icon>keyboard_arrow_down</mat-icon> -->
+                                            <!-- <mat-icon>keyboard_arrow_up</mat-icon> -->
+                                        </div>
+                                    </div>
+                                </cdk-accordion-item>
+                            </div>
+                            <!-- ----------------||---Row3---||----------------- -->
+                            <div *ngIf="item==='Favoriter'">
+                                <label>The Bar Association</label><br /><br />
+                                <label>All firms</label><br /><br />
+                                <label>Legal Library</label><br /><br />
+                                <label>Statistics Sweden</label><br /><br />
+                                <label>Swedish Code of Statutes</label><br /><br />
+                                <label>The courts of Sweden</label><br /><br />
+                                <label>The Advokaten newspaper</label><br /><br />
+                            </div>
+                            <!-- ----------------||---Row4---||----------------- -->
+                            <div *ngIf="item==='Nyheter'">
+                                <label class="link_lable">Personnel - important in law enforcement</label><br /><br />
+                                <lable></lable>
+                                <label class="link_lable">Innovation companies critical of
+                                    consulting</label><br /><br />
+                                <label class="link_lable">Almega Report; every 5th company exposed to cyber
+                                    attacks</label><br /><br />
+                                <label class="link_lable">Association</label><br /><br />
+                            </div>
+                        </div>
+                    </cdk-accordion-item>
+                </cdk-accordion>
+            </div>
+        </tr>
+    </div>
+    <div fxFlex.gt-sm="50" class="child-container-common">
+        <tr fxLayout="column">
+            <div class="second-column">
+                <label class="timebook-label"><b>TidsBok</b></label><br />
+                <textarea matInput class="input-field" type="text"></textarea>
+                    <!-- <button  mat-button class="post-button">Posta</button> -->
+            </div>
+        </tr>
+    </div>
+    <div fxFlex.gt-sm="10" class="child-container-common">
+        <tr fxLayout="column">
+            <div class="third-column">
+                <!-- <div class="post-button-container"> -->
+                    <button  mat-button class="post-button">Posta</button>
+                <!-- </div> -->
+            </div>
+        </tr>
+    </div>
+</div>
+
+<!-- <div *ngIf="showValue">
+    <label class="Heading_lable"><b>Accounts:</b></label><br />
+    <label class="lable">My Account</label><br />
+    <label class="lable">All Account</label><br />
+
+    <label class="Heading_lable"><b>Register:</b></label><br />
+    <label class="lable">Client</label><br />
+    <label class="lable">Matter</label><br />
+    <label class="lable">Counterparties</label><br />
+    <label class="lable">Co-Parties</label><br />
+
+    <label class="lable">Extended Search/Confilict COntrol</label><br />
+    <label class="Heading_lable"><b>My Pages:</b></label><br />
+    <label class="lable">Change Password</label><br />
+    <label class="lable">Setting</label><br />
+    <label class="lable">Favourites</label><br />
+    <label class="lable">News</label><br />
+
+    <label class="Heading_lable"><b>Reports:</b></label><br />
+    <label class="lable">Reports</label><br />
+    <label class="lable">Complilations</label><br />
+    <label class="lable">Reports</label><br/>
+    <label class="lable">News</label><br />
+    <label class="lable">Articles</label><br />
+    <label class="lable">Billing</label><br />
+    <label class="lable">Register</label><br />
+    <label class="lable">Chart</label><br />
+
+    <label class="Heading_lable"><b>Billing:</b></label><br />
+    <label class="lable">Billing</label><br />
+    <label class="lable">Templates</label><br />
+    <label class="lable">Cast</label><br />
+    <label class="lable">Invoives</label><br />
+    <label class="lable">Setting(Payee,Message and texts , Fess, Accounting)</label><br />
+
+
+    <label class="Heading_lable"><b>Control Panel:</b></label><br />
+    <label class="lable">Control Panel (User Groups, Permission, Templates, User)</label><br />
+    <label class="lable">Activity</label><br />
+    <label class="lable">Integeration    </label><br />
+    <label class="lable">Codes</label><br />
+    <label class="lable">Codes Groups</label><br />
+    <label class="lable">Codes</label><br />
+    <label class="lable">Artices</label><br />
+
+
+</div> -->

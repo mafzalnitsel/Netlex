@@ -1,0 +1,186 @@
+<div fxLayout="column" class="sub-question-container">
+
+    <div> <!-- all option, hide all others -->
+        <mat-checkbox (change)="onChangeCheckBox($event)" [(ngModel)]="all">Ansök om alla</mat-checkbox>
+    </div>
+
+    <div>
+
+        <div *ngIf="!all"> <!-- text filled or empty -->
+            <h4 class="operator-screen-title">Välj vilket tillstånd underfrågan ska vara synlig för:</h4>
+            <label class="id-labels"><span>Alternativ 1:</span> När frågan är: </label>
+            <div class="radio-spacing">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Ifylld
+                    <input type="radio" name="text" value="ifylld" [(ngModel)]="text">
+                    <span class="circle"></span>
+                </label>
+            </div>
+            <div class="radio-spacing">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Tom
+                    <input type="radio" name="text" value="tom" [(ngModel)]="text">
+                    <span class="circle"></span>
+                </label>
+            </div>
+        </div>
+
+        <div *ngIf="answerType === 'Nummer' && !all" (click)="validation(this.answerType)"> <!-- operator with numbe value -->
+            <label class="id-labels"><span>Alternativ 2:</span> När huvudfrågan är:</label>
+            <div class="radio-spacing">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Är värdet lika med
+                    <input type="radio" name="number" value="=" [(ngModel)]="numberOperator">
+                    <span class="circle"></span>
+                </label>
+            </div>
+            <div class="radio-spacing">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Är värdet mindre än
+                    <input type="radio" name="number" value="<" [(ngModel)]="numberOperator">
+                    <span class="circle"></span>
+                </label>
+            </div>
+            <div class="radio-spacing">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Är värdet större än
+                    <input type="radio" name="number" value=">" [(ngModel)]="numberOperator">
+                    <span class="circle"></span>
+                </label>
+            </div>
+            <div class="radio-spacing">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Är värdet mindre än lika med
+                    <input type="radio" name="number" value="<=" [(ngModel)]="numberOperator">
+                    <span class="circle"></span>
+                </label>
+            </div>
+            <div class="radio-spacing">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Är värdet större än lika med
+                    <input type="radio" name="number" value=">=" [(ngModel)]="numberOperator">
+                    <span class="circle"></span>
+                </label>
+            </div>
+            &nbsp;
+            <mat-form-field>
+                <mat-label>Value</mat-label>
+                <input matInput placeholder="Enter The Value" type="number"
+                       [(ngModel)]="numberValue" (ngModelChange)="validation(this.answerType)">
+            </mat-form-field>
+            &nbsp;
+        </div>
+
+        <div *ngIf="answerType === 'Stämmer/ Stämmer inte' && !all"> <!-- true or false option -->
+            <label class="id-labels"><span>Alternativ 2:</span> När svaret på huvudfrågan är:</label>
+            <div class="radio-spacing" fxLayout="column">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Stämmer
+                    <input type="radio" name="trueFalse" value="Stämmer" [(ngModel)]="trueFalse"
+                           (ngModelChange)="validation(this.answerType)">
+                    <span class="circle"></span>
+                </label>
+            </div>
+            <div class="radio-spacing" fxLayout="column">
+                <label class="id-radio-button">
+                    &nbsp;&nbsp;Stämmer inte
+                    <input type="radio" name="trueFalse" value="Stämmer inte" [(ngModel)]="trueFalse"
+                           (ngModelChange)="validation(this.answerType)">
+                    <span class="circle"></span>
+                </label>
+            </div>
+        </div>
+
+        <div *ngIf="answerType === 'Datum' && !all" (click)="validation(this.answerType)"> <!-- date with scenario -->
+            <label class="id-labels"><span>Alternativ 2:</span> När det satta datumet är:</label>
+            &nbsp;
+            <div class="radio-spacing" fxLayout="column">
+                <label class="id-radio-button" (click)="dateReset()">
+                    &nbsp;&nbsp;Före eller samma som dagens datum
+                    <input type="radio" name="date" value="<="
+                           [(ngModel)]="dateOperator">
+                    <span class="circle"></span>
+                </label>
+                <div *ngIf="dateOperator === '<='">
+                    <span>{{dateValue}}</span>
+                    <mat-calendar *ngIf="!dateValue" class="sub-question-calender" [selected]="selectedDateValue"
+                                  (selectedChange)="selectedDate($event)"></mat-calendar>
+                </div>
+            </div>
+            <div class="radio-spacing" fxLayout="column">
+                <label class="id-radio-button" (click)="dateReset()">
+                    &nbsp;&nbsp;Före dagens datum
+                    <input type="radio" name="date" value="<" [(ngModel)]="dateOperator">
+                    <span class="circle"></span>
+                </label>
+                <div *ngIf="dateOperator === '<'">
+                    <span>{{dateValue}}</span>
+                    <mat-calendar *ngIf="!dateValue" class="sub-question-calender" [selected]="selectedDateValue"
+                                  (selectedChange)="selectedDate($event)"></mat-calendar>
+                </div>
+            </div>
+            <div class="radio-spacing" fxLayout="column">
+                <label class="id-radio-button" (click)="dateReset()">
+                    &nbsp;&nbsp;Samma som dagens datum
+                    <input type="radio" name="date" value="=" [(ngModel)]="dateOperator">
+                    <span class="circle"></span>
+                </label>
+                <div *ngIf="dateOperator === '='">
+                    <span>{{dateValue}}</span>
+                    <mat-calendar *ngIf="!dateValue" class="sub-question-calender" [selected]="selectedDateValue"
+                                  (selectedChange)="selectedDate($event)"></mat-calendar>
+                </div>
+            </div>
+            <div class="radio-spacing" fxLayout="column">
+                <label class="id-radio-button" (click)="dateReset()">
+                    &nbsp;&nbsp;Efter dagens datum
+                    <input type="radio" name="date" value=">" [(ngModel)]="dateOperator">
+                    <span class="circle"></span>
+                </label>
+                <div *ngIf="dateOperator === '>'">
+                    <span>{{dateValue}}</span>
+                    <mat-calendar *ngIf="!dateValue" class="sub-question-calender" [selected]="selectedDateValue"
+                                  (selectedChange)="selectedDate($event)"></mat-calendar>
+                </div>
+            </div>
+            <div class="radio-spacing" fxLayout="column">
+                <label class="id-radio-button" (click)="dateReset()">
+                    &nbsp;&nbsp;Efter eller samma som dagens datum
+                    <input type="radio" name="date" value=">=" [(ngModel)]="dateOperator">
+                    <span class="circle"></span>
+                </label>
+                <div *ngIf="dateOperator === '>='">
+                    <span>{{dateValue}}</span>
+                    <mat-calendar *ngIf="!dateValue" class="sub-question-calender" [selected]="selectedDateValue"
+                                  (selectedChange)="selectedDate($event)"></mat-calendar>
+                </div>
+            </div>
+            &nbsp;
+        </div>
+
+        <div *ngIf="answerType === 'Flervalsalternativ' && !all"> <!-- multi select drop down option -->
+            <label class="id-labels"><span>Alternativ 2:</span> När värdet är lika med:</label>
+            <div fxLayout="column">
+                <div class="radio-spacing" *ngFor="let multiValues of dropDown">
+                    <label class="id-radio-button">
+                        &nbsp;&nbsp;{{multiValues}}
+                        <input type="radio" name="multiSelect" value="{{multiValues}}"
+                               [(ngModel)]="multiSelectionListValue" (ngModelChange)="validation(this.answerType)">
+                        <span class="circle"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center"> <!-- prev and next buttons -->
+            <button mat-button class="buttonNav" (click)="prev()"> <mat-icon>chevron_left</mat-icon>
+                Tidigare
+            </button>
+            &nbsp;&nbsp;
+            <button mat-button class="buttonNav" [disabled]="nextDisable" (click)="next()">Nästa
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </div>
+
+    </div>
+</div>

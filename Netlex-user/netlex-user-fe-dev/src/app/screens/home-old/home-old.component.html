@@ -1,0 +1,398 @@
+<div fxLayout="column">
+
+    <div fxHide.xs fxHide.sm fxLayout.gt-md="row" class="home-screen-banner">
+        <div fxFlex.gt-sm="35">
+            <div class="matTextCard">
+                <p class="TextFont" translate>Din advokatbyrå online<br />
+                    Skriv avtal<br />
+                    Boka möte</p>
+                <!-- <p class="TextFontMobile" translate fxHide.gt-sm>Din advokatbyrå online<br />
+                    Skriv avtal<br />
+                    Boka möte</p> -->
+            </div>
+        </div>
+        <div fxFlex.gt-sm="65">
+            <img alt="Banner" class="banner-image" [src]="homeHeaderPic">
+        </div>
+    </div>
+
+    <img alt="Banner" [src]="homeHeaderPicMob" fxHide.gt-sm>
+
+    <p class="TextFontMobile" translate fxHide.gt-sm>{{handleYourLegal}}<br />
+        {{agreementOnline}}</p>
+
+    <div fxHide.lt-md>
+        <div>
+            <div class="quote-card" fxLayoutAlign="none center">
+                <span translate>{{description}}</span>
+            </div>
+        </div>
+        <div class="icon-container">
+            <div fxLayout="row" fxLayoutAlign="space-evenly">
+                <div fxLayout="column" fxLayoutAlign="start" class="icon-outer-container">
+                    <div fxLayoutAlign="center">
+                        <!-- <img class="icon-image" [src]="selectAgreementImg"> -->
+                        <img class="icon-image" src="assets/images/selectAgreementPic.png">
+
+
+                        <!-- <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="220" fill="#E5E5E5"/>
+                            <g clip-path="url(#clip0)">
+                                <rect width="1440" height="1490" transform="translate(-58 -799)" fill="white"/>
+                                <rect x="1.5" y="1.5" width="217" height="217" rx="36.5" fill="#A8B2D4" stroke="#A8B2D4" stroke-width="3"/>
+                                <rect x="57.9766" y="32.789" width="112.023" height="154.211" rx="2" stroke="white" stroke-width="4"/>
+                                <path d="M69 44.2236C69 43.119 69.8954 42.2236 71 42.2236H157.269C158.374 42.2236 159.269 43.119 159.269 44.2236V160.325C159.269 161.429 158.374 162.325 157.269 162.325H71C69.8954 162.325 69 161.429 69 160.325V44.2236Z" stroke="white" stroke-width="4"/>
+                                <line x1="77.731" y1="67.7531" x2="113.988" y2="67.7531" stroke="white" stroke-width="3"/>
+                                <line x1="77.731" y1="82.9937" x2="132.117" y2="82.9937" stroke="white" stroke-width="3"/>
+                                <line x1="77.731" y1="97.5084" x2="132.117" y2="97.5084" stroke="white" stroke-width="3"/>
+                                <line x1="77.731" y1="112.023" x2="132.117" y2="112.023" stroke="white" stroke-width="3"/>
+                                <line x1="77.731" y1="126.538" x2="132.117" y2="126.538" stroke="white" stroke-width="3"/>
+                                <mask id="path-9-inside-1" fill="white">
+                                    <rect x="83" y="30.789" width="62.3626" height="15.9662" rx="2"/>
+                                </mask>
+                                <rect x="83" y="30.789" width="62.3626" height="15.9662" rx="2" fill="white" stroke="white" stroke-width="6" mask="url(#path-9-inside-1)"/>
+                                <rect x="107.75" y="17.75" width="12.5" height="12.5" rx="1.25" stroke="white" stroke-width="1.5"/>
+                                <circle cx="114" cy="24" r="2.25" stroke="white" stroke-width="1.5"/>
+                                <path d="M186.448 108.635L179.102 93.7394L195.773 97.4727L190.212 101.991L189.982 102.178L189.841 102.435L186.448 108.635Z" fill="white" stroke="white" stroke-width="3"/>
+                                <rect x="0.715621" y="-0.0772831" width="2.35096" height="13.0793" transform="matrix(0.641085 -0.76747 0.790157 0.612904 188.318 104.091)" fill="white" stroke="white"/>
+                                <rect x="86" y="37" width="56.4" height="7" fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="1440" height="1490" fill="white" transform="translate(-58 -799)"/>
+                                </clipPath>
+                            </defs>
+                        </svg> -->
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="none center">
+                        <span class="icon-number" fxLayoutAlign="center">
+                            1.
+                        </span>
+                        <span class="icon-header" fxLayoutAlign="center">
+                            {{selectAgreement}}
+                        </span>
+                        <span class="icon-desc">
+                            {{selectAgreementDesc}}
+                        </span>
+                    </div>
+                </div>
+                <div fxLayout="column" class="icon-outer-container">
+                    <div fxLayoutAlign="center">
+                        <!-- <img class="icon-image" [src]="fillAgreementImg"> -->
+                        <img class="icon-image" src="assets/images/fillAgreementPic.png">
+
+                        <!-- <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1.5" y="1.5" width="217" height="217" rx="36.5" fill="#E7BEAB" stroke="#E7BEAB" stroke-width="3"/>
+                            <rect x="58.9766" y="32.789" width="112.023" height="154.211" rx="2" stroke="white" stroke-width="4"/>
+                            <path d="M70 44.2236C70 43.119 70.8954 42.2236 72 42.2236H158.269C159.374 42.2236 160.269 43.119 160.269 44.2236V160.325C160.269 161.429 159.374 162.325 158.269 162.325H72C70.8954 162.325 70 161.429 70 160.325V44.2236Z" stroke="white" stroke-width="4"/>
+                            <line x1="78.731" y1="67.7531" x2="114.988" y2="67.7531" stroke="white" stroke-width="3"/>
+                            <line x1="78.731" y1="82.9937" x2="133.117" y2="82.9937" stroke="white" stroke-width="3"/>
+                            <line x1="78.731" y1="97.5084" x2="133.117" y2="97.5084" stroke="white" stroke-width="3"/>
+                            <line x1="78.731" y1="112.023" x2="133.117" y2="112.023" stroke="white" stroke-width="3"/>
+                            <line x1="78.731" y1="126.538" x2="133.117" y2="126.538" stroke="white" stroke-width="3"/>
+                            <mask id="path-9-inside-1" fill="white">
+                                <rect x="84" y="30.789" width="62.3626" height="15.9662" rx="2"/>
+                            </mask>
+                            <rect x="84" y="30.789" width="62.3626" height="15.9662" rx="2" fill="white" stroke="white" stroke-width="6" mask="url(#path-9-inside-1)"/>
+                            <rect x="108.75" y="17.75" width="12.5" height="12.5" rx="1.25" stroke="white" stroke-width="1.5"/>
+                            <circle cx="115" cy="24" r="2.25" stroke="white" stroke-width="1.5"/>
+                            <path d="M208.274 38.0173L214.964 46.2623L184.391 83.9451L177.702 75.7002L208.274 38.0173Z" fill="white"/>
+                            <path d="M180.076 72.7388L186.815 81.0457L184.427 83.9888L177.688 75.6819L180.076 72.7388Z" fill="#E7BEAB"/>
+                            <path d="M175.366 86.8418L177.976 75.3798L184.666 83.6248L175.366 86.8418Z" fill="white"/>
+                        </svg> -->
+                    </div>
+                    <div fxLayout="column">
+                        <span class="icon-number" fxLayoutAlign="center">
+                            2.
+                        </span>
+                        <span class="icon-header" fxLayoutAlign="center">
+                            {{fillAgreement}}
+                        </span>
+                        <span class="icon-desc">
+                            {{fillAgreementDesc}}
+                        </span>
+                    </div>
+                </div>
+                <div fxLayout="column" class="icon-outer-container">
+                    <div fxLayoutAlign="center">
+                        <!-- <img class="icon-image" [src]="purchaseImg"> -->
+                        <img class="icon-image" src="assets/images/purchasePic.png">
+
+                        <!-- <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1.5" y="1.5" width="217" height="217" rx="36.5" fill="#97A9A0" stroke="#97A9A0" stroke-width="3"/>
+                            <rect x="54" y="32.789" width="112.023" height="154.211" rx="2" stroke="white" stroke-width="4"/>
+                            <path d="M65.0234 44.2236C65.0234 43.119 65.9189 42.2236 67.0234 42.2236H153.292C154.397 42.2236 155.292 43.119 155.292 44.2236V160.325C155.292 161.429 154.397 162.325 153.292 162.325H67.0234C65.9189 162.325 65.0234 161.429 65.0234 160.325V44.2236Z" stroke="white" stroke-width="4"/>
+                            <line x1="73.7544" y1="67.7531" x2="110.012" y2="67.7531" stroke="white" stroke-width="3"/>
+                            <line x1="73.7544" y1="82.9937" x2="128.14" y2="82.9937" stroke="white" stroke-width="3"/>
+                            <line x1="73.7544" y1="97.5084" x2="128.14" y2="97.5084" stroke="white" stroke-width="3"/>
+                            <line x1="73.7544" y1="112.023" x2="128.14" y2="112.023" stroke="white" stroke-width="3"/>
+                            <line x1="73.7544" y1="126.538" x2="128.14" y2="126.538" stroke="white" stroke-width="3"/>
+                            <mask id="path-9-inside-1" fill="white">
+                                <rect x="79.0234" y="30.789" width="62.3626" height="15.9662" rx="2"/>
+                            </mask>
+                            <rect x="79.0234" y="30.789" width="62.3626" height="15.9662" rx="2" fill="white" stroke="white" stroke-width="6" mask="url(#path-9-inside-1)"/>
+                            <rect x="103.773" y="17.75" width="12.5" height="12.5" rx="1.25" stroke="white" stroke-width="1.5"/>
+                            <circle cx="110.023" cy="24" r="2.25" stroke="white" stroke-width="1.5"/>
+                            <rect x="15" y="22" width="25" height="25" rx="3" fill="white"/>
+                            <line y1="-1.5" x2="10.4097" y2="-1.5" transform="matrix(0.647462 0.762174 -0.620313 0.784286 19.5303 34.9341)" stroke="#97A9A0" stroke-width="3"/>
+                            <line y1="-1.5" x2="16.5379" y2="-1.5" transform="matrix(0.643426 -0.765436 0.622133 0.782986 26.2656 42.8718)" stroke="#97A9A0" stroke-width="3"/>
+                        </svg> -->
+                    </div>
+                    <div fxLayout="column">
+                        <span class="icon-number" fxLayoutAlign="center">
+                            3.
+                        </span>
+                        <span class="icon-header" fxLayoutAlign="center">
+                            {{purchase}}
+                        </span>
+                        <span class="icon-desc">
+                            {{purchaseDescription}}
+                        </span>
+                    </div>
+                </div>
+                <div fxLayout="column" class="icon-outer-container">
+                    <div fxLayoutAlign="center">
+                        <!-- <img class="icon-image" [src]="availabilityImg"> -->
+                        <img class="icon-image" src="assets/images/availabilityPic.png">
+
+                        <!-- <svg width="220" height="221" viewBox="0 0 220 221" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.5 38.5C1.5 18.3416 17.8416 2 38 2H182C202.158 2 218.5 18.3416 218.5 38.5V182.5C218.5 202.658 202.158 219 182 219H38C17.8416 219 1.5 202.658 1.5 182.5V38.5Z" fill="#323A58" stroke="#1F2A53" stroke-width="3"/>
+                            <path d="M10.5 49C10.5 28.8416 26.8416 12.5 47 12.5H171C191.158 12.5 207.5 28.8416 207.5 49V173C207.5 193.158 191.158 209.5 171 209.5H47C26.8416 209.5 10.5 193.158 10.5 173V49Z" stroke="white" stroke-width="3"/>
+                            <path d="M156.591 127.929L137 125.865L145.002 112L150.5 121L156.591 127.929Z" fill="white"/>
+                            <ellipse cx="119.5" cy="107" rx="31.5" ry="23" fill="white"/>
+                            <path d="M61.1334 129.929L81.3742 127.865L73.1074 114L67.4266 123L61.1334 129.929Z" fill="white"/>
+                            <path d="M67.9997 114C67.9997 126.703 86.603 131.5 104 131.5C104 131.5 86.0001 124 85.5 111C84.5001 98 88.9998 93 95.4998 89C78.1028 89 67.9997 101.297 67.9997 114Z" fill="white"/>
+                        </svg> -->
+                    </div>
+                    <div fxLayout="column">
+                        <span fxLayoutAlign="center" class="star-icon-center">
+                            <svg width="29" height="27" viewBox="0 0 44 42" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.0489 0.92705C21.3483 0.00573897 22.6517 0.00574017 22.9511 0.927051L27.3883 14.5836C27.5222 14.9956 27.9062 15.2746 28.3394 15.2746H42.6987C43.6675 15.2746 44.0702 16.5142 43.2865 17.0836L31.6696 25.5238C31.3191 25.7784 31.1724 26.2298 31.3063 26.6418L35.7436 40.2984C36.0429 41.2197 34.9884 41.9858 34.2047 41.4164L22.5878 32.9762C22.2373 32.7216 21.7627 32.7216 21.4122 32.9762L9.79527 41.4164C9.01155 41.9858 7.95707 41.2197 8.25642 40.2984L12.6937 26.6418C12.8276 26.2298 12.6809 25.7784 12.3304 25.5238L0.713483 17.0836C-0.0702302 16.5142 0.332547 15.2746 1.30127 15.2746H15.6606C16.0938 15.2746 16.4778 14.9956 16.6117 14.5836L21.0489 0.92705Z"
+                                    fill="#F9DC78" />
+                            </svg>
+                        </span>
+                        <span class="icon-header" fxLayoutAlign="center">
+                            {{availability}}
+                        </span>
+                        <span class="icon-desc">
+                            {{availabilityDescription}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxHide.lt-md fxLayout="column">
+            <div fxLayoutAlign="center center" class="welcome-netlex-line-container">
+                <span class="welcome-netlex-line" translate>{{welcomeNote}}</span>
+            </div>
+            <div fxLayoutAlign="center center" class="agreement-button-container">
+                <button class="agreement-button" [routerLink]="'/agreements'"><span
+                        translate>{{startAgreement}}</span></button>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm>
+        <div class="box-column-1">
+                <div fxLayout="column" class="box-column-1-outer">
+                    <div fxLayoutAlign="center" class="box-column-1-heading">
+                        <!-- <img    class="icon-image"  [src]="purchaseImg"> -->
+                        <p>Skriv avtal online</p>
+                    </div>
+                    <div fxLayout="column">
+                        <span class="box-column-1-desc" fxLayoutAlign="center">
+                            <p>
+                                Med vår digitala tjänst kan du enkelt skräddarsy ditt eget avtal. Vi har en mängd olika
+                                avtal för livets alla skeenden. Samtliga avtal är skapade av våra jurister och
+                                advokater.</p>
+                        </span>
+                        <span fxLayoutAlign="center center" class="box-column-1-btn-container ">
+                            <button class="box-column-1-button"><span translate>Skriv avtal</span></button>
+                        </span>
+                    </div>
+                </div>
+                <div fxLayout="column" class="box-column-1-outer">
+                    <div fxLayoutAlign="center" class="box-column-1-heading">
+                        <!-- <img    class="icon-image"  [src]="purchaseImg"> -->
+                        <p>Boka ett möte med en jurist</p>
+                    </div>
+                    <div fxLayout="column">
+                        <span class="box-column-1-desc" fxLayoutAlign="center">
+                            <p>
+                                Vid behövs av juridisk rådgivning kan du boka ett video möte med oss. Vi erbjuder ger
+                                rådgivning på flera olika språk. Du kan boka ett möte på 30 minuter (902 kr) eller en
+                                timme (1803kr).</p>
+                        </span>
+                        <span fxLayoutAlign="center center" class="box-column-1-btn-container ">
+                            <button class="box-column-1-button"><span translate>Skriv avtal</span></button>
+                        </span>
+                    </div>
+                </div>
+        </div>
+        <div>
+            <div class="quote-card-mobile" fxLayoutAlign="center center">
+                <span translate>{{description}}</span>
+            </div>
+        </div>
+        <div class="icon-container">
+            <div fxLayout="column">
+                <div fxLayout="column">
+                    <div fxLayoutAlign="center">
+                        <img class="icon-image" [src]="selectAgreementImg">
+                        <!-- <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="220" fill="#E5E5E5"/>
+                            <g clip-path="url(#clip0)">
+                                <rect width="1440" height="1490" transform="translate(-58 -799)" fill="white"/>
+                                <rect x="1.5" y="1.5" width="217" height="217" rx="36.5" fill="#A8B2D4" stroke="#A8B2D4" stroke-width="3"/>
+                                <rect x="57.9766" y="32.789" width="112.023" height="154.211" rx="2" stroke="white" stroke-width="4"/>
+                                <path d="M69 44.2236C69 43.119 69.8954 42.2236 71 42.2236H157.269C158.374 42.2236 159.269 43.119 159.269 44.2236V160.325C159.269 161.429 158.374 162.325 157.269 162.325H71C69.8954 162.325 69 161.429 69 160.325V44.2236Z" stroke="white" stroke-width="4"/>
+                                <line x1="77.731" y1="67.7531" x2="113.988" y2="67.7531" stroke="white" stroke-width="3"/>
+                                <line x1="77.731" y1="82.9937" x2="132.117" y2="82.9937" stroke="white" stroke-width="3"/>
+                                <line x1="77.731" y1="97.5084" x2="132.117" y2="97.5084" stroke="white" stroke-width="3"/>
+                                <line x1="77.731" y1="112.023" x2="132.117" y2="112.023" stroke="white" stroke-width="3"/>
+                                <line x1="77.731" y1="126.538" x2="132.117" y2="126.538" stroke="white" stroke-width="3"/>
+                                <mask id="path-9-inside-1" fill="white">
+                                    <rect x="83" y="30.789" width="62.3626" height="15.9662" rx="2"/>
+                                </mask>
+                                <rect x="83" y="30.789" width="62.3626" height="15.9662" rx="2" fill="white" stroke="white" stroke-width="6" mask="url(#path-9-inside-1)"/>
+                                <rect x="107.75" y="17.75" width="12.5" height="12.5" rx="1.25" stroke="white" stroke-width="1.5"/>
+                                <circle cx="114" cy="24" r="2.25" stroke="white" stroke-width="1.5"/>
+                                <path d="M186.448 108.635L179.102 93.7394L195.773 97.4727L190.212 101.991L189.982 102.178L189.841 102.435L186.448 108.635Z" fill="white" stroke="white" stroke-width="3"/>
+                                <rect x="0.715621" y="-0.0772831" width="2.35096" height="13.0793" transform="matrix(0.641085 -0.76747 0.790157 0.612904 188.318 104.091)" fill="white" stroke="white"/>
+                                <rect x="86" y="37" width="56.4" height="7" fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="1440" height="1490" fill="white" transform="translate(-58 -799)"/>
+                                </clipPath>
+                            </defs>
+                        </svg> -->
+                    </div>
+                    <div fxLayout="column" class="icon-padding">
+                        <span class="icon-number" fxLayoutAlign="center">
+                            1.
+                        </span>
+                        <span class="icon-header" fxLayoutAlign="center">
+                            {{selectAgreement}}
+                        </span>
+                        <span class="icon-desc centerAlign" fxLayoutAlign="center">
+                            {{selectAgreementDesc}}
+                        </span>
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <div fxLayoutAlign="center">
+                        <img class="icon-image" [src]="fillAgreementImg">
+                        <!-- <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1.5" y="1.5" width="217" height="217" rx="36.5" fill="#E7BEAB" stroke="#E7BEAB" stroke-width="3"/>
+                            <rect x="58.9766" y="32.789" width="112.023" height="154.211" rx="2" stroke="white" stroke-width="4"/>
+                            <path d="M70 44.2236C70 43.119 70.8954 42.2236 72 42.2236H158.269C159.374 42.2236 160.269 43.119 160.269 44.2236V160.325C160.269 161.429 159.374 162.325 158.269 162.325H72C70.8954 162.325 70 161.429 70 160.325V44.2236Z" stroke="white" stroke-width="4"/>
+                            <line x1="78.731" y1="67.7531" x2="114.988" y2="67.7531" stroke="white" stroke-width="3"/>
+                            <line x1="78.731" y1="82.9937" x2="133.117" y2="82.9937" stroke="white" stroke-width="3"/>
+                            <line x1="78.731" y1="97.5084" x2="133.117" y2="97.5084" stroke="white" stroke-width="3"/>
+                            <line x1="78.731" y1="112.023" x2="133.117" y2="112.023" stroke="white" stroke-width="3"/>
+                            <line x1="78.731" y1="126.538" x2="133.117" y2="126.538" stroke="white" stroke-width="3"/>
+                            <mask id="path-9-inside-1" fill="white">
+                                <rect x="84" y="30.789" width="62.3626" height="15.9662" rx="2"/>
+                            </mask>
+                            <rect x="84" y="30.789" width="62.3626" height="15.9662" rx="2" fill="white" stroke="white" stroke-width="6" mask="url(#path-9-inside-1)"/>
+                            <rect x="108.75" y="17.75" width="12.5" height="12.5" rx="1.25" stroke="white" stroke-width="1.5"/>
+                            <circle cx="115" cy="24" r="2.25" stroke="white" stroke-width="1.5"/>
+                            <path d="M208.274 38.0173L214.964 46.2623L184.391 83.9451L177.702 75.7002L208.274 38.0173Z" fill="white"/>
+                            <path d="M180.076 72.7388L186.815 81.0457L184.427 83.9888L177.688 75.6819L180.076 72.7388Z" fill="#E7BEAB"/>
+                            <path d="M175.366 86.8418L177.976 75.3798L184.666 83.6248L175.366 86.8418Z" fill="white"/>
+                        </svg> -->
+                    </div>
+                    <div fxLayout="column" class="icon-padding">
+                        <span class="icon-number" fxLayoutAlign="center">
+                            2.
+                        </span>
+                        <span class="icon-header" fxLayoutAlign="center">
+                            {{fillAgreement}}
+                        </span>
+                        <span class="icon-desc centerAlign" fxLayoutAlign="center">
+                            {{fillAgreementDesc}}
+                        </span>
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <div fxLayoutAlign="center">
+                        <img class="icon-image" [src]="purchaseImg">
+
+                        <!-- <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1.5" y="1.5" width="217" height="217" rx="36.5" fill="#97A9A0" stroke="#97A9A0" stroke-width="3"/>
+                            <rect x="54" y="32.789" width="112.023" height="154.211" rx="2" stroke="white" stroke-width="4"/>
+                            <path d="M65.0234 44.2236C65.0234 43.119 65.9189 42.2236 67.0234 42.2236H153.292C154.397 42.2236 155.292 43.119 155.292 44.2236V160.325C155.292 161.429 154.397 162.325 153.292 162.325H67.0234C65.9189 162.325 65.0234 161.429 65.0234 160.325V44.2236Z" stroke="white" stroke-width="4"/>
+                            <line x1="73.7544" y1="67.7531" x2="110.012" y2="67.7531" stroke="white" stroke-width="3"/>
+                            <line x1="73.7544" y1="82.9937" x2="128.14" y2="82.9937" stroke="white" stroke-width="3"/>
+                            <line x1="73.7544" y1="97.5084" x2="128.14" y2="97.5084" stroke="white" stroke-width="3"/>
+                            <line x1="73.7544" y1="112.023" x2="128.14" y2="112.023" stroke="white" stroke-width="3"/>
+                            <line x1="73.7544" y1="126.538" x2="128.14" y2="126.538" stroke="white" stroke-width="3"/>
+                            <mask id="path-9-inside-1" fill="white">
+                                <rect x="79.0234" y="30.789" width="62.3626" height="15.9662" rx="2"/>
+                            </mask>
+                            <rect x="79.0234" y="30.789" width="62.3626" height="15.9662" rx="2" fill="white" stroke="white" stroke-width="6" mask="url(#path-9-inside-1)"/>
+                            <rect x="103.773" y="17.75" width="12.5" height="12.5" rx="1.25" stroke="white" stroke-width="1.5"/>
+                            <circle cx="110.023" cy="24" r="2.25" stroke="white" stroke-width="1.5"/>
+                            <rect x="15" y="22" width="25" height="25" rx="3" fill="white"/>
+                            <line y1="-1.5" x2="10.4097" y2="-1.5" transform="matrix(0.647462 0.762174 -0.620313 0.784286 19.5303 34.9341)" stroke="#97A9A0" stroke-width="3"/>
+                            <line y1="-1.5" x2="16.5379" y2="-1.5" transform="matrix(0.643426 -0.765436 0.622133 0.782986 26.2656 42.8718)" stroke="#97A9A0" stroke-width="3"/>
+                        </svg> -->
+                    </div>
+                    <div fxLayout="column" class="icon-padding">
+                        <span class="icon-number" fxLayoutAlign="center">
+                            3.
+                        </span>
+                        <span class="icon-header" fxLayoutAlign="center">
+                            {{purchase}}
+                        </span>
+                        <span class="icon-desc centerAlign" fxLayoutAlign="center">
+                            {{purchaseDescription}}
+                        </span>
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <div fxLayoutAlign="center">
+
+                        <img class="icon-image" [src]="availabilityImg">
+                        <!-- <svg width="220" height="221" viewBox="0 0 220 221" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.5 38.5C1.5 18.3416 17.8416 2 38 2H182C202.158 2 218.5 18.3416 218.5 38.5V182.5C218.5 202.658 202.158 219 182 219H38C17.8416 219 1.5 202.658 1.5 182.5V38.5Z" fill="#323A58" stroke="#1F2A53" stroke-width="3"/>
+                            <path d="M10.5 49C10.5 28.8416 26.8416 12.5 47 12.5H171C191.158 12.5 207.5 28.8416 207.5 49V173C207.5 193.158 191.158 209.5 171 209.5H47C26.8416 209.5 10.5 193.158 10.5 173V49Z" stroke="white" stroke-width="3"/>
+                            <path d="M156.591 127.929L137 125.865L145.002 112L150.5 121L156.591 127.929Z" fill="white"/>
+                            <ellipse cx="119.5" cy="107" rx="31.5" ry="23" fill="white"/>
+                            <path d="M61.1334 129.929L81.3742 127.865L73.1074 114L67.4266 123L61.1334 129.929Z" fill="white"/>
+                            <path d="M67.9997 114C67.9997 126.703 86.603 131.5 104 131.5C104 131.5 86.0001 124 85.5 111C84.5001 98 88.9998 93 95.4998 89C78.1028 89 67.9997 101.297 67.9997 114Z" fill="white"/>
+                        </svg> -->
+                    </div>
+                    <div fxLayout="column" class="icon-padding">
+                        <span fxLayoutAlign="center" class="star-icon-center">
+
+                            <svg width="29" height="27" viewBox="0 0 44 42" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.0489 0.92705C21.3483 0.00573897 22.6517 0.00574017 22.9511 0.927051L27.3883 14.5836C27.5222 14.9956 27.9062 15.2746 28.3394 15.2746H42.6987C43.6675 15.2746 44.0702 16.5142 43.2865 17.0836L31.6696 25.5238C31.3191 25.7784 31.1724 26.2298 31.3063 26.6418L35.7436 40.2984C36.0429 41.2197 34.9884 41.9858 34.2047 41.4164L22.5878 32.9762C22.2373 32.7216 21.7627 32.7216 21.4122 32.9762L9.79527 41.4164C9.01155 41.9858 7.95707 41.2197 8.25642 40.2984L12.6937 26.6418C12.8276 26.2298 12.6809 25.7784 12.3304 25.5238L0.713483 17.0836C-0.0702302 16.5142 0.332547 15.2746 1.30127 15.2746H15.6606C16.0938 15.2746 16.4778 14.9956 16.6117 14.5836L21.0489 0.92705Z"
+                                    fill="#F9DC78" />
+                            </svg>
+                        </span>
+                        <span class="icon-header" fxLayoutAlign="center">
+                            {{availability}}
+                        </span>
+                        <span class="icon-desc centerAlign" fxLayoutAlign="center">
+                            {{availabilityDescription}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="column">
+            <div fxLayoutAlign="center center" class="welcome-netlex-line-container">
+                <span class="welcome-netlex-line-mobile" translate>{{welcomeNote}}</span>
+            </div>
+            <div fxLayoutAlign="center center" class="agreement-button-container">
+                <button class="agreement-button" [routerLink]="'/agreements'"><span
+                        translate>{{startAgreement}}</span></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$netlexAdminWeb-primary: mat-palette($mat-indigo);
+$netlexAdminWeb-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$netlexAdminWeb-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$netlexAdminWeb-theme: mat-light-theme((
+  color: (
+    primary: $netlexAdminWeb-primary,
+    accent: $netlexAdminWeb-accent,
+    warn: $netlexAdminWeb-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($netlexAdminWeb-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.main-div{
+  height: 100vh;
+  margin-top: -200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay{
+  height:100vh;
+  width:100%;
+  background-color:rgba(0, 0, 0, 0.286);
+  z-index:    10;
+  top:        0;
+  left:       0;
+  position:   fixed;
+}
+
+.no-records-found{
+  height: 100%;
+  h3{
+    color: #b3b3b3;
+    font-family: Roboto, serif;
+    font-size: 22px;
+    letter-spacing: 0.11em;
+    font-weight: 500;
+  }
+}
+
+.header-top {
+  padding: 10px;
+  height: 53px;
+  border-bottom: rgba(11, 31, 102, 0.68) solid 3px;
+  margin: unset;
+  letter-spacing: 0.11em;
+  margin-top: 70px; //Because Now Navbar is fixed(21-12-22)
+
+  span {
+    font-family: Roboto, serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(11, 31, 102, 0.7);
+    margin: unset;
+  }
+}
+@media screen and (max-width:960px) {
+  .header-top {
+    margin-top: 50px;
+  }
+}
+
+:root{
+  --netlex-primary: #1F2A53;
+}
+
+
+.overlay {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.286);
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+.reloadPrevent .mat-dialog-container {
+  border-radius: unset !important;
+  border: unset !important;
+  top: 5%!important;
+}
+
+.mat-dialog-container {
+  border-radius: 10px !important;
+}

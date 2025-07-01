@@ -1,0 +1,38 @@
+$panel-height: 50vh;
+// $panel-width: 239px;
+$option-color: #141414;
+$option-selected-bg-color: #AEE8FE;
+
+.language-select {
+  &__panel {
+    &.mat-select-panel {
+      // display: flex;
+      // flex-wrap: wrap;
+      // flex-direction: column;
+      align-items: center;
+      height: $panel-height;
+      // width: $panel-width;
+      max-height: $panel-height;
+      // max-width: $panel-width;
+      padding: 5px 5px;
+      margin-bottom: 2.3rem;
+      margin-right: 1rem;
+      box-sizing: border-box;
+      
+
+      .mat-option {
+        height: 38px;
+        // width: 50%;
+
+        &.mat-selected {
+          background-color: $option-selected-bg-color;
+        }
+
+        .mat-option-text {
+          color: $option-color;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

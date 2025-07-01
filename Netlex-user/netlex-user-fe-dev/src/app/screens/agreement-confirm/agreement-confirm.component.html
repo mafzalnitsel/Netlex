@@ -1,0 +1,176 @@
+<!-- <div fxLayout="column" class="container-login"> -->
+<div fxLayout="column" class="main-container">
+    <!-- <div fxHide.lt-md class="header-top" fxLayoutAlign="none center">
+        <span translate>AGREEMENTSCONFIRM.TITLE</span>
+    </div> -->
+
+    <div class="content-top">
+        <div fxHide.lt-md class="top_heading" fxLayoutAlign="none center">
+            <span translate>AGREEMENTSCONFIRM.TITLE</span>
+        </div>
+        <div fxHide.gt-sm class="top_heading" fxLayoutAlign="center center">
+            <span class="agreement-confirm-mobile" translate>AGREEMENTSCONFIRM.TITLE</span>
+        </div>
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="agreement_confirm_row1">
+            <div fxFlex.gt-sm="50" class="agreement_confirm_title_desc">
+                <div class="agreement_confirm_title">
+                    {{documentTitle}}
+                </div>
+                <div class="agreement_confirm_description">
+                    {{documentDescription}}
+                </div>
+            </div>
+            <div fxFlex.gt-sm="50" class="agreement_confirm_details">
+                <div class="agreement_confirm_container" fxLayout="column">
+                    <div class="agreement_confirm" *ngIf="!showUserInputQuestions">
+                        <div fxLayout.gt-sm="column" fxLayout.lt-md="column">
+                            <!-- <div fxFlex.gt-sm="100" class="agreement_confirm_data_box"> -->
+                            <div class="agreement_confirm_data_box">
+                                <!-- <div class="title_details">
+                                    <h4 fxLayoutAlign="center" class="title_name">{{documentTitle}}</h4>
+                                </div>
+                                <div class="divide_line"></div>
+                                <div fxLayout="row" class="prices_details">
+                                    <h4 fxFlex="50" fxLayoutAlign="start" class="price_title">{{'AGREEMENTS.PRICE' |
+                                        translate}} :</h4>
+                                    <h4 fxFlex="50" fxLayoutAlign="end" class="price_title">{{documentPrice}}&nbsp; Kr
+                                    </h4>
+                                </div>
+                                <div fxLayout="row" class="prices_details">
+                                    <h4 fxFlex="50" fxLayoutAlign="start" class="price_title">{{'AGREEMENTS.TAX' |
+                                        translate}} :</h4>
+                                    <h4 fxFlex="50" fxLayoutAlign="end" class="price_title">{{documentTax}}&nbsp; Kr
+                                    </h4>
+                                </div>
+                                <div class="divide_line"></div>
+                                <div fxLayout="row" class="prices_details">
+                                    <h4 fxFlex="50" fxLayoutAlign="start" class="total_price">
+                                        {{'AGREEMENTS.TOTAL_PRICE' | translate}} :</h4>
+                                    <h4 fxFlex="50" fxLayoutAlign="end" class="total_price">
+                                        {{documentTotal}}&nbsp; Kr</h4>
+                                </div> -->
+                                <!-- <div class="divide_line"></div> -->
+                                <div class="title_details">
+                                    <h4 fxLayoutAlign="center" class="title_name">{{documentTitle}}</h4>
+                                </div>
+                                <div class="divide_line"></div>
+                                <!-- <div class="column1"></div>
+                                <div class="column2"></div> -->
+                                <div fxLayout="row" class="prices_details">
+                                    <h4 class="price_title">{{'AGREEMENTS.PRICE' |
+                                        translate}} :</h4>
+                                    <h4 class="price_title">{{documentPrice}}&nbsp; Kr
+                                    </h4>
+                                </div>
+                                <div fxLayout="row" class="prices_details">
+                                    <h4 class="price_title">{{'AGREEMENTS.TAX' |
+                                        translate}} :</h4>
+                                    <h4 class="price_title">{{documentTax}}&nbsp; Kr
+                                    </h4>
+                                </div>
+                                <div class="divide_line"></div>
+                                <div fxLayout="row" class="prices_details">
+                                    <h4 class="total_price">
+                                        {{'AGREEMENTS.TOTAL_PRICE' | translate}} :</h4>
+                                    <h4 class="total_price">
+                                        {{documentTotal}}&nbsp; Kr</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div fxLayoutAlign="center center" fxLayout="column">
+                            <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center"><span
+                                    translate fxLayoutAlign="center center">SCHEDULER.SEND</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="agreement_confirm" *ngIf="showUserInputQuestions">
+                        <app-agreement-user-input></app-agreement-user-input>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="agreement_confirm_row2">
+            <div fxFlex.gt-sm="55" class="agreement_confirm_videos_container" *ngIf="videosExists">
+                <!-- <div class="video_n_button_container">
+                    <video width="420" class="agreement_confirm_video" id="banner-video" preload="auto" loop>
+                        <source src="assets/videos/video1.mp4">
+                    </video>
+                </div> -->
+                <div class="video_n_button_container" *ngFor="let video of videos">
+                    <div class="video_button_container" *ngIf="!videoStarted" (mouseover)="onVideoHoverHandler($event)"
+                        (mouseout)="onVideoHoverHandler($event)">
+                        <div class="video_button_container_inner"
+                            [ngStyle]="{'background-color': videoStarted ? 'unset':'#00000075'}">
+                            <button class="video_btn">
+                                <mat-icon>play_arrow</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <video class="agreement_confirm_video" id="my_video_1" id="my_video_1"
+                        (mouseover)="onVideoHoverHandler($event)" (mouseout)="onVideoHoverHandler($event)"
+                        controlsList="nodownload">
+                        <!-- <source src="assets/videos/video1.mp4"> -->
+                        <source [src]="video.path">
+                    </video>
+                </div>
+
+            </div>
+            <div fxFlex.gt-sm="40" class="agreement_confirm_image_container">
+                <!-- <div class="agreement_confirm_image_container"> -->
+                <img alt="Banner" class="agreement_confirm_image" src="assets/images/agreement_confirm_image.png"
+                    alt="">
+                <!-- </div> -->
+            </div>
+        </div>
+        <!-- <form>
+            <div class="agreement-confirm-container" fxLayout="column">
+                <div class="agreement-confirm fields">
+                    <div fxLayout.gt-sm="column" fxLayout.lt-md="column">
+                        <div fxFlex.gt-sm="100" class="child-container-common">
+                            <div fxLayout="row" class="price-details">
+                                <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">{{'AGREEMENTS.TITLE' |
+                                    translate}} :</h4>
+                                <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{documentTitle}}</h4>
+                            </div>
+                            <div class="divide_line"></div>
+                            <div fxLayout="row" class="price-details">
+                                <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">{{'AGREEMENTS.PRICE' |
+                                    translate}} :</h4>
+                                <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{documentPrice}}&nbsp;
+                                    Kr</h4>
+                            </div>
+                            <div fxLayout="row" class="price-details">
+                                <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">{{'AGREEMENTS.TAX' |
+                                    translate}} :</h4>
+                                <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{documentTax}}&nbsp; Kr
+                                </h4>
+                            </div>
+                            <div fxLayout="row" class="price-details">
+                                <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePayBold">
+                                    {{'AGREEMENTS.TOTAL_PRICE' | translate}} :</h4>
+                                <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOBold">
+                                    {{documentTotal}}&nbsp; Kr</h4>
+                            </div>
+                            <div class="divide_line"></div>
+                            <div fxLayout="row" class="price-details">
+                                <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">{{'AGREEMENTS.DESC' |
+                                    translate}} :</h4>
+                                <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{documentDescription}}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="button-container-top"></span>
+
+                    <div fxLayoutAlign="center center" fxLayout="column">
+                        <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center"><span
+                                translate fxLayoutAlign="center center">SCHEDULER.SEND</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form> -->
+
+    </div>
+</div>

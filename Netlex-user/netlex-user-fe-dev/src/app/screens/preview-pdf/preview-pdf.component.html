@@ -1,0 +1,31 @@
+<!--<button mat-button fxLayoutAlign="center center" class="button-nav-preview marginSet"-->
+<!--        (click)="previewSummaryScreen()">-->
+<!--    <mat-icon>chevron_left</mat-icon>-->
+<!--    <span translate>USERINPUTS.PREVIOUS</span>-->
+<!--</button>-->
+<!--<div class="pdf-container pdfLogo PdfDiv" style="padding: 60px">-->
+<!--    <div>-->
+<!--        <pdf-viewer [src]="pdfSrc"-->
+<!--                    [original-size]="true"-->
+<!--                    [stick-to-page]="true"-->
+<!--                    [show-all]="true"-->
+<!--        ></pdf-viewer>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="pdf-container pdfLogo PdfDiv" fxLayout="column">
+    <div class="prevButton">
+        <button mat-button fxLayoutAlign="center center" class="button-nav-preview marginSet" (click)="previewSummaryScreen()">
+            <mat-icon>chevron_left</mat-icon>
+            <span translate>USERINPUTS.PREVIOUS</span>
+        </button>
+    </div>
+    <div>
+        <pdf-viewer fxHide.lt-md [src]="pdfSrc" [show-borders]="true"  [original-size]="true" [stick-to-page]="true" [show-all]="false">
+        </pdf-viewer>
+
+        <pdf-viewer fxHide.gt-sm [src]="pdfSrc" [show-borders]="true" [show-all]="false"  [stick-to-page]="true" [render-text]="true" [zoom]="0.4">
+        </pdf-viewer>
+    </div>
+
+</div>

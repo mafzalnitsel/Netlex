@@ -1,0 +1,189 @@
+.cross_button_container {
+    // height: 30px;
+    // align-items: end center;
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+}
+
+.cross_button {
+    // padding: 20px;
+    all: unset;
+    cursor: pointer;
+}
+
+.date_time_header {
+    font-family:'Playfair Display,serif !important';    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    // font-size: 27px;
+    // line-height: 28px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    // color: #1F2A53;
+    color: #000234;
+    margin-top: -40px;
+    border-bottom: #000234 solid 3px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 5px;
+    // position: fixed;
+    // width: 900px;
+    // text-align: center;
+    // z-index: 1;
+    // background-color: #FFFFFF;
+}
+
+// .demo-inline-calendar-card {
+//     width: 300px;
+//   }
+.date_n_time_main {
+    padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 85%;
+}
+
+// .input-container input {
+//     border: none;
+//     box-sizing: border-box;
+//     outline: 0;
+//     padding: .75rem;
+//     position: relative;
+//     width: 100%;
+// }
+
+// input[type="date"]::-webkit-calendar-picker-indicator {
+//     background: transparent;
+//     bottom: 0;
+//     color: transparent;
+//     cursor: pointer;
+//     height: auto;
+//     left: 0;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     width: auto;
+// }
+.addBox {
+    height: 100%;
+    // width: 300px;
+    // border-radius: unset;
+    border: 3px solid #000234;
+    cursor: pointer;
+    // margin-top: 5px;
+}
+
+.calendar_container {
+    padding: 0 10px 10px 10px;
+
+}
+
+.times_radios {
+    // display: flex;
+    // flex-wrap: wrap;
+    text-align: center;
+    width: -webkit-fill-available;
+}
+
+.available_times_heading {
+    // display: flex;
+    // flex-wrap: wrap;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    // span{
+    //     background-color: gray;
+    //     width: 100%;
+    // }
+    // padding: 5px 0 5px 10%;
+}
+.heading_bg{
+    background-color: #000234;
+    width: 70%;
+    padding: 5px;
+    color: white;
+}
+.available_times_container {
+    // display: flex;
+    // align-items: center;
+    margin-top: 20px;
+    max-width: 1000px
+}
+.timeLoader{
+    margin-top: 20px;
+}
+.timeLoaderText{
+    margin-top: 20px;
+}
+.noTimeAvailable{
+    padding: 10px;
+}
+.mat-radio-button {
+    // padding: 5px;
+    padding: 5px 5% 5px 5%;
+}
+
+@media screen and (max-width:1280px) {
+    // .addBox {}
+    .available_times_container {
+        // display: flex;
+        // align-items: center;
+        margin-top: 20px;
+        max-width: 600px
+    }
+}
+@media screen and (min-width:960px) {
+    .addBox {
+        min-width: 350px;
+    }
+}
+@media screen and (max-width:960px) {
+    .date_time_header{
+        font-size: 21px;
+        line-height: 22px;
+        margin-left: 25%;
+        margin-right: 25%;
+        text-align: center;
+    }
+    .calendar_container {
+        // padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .addBox {
+        height: 100%;
+        // width: 60%;
+        // border-radius: unset;
+        border: 3px solid #000234;
+        cursor: pointer;
+        // margin-top: 5px;
+    }
+    .date_n_time_main {
+        // padding: 0;
+        height: 80%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .date_n_time_main {
+        padding: 0;
+        height: 80%;
+    }
+    .date_time_header{
+        font-size: 17px;
+        line-height: 19px;
+        margin-left: 20%;
+        margin-right: 20%;
+        text-align: center;
+    }
+    // .calendar_container {
+    //     padding: 0;
+    // }
+}

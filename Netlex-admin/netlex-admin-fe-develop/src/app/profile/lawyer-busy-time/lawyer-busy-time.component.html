@@ -1,0 +1,93 @@
+<div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="date_n_time_main" id="date_n_time_main">
+    <div fxFlex.gt-md="50" class="" fxLayout="column" class="calendar_container">
+        <div class="heading_bar">
+            <div class="heading_background">Välj Datum</div>
+        </div>
+        <!-- <mat-card class="addBox" fxLayout="column"> -->
+        <full-calendar class="contentDiv" [options]="calendarOptions"></full-calendar>
+        <!-- </mat-card> -->
+        <button mat-button class="back-button margin-top" *ngIf="!onDate" (click)="closeBusyTimeHandler()"> Tillbaka
+        </button>
+
+    </div>
+    <div fxFlex.gt-md="50" class="" fxLayout="column" class="times_container" *ngIf="onDate">
+        <div class="heading_bar">
+            <!-- <div class="heading_background">Välj tid</div> -->
+            <!-- <div class="heading_background">Välj tid för ({{onDate | date}})</div> -->
+            <div class="heading_background">Välj tid för {{showDatelabel}}</div>
+
+        </div>
+        <span class="spinner-border spinner-container" *ngIf="showLoader" aria-hidden="true">
+            <mat-spinner diameter="50" strokeWidth=""></mat-spinner>
+        </span>
+        <!-- <div fxLayout.gt-sm="column" fxLayout.lt-md="column" class="times_select_fields"> -->
+        <div fxLayout="row" class="times_select_fields" *ngIf="!showLoader">
+            <div fxFlex="49" fxLayout="column">
+                <mat-form-field class="select-a" appearance="outline">
+                    <mat-label><b>Från</b><span class="redStar"> *</span></mat-label>
+                    <mat-select (selectionChange)="startTimeChangeHandler()" [(value)]="selectedStartTime"
+                        [disabled]="isAllDayBusy">
+                        <mat-option *ngFor="let option of timesOptions" value="{{option}}">
+                            <!-- {{option.value.split('-')[0]}} -->
+                            {{option.split('-')[0]}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="time-error" *ngIf="isSelectedTimeInvalid" (click)="errorClickHandler()">Ogiltig*</div>
+                <tr fxLayout="column" style="margin-bottom:'20px'">
+                    <label style="cursor:pointer;width:'110px'">
+                        <input type="checkbox" (change)="allDayBusyHandler($event.target.checked)">Hela dagen
+                    </label>
+                </tr>
+            </div>
+            &nbsp;&nbsp;
+            <div fxFlex="49" fxLayout="column">
+                <mat-form-field class="select-a" appearance="outline">
+                    <mat-label><b>Till</b><span class="redStar"> *</span></mat-label>
+                    <mat-select (selectionChange)="endTimeChangeHandler()" [(value)]="selectedEndTime"
+                        [disabled]="!selectedStartTime || isAllDayBusy">
+                        <mat-option *ngFor="let option of timesOptions;let i=index;" value="{{option}}">
+                            <!-- {{option.value.split('-')[0]}} -->
+                            {{option.split('-')[0]}}
+                            <!-- <span *ngIf="i>0">{{option.split('-')[0]}}</span> -->
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="time-error" *ngIf="isSelectedTimeInvalid" (click)="errorClickHandler()">Ogiltig*</div>
+                <!-- <div class="times-error" *ngIf="isSelectedTimeInvalid">Till tid borde vara större än Från tid*</div> -->
+            </div>
+        </div>
+        <!-- --------------Event type and details fields-------------  -->
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngIf="!showLoader">
+            <div fxFlex.gt-sm="49" class="child-container-common">
+                <tr fxLayout="column">
+                    <mat-form-field class="select-a" appearance="outline">
+                        <mat-label><b>Händelse typ</b><span class="redStar"> *</span></mat-label>
+                        <mat-select [(value)]="eventType">
+                            <mat-option *ngFor="let option of eventTypeOptions" value="{{option}}">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </tr>
+            </div>
+            &nbsp;&nbsp;
+            <div fxFlex.gt-sm="49" class="child-container-common">
+                <!-- <tr fxLayout="column"> -->
+                    <mat-form-field appearance="outline">
+                    <mat-label><b style="font-size: 13px;">Detaljer</b><span class="redStar"> *</span></mat-label>
+                        <input matInput class="custom_input" type="text" maxlength="100" [(ngModel)]="eventDesc">
+                    </mat-form-field>
+                <!-- </tr> -->
+            </div>
+        </div>
+        <div *ngIf="!showLoader">
+            <div class="busyTimeBtnContainer" fxLayoutAlign="end end ">
+                <button mat-button class="back-button" (click)="closeBusyTimeHandler()"> Tillbaka </button>
+                <button mat-button class="delete-button" (click)="onDelete()" *ngIf="eventId"> Radera </button>
+                <button mat-button class="update-button" (click)="onUpdate()" *ngIf="eventId"> Uppdatering </button>
+                <button mat-button class="update-button" (click)="onSubmit()" *ngIf="!eventId"> Lägg till </button>
+            </div>
+        </div>
+    </div>
+</div>

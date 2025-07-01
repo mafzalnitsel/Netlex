@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>Misslyckad E-post Lista</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div class="addBox" fxLayout="column">
+        <div class="table-container">
+            <table class="table-size" id="table">
+                <thead>
+                    <tr class="table-header">
+                        <th>Användarnamn</th>
+                        <!-- <th>Förnamn</th>
+                        <th>Efternamn</th> -->
+                        <th>E-post</th>
+                        <th>Datumn</th>
+                        <th>Misslyckad Anledning</th>
+                        <th *ngIf="this.authService.isAdmin()"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="user-row" *ngFor="let item of asyncItems| async | paginate: { id: 'server', itemsPerPage:
+                    perPage, currentPage: p, totalItems: total }">
+                        <td (click)="viewEmailDetails(item)">{{item.userDetails.userName}}</td>
+                        <td (click)="viewEmailDetails(item)">{{item.emailAddress}}</td>
+                        <td (click)="viewEmailDetails(item)">{{item.createdAt}}</td>
+                        <td (click)="viewEmailDetails(item)">{{item.error.code}}</td>
+                        <td><button (click)="editEmail(item)" mat-raised-button class="edit-button">Redigera</button></td>
+                        <td><button mat-button class="resend-button"
+                            (click)="openDialog(item)">
+                            <mat>Skicka igen</mat>
+                        </button></td>
+                        <td><button (click)="viewEmailDetails(item)" mat-raised-button class="details-button">Detaljer</button></td>
+                        
+
+                        <!-- <td *ngIf="authService.isAdmin()"> -->
+                        <!-- <button mat-button class="resend-button"
+                            (click)="deleteBusinessType(item._id);">
+                            <mat>Skicka igen</mat>
+                        </button> -->
+                        <!-- </td> -->
+                        
+                    </tr>
+                    <tr *ngIf="!total" class="text-center">
+                        <td colspan="4">Inga användare hittades</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div fxLayoutAlign="center none" class="pagination-button-container">
+            <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getPage($event)"
+                id="server"></pagination-controls>
+        </div>
+        <div class="save-button-container" fxLayout="row" fxLayoutAlign="end center">
+            <button routerLink="/home" mat-button class="saveBtn">Tillbaka</button>
+        </div>
+    </div>
+    <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+        <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+    </div>
+</div>

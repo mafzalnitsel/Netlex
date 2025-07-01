@@ -1,0 +1,50 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>
+    FÄRGER</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+<div class="addBox" fxLayout="column">
+    <div class="create-button-container" fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button class="saveBtn create-question-answer-button"
+            [routerLink]="'/colors/create'">
+            Skapa Färger</button>
+    </div>
+    <div class="table-class">
+        <div class="table-container">
+            <table class="table-size" id="table">
+                <thead>
+                    <tr class="table-header">
+                        <th>Namn</th>
+                        <th>Färger</th>
+
+                        <th *ngIf="this.authService.isAdmin()"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="question-answer-word-break" *ngFor="let data of asyncPersons | async | paginate: { id: 'servere', itemsPerPage:
+             perPage, currentPage: p, totalItems: total }">
+                        <td>{{data.colorName | slice:0:30}}</td>
+                        <!-- <td class="color_box_row">{{data.colorCode | slice:0:50}}</td> -->
+                        <td class="color_box_row"><p [ngStyle]="{'background-color': data.colorCode}">{{data.colorCode | slice:0:50}}</p></td>
+                        <!-- <td class="inverted-bar" data-content="Lorem ipsum dolor sit amet" bg-color="aqua">Hello</td> -->
+                        <button (click)="viewColorHandler(data)" mat-raised-button
+                            class="edit-button">Redigera</button>
+                        <td *ngIf="authService.isAdmin()">
+                            <button mat-button class="delete-question-answer-button"
+                                (click)="deleteColorsHandler(data._id);">
+                                <mat>Radera</mat>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="!total" class="text-center">
+                        <td colspan="4">Inga Fråga/Svar hittades</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div fxLayoutAlign="center none" class="pagination-button-container">
+        <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getPage($event)" id="servere">
+        </pagination-controls>
+    </div>
+</div>
+</div>

@@ -1,0 +1,870 @@
+<!-- <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar> -->
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>Redigera Hem</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-user-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <!-- <h3 fxLayoutAlign="center"><b>Hem</b></h3> -->
+            <!-- ----------Image Row----------- -->
+            <!-- <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+            </div> -->
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row1----/\/\/\/\/\/\/\/\/\/\/\/\-- -->
+            <label class="border_label">Hem Header</label>
+            <div class="individual_data_box">
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="100" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="id-labels" [class.marginTop]="!webImgURL">Home Header Bild eller Gif</label>
+                            <!-- <label class="id-labels">(877 × 389 px)</label> -->
+                            <div style="font-size:11px" appearance="outline">
+                                <span ></span>
+                                
+                                <img [src]="webImgURL" height="200" alt="Not Found" *ngIf="webImgURL" style="width:12em; height:10em;">
+                                <input [(ngModel)]="homeHeaderPic" (change)="onFileChange($event)" type="file"
+                                   accept="image/*" class="form-control" name="password" id="homeHeaderPic">
+                            </div>
+                        </tr>
+                        <div class="h-container">Förändra Home Bild<br>
+                            <button type="button" (click)="changeHomeHeaderPic()" class="updateBtn">
+                                <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="homeHeaderPic"
+                                    aria-hidden="true"></span>
+                                <span *ngIf="!showloading">Ladda upp Bild</span>
+                            </button><br><br>
+                        </div>
+                    </div>
+                    <!-- <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="id-labels">Home Header Bild Mobil</label>
+                            <label class="id-labels">(750 × 498 px)</label>
+                            <div style="font-size:11px" appearance="outline">
+                                <input [(ngModel)]="homeHeaderPicMob" (change)="onFileChangeMob($event)" type="file"
+                                    class="form-control" name="password" id="homeHeaderPicMob">
+                                <img [src]="mobImgURL" height="200" *ngIf="mobImgURL" style="width:12em; height:10em;">
+                            </div>
+                        </tr>
+                        <div class="h-container">Förändra Mobil Home Bild<br>
+                            <button type="button" (click)="changeHomeHeaderPicMob()" class="updateBtn">
+                                <span class="spinner-border spinner-border-sm" *ngIf="showloading"
+                                    role="homeHeaderPicMob" aria-hidden="true"></span>
+                                <span *ngIf="!showloading">Ladda upp Bild</span>
+                            </button><br><br>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- ----------Oldr2----------- -->
+                <!-- <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">Välj Avtal Bild</label>
+                        <label class="id-labels">(220 × 220 px)</label>
+                        <div style="font-size:11px" appearance="outline">
+                            <input [(ngModel)]="selectAgreementImg" (change)="onSelectAgreementPicChange($event)" type="file"
+                                class="form-control" name="password" id="selectAgreementImg">
+                            <img [src]="selectAgreementImgURL" height="200" *ngIf="selectAgreementImgURL" style="width:10em; height:10em;">
+                        </div>
+                    </tr>
+                    <div class="h-container">Förändra Välj Avtal Bild<br>
+                        <button type="button" (click)="changeSelectAgreementPic()" class="updateBtn">
+                            <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="selectAgreementImg"
+                                aria-hidden="true"></span>
+                            <span *ngIf="!showloading">Ladda upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">Fyll i Avtal Bild</label>
+                        <label class="id-labels">(220 × 220 px)</label>
+                        <div style="font-size:11px" appearance="outline">
+                            <input [(ngModel)]="fillAgreementImg" (change)="onFillAgreementPicChange($event)" type="file"
+                                class="form-control" name="password" id="fillAgreementImg">
+                            <img [src]="fillAgreementImgURL" height="200" *ngIf="fillAgreementImgURL" style="width:10em; height:10em;">
+                        </div>
+                    </tr>
+                    <div class="h-container">Förändra Fyll i Avtal Bild<br>
+                        <button type="button" (click)="changeFillAgreementPic()" class="updateBtn">
+                            <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="fillAgreementImg"
+                                aria-hidden="true"></span>
+                            <span *ngIf="!showloading">Ladda upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+            </div> -->
+                <!-- ----------Oldr3----------- -->
+                <!-- <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">Inköp Bild</label>
+                        <label class="id-labels">(220 × 220 px)</label>
+                        <div style="font-size:11px" appearance="outline">
+                            <input [(ngModel)]="purchaseImg" (change)="onPurchasePicChange($event)" type="file"
+                                class="form-control" name="password" id="purchaseImg">
+                            <img [src]="purchaseImgURL" height="200" *ngIf="purchaseImgURL" style="width:10em; height:10em;">
+                        </div>
+                    </tr>
+                    <div class="h-container">Förändra Inköp Bild<br>
+                        <button type="button" (click)="changePurchasePic()" class="updateBtn">
+                            <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="purchaseImg"
+                                aria-hidden="true"></span>
+                            <span *ngIf="!showloading">Ladda upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="id-labels">Tillgänglighet Bild</label>
+                        <label class="id-labels">(220 × 220 px)</label>
+                        <div style="font-size:11px" appearance="outline">
+                            <input [(ngModel)]="availabilityImg" (change)="onAvailabilityPicChange($event)" type="file"
+                                class="form-control" name="password" id="availabilityImg">
+                            <img [src]="availabilityImgURL" height="200" *ngIf="availabilityImgURL" style="width:10em; height:10em;">
+                        </div>
+                    </tr>
+                    <div class="h-container">Förändra Tillgänglighet Bild<br>
+                        <button type="button" (click)="changeAvailabilityPic()" class="updateBtn">
+                            <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="availabilityImg"
+                                aria-hidden="true"></span>
+                            <span *ngIf="!showloading">Ladda upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+            </div> -->
+
+                <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row2----/\/\/\/\/\/\/\/\/\/\/\/\- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="id-labels">Top Rubrik Stor text</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <!-- <mat-label>Top Rubrik Stor text</mat-label> -->
+                                <textarea matInput type="text" maxlength="100" [(ngModel)]="handleYourLegal"
+                                    required></textarea>
+                            </mat-form-field>
+                        </tr>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="id-labels">Top Rubrik små texter(Differentiera med kommatecken)</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <!-- <mat-label>Top Rubrik små texter</mat-label> -->
+                                <textarea matInput type="text" maxlength="100" [(ngModel)]="agreementOnline"
+                                    required></textarea>
+                            </mat-form-field>
+                        </tr>
+
+                    </div>
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row2----/\/\/\/\/\/\/\/\/\/\/\/\- -->
+            <label class="border_label">Färgschema</label>
+            <div class="individual_data_box">
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Crystal Navbar Färg</label>
+                                <!-- <div class="selected-color-div" (click)="showConsole()">Hello</div> -->
+                                <div class="selected-color-div"
+                                    [ngStyle]="{'background-color': selected_Crystal_Navbar_Color }">
+                                    <p class="selected-color-name-in-white"> {{selected_Crystal_Navbar_Color}} </p>
+                                    <!-- <p class="selected-color-name-in-black"
+                                    *ngIf="selected_Crystal_Navbar_Color==='#ffffff21'">
+                                    {{selected_Crystal_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white"
+                                    *ngIf="selected_Crystal_Navbar_Color==='#000234'">{{selected_Crystal_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white"
+                                    *ngIf="selected_Crystal_Navbar_Color==='#734434'">{{selected_Crystal_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black"
+                                    *ngIf="selected_Crystal_Navbar_Color==='#FFDADF'">{{selected_Crystal_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white"
+                                    *ngIf="selected_Crystal_Navbar_Color==='#344567'">{{selected_Crystal_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black"
+                                    *ngIf="selected_Crystal_Navbar_Color==='#CDBBB2'">{{selected_Crystal_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black" *ngIf="selected_Desc_Bg_Color==='#ffffff'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Desc_Bg_Color==='#000000'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p> -->
+                                </div>
+                            </tr>
+                        </div>
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Förändra Crystal Navbar</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <!-- <mat-select [(ngModel)]="selected_Crystal_Navbar_Color" (selectionChange)="selectedColorHandler($event) "> -->
+                                    <mat-select [(ngModel)]="selected_Crystal_Navbar_Color">
+                                        <mat-option *ngFor="let color of navbarColors " value="{{color.value}}">
+                                            {{color.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <!-- ----------Row4(Col2)SmallCol1----------- -->
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Colored Navbar Färg</label>
+                                <!-- <div class="selected-color-div" (click)="showConsole()">Hello</div> -->
+                                <div class="selected-color-div"
+                                    [ngStyle]="{'background-color': selected_Colored_Navbar_Color }">
+                                    <p class="selected-color-name-in-white"> {{selected_Colored_Navbar_Color}} </p>
+                                    <!-- <p class="selected-color-name-in-black"
+                                    *ngIf="selected_Colored_Navbar_Color==='#ffffff21'">
+                                    {{selected_Colored_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white"
+                                    *ngIf="selected_Colored_Navbar_Color==='#000234'">{{selected_Colored_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white"
+                                    *ngIf="selected_Colored_Navbar_Color==='#734434'">{{selected_Colored_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black"
+                                    *ngIf="selected_Colored_Navbar_Color==='#FFDADF'">{{selected_Colored_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white"
+                                    *ngIf="selected_Colored_Navbar_Color==='#344567'">{{selected_Colored_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black"
+                                    *ngIf="selected_Colored_Navbar_Color==='#CDBBB2'">{{selected_Colored_Navbar_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black" *ngIf="selected_Desc_Bg_Color==='#ffffff'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Desc_Bg_Color==='#000000'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p> -->
+                                    <!-- <ng-container *ngIf="selected_Colored_Navbar_Color!=='#ffffff21';else second">
+                                    <p class="selected-color-name-in-white">
+                                    {{selected_Colored_Navbar_Color}}</p>
+                                </ng-container>
+                                <ng-template #second>
+                                    <ng-container *ngIf="selected_Colored_Navbar_Color==='#ffffff21';else third">
+                                        <p class="selected-color-name-in-black">Crystal Transparent </p>
+                                    </ng-container>
+                                </ng-template>
+                                <ng-template #third>
+                                    <ng-container *ngIf="selected_Colored_Navbar_Color==='#FFDADF';else fouth">
+                                        <p class="selected-color-name-in-black">Crystal Transparent</p>
+                                    </ng-container>
+                                </ng-template> -->
+                                </div>
+                            </tr>
+                        </div>
+                        <!-- ----------Row4(Col2)SmallCol2----------- -->
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Förändra Colored Navbar</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <mat-select [(ngModel)]="selected_Colored_Navbar_Color">
+                                        <mat-option *ngFor="let color of navbarColors " value="{{color.value}}">
+                                            {{color.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Hem Bakgrund Färg</label>
+                                <!-- <div class="selected-color-div" (click)="showConsole()">Hello</div> -->
+                                <div class="selected-color-div"
+                                    [ngStyle]="{'background-color': selected_Home_Bg_Color }">
+                                    <p class="selected-color-name-in-white"> {{selected_Home_Bg_Color}} </p>
+                                    <!-- <p class="selected-color-name-in-black" *ngIf="selected_Home_Bg_Color==='#F2F2FE'">
+                                    {{selected_Home_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Home_Bg_Color==='#000234'">
+                                    {{selected_Home_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black" *ngIf="selected_Home_Bg_Color==='#ffffff'">
+                                    {{selected_Home_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Home_Bg_Color==='#000000'">
+                                    {{selected_Home_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Home_Bg_Color==='#734434'">
+                                    {{selected_Home_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black" *ngIf="selected_Home_Bg_Color==='#FFDADF'">
+                                    {{selected_Home_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Home_Bg_Color==='#344567'">
+                                    {{selected_Home_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black" *ngIf="selected_Home_Bg_Color==='#CDBBB2'">
+                                    {{selected_Home_Bg_Color}}
+                                </p> -->
+                                </div>
+                            </tr>
+                        </div>
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Förändra Hem Bakgrund</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <!-- <mat-select [(ngModel)]="selected_Home_Bg_Color" (selectionChange)="selectedColorHandler($event) "> -->
+                                    <mat-select [(ngModel)]="selected_Home_Bg_Color">
+                                        <mat-option *ngFor="let color of navbarColors " value="{{color.value}}">
+                                            {{color.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <!-- <div fxFlex.gt-sm="50" class="child-container-common"> -->
+                    <!-- ----------Row5(Col2)SmallCol1----------- -->
+                    <!-- <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Beskrivning Färg</label>
+                                <div class="selected-color-div"
+                                    [ngStyle]="{'background-color': selected_Desc_Bg_Color }">
+                                    <p class="selected-color-name-in-white"> {{selected_Desc_Bg_Color}} </p> -->
+                    <!-- <p class="selected-color-name-in-black" *ngIf="selected_Desc_Bg_Color==='#F2F2FE'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Desc_Bg_Color==='#000234'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black" *ngIf="selected_Desc_Bg_Color==='#ffffff'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Desc_Bg_Color==='#000000'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Desc_Bg_Color==='#734434'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black" *ngIf="selected_Desc_Bg_Color==='#FFDADF'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-white" *ngIf="selected_Desc_Bg_Color==='#344567'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p>
+                                <p class="selected-color-name-in-black" *ngIf="selected_Desc_Bg_Color==='#CDBBB2'">
+                                    {{selected_Desc_Bg_Color}}
+                                </p> -->
+                    <!-- </div>
+                            </tr>
+                        </div> -->
+                    <!-- ----------Row5(Col2)SmallCol2----------- -->
+                    <!-- <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Förändra Colored Navbar</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <mat-select [(ngModel)]="selected_Desc_Bg_Color">
+                                        <mat-option *ngFor="let color of navbarColors " value="{{color.value}}">
+                                            {{color.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row3----/\/\/\/\/\/\/\/\/\/\/\/\- -->
+            <label class="border_label">Tjänster</label>
+            <div class="individual_data_box">
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="color_scheme_text">Välj Tjänster</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <!-- <mat-select [(ngModel)]="selected_Crystal_Navbar_Color" (selectionChange)="selectedColorHandler($event) "> -->
+                                <mat-select [(ngModel)]="editHeroBox" class="services_select">
+                                    <mat-option *ngFor="let text of heroBoxTexts " value="{{text.label}}">
+                                        {{text.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </tr>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div *ngFor="let text of heroBoxTexts; let i = index">
+                            <tr fxLayout="column" *ngIf="text.label===editHeroBox">
+                                <label class="color_scheme_text">{{editHeroBox}} Knapp Text</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <textarea matInput class="small_text_area" type="text" maxlength="200"
+                                        [(ngModel)]="heroBoxTexts[i].Knapp" required></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div *ngFor="let text of heroBoxTexts; let i = index">
+                            <tr fxLayout="column" *ngIf="text.label===editHeroBox">
+                                <label class="color_scheme_text">{{editHeroBox}} Rubrik</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <textarea matInput class="small_text_area" type="text" maxlength="200"
+                                        [(ngModel)]="heroBoxTexts[i].Rubrik" required></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div *ngFor="let text of heroBoxTexts; let i = index">
+                            <tr fxLayout="column" *ngIf="text.label===editHeroBox">
+                                <label class="color_scheme_text">{{editHeroBox}} Beskrivning</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <textarea matInput class="small_text_area" type="text" maxlength="200"
+                                        [(ngModel)]="heroBoxTexts[i].Beskrivning" required></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row4----/\/\/\/\/\/\/\/\/\/\/\/\- -->
+            <label class="border_label">Introduktion</label>
+            <div class="individual_data_box">
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="color_scheme_text">Välj Introduktionstexttyp(Vilka vi är)</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <!-- <mat-select [(ngModel)]="selected_Crystal_Navbar_Color" (selectionChange)="selectedColorHandler($event) "> -->
+                                <mat-select [(ngModel)]="editIntroType" class="services_select">
+                                    <mat-option *ngFor="let text of introTexts " value="{{text.label}}">
+                                        {{text.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </tr>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div *ngFor="let text of introTexts; let i = index">
+                            <tr fxLayout="column" *ngIf="text.label===editIntroType">
+                                <label class="color_scheme_text ">Intro {{editIntroType}}</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <textarea matInput class="small_text_area" type="text" maxlength="300"
+                                        [(ngModel)]="introTexts[i].value" required></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common2" *ngIf="selectedFooterType==='imageFooter'">
+                        <!-- <div class="dummy-div">Not available yet</div> -->
+                        <tr fxLayout="column">
+                            <label class="color_scheme_text">Introduktion Bild</label>
+                            <div style="font-size:11px" appearance="outline">
+                                <input [(ngModel)]="introImage" (change)="onIntroImageChange($event)" type="file"
+                                    class="form-control" name="password" id="footerBgImage">
+                                <img [src]="introImageURL" *ngIf="introImageURL" style="width:8em; height:12em;">
+                            </div>
+                        </tr>
+                        <div class="h-container">Förändra Introduktion Bild<br>
+                            <button type="button" (click)="changeIntroPic()" class="updateBtn">
+                                <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="footerBgImage"
+                                    aria-hidden="true"></span>
+                                <span *ngIf="!showloading">Ladda upp Bild</span>
+                            </button><br><br>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <!-- <div fxLayout.gt-sm="row" fxLayout.lt-md="column"> -->
+                        <div class="colors_num_radios_container">
+                            <label class="footer_type_label">Antal färger</label>
+                            <mat-radio-group name="servicesBgType" (change)="numOfColorsHandler($event.value)">
+                                <!-- <mat-radio-button fxFlex.gt-sm="30" color="primary" -->
+                                <mat-radio-button class="num_radio" color="primary"
+                                    *ngFor="let num of numOfColorsOptions" [checked]="num.checked"
+                                    value="{{num.value}}">
+                                    <strong>{{num.label}}</strong>
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="all_color_pickers">
+                            <!-- ----------color_picker1----------- -->
+                            <!-- <div class="color_picker_container" > -->
+                            <!-- <div [ngClass]="[ numOfColors==2?  'color_picker_container': 'color_picker_container1' ]"> -->
+                            <div *ngFor="let item of gradientArray; let i = index">
+                                <div *ngIf="numOfColors==2">
+                                    <div [class]="colorsClassOuter" *ngIf="i!=2">
+                                        <tr fxLayout="column">
+                                            <label class="color_scheme_text">{{item.name}}</label>
+                                            <input type="color" [class]="colorsClassInner"
+                                                (change)='gradientDirectionChangeHandler()' [(ngModel)]="item.color"
+                                                id="favcolor" name="favcolor" />
+                                        </tr>
+                                    </div>
+                                </div>
+                                <div *ngIf="numOfColors==3">
+                                    <div [class]="colorsClassOuter">
+                                        <tr fxLayout="column">
+                                            <label class="color_scheme_text">{{item.name}}</label>
+                                            <input type="color" [class]="colorsClassInner"
+                                                (change)='gradientDirectionChangeHandler()' [(ngModel)]="item.color"
+                                                id="favcolor" name="favcolor" />
+                                        </tr>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ----------color_picker2----------- -->
+                            <!-- <div [class]="colorsClassOuter">
+                                <tr fxLayout="column">
+                                    <label class="color_scheme_text">Andra färgen</label>
+                                    <input type="color" [class]="colorsClassInner"
+                                        (change)='gradientDirectionChangeHandler()' [(ngModel)]="gradient_second_color"
+                                        id="favcolor" name="favcolor" />
+                                </tr>
+                            </div>
+                            <div [class]="colorsClassOuter" *ngIf="numOfColors==3">
+                                <tr fxLayout="column">
+                                    <label class="color_scheme_text">Tredje färgen</label>
+                                    <input type="color" [class]="colorsClassInner"
+                                        (change)='gradientDirectionChangeHandler()' [(ngModel)]="gradient_third_color"
+                                        id="favcolor" name="favcolor" />
+                                </tr>
+                            </div> -->
+                        </div>
+                        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                            <!-- ----------Row4(Col2)SmallCol1----------- -->
+                            <div fxFlex.gt-sm="50" class="child-container-common">
+                                <tr fxLayout="column">
+                                    <label class="color_scheme_text">Blandning</label>
+                                    <!-- <div class="selected-color-div" (click)="showConsole()">Hello</div> -->
+                                    <div class="selected-color-div"
+                                        [ngStyle]="{'background-image': selected_Desc_Bg_Color }">
+                                        <!-- <div class="selected-color-div"
+                                        [ngStyle]="{'background-image': 'linear-gradient(to '+ selected_gradient_direction +','+ gradient_first_color + ',' +gradient_second_color+')' }"> -->
+                                        <!-- <p class="selected-color-name-in-white"> {{selected_Desc_Bg_Color}} </p> -->
+                                    </div>
+                                </tr>
+                            </div>
+                            <!-- ----------Row4(Col2)SmallCol2----------- -->
+                            <div fxFlex.gt-sm="50" class="child-container-common">
+                                <tr fxLayout="column">
+                                    <label class="color_scheme_text">Riktning
+                                        <!-- <span *ngIf="setAngleManually">(Oredigerbar)</span> -->
+                                        <span *ngIf="setAngleManually" style="color: red;">(x)</span>
+                                    </label>
+                                    <mat-form-field style="font-size:11px" appearance="outline">
+                                        <mat-select [(ngModel)]="selected_gradient_direction"
+                                            [disabled]="setAngleManually"
+                                            (selectionChange)="gradientDirectionChangeHandler()">
+                                            <mat-option *ngFor="let direction of gradientDirections "
+                                                value="{{direction.value}}">
+                                                {{direction.label}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </tr>
+                            </div>
+                        </div>
+                        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                            <!-- ----------Row4(Col2)SmallCol1----------- -->
+                            <div fxFlex.gt-sm="50" class="child-container-common">
+                                <input [checked]="setAngleManually" type="checkbox"
+                                    (change)="angleCheckHandler($event.target.checked)">Ställ in vinkel manuellt
+                            </div>
+                            <!-- ----------Row4(Col2)SmallCol2----------- -->
+                            <div fxFlex.gt-sm="50" class="child-container-common">
+                                <!-- <mat-slider
+                                class="example-margin"
+                                [disabled]="disabled"
+                                [max]="max"
+                                [min]="min"
+                                [step]="step"
+                                [discrete]="thumbLabel"
+                                [showTickMarks]="showTicks"> -->
+                                <mat-slider class="slider_angle_input" [disabled]="!setAngleManually" [max]="'360'"
+                                    [min]="'0'" [thumbLabel]="false" color="primary" [(ngModel)]="manualAngleValue"
+                                    (change)="manuallyGredientAngleHandler($event.value)">
+                                    <!-- <input matSliderThumb [(ngModel)]="manualAngleValue"> -->
+                                </mat-slider>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row5----/\/\/\/\/\/\/\/\/\/\/\/\- -->
+            <label class="border_label">Expertis</label>
+            <div class="individual_data_box">
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <!-- <div fxFlex.gt-sm="50" class="child-container-common">
+                    <tr fxLayout="column">
+                        <label class="color_scheme_text">Expertis Texter</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <mat-select [(ngModel)]="edit_Selected_Services_Text" class="services_select">
+                                <mat-option *ngFor="let text of servicesTextType " value="{{text.value}}">
+                                    {{text.label}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </tr>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common">
+                    <div *ngFor="let text of servicesTextType; let i = index">
+                    <tr fxLayout="column" *ngIf="text.value===edit_Selected_Services_Text">
+                        <label class="color_scheme_text ">Expertis {{edit_Selected_Services_Text}}</label>
+                        <mat-form-field style="font-size:11px" appearance="outline">
+                            <textarea matInput class="small_text_area" type="text" maxlength="75" [(ngModel)]="servicesAllTexts[i].value"
+                                required></textarea>
+                        </mat-form-field>
+                    </tr></div>
+                </div> -->
+                    <div fxFlex.gt-sm="100" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="color_scheme_text">Välj Expertis Texter</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <mat-select [(ngModel)]="edit_Selected_Services_Text" class="services_select">
+                                    <mat-option *ngFor="let text of servicesAllTexts " value="{{text.label}}">
+                                        {{text.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </tr>
+                    </div>
+                    <!-- <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div *ngFor="let text of servicesAllTexts; let i = index">
+                            <tr fxLayout="column" *ngIf="text.label===edit_Selected_Services_Text">
+                                <label class="color_scheme_text ">Expertis {{edit_Selected_Services_Text}}</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <textarea matInput class="small_text_area" type="text" maxlength="75"
+                                        [(ngModel)]="servicesAllTexts[i].value" required></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div *ngFor="let text of servicesAllTexts; let i = index">
+                            <tr fxLayout="column" *ngIf="text.label===edit_Selected_Services_Text">
+                                <label class="color_scheme_text ">{{edit_Selected_Services_Text}} Rubrik</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <textarea matInput class="small_text_area" type="text" maxlength="75"
+                                        [(ngModel)]="servicesAllTexts[i].Rubrik" required></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div *ngFor="let text of servicesAllTexts; let i = index">
+                            <tr fxLayout="column" *ngIf="text.label===edit_Selected_Services_Text">
+                                <label class="color_scheme_text ">{{edit_Selected_Services_Text}} Beskrivning</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <textarea matInput class="small_text_area" type="text" maxlength="75"
+                                        [(ngModel)]="servicesAllTexts[i].Beskrivning" required></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="footer_type">
+                        <label class="footer_type_label">Välja Expertis typ</label>
+                        <div class="footer_type_radios_container">
+                            <!-- <div fxFlex.gt-sm="50">
+                                            <mat-radio-button value="imageServices" [checked]="serviceBgTypeOptions[0].checked" color="primary" (change)="serviceBgTypeHandler($event)">
+                                                Bild Expertis
+                                            </mat-radio-button>
+                                        </div>
+                                        <div fxFlex.gt-sm="50">
+                                            <mat-radio-button value="colorServices" [checked]="serviceBgTypeOptions[1].checked" color="primary" (change)="serviceBgTypeHandler($event)">
+                                                Färg Expertis
+                                            </mat-radio-button>
+                                        </div> -->
+                            <mat-radio-group name="servicesBgType" (change)="serviceBgTypeHandler($event)">
+                                <mat-radio-button fxFlex.gt-sm="50" class="radio_on_mobile" color="primary"
+                                    *ngFor="let option of serviceBgTypeOptions" [checked]="option.checked"
+                                    value="{{option.value}}">{{option.label}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <!-- ----------||||------- -->
+                    <div fxFlex.gt-sm="50" class="child-container-common"
+                        *ngIf="selectedServicesType==='colorServices'">
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Expertis Bakgrund</label>
+                                <!-- <div class="selected-color-div" (click)="showConsole()">Hello</div> -->
+                                <div class="selected-color-div"
+                                    [ngStyle]="{'background-color': selected_Services_Bg_Color }">
+                                    <p class="selected-color-name-in-white">
+                                        {{selected_Services_Bg_Color}}</p>
+                                </div>
+                            </tr>
+                        </div>
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Förändra Expertis Bakgrund</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <mat-select [(ngModel)]="selected_Services_Bg_Color" class="selectbg">
+                                        <mat-option *ngFor="let color of navbarColors " value="{{color.value}}">
+                                            {{color.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common2"
+                        *ngIf="selectedServicesType==='imageServices'">
+                        <!-- <div class="dummy-div"> Not available yet </div> -->
+                        <tr fxLayout="column">
+                            <label class="color_scheme_text">Expertis Bg Bild</label>
+                            <div style="font-size:11px" appearance="outline">
+                                <input [(ngModel)]="servicesBgImage" (change)="onServicesBgImageChange($event)"
+                                    type="file" class="form-control" name="password" id="servicesBgImage">
+                                <img [src]="servicesBgImageURL" height="200" *ngIf="servicesBgImageURL"
+                                    style="width:14em; height:10em;">
+                            </div>
+                        </tr>
+                        <div class="h-container">Förändra Expertis Bg Bild<br>
+                            <button type="button" (click)="changeServicesBgPic()" class="updateBtn">
+                                <span class="spinner-border spinner-border-sm" *ngIf="showloading"
+                                    role="servicesBgImage" aria-hidden="true"></span>
+                                <span *ngIf="!showloading">Ladda upp Bild</span>
+                            </button><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row6----/\/\/\/\/\/\/\/\/\/\/\/\- -->
+            <label class="border_label">Sidfot</label>
+            <div class="individual_data_box">
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="color_scheme_text">Välj Sidfot Beskrivning</label>
+                            <mat-form-field style="font-size:11px" appearance="outline">
+                                <mat-select [(ngModel)]="editFooterParagraphType" class="services_select">
+                                    <mat-option *ngFor="let para of footerparagraphTexts " value="{{para.label}}">
+                                        {{para.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </tr>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <div *ngFor="let para of footerparagraphTexts; let i = index">
+                            <tr fxLayout="column" *ngIf="para.label===editFooterParagraphType">
+                                <label class="color_scheme_text ">Sidfot {{editFooterParagraphType}}</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <textarea matInput class="small_text_area" type="text" maxlength="350"
+                                        [(ngModel)]="footerparagraphTexts[i].value" required></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                </div>
+                <!-- ----------||||||||||----------- -->
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <!-- ----------||||----------- -->
+                    <div fxFlex.gt-sm="50" class="footer_type">
+                        <label class="footer_type_label">Välja Sidfot typ</label>
+                        <div class="footer_type_radios_container">
+                            <!-- <div fxFlex.gt-sm="50">
+                                        <mat-radio-button value="imageFooter" [checked]="footerTypeOptions[0].checked" color="primary" (change)="footerBgTypeHandler($event)">
+                                            Bild Footer
+                                        </mat-radio-button>
+                                    </div>
+                                    <div fxFlex.gt-sm="50">
+                                        <mat-radio-button value="colorFooter" [checked]="footerTypeOptions[1].checked" color="primary" (change)="footerBgTypeHandler($event)">
+                                            Färg Footer
+                                        </mat-radio-button>
+                                    </div> -->
+                            <mat-radio-group name="footerBgType" (change)="footerBgTypeHandler($event)">
+                                <mat-radio-button fxFlex.gt-sm="50" class="radio_on_mobile" color="primary"
+                                    *ngFor="let option of footerBgTypeOptions" [checked]="option.checked"
+                                    value="{{option.value}}">{{option.label}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <!-- ----------||||----------- -->
+                    <div fxFlex.gt-sm="50" class="child-container-common" *ngIf="selectedFooterType==='colorFooter'">
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Sidfot bakgrund Färg</label>
+                                <div class="selected-color-div"
+                                    [ngStyle]="{'background-color': selected_Footer_Bg_Color }">
+                                    <p class="selected-color-name-in-white">{{selected_Footer_Bg_Color}}</p>
+                                </div>
+                            </tr>
+                        </div>
+                        <div fxFlex.gt-sm="50" class="child-container-common">
+                            <tr fxLayout="column">
+                                <label class="color_scheme_text">Förändra Sidfot bakgrund</label>
+                                <mat-form-field style="font-size:11px" appearance="outline">
+                                    <mat-select [(ngModel)]="selected_Footer_Bg_Color">
+                                        <mat-option *ngFor="let color of navbarColors " value="{{color.value}}">
+                                            {{color.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </tr>
+                        </div>
+                    </div>
+                    <!-- ----------||||----------- -->
+                    <div fxFlex.gt-sm="50" class="child-container-common2" *ngIf="selectedFooterType==='imageFooter'">
+                        <tr fxLayout="column">
+                            <label class="color_scheme_text">Sidfot Bg Bild</label>
+                            <div style="font-size:11px" appearance="outline">
+                                <input [(ngModel)]="footerBgImage" (change)="onFooterBgImageChange($event)" type="file"
+                                    class="form-control" name="password" id="footerBgImage">
+                                <img [src]="footerBgImageURL" height="200" *ngIf="footerBgImageURL"
+                                    style="width:14em; height:10em;">
+                            </div>
+                        </tr>
+                        <div class="h-container">Förändra Sidfot Bg Bild<br>
+                            <button type="button" (click)="changeFooterBgPic()" class="updateBtn">
+                                <span class="spinner-border spinner-border-sm" *ngIf="showloading" role="footerBgImage"
+                                    aria-hidden="true"></span>
+                                <span *ngIf="!showloading">Ladda upp Bild</span>
+                            </button><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="center center">
+                <!-- <button [routerLink]="'/clients-details'" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon>
+                    Tillbaka
+                </button> -->
+                &nbsp;&nbsp;
+                <button (click)="update()" mat-button class="update-all-button"><span
+                        class="spinner-border spinner-border-sm" *ngIf="showloading" role="status"
+                        aria-hidden="true"></span><span *ngIf="!showloading">
+                        Uppdatering</span>
+                </button>
+                <!-- Dummy button  -->
+                <!-- <button (click)="servicesTextArrayCheck()" mat-button class="user-create-button"><span
+                    class="spinner-border spinner-border-sm" *ngIf="showloading" role="status"
+                    aria-hidden="true"></span><span *ngIf="!showloading">
+                    Check</span>
+                </button> -->
+                <!-- Dummy button  -->
+            </div>
+        </mat-card>
+    </div>
+</div>

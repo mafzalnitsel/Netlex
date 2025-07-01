@@ -1,0 +1,300 @@
+<div *ngIf="option === 'userInformation'" class="edit-container">
+    <div fxHide.lt-md>
+        <div fxLayout="column">
+            <label class="settings-label" translate>SETTINGS.NAME</label>
+            <input class="settings-input" [(ngModel)]="name">
+            <label class="settings-label" translate>SETTINGS.MNAME</label>
+            <input class="settings-input" [(ngModel)]="middlename" (input)="getnameandphonenum($event.target)" name="Mellannamn" placeholder="Mellannamn">
+            <label class="settings-label" translate>SETTINGS.SURNAME</label>
+            <input class="settings-input" [(ngModel)]="surName">
+            <label class="settings-label" translate>SETTINGS.PHONENUM</label>
+            <input class="settings-input" [(ngModel)]="phonenumber" (input)="getnameandphonenum($event.target)" name="PHONENUM" >
+            <label class="settings-label" translate>SETTINGS.EMAIL</label>
+            <input class="settings-input" [(ngModel)]="email">
+        </div>
+        <div class="delete-save-container">
+            <h4 class="delete-heading" translate>SETTINGS.DELETE_ACCOUNT</h4>
+            <span class="delete-warn" translate>SETTINGS.DELETE_WARN_MSG</span>
+            <div fxLayout="row" class="padding-buttons">
+                <div fxFlex="50" fxLayoutAlign="start">
+                    <button class="button-delete" (click)="deleteUser()"><span translate>SETTINGS.DELETE</span></button>
+                </div>
+                <div fxFlex="50" fxLayoutAlign="end">
+                    <button class="button-save" (click)="submitUserDetails()"><span translate>SETTINGS.SAVE</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm>
+        <div class="settings-header-mobile " fxLayout="row" (click)="settingBackNavigation()">
+            <div fxFlex="10" class="back-arrow">
+                <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1L2 8.5L10 16" stroke="#A8B2D4" stroke-width="2"/>
+                </svg>
+            </div>
+            <div fxLayoutAlign="center" fxFlex="100" class="moveHeading">
+                <div class="padding-settings-icon">
+                    <svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2"/>
+                        <ellipse cx="25.3125" cy="5" rx="1.875" ry="2" fill="#A8B2D4"/>
+                        <rect x="1" y="12" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2"/>
+                        <ellipse cx="4.6875" cy="16" rx="1.875" ry="2" fill="#A8B2D4"/>
+                    </svg>
+                </div>
+                <span class="menu-list-items-mobile" translate>ACCOUNT.SETTINGS</span>
+            </div>
+        </div>
+        <div fxLayout="column" class="input-container-mobile">
+            <label class="settings-label" translate>SETTINGS.NAME</label>
+            <input class="settings-input" [(ngModel)]="name">
+            <label class="settings-label" translate>SETTINGS.MNAME</label>
+            <input class="settings-input" [(ngModel)]="middlename" (input)="getnameandphonenum($event.target)" name="Mellannamn" placeholder="Mellannamn">
+            <label class="settings-label" translate>SETTINGS.SURNAME</label>
+            <input class="settings-input" [(ngModel)]="surName">
+            <label class="settings-label" translate>SETTINGS.PHONENUM</label>
+            <input class="settings-input" [(ngModel)]="phonenumber" (input)="getnameandphonenum($event.target)" name="PHONENUM" >
+            <label class="settings-label" translate>SETTINGS.EMAIL</label>
+            <input class="settings-input" [(ngModel)]="email">
+        </div>
+        <div class="delete-save-container-mobile">
+            <h4 class="delete-heading" translate>SETTINGS.DELETE_ACCOUNT</h4>
+            <span class="delete-warn" translate>SETTINGS.DELETE_WARN_MSG</span>
+            <div fxLayout="row" class="padding-buttons">
+                <div fxFlex="50" fxLayoutAlign="start">
+                    <button class="button-delete" (click)="deleteUser()"><span translate>SETTINGS.DELETE</span></button>
+                </div>
+                <div fxFlex="50" fxLayoutAlign="end">
+                    <button class="button-save" (click)="submitUserDetails()"><span translate>SETTINGS.SAVE</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="option === 'addOrganization' && addOrganization === false && createAdmin === false" class="edit-container">
+    <div class="delete-save-container" fxHide.lt-md>
+        <h4 class="delete-heading-organization" translate>SETTINGS.ADD_ORG_NUMBER</h4>
+        <span class="delete-warn-organization" translate>SETTINGS.ADD_ORG_NO_DESCRIPTION</span>
+        <div fxLayout="row" class="padding-buttons">
+            <div fxFlex="50" fxLayoutAlign="start">
+                <button class="button-delete" (click)="addOrganization = true"><span translate>SETTINGS.ADD</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm>
+        <div class="settings-header-mobile" fxLayout="row" (click)="settingBackNavigation()">
+            <div fxFlex="10" class="back-arrow">
+                <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1L2 8.5L10 16" stroke="#A8B2D4" stroke-width="2"/>
+                </svg>
+            </div>
+            <div fxLayoutAlign="center" fxFlex="100">
+                <div class="padding-settings-icon">
+                    <svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2"/>
+                        <ellipse cx="25.3125" cy="5" rx="1.875" ry="2" fill="#A8B2D4"/>
+                        <rect x="1" y="12" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2"/>
+                        <ellipse cx="4.6875" cy="16" rx="1.875" ry="2" fill="#A8B2D4"/>
+                    </svg>
+                </div>
+                <span class="menu-list-items-mobile" translate>ACCOUNT.SETTINGS</span>
+            </div>
+        </div>
+        <div class="profile-icon-container-mobile">
+            <div fxLayout="row" fxLayoutAlign="none center">
+                <div class="user-name-icon" fxLayoutAlign="center center">
+                    <span>{{userName.charAt(0)}}</span>
+                </div>
+                <span class="user-name-mobile">&nbsp;{{userName}}</span>
+            </div>
+        </div>
+        <div class="delete-save-container-mobile">
+            <h4 class="delete-heading-organization-mobile" translate>SETTINGS.ADD_ORG_NUMBER</h4>
+            <span class="delete-warn-organization" translate>SETTINGS.ADD_ORG_NO_DESCRIPTION</span>
+            <div fxLayout="row" class="padding-buttons">
+                <div fxFlex="50" fxLayoutAlign="start">
+                    <button class="button-delete" (click)="addOrganization = true"><span translate>SETTINGS.ADD</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="option === 'addOrganization' && addOrganization">
+    <div fxHide.lt-md>
+        <div>
+            <h3 translate class="add-info-header">ADD_ORGANIZATION.HEADER</h3>
+            <div fxLayout="column">
+                <label class="settings-label" translate>ADD_ORGANIZATION.ORG_NAME</label>
+                <input class="settings-input" [(ngModel)]="organizationName">
+                <label class="settings-label" translate>ADD_ORGANIZATION.ORG_NUMBER</label>
+                <input class="settings-input" [(ngModel)]="organizationNumber">
+            </div>
+            <div>
+                <h3 class="desc-header" translate>ADD_ORGANIZATION.DESC_HEADER</h3>
+                <div class="width-desc-msg">
+                    <span class="desc-msg" translate>ADD_ORGANIZATION.DESC_MSG</span>
+                </div>
+                <div>
+                    <div fxFlex="50" fxLayoutAlign="start">
+                        <button class="button-delete " (click)="createAdminScreen()"><span translate>ADD_ORGANIZATION.CREATE</span>
+                        </button>
+                    </div>
+                    <div fxFlex="50" fxLayoutAlign="end">
+                        <button class="button-save " (click)="submitOrganization()"><span
+                                translate>ADD_ORGANIZATION.SAVE</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm>
+        <div class="settings-header-mobile" fxLayout="row" (click)="settingBackNavigation()">
+            <div fxFlex="10" class="back-arrow">
+                <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1L2 8.5L10 16" stroke="#A8B2D4" stroke-width="2"/>
+                </svg>
+            </div>
+            <div fxLayoutAlign="center" fxFlex="100">
+                <div class="padding-settings-icon">
+                    <svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2"/>
+                        <ellipse cx="25.3125" cy="5" rx="1.875" ry="2" fill="#A8B2D4"/>
+                        <rect x="1" y="12" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2"/>
+                        <ellipse cx="4.6875" cy="16" rx="1.875" ry="2" fill="#A8B2D4"/>
+                    </svg>
+                </div>
+                <span class="menu-list-items-mobile" translate>ACCOUNT.SETTINGS</span>
+            </div>
+        </div>
+        <div class="add-organization-mobile">
+            <h3 translate class="add-info-header-mobile">ADD_ORGANIZATION.HEADER</h3>
+            <div fxLayout="column">
+                <label class="settings-label" translate>ADD_ORGANIZATION.ORG_NAME</label>
+                <input class="settings-input-mobile" [(ngModel)]="organizationName">
+                <label class="settings-label" translate>ADD_ORGANIZATION.ORG_NUMBER</label>
+                <input class="settings-input-mobile" [(ngModel)]="organizationNumber">
+            </div>
+            <div>
+                <h3 class="desc-header" translate>ADD_ORGANIZATION.DESC_HEADER</h3>
+                <div class="width-desc-msg-mobile">
+                    <span class="desc-msg" translate>ADD_ORGANIZATION.DESC_MSG</span>
+                </div>
+                <div>
+                    <div fxFlex="50" fxLayoutAlign="start">
+                        <button class="button-delete marginTop" (click)="createAdminScreen()"><span translate>ADD_ORGANIZATION.CREATE</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="option === 'addOrganization' && createAdmin">
+    <div fxHide.lt-md>
+        <div>
+            <h3 translate>ADD_ORGANIZATION.HEADER</h3>
+            <div fxLayout="column">
+                <label class="settings-label" translate>SETTINGS.SSN_ORG</label>
+                <input class="settings-input" [(ngModel)]="adminSsn">
+                <label class="settings-label" translate>SETTINGS.ORGANIZATIONNAME</label>
+                <input class="settings-input" [(ngModel)]="adminName">
+                <div class="create-admin-sign-in-button">
+                    <button (click)="createAdminUser()" class="admin-sign-in-button" fxLayout="row"
+                            fxLayoutAlign="center center">
+                        <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="24" height="22.4379" fill="url(#pattern0)"/>
+                            <defs>
+                                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="scale(0.00591716 0.00632911)"/>
+                                </pattern>
+                                <image id="image0" width="169" height="158"
+                                       xlink:href="data:image/png;base64,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"/>
+                            </defs>
+                        </svg>
+                        <span translate class="common-sign-in">COMMON.SIGN_IN</span>
+                    </button>
+                </div>
+            </div>
+            <div fxLayout="row" class="create-admin-button">
+                <div fxFlex="50" fxLayoutAlign="start">
+                    <svg (click)="createAdmin = false" width="11" height="18" viewBox="0 0 11 18" fill="none"
+                         xmlns="http://www.w3.org/1999/xlink">
+                        <path d="M10 1L2 9L10 17" stroke="#A8B2D4" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div fxFlex="50" fxLayoutAlign="end">
+                    <button class="button-save"><span translate>ADD_ORGANIZATION.SAVE</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm>
+        <div class="settings-header-mobile" fxLayout="row" (click)="settingBackNavigation()">
+            <div fxFlex="10" class="back-arrow">
+                <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1L2 8.5L10 16" stroke="#A8B2D4" stroke-width="2"/>
+                </svg>
+            </div>
+            <div fxLayoutAlign="center" fxFlex="100">
+                <div class="padding-settings-icon">
+                    <svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2"/>
+                        <ellipse cx="25.3125" cy="5" rx="1.875" ry="2" fill="#A8B2D4"/>
+                        <rect x="1" y="12" width="28" height="8" rx="4" stroke="#A8B2D4" stroke-width="2"/>
+                        <ellipse cx="4.6875" cy="16" rx="1.875" ry="2" fill="#A8B2D4"/>
+                    </svg>
+                </div>
+                <span class="menu-list-items-mobile" translate>ACCOUNT.SETTINGS</span>
+            </div>
+        </div>
+        <div class="add-organization-mobile">
+
+            <div class="profile-icon-container-mobile">
+                <div fxLayout="row" class="cornerMargin" fxLayoutAlign="none center">
+                    <div class="user-name-icon" fxLayoutAlign="center center">
+                        <span>{{userName.charAt(0)}}</span>
+                    </div>
+                    <span class="user-name-mobile">&nbsp;{{userName}}</span>
+                </div>
+                <span class="admin-tag" fxLayoutAlign="center center" *ngIf="isAdmin">Admin</span>
+            </div>
+            <h3 class="desc-header" translate>ADD_ORGANIZATION.DESC_HEADER</h3>
+            <div fxLayout="column">
+                <label class="settings-label" translate>SETTINGS.SSN_ORG</label>
+                <input class="settings-input-mobile" [(ngModel)]="adminSsn">
+                <label class="settings-label" translate>SETTINGS.ORGANIZATIONNAME</label>
+                <input class="settings-input-mobile" [(ngModel)]="adminName">
+            </div>
+            <div class="create-admin-sign-in-button-mobile">
+                <button (click)="createAdminUser()" class="admin-sign-in-button-mobile" fxLayout="row"
+                        fxLayoutAlign="center center">
+                    <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="24" height="22.4379" fill="url(#pattern0)"/>
+                        <defs>
+                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0" transform="scale(0.00591716 0.00632911)"/>
+                            </pattern>
+                            <image id="image0" width="169" height="158" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKkAAACeCAYAAABJqio6AAARbUlEQVR4Ae1di9XVNgzuCB2hI7AB3aBsABvABnQD2AA2gA1gA9gANqAbuOe7vxSc2LGlWEmsxDnnnuQmji1Ln/XwK3/8MY4HB0II/wbfx7cQwpfo9y6E8JZ+L0MIz0MIfw5xO+ZACOGrb4yqqGcwA8T/hBD+ciy6+5AeQvihEvP1Ev8iLQzgPr+P5B3V9HqYa64RQPsphABXYWjas7EcQvi7WaTXzwA+7+vh156E1hDCq+tjzLSGH+DLniSuexZ7gcjeFIGKzODHv7wnag6udQjhs0IwI2nKgQHWvTEbQoC/NY52DgCsL/aW1y3zb5fNyGHBAfTDjh4Bq9YUQni2YPD4a8MBdGG9tZLTrfOBeWqUyX/k02JYFXmhO4t/+I/78Hl/Npbj9XVo1TEc29LKGiJ7DKOq/C8C8Z2GX7lhQas+a5HTrd8NIXxkTgrP36EpW5hGYIUGvtvxqoVv3b5LPiOG5nhGD58x+tE8xqycWAJAm5guqtcAarfIqxAGIBAoJZM+YEowArIJPApV9rFCtvpxg6uhILvLpL41KplCAE974B1VtwfSCwv5rkag4AVqjEISLpfMJ1ANxtA/C7AxJVFMLGnyQacCMxdKd+NqSPUFVAVgSoL6lcHB6i2huf25moHBg5uD1FfUbzR+rgJUCOF9CfH07KsBFlezuDlIwWIMSW+KJ1aZutcDI2G90dAnLHM3kCp8YkFbcp3kg0Zup6U18EfV0XcIQRKgqVwIDQOF7oZr9CmIVw2MaPhsmnZDxzrzYAtA0c0lPcwZSP2kkkYipdF7uh+mYNozsw1A/XcLPcpADf21Zn4TdT1J+oC9A09L/yZZbpF/8ztC04/Rms1dQyGEN0oOmjj45IeO+at55sOymCmDZiDWMqhoVAC0acLCRn+wCaikvYeJzwOU76pdtxqWdntOJjE3tt0MUBAtjOyZcfF5k+mnlZZxPuM6z4FLaFMTv6VxM4hPmtZJcwvyIhl3cxzwMxKVMcnQoiY+S44zmntSkAr9a03Rd0jrKtJfroc38VeUkX0WFAqQjig+y8Hqzc1BsVQ2JukymtTK1C/BX+XYIoFoFMqiMSzKvdPf9yYg2juTjN9oBdKWbR7FgRt12N8JWJZ17d/kr2ghk9bVOJlFNfrU0ItgKXCveanmB++tNGf5U/dTrsPbpHVt3Axi09omqgveHYeeA6oJQzMQ7f2n0mXTTLiSVwBYU5kEVEwLzPX7Ksm5VXLVJPa9cfnIn4SJPTFrh8rkxsTTsCSWFa/9ACb4rAiuzM0N5Yv8sahvjYba/Rp/rvJ8txloMSbE1+SDarprXoszv2hCCszQmAD6q7oUJv3iTRCgnYSxy8WWA++NfTJJAmQlMHHmSrul2PaX0hcu8JWL0g8fEsDaeYlZlwIXGhjLmh9r8SvlN01MaWqRB75Mq26vAFa7IdKVLiMpyI5MJ+qIPxBPuxVFPn5Ln/CRclkry6Rv/MFkarlrBfV0367Su8HLNmPn8wfslEpmCLMnYMa02JkPWyztmptjoJqC1MuW3raO+K7Qss18w2qEuHGfdW0K0twI0VkVWy3XVuz+cnPYVWUK0lVgdPRAtXmEPwjWKXYU4E6wqddKkIL656ZMO76wa5UCvvSaxNukFxM+OmqdJrOoTJh2YibefFMTVjmK7Jsmipgwq4NMHFm+h1E2YVll+XFP1v+2kf1S0J6GTpe0b/rvyMc5f7LCJg7bv+RIZjYbGPekKgu0/Gcvar85OnLR2oNdGh8uYKObR+2V9YvJhPK7gdTLt+JNlkMn0nZ6424g1W78dZZqvd3EklL7cdQN1d5tKNzS+yxgxuWOyD5CrSNN2q5cHEWJ5uuVIpm7u3QE0s3r2SahCLf0jjXaKdcTwePiwYFbWcBTEKcvdET2i8Z5GwvoaMx+RPYpSO8xtdLRbO9253shZO9/9cbolDfaLeCtnG/vqIzod2QBTbqfsNOGh+MWy5gjHBYvHSmX9vVoma0ZuwRsUWI3fLhxw7YzZNuuXM6gekOZNrNoLgJmT3NJm1nuaIPY/nZma+b+9gwcmXqToOnFBq12xisjso8w7cVFQ2OKyN526ahFtg+rbWNRd2856jKEMjPxR8dmEN3BcJ0gmver2VrzDKvHZdosPfcyrLYutns9cWT5AFSbEUKGfOdnmxbpHM+OOu8ZTu0umqNujPYI0T9A//QyU40QarMWzVHLbI8QHYOU/FAXE0lYhVqaei8bs7YPqzkFqVOAAqvtUT1kNjaD6Bu55I5506AAqN3ooJfIHtqkbzjZU0c7buOb8R4PO8vnxBG3ccDtcbRLjmTeLT+WcTTIzT4TD1OPaNHDcYvInuSBr7l41Z6MJZu+UagAR5F9+4TZXXSeTaYkB3wW6CqH3WpeR5sKXGqbRwqGXtL3qrxrzWXDsu0qvNVSWBulJ8qFzDZ/pA1ghAl/F0LAV/+uBsoYpHa+KHN6RPbMCduzIwsVA8zi2laLQixe5iPaQmj/3BxZKAtgch72WpRAygX0fHYX2TuyUJZyt+sXZT3iKLL3CNIr+505YO8jI0czu111Pznqe86Bbcs9mHm7LifWomTqvUwscdX95MhCbQFk7h37YImB6shvcrUXqSMLlQOc9p7dJBIGZnx2tKmAq4klzpZ2aEEZp9/PzDNQ49J6vmZ6vZwdWahWsbcvCykJ1dFmEPtEjSXmND7z0vfciND9/FDmP81TbKTzkNftZtNw5Xc+H8KVcws5RnE48pv2b7GGoHVkobbC/Du62AxZtp7VWDKyzpuWJ44s1BaQHgdQCMGRc79PJ3ELEgvvOrJQWpDuMy5f4CVA6uIo1aHHZyEEL9sVaeQPgNqs+pQKzdFmEPt2FEsZpkjnqO9ZCtLjAQp+Oxq2c7cXqVTyTtId64PGysCR3+Qtsv/LCfgkZJ4HUNKk7yVUdpBm3xGNuOUaXDuyUDXRnt837Siy9zaxxMusshJI+5hx5mUhmIFyOzQLR33POZD+PDyCX5OOowm57vYidWShliBFt9kxo0hrwIzvO/KbjhkfjpnTeO3FQkUIRfdSH+Y95r2jpbbeInsv2xUxRj92pT0XIPXi3NuvPIwZYXztyEKha6nvgNSR39Q3Ixcgd2ChEBj5aPiOJuT248gvAJn72/EAiR9wMmPZIen87G4v0g4tlD9wAqSO/CaPkX0vH/5CQORqpI4V6OPsaKmtq80gSAGcaZygNd90G63PUFj507HftBSwt+6nv5cVOOD/VwLmsfM8KxhrfuxoQq63yP7VAaCEtoQpR1mugkoVcB1NyL37khEAEkOV6NOGlr4uKJcIpggUZqLr35Lu3v8TmLbwFCDED9oRYHTVOHuXy6BvcGBwYHBgcGBwYHBgcGBwYHBgcGBwYHBgcGBwYHBgcGBwYHBgcGBwYHBgcGBwYHBgcGBwYHBgcGBwYHBgcGBwYHBgcKDGAdofn79pnz3X8hjPn9Y1YTvCLAO33B9M/c0BwfzcXRcUKuSXzEeVNLBK/nYrAnbaROtbCOH1rSbj/sbmdCWYjb/bgkICmYCER5Jknqrh0nZ8jfoT4SEpZ2JW6WLnpbYg0O/KxBLjKs+EINltQaHmKye5qkjRvSHdB/Xk7YM20XK1JiknNO094fLw3RYUKhZVJtpcSPsGfE6vyJUXzPH02r4XX7RC9p5eCJLdGq9iUWWya/OBS9vr2/poWkwMGgI31txg23JsD1g94vfvcE28qfHFLrhYMFUQtDFtiTYXNjB+v/VcbqiKTbQSk8A8UeRRJoYzvMhZ4uuXqkqBxtsQQu2X3T9UgZwkZlBoYUUxq0lh+pPehYk3wtaO3Iufolktfv5gnZCJoqcLCjrQOwABfVn8cO+l1vkWCHtmeuhbVqABkSnTwFFqtS6C6Di7UzVZKQQXkiP7DSVh0Mb5J9pcoYV5WTWvasUZq2K1R6LNJ0goMlzP5KmvtUZU9aNgxFipcLg8gCdh8lRBuhC6NY9Im8AJMJYOtP4ZqDNllt7Hs8Q6EUDRfSc5Vj9RI6zvo4wl3fgvKZzSZK0j8VDz5b8fOToe9wStnelNTAJnKmy1WZNEDIFvC7C1HDXAvBBkjr2SoDk1R5YvQp7Mup+sAEo8hUaTHInyENLOeRctitJtyCsbLklwzmfw1OpqAEs0BjESPQvvBGVLk5RolAhNqsFierIaQNhHOTVcS4ASb7HdjuRI3Dgh7Y+8UVbpII0qoQNpJn5MeRqYBAyn1sxiySRJgCOtINIlXSlcWWWL1pSJtInJE0bHj/eUAF2tI9cV5xY3Tkg76p1VPjEdrbSgItJNtOB/xREm/Maa9oRDX/NjtzjYJQD9WjKI/yuEVsp/7VlST+FQMxo5rIlUg4sASsBYo3V5P3GThLQjHxE9ivwSrQ6QWmsyZgA2i101vRFwSsKBBo73TuK8i2fOe3kuvtT+MAdSSQPcC6Ca75fmrICEdnAtqfeS7/ivwFmqmXc2gagENO6qY53BBqJBBDjJO+TMVwcNVpikERp2q8MABRowriVHIizBUDOsk3Tn59RXy1WU7hm4cZI6I00C8BxZCpzNAslHXgozIyU6lw7aMpn5sogg4eQnaZYVFpiNJFJFHgqhzcwXmeJqw8gJK8eIjfcSc7zky/K/YnAl6adVBjpVmRH/tzdGBdM2md4o/28ZRkJjIl9pa4Q2rPnBqU/zBFJ0LdWOGUCZXqEvO3NtFI2iRlOioZmu0lkxQJOYVw3tJRr4GTX0Wj35+YyP0C7P+EntzAXGZypc49PONILQZwUw0W9ZAydXIStUodCyjUUC0pgvuNZ04TDhK+ekcS/Lyv2X0EzlJfxS+I9Zq7WkR6HV08nfCkamL0eUKIhI/Y0oH1ySqcFwJ3xZqYmI5bvWsV4NBBakTH8FvmUiLIWgY9rXrhMgTcStXAho5rJmigPZCRs03s9arSVJCjmmlkzByMQkxIQoNHI2H9LI6N4qRfrM1Np5bi6IUAGjEt+MBCaZxpjUS+A7P4Rcqww9R4Al8v0UNHPRifVo0cIxLogWjaVN6yhkJCpT1IAKRzsnTICzdiBwQWBVrfCSSfy/VgAEw2njs9A/SzSdUNBoAJKgDOSL5+IKaWaW5HpR0CgkR9ZqMf+Uw8tZ/kOtV00gUVrs/thq7smkrzEDwkM30MQIQTlr2hDzAmpHtiEKBztyJrNW3kMoCpcL+RXlEIFDEiQiv8SNawpyiIAQwj+KGIL5lGpR5MdPBefEJEQMgTaQ+o5TPhWtCK2Za+EAbenItkYhELIAqNDJtEz1Ir5KXITJn1MoC2i4hC8sCz4LaQbtCb+UWhjB7PLHPNGcE0v0qIvCRKOwLGOo1Un9yEnL0XtrJiUJQiLm1zQ/8pwBBu8KhZa8R+/Wykz4IxT0JBilLD4xP9bOCtAn1kNgrTTgk6RNgyWumJCRXMhyPT78SO2cz9hsl6bMTcJjWvmsYD5chalhCUc7suZGEMzlTKZkPsTMRRA2JJbHxEvmTXxWWLbEeijpYHq2nhNNHtcD2kXqt2wlIH5v1mIrjMi2LJqFv6Z947JwPQO6BNwz5kR/lhln/ieMrtSPs0g0t2IItmj2uQDBOUeDxHIIsq4myco5Yr2qL6xaWiXBDKAgQqDFoaWhveGAY66p1OdlUmZakW8WzgnQiE7JYEfCbKHmnjQ9C0bAl7gKCV+FvI3zmPGJ3tfyOs5Pco25EEVLwPwAUPZuMSAmaalMgEJrSCoep5mBRujvTUEM00cCK7klXOZMa9N7Vd7G5cTXQoBz2Ql/hb0Rj/fjcvmaM97hDBcMXYhJ4+Syk7NiREJDL4CJyLzaUmgAQDrDaKqgoG93JjihdkqABoY1mO0az7Kam8rU9J1C682ELqQZ9CU0CHlVqxs/57ke6JHJDrAkoOzxBkX5CDKgeQDE+MC9WT8p14G6lDClL3mH0/BZ6HtnG5WgQYDemQCEmnum7ZlWPgtpZl5lGxjn5fn8P/TyNPdn1uP3AAAAAElFTkSuQmCC"/>
+                        </defs>
+                    </svg>
+                    <span translate class="common-sign-in">COMMON.SIGN_IN</span>
+                </button>
+            </div>
+            <div>
+                <div fxFlex="50" fxLayoutAlign="end">
+                    <button class="button-save saveBtnMobileView" (click)="submitOrganization()"><span
+                            translate>ADD_ORGANIZATION.SAVE</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>
+

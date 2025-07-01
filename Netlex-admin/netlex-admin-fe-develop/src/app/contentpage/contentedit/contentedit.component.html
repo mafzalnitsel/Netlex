@@ -1,0 +1,38 @@
+<app-navbar [isNewDealComponent] = true></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>INNEHÅLL SIDA</span></div>
+<div class="total">
+    
+        <div class="field-container" fxFlex.lt-md="100" >
+            
+                
+                
+                    
+                    <div   class="contentDiv">
+                        <!-- <div fxLayout="row" fxLayoutAlign="center center" >
+                    
+                            <mat-card class="title idColumn" fxLayoutAlign="center center" >
+                                <h4 class="document-column"><span>INNEHÅLL SIDA</span></h4>
+                            </mat-card>
+                        </div> -->
+
+                        <ckeditor [config]="editorConfig" #ckEditorComp (ready)="onReady($event)" [editor]="ckEditor" [(ngModel)]="htmlcontent"></ckeditor>
+                        
+                </div>
+               
+                <div class="buttondive">
+                    <div class="pusblish-container" fxFlex.gt-md="30" fxLayoutAlign="center center">
+                        <button mat-button class="button-submit" (click)="update()">
+                            Uppdatering
+                        </button>
+                        <button mat-button class="button-submit" routerLink="/contentpage">
+                            Tillbaka
+                        </button>
+                    </div>
+                </div>
+                
+           
+        </div>
+        
+        
+    </div>
+

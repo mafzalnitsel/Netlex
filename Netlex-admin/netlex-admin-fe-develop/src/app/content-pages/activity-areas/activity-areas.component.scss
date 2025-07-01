@@ -1,0 +1,94 @@
+.noMargin {
+    margin-top: 0;
+}
+
+.field-container {
+    padding: 10px;
+    padding-left: 120px;
+    padding-right: 120px;
+    justify-content: center;
+    display: flex;
+    // justify-items: center;
+}
+
+.contentDiv {
+    border: 4px solid #1F2A53;
+    width: 100%;
+    height: 100%;
+    // overflow: hidden;
+    // overflow: scroll;
+}
+
+.save-button-container {
+    padding: 40px 60px 40px 0;
+}
+
+.backBtn {
+    background-color: #4060D4;
+    color: white;
+    box-shadow: 2px 5px 6px -3px #888888;
+    margin-right: 10px;
+}
+
+// .heading-labels{
+//   color: #4060D4;
+//   font-size: 20px;
+// }
+.updateBtn {
+    background-color: var(--netlex-primary);
+    color: white;
+}
+
+@media only screen and(max-width: 700px) {
+    .about-us-table {
+        width: 10px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+
+    .field-container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .contentDiv {
+        height: 100%;
+    }
+}
+
+.header-top-copy {
+    padding: 10px;
+    height: 65px;
+    border-bottom: rgba(11, 31, 102, 0.68) solid 3px;
+    margin: unset;
+    letter-spacing: 0.11em;
+    // margin-top: 70px; //Because Now Navbar is fixed(21-12-22)
+
+    span {
+        font-family: Roboto, serif;
+        font-size: 17px;
+        font-weight: 500;
+        color: rgba(11, 31, 102, 0.7);
+        margin: unset;
+    }
+}
+
+.select {
+    padding-left: 40px;
+    // margin-top: -10px;
+    margin-bottom: -20px;
+}
+
+::ng-deep.mat-form-field-flex {
+    // height: 50px !important;
+    height: 50px ;
+}
+.spinnerContainer{
+    height: 40vh;
+}
+// @media screen and (max-width:960px) {
+//     .header-top-copy {
+//         margin-top: 50px;
+//     }
+// }

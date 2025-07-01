@@ -1,0 +1,217 @@
+.new_container {
+  // padding: 60px 30px;
+  // padding: 40px 30px;
+  padding: 20px;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  max-height: 100%;
+
+}
+.agreement_confirm_title {
+  font-size: 30px;
+    line-height: 20px;
+    font-weight: 600;
+    padding: 13px 0 15px 0px;
+}
+.agreement_confirm_description {
+  width: 90%;
+  justify-content: center;
+}
+// .inner_container {
+//   padding: 20px;
+//   // height: 80vh;
+//   // overflow-x: hidden;
+//   // overflow-y: scroll;
+// }
+
+// .row_container {
+//   // padding: 5px 0;
+//   display: grid;
+// }
+.fields-labels {
+  font-size: 15px;
+  // line-height: 18px;
+  letter-spacing: 0.07em;
+  // margin-bottom: 2px;
+  margin: 10px 0 2px 0;
+  display: flex;
+}
+
+.required {
+  color: red;
+}
+
+.selectWidth {
+  // width: 270px;
+  width: 96%;
+  min-width: 190px;
+  height: 25px;
+  padding-top: 15px;
+  padding-left: 10px;
+  border: 1.5px solid #a8b2d4;
+  border-radius: 8px;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  color: rgba(37, 34, 34, 0.7);
+  /* padding-left: 21px; */
+  /* box-sizing: border-box; */
+  /* line-height: 18px; */
+  /* height: 30px; */
+  // min-width: calc(100% + 32px);
+}
+
+.option {
+  // width: 280px !important;
+  padding-left: 10px;
+}
+
+.labelAndInput {
+  // padding: 5px 0 5px 5px;
+  // padding-top: 10px;
+  padding-right: 10px;
+
+}
+
+td {
+  padding: 5px;
+}
+
+.first_coulmns {
+  // display: flex;
+  width: 100%;
+  margin-right: 10px;
+}
+
+//Number of person mini input field
+.input_field0 {
+  // width: 80px;
+  // width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.07em;
+  padding-left: 21px;
+  color: black;
+  border: 1.5px solid #a8b2d4;
+  margin-right: 10px;
+}
+
+.input_field_unEditable {
+  // width: 100%;
+  // width: 157px;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.07em;
+  padding-left: 21px;
+  color: black;
+  border: 1.5px solid #a8b2d4;
+  // margin-right: 10px;
+}
+
+.input_field {
+  // width: 280px;
+  // width: 250px;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.07em;
+  padding-left: 21px;
+  color: black;
+  border: 1.5px solid #a8b2d4;
+}
+
+// .selectWidth:focus {
+//   outline: none;
+// }
+.input_field:focus,
+.selectWidth:focus,
+.input_field_unEditable:focus {
+  outline: none;
+}
+
+//=== Hide Arrows From Number Inputs Field (Chrome, Safari, Edge, Opera) ====
+.input_field::-webkit-outer-spin-button,
+.input_field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.preNextButtons {
+  display: flex;
+  padding: 5px 0;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.buttonContainer {
+  display: flex;
+  padding: 5px 0;
+  justify-content: end;
+  height: 80px;
+  // width: 96%;
+  margin-right: 20px;
+}
+
+.marginTop {
+  margin-top: 10px;
+  // color: #000234 !important;
+}
+
+.button-submit {
+  background-color: #1F2A53;
+  color: #ffffff;
+  // margin-top: -24px;
+  margin-left: 9px;
+  height: 40px;
+  width: 75px;
+  // margin: 5px;
+}
+
+@media only screen and (max-width: 960px) {
+  .selectWidth {
+    width: 92%;
+  }
+  .input_field,
+  .input_field_unEditable {
+    width: 250px;
+  }
+
+  .first_coulmns {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .selectWidth {
+    // width: 200px !important;
+    width: 200px !important;
+  }
+
+  .option {
+    // width: 200px !important;
+    width: 200px !important;
+  }
+
+  // .input_field_unEditable{
+  //   width: 210px;
+  // }
+  .input_field,
+  .input_field_unEditable {
+    width: 210px;
+  }
+}

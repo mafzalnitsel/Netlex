@@ -1,0 +1,107 @@
+diff a/Netlex-user/netlex-user-be-dev/controllers/payment.js b/Netlex-user/netlex-user-be-dev/controllers/payment.js	(rejected hunks)
+@@ -1,11 +1,13 @@
+ const KlarnaService = require("../services/klarna-service");
+ 
+ const KlarnaServiceSale = require("../services/klarna-service-sale");
+ 
+ 
++const swishServicesale = require("../services/Swish-service-sale");
++
+ const swishService = require("../services/Swish-service");
+ const stripeService = require("../services/Stripe-service");
+ const stripeServiceSale = require("../services/Stripe-service-sale");
+ 
+ const request = require('request');
+ const environment = require("../env");
+@@ -355,16 +357,17 @@
+         //     if (err) {
+         //         console.error('errors', err)
+         //         return;
+         //     }
+ 
+         // });
++        console.log('ELSE SWISH')
+   
+         const json = {
+             payeePaymentReference: "0123456789",
+-            callbackUrl: environment.SWISH_CALLBACK_URL,
++            callbackUrl: environment.SWISH_SALE_CALLBACK_URL,
+             payeeAlias: config.payeeAlias,
+             payerAlias:"1231231231",
+             payerSSN: "",
+             amount: paymentDetail.amount,
+             currency: "SEK",
+             message: "test success"
+@@ -387,13 +390,16 @@
+                 request(opt, (err, resp, body) => {
+ 
+                     if (!response) {
+                         res.status(500).send(error)
+                         return
+                     }
+-                    return res.status(200).json({redirect_url: resp.body['callbackUrl']+'?session_id='+resp.body['id']});
++                   // return res.status(200).json({redirect_url: resp.body['callbackUrl']+'?session_id='+resp.body['id']});
++                   return res.status(200).json({redirect_url: resp.body['callbackUrl']+'?session_id='+resp.body['id']+'&documentId='+documentId+'&master_id='+master_id+'&order_id='+resp.body['id']});
++                
++                
+                 })
+             } else {
+                 res.send(body)
+                 return
+             }
+         })
+@@ -407,13 +413,15 @@
+     let paymentProvider = paymentDetail.payment_provider;
+     let status = paymentDetail.status;
+     const documentId = paymentDetail.documentId;
+     const userId = paymentDetail.userId ? paymentDetail.userId : '';
+   const masterId = paymentDetail.masterId;
+  
+-    console.log("Paymets services BG" + masterId);
++    console.log("SAle Paymets services BG MAster ID : " + masterId);
++    console.log("SAle Paymets services BG Document ID : " + documentId);
++
+     //console.log("Paymets services BG" + lawyerId);
+    console.log(paymentDetail);
+    const schedule = await Schedule.findById({_id: documentId});
+ console.log("----getpayment lawyer id "+ schedule.lawyerId);
+ const lawyerId = schedule.lawyerId;
+     if (orderId) {
+@@ -437,29 +445,35 @@
+           strip      }
+ 
+                 let storedData = KlarnaServiceSale.storePaymentInfoForKlarna(body, paymentProvider, documentId, userId, masterId, lawyerId)
+                return res.status(200).json(storedData);
+             });
+         }else if(paymentProvider == 'Swish') {
++
++            
+             const options = requestOptions('GET', `${environment.SWISH_HOST}/api/v1/paymentrequests/${orderId}`)
+             request(options, (error, response, body) => {
+                 if (!response) {
+                     res.status(500).send(error)
+                     return;
+                 }
+ 
+                 if (response.statusCode == 200) {
+-                    swishService.storePaymentInfoForSwish(response.body, paymentProvider, documentId, userId);
+-                    res.send(response.body)
++                    let storedData = swishServicesale.storePaymentInfoForSwish(response.body, documentId, userId, masterId, lawyerId);
++                     console.log(' swish store data' + storedData)
++                    
++                    res.send(storedData)
+                 } else {
+                     res.send(body)
+                     return;
+                 }
+             });
+         }
+     }else {
++
++        console.log("PAYMENT BACKEND ELSE SALE ")
+         let name = {
+             "order_amount":"",
+             "shipping_address":{
+                 "given_name": "",
+             }
+         }

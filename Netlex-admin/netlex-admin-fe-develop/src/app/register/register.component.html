@@ -1,0 +1,66 @@
+<div fxLayout="column" fxLayoutAlign="none stretch">
+    <mat-toolbar class="navbar" color="primary">
+            <img class="textNetlex" src="./assets/NetlexLogo.png" alt="Netlex" [routerLink]="'/login'">
+    </mat-toolbar>
+    <div class="register-container">
+        <div fxFlex.gt-md="65" class="register">
+            <div>
+                <h1><b>Registrera dig för Netlex</b></h1>
+                <h4>Registrera dig genom att skapa ett konto. <u>Fyll i alla<br>röda markerade kolumner.</u></h4>
+            </div>
+        </div>
+        <div fxFlex.gt-md="35" class="register fields">
+            <div class="fields-container">
+                <div fxLayout="column">
+                    <mat-label class="fields-labels">Förnamn<span class="required">*</span></mat-label>
+                    <mat-form-field class="input-fields-create">
+                        <input type="text" placeholder="Förnamn" matInput [ngModel]="newUser.firstName" #pharmacy="ngModel">
+                    </mat-form-field>
+                    <div *ngIf="pharmacy.invalid && (pharmacy.dirty || pharmacy.touched)">
+                        <div *ngIf="pharmacy.errors.required"> Pharmacy Name is required.</div>
+                        <div *ngIf="pharmacy.errors.minlength"> Pharmacy Name must be at least 2 characters long.</div>
+                    </div>
+                </div>
+                <div fxLayout="column">
+                    <mat-label class="fields-labels">Surename<span class="required">*</span></mat-label>
+                    <mat-form-field class="input-fields-create">
+                        <input type="text" placeholder="Surename" matInput [ngModel]="newUser.lastName">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column">
+                    <mat-label class="fields-labels">E-postadress<span class="required">*</span></mat-label>
+                    <mat-form-field class="input-fields-create">
+                        <input type="text" placeholder="E-postadress" matInput [ngModel]="newUser.email">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column">
+                    <mat-label class="fields-labels">Roll<span class="required">*</span></mat-label>
+                    <mat-form-field class="input-fields-create">
+                        <mat-select [(value)]="newUser.role" placeholder="Roll">
+                            <mat-option value="lawyer">Lawyer</mat-option>
+                            <mat-option value="admin">Admin</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column">
+                    <mat-label class="fields-labels">Skapa användarnamn<span class="required">*</span></mat-label>
+                    <mat-form-field class="input-fields-create">
+                        <input type="text" placeholder="Skapa användarnamn" matInput [ngModel]="newUser.userName">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column">
+                    <mat-label class="fields-labels">Skapa lösenord<span class="required">*</span></mat-label>
+                    <mat-form-field class="input-fields-create">
+                        <input type="password" placeholder="Skapa lösenord" matInput [ngModel]="newUser.password">
+                    </mat-form-field>
+                </div>
+                <div fxLayoutAlign="center">
+                    <button mat-button class="saveBtn">Skapa konto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>

@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>ROLL-Action / SKAPA ROLL-ACTION</span></div> <br><br><br>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-role-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox">
+            <br>
+            <div fxLayout="column" class="ssn-padding" fxLayoutAlign="center none">
+
+
+
+                <span class="fields-labels" translate>
+                    Roll Namn </span><br />
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <mat-label>Roll Namn</mat-label>
+                    <input matInput type="text" disabled="true" maxlength="50" placeholder="Förnamn"
+                        [(ngModel)]="RoleDetails.name" required>
+                </mat-form-field>
+
+                <div style="border-bottom: solid 1px !important; ">
+                    <label>
+                        <input [checked]="this.useForLawyer" type="checkbox"
+                            (change)="onChangeLawyerUse($event.target.checked)">
+                        Använd för advokat
+                    </label>
+                </div><br>
+                <div *ngFor="let menuaction of MenuAction">
+                    <label *ngIf="useForLawyer == false">
+                        <input [checked]="menuaction.__v == '1'" checked type="checkbox"
+                            (change)="onChange(menuaction._id, menuaction._id, $event.target.checked,$event)">
+                        {{menuaction.Name}}
+                    </label>
+                </div>
+                <div>
+                    <!-- <div *ngFor="let menuaction of MenuActionForLawyer"> -->
+                    <div *ngFor="let menuaction of MenuAction">
+                        <label *ngIf="useForLawyer == true">
+                            <input [checked]="menuaction.__v == '1' || menuaction.Name==='Schemalägg möte'" checked type="checkbox" [disabled]="menuaction.Name==='Schemalägg möte'"
+                                (change)="onChange(menuaction._id, menuaction._id, $event.target.checked,$event)">
+                            {{menuaction.Name}}
+                            <span *ngIf="menuaction.Name==='Säljshistora' || menuaction.Name==='Schemalägg möte'">Av
+                                Advokat</span>
+                        </label>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- <section class="section" [formGroup]="actionadd">
+            <h4>You chose:</h4>
+           {{actionadd.value | json}}
+          </section> -->
+            <!-- <tr fxLayout="column">
+                    <label class="id-labels">Namn</label>
+                    <mat-form-field style="font-size:11px" appearance="outline">
+                    <mat-label>Namn</mat-label>
+                        <input matInput type="text" maxlength="100" [(ngModel)]="role.name"
+                               required>
+                    </mat-form-field>
+                </tr> -->
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="start center">
+                <button [routerLink]="'/roleaction'" mat-button class="back-button">
+                    <mat-icon>chevron_left</mat-icon> Tillbaka
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="OnSubmit()" mat-button class="role-create-button"><span
+                        class="spinner-border spinner-border-sm">
+                        Lägg till Roll-Action</span>
+                </button>
+
+            </div>
+        </mat-card>
+    </div>
+</div>

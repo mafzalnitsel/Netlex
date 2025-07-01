@@ -1,0 +1,62 @@
+<div class="mat-dialog-primary" fxLayout="column">
+    <div class="dialog-header-primary"></div>
+    <div class="i-icon" fxLayoutAlign="center center">
+        <svg width="101" height="102" viewBox="0 0 101 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d)">
+                <ellipse cx="50.5728" cy="47.1253" rx="45.8453" ry="46.6472" fill="white"/>
+            </g>
+            <rect x="45.9883" y="36.6296" width="9.16905" height="32.6531" fill="#A8B2D4"/>
+            <rect x="40.2578" y="36.6296" width="5.73066" height="8.16327" fill="#A8B2D4"/>
+            <rect x="40.2578" y="61.1194" width="5.73066" height="8.16327" fill="#A8B2D4"/>
+            <rect x="55.1572" y="61.1194" width="5.73066" height="8.16327" fill="#A8B2D4"/>
+            <ellipse cx="50" cy="27.8832" rx="6.30372" ry="6.41399" fill="#A8B2D4"/>
+            <defs>
+                <filter id="filter0_d" x="0.727539" y="0.478027" width="99.6905" height="101.294"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                   result="hardAlpha"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="2"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+    <mat-dialog-content class="dialogInput">
+        <div>
+<!--            <p class="label " fxHide.xs fxHide.sm>Fyll i förnamn</p>-->
+            <p class="label align">{{'GUEST_USER.NAME' | translate}}</p>
+            <mat-form-field class="fields space">
+                <input matInput [(ngModel)]="firstName">
+            </mat-form-field>
+        </div>
+        <div>
+<!--            <p class="label " fxHide.xs fxHide.sm>Fyll i efternamn</p>-->
+            <p class="label align">{{'GUEST_USER.LASTNAME' | translate}}</p>
+            <mat-form-field class="fields space">
+                <input matInput [(ngModel)]="lastName">
+            </mat-form-field>
+        </div>
+        <div>
+<!--            <p class="label" fxHide.xs fxHide.sm>Fyll i SSN</p>-->
+            <p class="label align">{{'GUEST_USER.PERSON_NUMBER' | translate}}</p>
+            <mat-form-field class="fields space">
+                <input matInput [(ngModel)]="ssn"  >
+            </mat-form-field>
+        </div>
+        <div>
+<!--            <p class="label" fxHide.xs fxHide.sm>Fyll i mejl</p>-->
+            <p class="label align">{{'GUEST_USER.E-mail' | translate}}</p>
+            <mat-form-field class="fields ">
+                <input matInput type="email" [(ngModel)]="email">
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions fxLayout="column" fxFlexAlign="center">
+        <button mat-button class="button-create" (click)="saveUser()">Ok</button>
+        <button mat-button class="button-cancel" (click)="click()">Avrbryt</button>
+    </mat-dialog-actions>
+</div>

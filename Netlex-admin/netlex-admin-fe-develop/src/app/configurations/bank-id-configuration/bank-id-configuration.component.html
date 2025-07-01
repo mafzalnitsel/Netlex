@@ -1,0 +1,123 @@
+<!-- <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar> -->
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>Redigera BankID Konfiguration</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-about-us-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+
+            <!-- ................pem_cert_file................... -->
+            <!-- <tr fxLayout="column">
+                <div class="file-heading" fxLayoutAlign="center center">
+                    <label class="id-labels">BankID FP_Certificate(FP_Cert)</label>
+                </div>
+                <div style="font-size:11px" appearance="outline" fxLayoutAlign="center center">
+                    <input [(ngModel)]="bankid_fp_cert" (change)="onFileChangeBankIdFPCert($event)" type="file"
+                        class="form-control">
+                </div>
+                <label fxLayoutAlign="center center">Notera: Filtillägget kommer endast att vara (.p12)</label>
+            </tr> -->
+            <!-- <div class="file-upload-heading" fxLayoutAlign="center center">Förändra Swish Pem_Certificate
+                <button type="button" (click)="updateBankIdFPCertFile()" class="fileUpdateBtn">
+                    <span class="spinner-border spinner-border-sm" *ngIf="showloading" aria-hidden="true"></span>
+                    <span *ngIf="!showloading">Uppdatera Pem_Certificate</span>
+                </button>
+            </div> -->
+
+            <!-- ................key_cert_file................... -->
+            <!-- <tr fxLayout="column">
+                <div class="file-heading" fxLayoutAlign="center center">
+                    <label class="id-labels">Swish Key_Certificate(Key_Cert)</label>
+                </div>
+                <div style="font-size:11px" appearance="outline" fxLayoutAlign="center center">
+                    <input [(ngModel)]="key_cert_file" (change)="onFileChangeKeyCert($event)" type="file"
+                        class="form-control">
+                </div>
+                <label fxLayoutAlign="center center">Notera: Filtillägget kommer endast att vara (.key)</label>
+            </tr>
+            <div class="file-upload-heading" fxLayoutAlign="center center">Förändra Swish Key_Certificate
+                <button type="button" (click)="changeKeyCertFile()" class="fileUpdateBtn">
+                    <span class="spinner-border spinner-border-sm" *ngIf="showloading" aria-hidden="true"></span>
+                    <span *ngIf="!showloading">Uppdatera Key_Certificate</span>
+                </button>
+            </div> -->
+
+            <!-- ................input fields................... -->
+
+            <tr fxLayout="column">
+                <!-- <label class="id-labels"><b>BankID Authentication API</b></label> -->
+                <label class="bank_id_label">
+                    <!-- <span><strong>BankID Auth API</strong></span> -->
+                    <span><strong>BankID API</strong></span>
+                    <!-- <div class="blackBg"></div>
+                    <div class="Image">
+                        <mat-icon class="icon1">remove_red_eye</mat-icon>
+                    </div> -->
+                    <!-- <span class="icons_container">
+                    <div class="icon_bg">hrllo</div>
+                    <mat-icon class="icon1">remove_red_eye</mat-icon>
+                        <mat-icon class="icon2">edit</mat-icon>
+                    </span> -->
+
+                </label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>BankID Auth API</mat-label> -->
+                    <input matInput type="text" [(ngModel)]="BankID_API" required>
+                </mat-form-field>
+            </tr>
+            <!-- <tr fxLayout="column">
+                <label class="bank_id_label"><b>BankID Collect API</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <mat-label>BankId Collect API</mat-label>
+                    <input matInput type="text" [(ngModel)]="BankID_Collect_API" required>
+                </mat-form-field>
+            </tr> -->
+            <tr fxLayout="column">
+                <label class="bank_id_label"><b>API Key</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>API Key</mat-label> -->
+                    <input matInput type="text" [(ngModel)]="API_Key" required>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="bank_id_label"><b>IP Address</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>IP Address</mat-label> -->
+                    <input matInput type="text" [(ngModel)]="IP_Address" required>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="bank_id_label"><b>Secret Key</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Secret Key</mat-label> -->
+                    <input matInput type="text" [(ngModel)]="Secret_Key" required>
+                </mat-form-field>
+            </tr>
+            <!-- <tr fxLayout="column">
+                <label class="id-labels"><b>Swish payPaymentReference</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <mat-label>Swish payPaymentReference</mat-label>
+                    <input matInput type="text" [(ngModel)]="swish_payeePaymentReference" required>
+                </mat-form-field>
+            </tr> -->
+            <!-- <tr fxLayout="column">
+                <label class="id-labels"><b>Swish payrAlias</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <mat-label>Swish payrAlias</mat-label>
+                    <input matInput type="text" [(ngModel)]="swish_payerAlias" required>
+                </mat-form-field>
+            </tr> -->
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="center center">
+                <!-- <button [routerLink]="'/home'" mat-button class="back-button" >
+                    <mat-icon>chevron_left</mat-icon>
+                    Tillbaka
+                </button> -->
+                &nbsp;&nbsp;
+                <button (click)="openDialog()" mat-button class="update-button"><span
+                        class="spinner-border spinner-border-sm" *ngIf="showloading" aria-hidden="true"></span><span
+                        *ngIf="!showloading">
+                        Uppdatering</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

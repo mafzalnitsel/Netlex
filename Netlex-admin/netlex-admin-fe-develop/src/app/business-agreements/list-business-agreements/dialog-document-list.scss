@@ -1,0 +1,91 @@
+$font-family: Roboto, serif;
+
+@media only screen and (max-width: 960px) {
+  .list-name {
+    height: 110px !important;
+    word-wrap: normal;
+  }
+  .common-button {
+    height: 24px;
+    width: 65px;
+    margin-left: 10px;
+    border-radius: 6px;
+  }
+}
+
+.delete-button {
+  color: #EE0505;
+  font-family: $font-family;
+  font-size: 15px;
+}
+
+.alphabet-letter {
+  text-align: center;
+  top: 0;
+  width: 60px;
+  font-family: $font-family;
+  font-size: 48px;
+  font-weight: 700;
+  padding: 20px;
+  color: var(--netlex-primary);
+  background-color: #E0E0E0;
+  margin: unset;
+}
+
+.dialog-container {
+  border-radius: 40px;
+  background-color: white;
+  display: grid;
+  place-items: center;
+}
+
+::ng-deep.mat-dialog-container {
+  padding: 0 !important;
+}
+
+.publish-label {
+  color: #DB0000;
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 30px 0 14px 0;
+}
+
+.publish-content {
+  padding: 0 32px 31px 40px;
+  color: var(--netlex-primary);
+  font-family: Roboto Slab, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+::ng-deep .mat-dialog-container {
+  border-radius: 40px !important;
+  border: var(--netlex-primary) solid 3px !important;
+  overflow: hidden !important;
+}
+
+.publish-button {
+  background-color: var(--netlex-primary);
+  color: white;
+  padding-bottom: 30px;
+}
+
+.delete-button {
+  margin-top: 2%;
+  background-color: #FFFFFF;
+  color: var(--netlex-primary);
+  border: var(--netlex-primary) 2px solid;
+  border-radius: 5px;
+}
+
+.discard-button {
+  margin-top: 2%;
+  margin-right: 10px;
+  background-color: darkblue;
+  color: white;
+  border: var(--netlex-primary) 2px solid;
+  border-radius: 5px;
+}

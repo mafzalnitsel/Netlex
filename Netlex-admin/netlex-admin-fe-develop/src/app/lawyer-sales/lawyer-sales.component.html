@@ -1,0 +1,85 @@
+<!--<app-navbar></app-navbar>-->
+<!--<div class="header-top" fxLayoutAlign="none center"><span>SALES HISTORY</span></div>-->
+<!--<div fxLayout.lt-lg="col" fxLayout.lg="row">-->
+<!--    <div class="addBox" fxLayout="column">-->
+<!--        <div class="table-container">-->
+<!--            <table class="table-size" id="table">-->
+<!--                <thead>-->
+<!--                <tr class="table-header">-->
+<!--                    <th>Order Number</th>-->
+<!--                    <th>Belopp</th>-->
+<!--                    <th>Datum & Tid</th>-->
+<!--                    <th>Payment method</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<app-navbar></app-navbar>
+<div class="header-top" fxLayoutAlign="none center"><span>LAWYER SALES HISTORY</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <!--    <app-alert [state]="alert"></app-alert>-->
+    <div class="addBox" fxLayout="column">
+
+        <div class="table-container">
+            <table class="table-size" id="table">
+                <thead>
+                    <tr class="table-header">
+                        <!-- <th>Order Number</th> -->
+                        <!-- <th>Transaktion Id</th> -->
+                        <th>Användare</th>
+                        <th>Datum</th>
+                        <th>Tid</th>
+                        <th>Belopp</th>
+                        <th>Datum & Tid</th>
+                        <th>Payment method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--                {{salesList | json}}-->
+
+                    <tr class="user-row" *ngFor="let sales of salesList | async | paginate: { id: 'server', itemsPerPage:
+                    perPage, currentPage: currentPage, totalItems: total }">
+                        <!-- <td (click)="viewSales(sales)">{{sales.transaction_Id}}</td> -->
+                        <td (click)="viewSales(sales)">{{sales.userName}}</td>
+                        <!-- <td (click)="viewSales(sales)">{{sales.salesAt}}</td> -->
+                        <td (click)="viewSales(sales)">{{sales.date}}</td>
+                        <td (click)="viewSales(sales)">{{sales.time}}</td>
+                        <td (click)="viewSales(sales)"><u>{{sales.salesAmount}}</u></td>
+                        <td (click)="viewSales(sales)">{{sales.paymentMethod}}</td>
+                        <td (click)="viewSales(sales)">{{sales.status}}</td>
+                        <td class="pdf_col" (click)="generateSalesPdf(sales)">
+                            <span>Skapa Pdf</span>
+                            <mat-icon>picture_as_pdf</mat-icon>
+                        </td>
+                    </tr>
+                    <!--                <tr class="user-row" *ngFor="let sales of salesList">-->
+                    <!--                    <td (click)="viewSales(sales)">{{sales.clientName}}</td>-->
+                    <!--                    <td (click)="viewSales(sales)"><u>{{sales.salesAmount}}</u></td>-->
+                    <!--                    <td (click)="viewSales(sales)">{{sales.salesAt}}</td>-->
+                    <!--                    <td (click)="viewSales(sales)">{{sales.paymentMethod}}</td>-->
+                    <!--                </tr>-->
+                    <!--                <tr *ngIf="!total" class="text-center">-->
+                    <!--                    <td colspan="4">Inga användare hittades</td>-->
+                    <!--                </tr>-->
+                </tbody>
+            </table>
+        </div>
+        <div fxLayoutAlign="center none" class="pagination-button-container">
+            <!-- <pagination-controls (pageChange)="getSales($event)" id="server"></pagination-controls> -->
+            <pagination-controls previousLabel="Föregående" nextLabel="Nästa" (pageChange)="getSales($event)"
+                id="serverr"></pagination-controls>
+        </div>
+        <div fxLayoutAlign="center none" class="pagination-button-container">
+            <pagination-controls (pageChange)="getSales($event)" id="server"></pagination-controls>
+        </div>
+
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,1221 @@
+<div
+  fxLayout="column"
+  class="home-main playfairFont"
+  [ngStyle]="{ background: home_Bg_Color }"
+>
+  <div fxHide.xs fxHide.sm fxLayout.gt-md="row" class="home-screen-banner">
+    <div>
+      <div class="matTextCard">
+        <!-- <div [class.animate_banner_text]="who_we_are_img" class="animate_banner_text reflexRotate ">
+                </div> -->
+        <div class="TextFont" translate>
+          <!-- <span class="banner-header1"> -->
+          <div
+            class="animate_banner_text reflexRotate delay_banner_text1 banner_header1"
+          >
+            <!-- Din advokatbyrå online -->
+            {{ bigHeaderHeading }}
+          </div>
+          <!-- </span> -->
+          <br />
+          <br />
+          <div
+            class="banner_header2 animate_banner_text reflexRotate delay_banner_text2"
+          >
+            <!-- Skriv avtal -->
+            {{ smallHeaderHeading1 }}
+          </div>
+          <div
+            class="banner_header3 animate_banner_text reflexRotate delay_banner_text3"
+          >
+            <!-- Boka möte -->
+            {{ smallHeaderHeading2 }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="content">
+            <div class="background">
+                <div class="bluredBackground"></div>
+            </div>
+        </div> -->
+    <!-- <img alt="Banner" class="banner-image" [src]="homeHeaderPic"> -->
+    <div class="banner-dark-img">
+      <!-- <div class="banner-image"></div> -->
+      <img alt="Banner" class="banner-image" [src]="homeHeaderPic" />
+    </div>
+  </div>
+
+  <!-- <img alt="Banner" [src]="homeHeaderPicMob" fxHide.gt-sm>
+    <p class="TextFontMobile" translate fxHide.gt-sm>{{handleYourLegal}}<br />
+        {{agreementOnline}}</p> -->
+
+  <div fxHide.gt-sm class="home-screen-banner-mobile">
+    <div class="matTextCardMobile">
+      <!-- <div [class.animate_banner_text]="who_we_are_img" class="animate_banner_text reflexRotate ">
+            </div> -->
+      <div class="TextFontMobile" translate>
+        <!-- <span class="banner-header1"> -->
+        <div
+          class="animate_banner_text reflexRotate delay_banner_text1 banner_header1"
+        >
+          <!-- Din advokatbyrå online -->
+          {{ bigHeaderHeading }}
+        </div>
+        <!-- </span> -->
+        <br />
+        <br />
+        <div
+          class="banner_header2 animate_banner_text reflexRotate delay_banner_text2"
+        >
+          <!-- Skriv avtal -->
+          {{ smallHeaderHeading1 }}
+        </div>
+        <div
+          class="banner_header3 animate_banner_text reflexRotate delay_banner_text3"
+        >
+          <!-- Boka möte -->
+          {{ smallHeaderHeading2 }}
+        </div>
+      </div>
+    </div>
+    <div class="banner-dark-img-mobile">
+      <img alt="Banner" class="banner-image-mobile" [src]="homeHeaderPic" />
+    </div>
+  </div>
+
+  <div fxHide.lt-md>
+    <!-- <div class="dotted-div" *ngIf="banner_box1">
+            <div class="dot_container1">
+                <div class="dot" *ngFor="let item of dot_array"></div>
+            </div>
+            <div class="dot_container2">
+                <div class="dot" *ngFor="let item of dot_array"></div>
+            </div>
+            <div class="dot_container1">
+                <div class="dot" *ngFor="let item of dot_array"></div>
+            </div>
+            <div class="dot_container2">
+                <div class="dot" *ngFor="let item of dot_array"></div>
+            </div>
+            <div class="dot_container1">
+                <div class="dot" *ngFor="let item of dot_array"></div>
+            </div>
+        </div> -->
+    <!-- <div class="dotted_image"></div> -->
+    <!-- <img src="assets/images/dotted_image.png" alt="" class="dotted_image"> -->
+    <div class="box-column-1">
+      <!-- <div fxLayout="row" fxLayoutAlign="space-evenly"> -->
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="column" class="box-column-1-outer">
+          <div>
+            <div
+              class="box-column-1-design"
+              [ngStyle]="{ 'background-color': colored_navbar_color }"
+            >
+              <div
+                class="meet_lawyer_logo_container"
+                fxLayoutAlign="center center"
+              >
+                <img
+                  src="assets/images/agreement_logo.png"
+                  alt=""
+                  class="agreement_logo"
+                />
+              </div>
+              <div class="png-logo-container">
+                <!-- <img alt="png-logo"  [src]="meet_lawyer_logo"> -->
+              </div>
+              <div fxLayoutAlign="center" class="box-column-1-heading">
+                <!-- <img    class="icon-image"  [src]="purchaseImg"> -->
+                <!-- <p>Skriv avtal online</p> -->
+                <p class="playfairFont">
+                  {{ heroBoxTexts && heroBoxTexts[0].Rubrik }}
+                </p>
+              </div>
+              <div fxLayout="column">
+                <span class="box-column-1-desc" fxLayoutAlign="center">
+                  <!-- <p>Med vår digitala tjänst kan du enkelt skräddarsy ditt eget avtal. Vi har en
+                                        mängd olika avtal för livets alla skeenden. Samtliga avtal är skapade av våra
+                                        jurister och advokater.</p> -->
+                  <p class="playfairFont">
+                    {{ heroBoxTexts && heroBoxTexts[0].Beskrivning }}
+                  </p>
+                </span>
+                <span
+                  fxLayoutAlign="center center"
+                  class="box-column-1-btn-container"
+                >
+                  <button
+                    class="box-column-1-button"
+                    (click)="agreementOpenHandlerPrivatePerson('personal')"
+                    [(ngModel)]="isChecked"
+                  >
+                    <!-- <span translate>Skriv avtal</span> -->
+                    <span class="playfairFont" translate>{{
+                      heroBoxTexts && heroBoxTexts[0].Knapp
+                    }}</span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" class="box-column-2-outer">
+          <div>
+            <div
+              class="box-column-2-design"
+              [ngStyle]="{ 'background-color': colored_navbar_color }"
+            >
+              <div
+                class="meet_lawyer_logo_container"
+                fxLayoutAlign="center center"
+              >
+                <img
+                  src="assets/images/business_agreement_logo.png"
+                  alt=""
+                  class="business_agreement_logo"
+                />
+              </div>
+
+              <div fxLayoutAlign="center" class="box-column-1-heading">
+                <!-- <p>Skriv Avtal företag</p> -->
+                <p class="playfairFont">
+                  {{ heroBoxTexts && heroBoxTexts[1].Rubrik }}
+                </p>
+              </div>
+              <div fxLayout="column">
+                <span class="box-column-1-desc" fxLayoutAlign="center">
+                  <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.</p> -->
+                  <p class="playfairFont">
+                    {{ heroBoxTexts && heroBoxTexts[1].Beskrivning }}
+                  </p>
+                </span>
+                <!-- route changed from business-agreements to kommersnart -->
+                <span
+                  fxLayoutAlign="center center"
+                  class="box-column-1-btn-container"
+                >
+                  <button
+                    class="box-column-1-button"
+                    (click)="agreementOpenHandlerForetag('business')"
+                    [(ngModel)]="isChecked"
+                  >
+                    <!-- <span translate>Avtal företag</span> -->
+                    <span class="playfairFont" translate>{{
+                      heroBoxTexts && heroBoxTexts[1].Knapp
+                    }}</span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column" class="box-column-3-outer">
+          <div>
+            <div
+              class="box-column-3-design"
+              [ngStyle]="{ 'background-color': colored_navbar_color }"
+            >
+              <div
+                class="meet_lawyer_logo_container"
+                fxLayoutAlign="center center"
+              >
+                <img
+                  src="assets/images/meet_lawyer_logo.png"
+                  alt=""
+                  class="meet_lawyer_logo"
+                />
+              </div>
+
+              <div fxLayoutAlign="center" class="box-column-1-heading">
+                <!-- <p>Boka ett möte med en jurist</p> -->
+                <p class="playfairFont">
+                  {{ heroBoxTexts && heroBoxTexts[2].Rubrik }}
+                </p>
+              </div>
+              <div fxLayout="column">
+                <span class="box-column-1-desc" fxLayoutAlign="center">
+                  <!-- <p>Vid behövs av juridisk rådgivning kan du boka ett video möte med oss. Vi
+                                        erbjuder ger rådgivning på flera olika språk. Du kan boka ett möte på 30 minuter
+                                        (902 kr) eller en timme (1803kr).</p> -->
+                  <p class="playfairFont">
+                    {{ heroBoxTexts && heroBoxTexts[2].Beskrivning }}
+                  </p>
+                </span>
+                <span
+                  fxLayoutAlign="center center"
+                  class="box-column-1-btn-container"
+                >
+                  <button
+                    class="box-column-1-button"
+                    [routerLink]="'/allLawyers'"
+                  >
+                    <!-- <span translate>Boka möte</span> -->
+                    <span class="playfairFont" translate>{{
+                      heroBoxTexts && heroBoxTexts[2].Knapp
+                    }}</span>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+    <div id="qwerty">
+      <!-- <div class="quote-card" fxLayoutAlign="none center">
+                <span translate>{{description}}</span>
+            </div> -->
+
+      <!-- <div [class.animate]="hello" class="animate glow">
+                <div class="delay-1">
+                    hello
+                </div>
+            </div> -->
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <!-- <div fxLayout="row" class="description-container" [ngStyle]="{'background': desc_Bg_Color}"> -->
+        <div
+          fxLayout="row"
+          class="description-container"
+          [ngStyle]="{ 'background-image': desc_Bg_Color }"
+        >
+          <div fxFlex.gt-sm="65" class="description-col1">
+            <!-- <p class="description-heading">Vilka vi är </p> -->
+            <div>
+              <!-- <p class="description-heading">Who we are</p> -->
+              <!-- <p class="description-para">
+                                In a classic legal industry where contact takes place through the firm's secretary and
+                                on-site meetings, we want to offer legal assistance in a new, accessible and
+                                cost-effective
+                                way. The lawyer's title and our lawyer's ethical rules are your security - also online.
+                            </p> -->
+              <p class="description-heading">
+                {{ introTexts && introTexts[0].value }}
+              </p>
+              <p class="description-para">
+                {{ introTexts && introTexts[1].value }}
+              </p>
+            </div>
+          </div>
+          <div
+            fxFlex.gt-sm="35"
+            class="description-col2"
+            *ngIf="who_we_are_img"
+          >
+            <div>
+              <!-- <img src="assets/images/who_we_are_img.jpg" alt="" class="who_we_are_img"> -->
+              <img [src]="introImage" alt="" class="who_we_are_img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div [ngStyle]="{'background': services_bg_color }">Hello</div> -->
+    <div id="services">
+      <div
+        class="services-dark-img imageServices"
+        *ngIf="services_bg_type === 'imageServices'"
+        id="targetRed"
+      >
+        <!-- <img alt="Banner" class="services-image" src="assets/images/service_background.jpg"> -->
+        <div
+          class="services-background"
+          [style.background-image]="'url(' + services_bg_image + ')'"
+        >
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <div fxLayout="row" class="services-container">
+              <div fxFlex.gt-sm="35" class="services-col1">
+                <div>
+                  <!-- <p class="services-heading">Our Services</p>
+                                <p class="services-desc">We are fight any violance with of experience.</p> -->
+                  <!-- <p class="services-heading">{{servicesAllTexts && servicesAllTexts[0].value}}</p>
+                                <p class="services-desc">{{servicesAllTexts && servicesAllTexts[1].value}}</p> -->
+                  <p class="services-heading">
+                    {{ servicesAllTexts && servicesAllTexts[0].Rubrik }}
+                  </p>
+                  <p class="services-desc">
+                    {{ servicesAllTexts && servicesAllTexts[0].Beskrivning }}
+                  </p>
+                </div>
+              </div>
+              <div fxFlex.gt-sm="65" class="services-col2">
+                <div>
+                  <div fxLayout="row" class="services-col2-row1">
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise1')"
+                    >
+                      <img
+                        src="assets/images/family_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!-- <p class="box-heading">Familjerätt</p> -->
+                      <!-- <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and
+                                            typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[1].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[1].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise2')"
+                    >
+                      <img
+                        src="assets/images/criminal_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!-- <p class="box-heading">Brottmål</p>
+                                            <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[2].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[2].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise3')"
+                    >
+                      <img
+                        src="assets/images/civil_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!-- <p class="box-heading">Tvistemål</p>
+                                         <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[3].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[3].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                  </div>
+                  <div fxLayout="row" class="services-col2-row2">
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise4')"
+                    >
+                      <img
+                        src="assets/images/business_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!--<p class="box-heading">Migrationsrätt</p>
+                                         <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[4].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[4].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise5')"
+                    >
+                      <img
+                        src="assets/images/educational_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!--<p class="box-heading">Notarius Publicus</p>
+                                         <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[5].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[5].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise6')"
+                    >
+                      <img
+                        src="assets/images/insurance_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!--<p class="box-heading">Socialrätt</p>
+                                         <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[6].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[6].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class=""
+        *ngIf="!!services_bg_type && services_bg_type === 'colorServices'"
+      >
+        <!-- <img alt="Banner" class="services-image" src="assets/images/service_background.jpg"> -->
+        <div
+          class="services-background"
+          [ngStyle]="{ background: services_bg_color }"
+        >
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <div fxLayout="row" class="services-container">
+              <div fxFlex.gt-sm="35" class="services-col1">
+                <div>
+                  <!-- <p class="services-heading">Our Services</p>
+                                <p class="services-desc">We are fight any violance with of experience.</p> -->
+                  <!-- <p class="services-heading">{{servicesAllTexts && servicesAllTexts[0].value}}</p>
+                                <p class="services-desc">{{servicesAllTexts && servicesAllTexts[1].value}}</p> -->
+                  <p class="services-heading">
+                    {{ servicesAllTexts && servicesAllTexts[0].Rubrik }}
+                  </p>
+                  <p class="services-desc">
+                    {{ servicesAllTexts && servicesAllTexts[0].Beskrivning }}
+                  </p>
+                </div>
+              </div>
+              <div fxFlex.gt-sm="65" class="services-col2">
+                <div>
+                  <div fxLayout="row" class="services-col2-row1">
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise1')"
+                    >
+                      <img
+                        src="assets/images/family_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!-- <p class="box-heading">Familjerätt</p> -->
+                      <!-- <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and
+                                            typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[1].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[1].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise2')"
+                    >
+                      <img
+                        src="assets/images/criminal_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!-- <p class="box-heading">Brottmål</p>
+                                            <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[2].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[2].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise3')"
+                    >
+                      <img
+                        src="assets/images/civil_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!-- <p class="box-heading">Tvistemål</p>
+                                         <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[3].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[3].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                  </div>
+                  <div fxLayout="row" class="services-col2-row2">
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise4')"
+                    >
+                      <img
+                        src="assets/images/business_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!--<p class="box-heading">Migrationsrätt</p>
+                                         <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[4].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[4].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise5')"
+                    >
+                      <img
+                        src="assets/images/educational_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!--<p class="box-heading">Notarius Publicus</p>
+                                         <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[5].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[5].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                    <div
+                      fxLayout="column"
+                      fxFlex.gt-sm="30"
+                      class="services-box"
+                      (click)="serviceClickHandler('expertise6')"
+                    >
+                      <img
+                        src="assets/images/insurance_law_logo.png"
+                        alt=""
+                        class="family_law_logo"
+                      />
+                      <!--<p class="box-heading">Socialrätt</p>
+                                         <p class="box-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industrys.</p> -->
+                      <p class="box-heading">
+                        {{ servicesAllTexts && servicesAllTexts[6].Rubrik }}
+                      </p>
+                      <p class="box-desc">
+                        {{
+                          servicesAllTexts && servicesAllTexts[6].Beskrivning
+                        }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div fxHide.lt-md fxLayout="column">
+            <div fxLayoutAlign="center center" class="welcome-netlex-line-container">
+                <span class="welcome-netlex-line" translate>{{welcomeNote}}</span>
+            </div>
+            <div fxLayoutAlign="center center" class="agreement-button-container">
+                <button class="agreement-button" [routerLink]="'/agreements'"><span
+                        translate>{{startAgreement}}</span></button>
+            </div>
+        </div> -->
+  </div>
+  <div fxHide.gt-sm>
+    <!-- <div class="dotted_image_mobile2 " > -->
+    <!-- <div class="dotted_image_mobile " [class.dotted_image_position]="banner_box1"></div></div> -->
+
+    <!-- <div class="box-column-1-mobile" *ngIf="banner_box1"> -->
+    <div class="box-column-1-mobile">
+      <div class="box-column-1-outer-mobile">
+        <!-- <div [class.animate_box1]="banner_box1" class="animate_box1 slidein1 "> -->
+        <div>
+          <div
+            class="box-column-1-design"
+            [ngStyle]="{ 'background-color': colored_navbar_color }"
+          >
+            <div
+              class="meet_lawyer_logo_container"
+              fxLayoutAlign="center center"
+            >
+              <img
+                src="assets/images/agreement_logo.png"
+                alt=""
+                class="agreement_logo"
+              />
+            </div>
+            <div class="png-logo-container">
+              <!-- <img alt="png-logo"  [src]="meet_lawyer_logo"> -->
+            </div>
+            <div fxLayoutAlign="center" class="box-column-1-heading">
+              <!-- <img    class="icon-image"  [src]="purchaseImg"> -->
+              <!-- <p>Skriv avtal online</p> -->
+              <p>{{ heroBoxTexts && heroBoxTexts[0].Rubrik }}</p>
+            </div>
+            <div fxLayout="column">
+              <span class="box-column-1-desc" fxLayoutAlign="center">
+                <!-- <p>Med vår digitala tjänst kan du enkelt skräddarsy ditt eget avtal. Vi har en
+                                        mängd olika avtal för livets alla skeenden. Samtliga avtal är skapade av våra
+                                        jurister och advokater.</p> -->
+                <p>{{ heroBoxTexts && heroBoxTexts[0].Beskrivning }}</p>
+              </span>
+              <span
+                fxLayoutAlign="center center"
+                class="box-column-1-btn-container"
+              >
+                <button
+                  class="box-column-1-button"
+                  (click)="agreementOpenHandlerPrivatePerson('personal')"
+                  [(ngModel)]="isChecked"
+                >
+                  <!-- <span translate>Skriv avtal</span> -->
+                  <span translate>{{
+                    heroBoxTexts && heroBoxTexts[0].Knapp
+                  }}</span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="box-column-2-mobile" *ngIf="banner_box1"> -->
+    <div class="box-column-2-mobile">
+      <div class="box-column-2-outer-mobile">
+        <!-- <div [class.animate_box2]="banner_box1" class="animate_box1 slidein2 "> -->
+        <div>
+          <div
+            class="box-column-2-design"
+            [ngStyle]="{ 'background-color': colored_navbar_color }"
+          >
+            <div
+              class="meet_lawyer_logo_container"
+              fxLayoutAlign="center center"
+            >
+              <img
+                src="assets/images/business_agreement_logo.png"
+                alt=""
+                class="business_agreement_logo"
+              />
+            </div>
+            <div fxLayoutAlign="center" class="box-column-1-heading">
+              <!-- <p>Skriv Avtal företag</p> -->
+              <p>{{ heroBoxTexts && heroBoxTexts[1].Rubrik }}</p>
+            </div>
+            <div fxLayout="column">
+              <span class="box-column-1-desc" fxLayoutAlign="center">
+                <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.</p> -->
+                <p>{{ heroBoxTexts && heroBoxTexts[1].Beskrivning }}</p>
+              </span>
+              <span
+                fxLayoutAlign="center center"
+                class="box-column-1-btn-container"
+              >
+                <button
+                  class="box-column-1-button"
+                  (click)="agreementOpenHandlerForetag('business')"
+                  [(ngModel)]="isChecked"
+                >
+                  <!-- <span translate>Avtal företag</span> -->
+                  <span translate>{{
+                    heroBoxTexts && heroBoxTexts[1].Knapp
+                  }}</span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-column-3-mobile">
+      <div class="box-column-3-outer-mobile">
+        <!-- <div [class.animate_box2]="banner_box1" class="animate_box1 slidein2 "> -->
+        <div>
+          <div
+            class="box-column-3-design"
+            [ngStyle]="{ 'background-color': colored_navbar_color }"
+          >
+            <div
+              class="meet_lawyer_logo_container"
+              fxLayoutAlign="center center"
+            >
+              <img
+                src="assets/images/meet_lawyer_logo.png"
+                alt=""
+                class="meet_lawyer_logo"
+              />
+            </div>
+            <div fxLayoutAlign="center" class="box-column-1-heading">
+              <!-- <p>Boka ett möte med en jurist</p> -->
+              <p>{{ heroBoxTexts && heroBoxTexts[2].Rubrik }}</p>
+            </div>
+            <div fxLayout="column">
+              <span class="box-column-1-desc" fxLayoutAlign="center">
+                <!-- <p>Med vår digitala tjänst kan du enkelt skräddarsy ditt eget avtal. Vi har en
+                                        mängd olika avtal för livets alla skeenden. Samtliga avtal är skapade av våra
+                                        jurister och advokater.</p> -->
+                <p>{{ heroBoxTexts && heroBoxTexts[2].Beskrivning }}</p>
+              </span>
+              <span
+                fxLayoutAlign="center center"
+                class="box-column-1-btn-container"
+              >
+                <button
+                  class="box-column-1-button"
+                  [routerLink]="'/allLawyers'"
+                >
+                  <!-- <span translate>Boka möte</span> -->
+                  <span translate>{{
+                    heroBoxTexts && heroBoxTexts[2].Knapp
+                  }}</span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div>
+            <div class="quote-card-mobile" fxLayoutAlign="center center">
+                <span translate>{{description}}</span>
+            </div>
+        </div> -->
+    <div
+      class="description-container-mbl"
+      [ngStyle]="{ 'background-image': desc_Bg_Color }"
+    >
+      <!-- <div class="description-col1">
+                <div [class.animate_who_we_are_img]="who_we_are_img" class="animate_who_we_are_img slidein3 ">
+                    <p class="description-heading-mbl">Who we are</p>
+                    <p class="description-para-mbl">
+                        In a classic legal industry where contact takes place through the firm's secretary and
+                        on-site meetings, we want to offer legal assistance in a new, accessible and
+                        cost-effective
+                        way.The lawyer's title and our lawyer's ethical rules are your security - also online.
+                    </p>
+                </div>
+            </div> -->
+      <!-- <div class="description-col2" *ngIf="who_we_are_img"> -->
+      <div class="description-col1">
+        <!-- <p class="description-heading-mbl">Who we are</p>
+                <p class="description-para-mbl2">In a classic legal industry where contact takes place through
+                    the firm's secretary and on-site meetings, we want to offer legal assistance in a new, accessible
+                    and cost-effective way.The lawyer's title and our lawyer's ethical rules are your
+                    security - also online.</p> -->
+        <p class="description-heading">
+          {{ introTexts && introTexts[0].value }}
+        </p>
+        <p class="description-para-mbl2">
+          {{ introTexts && introTexts[1].value }}
+        </p>
+      </div>
+      <div class="description-col2">
+        <div class="">
+          <div>
+            <!-- <img src="assets/images/who_we_are_img.jpg" alt="" class="who_we_are_img_mbl"> -->
+            <img [src]="introImage" alt="" class="who_we_are_img_mbl" />
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+    <!-- <div fxLayout="column">
+            <div fxLayoutAlign="center center" class="welcome-netlex-line-container">
+                <span class="welcome-netlex-line-mobile" translate>{{welcomeNote}}</span>
+            </div>
+            <div fxLayoutAlign="center center" class="agreement-button-container">
+                <button class="agreement-button" [routerLink]="'/agreements'"><span
+                        translate>{{startAgreement}}</span></button>
+            </div>
+        </div> -->
+    <div class="services-dark-img" *ngIf="services_bg_type === 'imageServices'">
+      <!-- <img alt="Banner" class="services-image" src="assets/images/service_background.jpg"> -->
+      <div class="services-background-mobile">
+        <div fxLayoutAlign="center center">
+          <div class="services-container-mobile">
+            <div class="services-text-container-mobile">
+              <div>
+                <!-- <p class="services-heading-mobile">Our Services</p>
+                                <p class="services-desc-mobile">We are fight any violance with of experience.</p> -->
+                <p class="services-heading-mobile">
+                  {{ servicesAllTexts && servicesAllTexts[0].Rubrik }}
+                </p>
+                <p class="services-desc-mobile">
+                  {{ servicesAllTexts && servicesAllTexts[0].Beskrivning }}
+                </p>
+              </div>
+            </div>
+            <div class="services-boxes-container-mobile">
+              <div class="services-boxes-row-mobile">
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise1')"
+                >
+                  <img
+                    src="assets/images/family_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!--<p class="services-box-heading-mobile">Familjerätt</p>
+                                     <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[1].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[1].Beskrivning }}
+                  </p>
+                </div>
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise2')"
+                >
+                  <img
+                    src="assets/images/criminal_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!--<p class="services-box-heading-mobile">Brottmål</p>
+                                     <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[2].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[2].Beskrivning }}
+                  </p>
+                </div>
+              </div>
+              <div class="services-boxes-row-mobile">
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise3')"
+                >
+                  <img
+                    src="assets/images/civil_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!-- <p class="services-box-heading-mobile">Tvistemål</p>
+                                    <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[3].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[3].Beskrivning }}
+                  </p>
+                </div>
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise4')"
+                >
+                  <img
+                    src="assets/images/business_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!-- <p class="services-box-heading-mobile">Migrationsrätt</p>
+                                    <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[4].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[4].Beskrivning }}
+                  </p>
+                </div>
+              </div>
+              <div class="services-boxes-row-mobile">
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise5')"
+                >
+                  <img
+                    src="assets/images/educational_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!-- <p class="services-box-heading-mobile">Notarius Publicus</p>
+                                    <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[5].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[5].Beskrivning }}
+                  </p>
+                </div>
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise6')"
+                >
+                  <img
+                    src="assets/images/insurance_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!-- <p class="services-box-heading-mobile">Socialrätt</p>
+                                    <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[6].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[6].Beskrivning }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Hide/Show Button -->
+            <!-- <div fxLayoutAlign="end center" class="view-all-btn-container-mbl">
+                            <button class="view-all-button-mbl" (click)="show_all_services()">
+                                <span translate *ngIf="!all_services_mobile">View all</span>
+                                <span translate *ngIf="all_services_mobile">View less</span>
+                                <mat-icon class="visibility-icon-mbl" *ngIf="!all_services_mobile">visibility</mat-icon>
+                                <mat-icon class="visibility-icon-mbl" *ngIf="all_services_mobile">visibility_off
+                                </mat-icon>
+                            </button>
+                        </div> -->
+
+            <!-- <div fxFlex.gt-sm="65" class="services-col2">
+                            <div [class.animate_services]="sevices" class="animate_services slidein4" *ngIf="sevices">
+                                <div fxLayout="row" class="services-col2-row1">
+                                </div>
+                                <div fxLayout="row" class="services-col2-row2">
+                                </div>
+                            </div>
+
+                        </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="" *ngIf="services_bg_type === 'colorServices'">
+      <!-- <img alt="Banner" class="services-image" src="assets/images/service_background.jpg"> -->
+      <div
+        class="services-background-mobile"
+        [ngStyle]="{ background: services_bg_color }"
+      >
+        <div fxLayoutAlign="center center">
+          <div class="services-container-mobile">
+            <div class="services-text-container-mobile">
+              <div>
+                <!-- <p class="services-heading-mobile">Our Services</p>
+                                <p class="services-desc-mobile">We are fight any violance with of experience.</p> -->
+                <p class="services-heading-mobile">
+                  {{ servicesAllTexts && servicesAllTexts[0].Rubrik }}
+                </p>
+                <p class="services-desc-mobile">
+                  {{ servicesAllTexts && servicesAllTexts[0].Beskrivning }}
+                </p>
+              </div>
+            </div>
+            <div class="services-boxes-container-mobile">
+              <div class="services-boxes-row-mobile">
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise1')"
+                >
+                  <img
+                    src="assets/images/family_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!--<p class="services-box-heading-mobile">Familjerätt</p>
+                                     <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[1].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[1].Beskrivning }}
+                  </p>
+                </div>
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise2')"
+                >
+                  <img
+                    src="assets/images/criminal_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!--<p class="services-box-heading-mobile">Brottmål</p>
+                                     <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[2].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[2].Beskrivning }}
+                  </p>
+                </div>
+              </div>
+              <div class="services-boxes-row-mobile">
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise3')"
+                >
+                  <img
+                    src="assets/images/civil_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!-- <p class="services-box-heading-mobile">Tvistemål</p>
+                                    <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[3].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[3].Beskrivning }}
+                  </p>
+                </div>
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise4')"
+                >
+                  <img
+                    src="assets/images/business_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!-- <p class="services-box-heading-mobile">Migrationsrätt</p>
+                                    <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[4].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[4].Beskrivning }}
+                  </p>
+                </div>
+              </div>
+              <div class="services-boxes-row-mobile">
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise5')"
+                >
+                  <img
+                    src="assets/images/educational_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!-- <p class="services-box-heading-mobile">Notarius Publicus</p>
+                                    <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[5].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[5].Beskrivning }}
+                  </p>
+                </div>
+                <div
+                  class="services-box-mobile"
+                  (click)="serviceClickHandler('expertise6')"
+                >
+                  <img
+                    src="assets/images/insurance_law_logo.png"
+                    alt=""
+                    class="laws_logo_mobile"
+                  />
+                  <!-- <p class="services-box-heading-mobile">Socialrätt</p>
+                                    <p class="services-box-desc-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="services-box-heading-mobile">
+                    {{ servicesAllTexts && servicesAllTexts[6].Rubrik }}
+                  </p>
+                  <p class="box-desc">
+                    {{ servicesAllTexts && servicesAllTexts[6].Beskrivning }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Hide/Show Button -->
+            <!-- <div fxLayoutAlign="end center" class="view-all-btn-container-mbl">
+                            <button class="view-all-button-mbl" (click)="show_all_services()">
+                                <span translate *ngIf="!all_services_mobile">View all</span>
+                                <span translate *ngIf="all_services_mobile">View less</span>
+                                <mat-icon class="visibility-icon-mbl" *ngIf="!all_services_mobile">visibility</mat-icon>
+                                <mat-icon class="visibility-icon-mbl" *ngIf="all_services_mobile">visibility_off
+                                </mat-icon>
+                            </button>
+                        </div> -->
+
+            <!-- <div fxFlex.gt-sm="65" class="services-col2">
+                            <div [class.animate_services]="sevices" class="animate_services slidein4" *ngIf="sevices">
+                                <div fxLayout="row" class="services-col2-row1">
+                                </div>
+                                <div fxLayout="row" class="services-col2-row2">
+                                </div>
+                            </div>
+
+                        </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-lawyers-in-home></app-lawyers-in-home>
+<!-- <div class="welcome-note-container">
+    <div fxHide.lt-md>
+        <div fxHide.lt-md fxLayout="column">
+            <div fxLayoutAlign="center center" class="welcome-netlex-line-container">
+                <span class="welcome-netlex-line" translate>{{welcomeNote}}</span>
+            </div>
+            <div fxLayoutAlign="center center" class="agreement-button-container">
+                <button class="agreement-button" [routerLink]="'/agreements'"><span
+                        translate>{{startAgreement}}</span></button>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm>
+        <div fxLayout="column">
+            <div fxLayoutAlign="center center" class="welcome-netlex-line-container">
+                <span class="welcome-netlex-line-mobile" translate>{{welcomeNote}}</span>
+            </div>
+            <div fxLayoutAlign="center center" class="agreement-button-container">
+                <button class="agreement-button-mobile" [routerLink]="'/agreements'"><span
+                        translate>{{startAgreement}}</span></button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <app-footer></app-footer> -->

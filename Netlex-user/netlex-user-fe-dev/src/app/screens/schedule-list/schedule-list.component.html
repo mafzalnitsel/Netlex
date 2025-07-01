@@ -1,0 +1,63 @@
+<div fxLayout="column" class="container-login">
+    <div class="header-top" fxLayoutAlign="none center"><span translate>SCHEDULER-LIST.TITLE</span></div>
+    <div fxLayout.lt-md="column" fxLayout.gt-sm="row" class="ssn-input" fxLayoutAlign.lt-md="center center">
+
+        <div fxLayout="row" fxFlex.gt-sm="50" fxLayoutAlign="start">
+            <div class="input-container">
+            <input autocomplete="off" (input)="searchTimer($event.target.value)" class="search-filter"
+                   [(ngModel)]="searchValue" fxFlex="80" type="text" placeholder="Search for status">
+            <div fxFlex="20" fxLayoutAlign="center end">
+                <mat-icon fxLayoutAlign="center center" style="height: 100%" class="mat-icon-center">search</mat-icon>
+            </div>
+            </div>
+        </div>
+
+        <div fxFlex.gt-sm="50" fxLayoutAlign="end" class="button-create-container">
+            <button mat-button class="button-create" fxLayoutAlign="center center"
+                    (click)="showAddSchedule()">{{'CREATE.CREATE' | translate}}</button>
+        </div>
+    </div>
+    <div fxLayout.lt-lg="col" fxLayout.lg="row">
+        <div class="addBox" fxLayout="column">
+
+            <div class="table-container" fxLayoutAlign="center">
+                <table class="table-th" id="table">
+                    <thead class="table-th-font">
+                    <tr class="table-tr-font table-th-bottom-border">
+                        <th translate>SCHEDULER-LIST.HEADING</th>
+                        <th translate>SCHEDULER-LIST.DATE</th>
+                        <th translate>SCHEDULER-LIST.TIME</th>
+                        <th translate>SCHEDULER-LIST.DESCRIPTION</th>
+                        <th translate>SCHEDULER-LIST.LANGUAGE</th>
+                        <th translate>SCHEDULER-LIST.STATUS</th>
+                        <th translate>SCHEDULER-LIST.ACTION</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr class="user-row" *ngFor="let lists of asyncLists | async | paginate: { id: 'server', itemsPerPage:
+                        perPage, currentPage: p, totalItems: total }">
+                        <td>{{lists.heading}}</td>
+                        <td>{{lists.dateOf}}</td>
+                        <td>{{lists.time}}</td>
+                        <td style="text-align: left">{{lists.description}}</td>
+                        <td>{{lists.language}}</td>
+                        <td>{{lists.status}}</td>
+                        <td>
+                            <button class="edit-button" *ngIf="isEditable(lists.dateOf)">
+                                <mat-icon (click)="viewScheduler(lists)">edit</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="!total" class="text-center">
+                        <td colspan="7">Ingen information hittad</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div fxLayoutAlign="center none" class="pagination-button-container">
+                <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

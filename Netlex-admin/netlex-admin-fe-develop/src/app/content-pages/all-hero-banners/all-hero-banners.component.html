@@ -1,0 +1,257 @@
+<!-- <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar> -->
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>Redigera Hem</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-user-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <!-- <h3 fxLayoutAlign="center"><b>Hem</b></h3> -->
+            <!-- ----------Image Row----------- -->
+            <!-- <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+            </div> -->
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row1----/\/\/\/\/\/\/\/\/\/\/\/\-- -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Avtal Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onAgreementImageChange($event)" type="file" class="form-control"
+                                id="agreementHeaderImg">
+                            <img [src]="agreementHeaderImgUrl" *ngIf="agreementHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.agreementHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'agreementHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+
+
+                    <div class="h-container"><!--Förändra Avtal Header Bild<br>-->
+                        <button type="button" (click)="updateAgreementImage()" class="updateBtn">
+                            <!-- <span>Förändra Bild</span> -->
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Bekräfta avtal Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onAgreementConfirmImageChange($event)" type="file" class="form-control"
+                                id="agreementConfirmHeaderImg">
+                            <img [src]="agreementConfirmHeaderImgUrl" *ngIf="agreementConfirmHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.agreementConfirmHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'agreementConfirmHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Bekräfta avtal Bild<br>-->
+                        <button type="button" (click)="updateAgreementConfirmImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row2----/\/\/\/\/\/\/\/\/\/\/\/\-- -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Advokat Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onLawyerImageChange($event)" type="file" class="form-control"
+                                id="lawyersHeaderImg">
+                            <img [src]="lawyersHeaderImgUrl" *ngIf="lawyersHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.lawyersHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'lawyersHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Advokat Header Bild<br>-->
+                        <button type="button" (click)="updateLawyerImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Scheduler Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onSchedulerImageChange($event)" type="file" class="form-control"
+                                id="schedulerHeaderImg">
+                            <img [src]="schedulerHeaderImgUrl" *ngIf="schedulerHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.schedulerHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'schedulerHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Scheduler Header Bild<br>-->
+                        <button type="button" (click)="updateSchedulerImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row3----/\/\/\/\/\/\/\/\/\/\/\/\-- -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Frågor Svar Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onQuestionAnswerImageChange($event)" type="file" class="form-control"
+                                id="questionAnswerHeaderImg">
+                            <img [src]="questionAnswerHeaderImgUrl" *ngIf="questionAnswerHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.questionAnswerHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'questionAnswerHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Frågor Svar Header Bild<br>-->
+                        <button type="button" (click)="updateQuestionAnswerImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Om oss Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onAboutUsImageChange($event)" type="file" class="form-control"
+                                id="aboutUsHeaderImg">
+                            <img [src]="aboutUsHeaderImgUrl" *ngIf="aboutUsHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.aboutUsHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'aboutUsHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Om oss Header Bild<br>-->
+                        <button type="button" (click)="updateAboutUsImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row4----/\/\/\/\/\/\/\/\/\/\/\/\-- -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Hitta oss Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onFindUsImageChange($event)" type="file" class="form-control"
+                                id="findUsHeaderImg">
+                            <img [src]="findUsHeaderImgUrl" *ngIf="findUsHeaderImgUrl" style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.findUsHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'findUsHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Hitta oss Header Bild<br>-->
+                        <button type="button" (click)="updateFindUsImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Företag avtal Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onBusinessImageChange($event)" type="file" class="form-control"
+                                id="businessHeaderImg">
+                            <img [src]="businessHeaderImgUrl" *ngIf="businessHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.businessHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'businessHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Företag avtal Header Bild<br>-->
+                        <button type="button" (click)="updateBusinessImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+            </div>
+            <!-- --/\/\/\/\/\/\/\/\/\/\/\/\----Row5----/\/\/\/\/\/\/\/\/\/\/\/\-- -->
+            <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Villkor och betingelser Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onTermsConditionsImageChange($event)" type="file" class="form-control"
+                                id="termsConditionHeaderImg">
+                            <img [src]="termsConditionsHeaderImgUrl" *ngIf="termsConditionsHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.termsConditionsHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'termsConditionsHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Villkor och betingelser Header Bild<br>-->
+                        <button type="button" (click)="updateTermsConditionsImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+                <div fxFlex.gt-sm="50" class="child-container-common2">
+                    <tr fxLayout="column">
+                        <label class="images_headings">Integritet och Politik Header Bild</label>
+                        <div style="font-size:11px" appearance="outline" class="image_uploader_container">
+                            <input (change)="onPrivacyPolicyImageChange($event)" type="file" class="form-control"
+                                id="privacyPolicyHeaderImg">
+                            <img [src]="privacyPolicyHeaderImgUrl" *ngIf="privacyPolicyHeaderImgUrl"
+                                style="width:15em; height:10em;">
+                            <div class="checkbox_container">
+                                <input [checked]="publish?.privacyPolicyHeaderImgExist" type="checkbox"
+                                    (change)="publishImageHandler($event.target.checked,'privacyPolicyHeaderImgExist')">
+                                Publicera denna bild
+                            </div>
+                        </div>
+                    </tr>
+                    <div class="h-container"><!--Förändra Integritet och Politik Header Bild<br>-->
+                        <button type="button" (click)="updatePrivacyPolicyImage()" class="updateBtn">
+                            <span>Ladda Upp Bild</span>
+                        </button><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="center center">
+                &nbsp;&nbsp;
+                <!-- <button (click)="update()" mat-button class="user-create-button"><span
+                        class="spinner-border spinner-border-sm" *ngIf="showloading" role="status"
+                        aria-hidden="true"></span><span *ngIf="!showloading">
+                        Uppdatering</span>
+                </button> -->
+                <!-- Dummy button  -->
+                <!-- <button (click)="servicesTextArrayCheck()" mat-button class="user-create-button"><span
+                    class="spinner-border spinner-border-sm" *ngIf="showloading" role="status"
+                    aria-hidden="true"></span><span *ngIf="!showloading">
+                    Check</span>
+                </button> -->
+                <!-- Dummy button  -->
+            </div>
+            <div *ngIf="showloading" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+                <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+            </div>
+        </mat-card>
+    </div>
+</div>

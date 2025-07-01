@@ -1,0 +1,107 @@
+<div>
+    <!-- <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+            <span class=" ">Q&A</span></div>
+    <div class="header" fxLayoutAlign="start center" fxHide.lt-md>
+            <p class="heading">Q&A</p>
+    </div> -->
+    <!-- <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+        <span class=" " translate>Q&A</span>
+    </div>
+    <div fxHide.lt-md class="header-top" fxLayoutAlign="none center">
+        <span translate>Q&A</span>
+    </div> -->
+    <div class="banner-dark-img" *ngIf="headerImageExist">
+        <div class="header-top">
+            <!-- <span translate>Q&A</span> -->
+            <span translate>Frågor och svar</span>
+        </div>
+        <!-- <div class="banner-image"></div> -->
+        <div class="banner-image" [ngStyle]="{'background-image':headerImage && headerImage}"></div>
+    </div>
+    <div class="marginTop" *ngIf="!headerImageExist"></div>
+    <!-- <div fxHide.gt-sm class="header-top mobile-tooltip" fxLayoutAlign="center center">
+        <span class=" " translate>Q&A</span>
+    </div> -->
+    <!-- <div class="header-top" fxLayoutAlign="center center"> -->
+
+    <div class="panel-container">
+        <!-- <p class="paragraph" [innerHTML]="heading | safeHtml"></p> -->
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+            <div fxFlex.gt-sm="60" fxLayoutAlign="center start">
+                <div class="accordion-container">
+                    <div class="accordion-container-inner">
+                        <mat-accordion class="accordion mat-shadow">
+                            <mat-expansion-panel *ngFor="let categoryHeaders of questionCategory">
+                                <mat-expansion-panel-header class="accordion-header"
+                                    [style.background-color]="categoryBackground? categoryBackground: '#bfbfbf'"
+                                    fxLayoutAlign="none center">
+                                    <mat-panel-title fxLayoutAlign="none center">
+                                        <span class="category-header playfairFont" [style.color]="categoryTextColor? categoryTextColor: null"
+                                            fxLayoutAlign="none center">{{categoryHeaders}}</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="category-body" fxLayoutAlign="none center">
+                                    <div class="accordion-container2">
+                                        <div class="accordion-container-inner">
+                                            <mat-accordion class="accordion mat-shadow" *ngFor="let value of qaList">
+                                                <mat-expansion-panel hideToggle="true"
+                                                    *ngIf="value.category === categoryHeaders" #question>
+                                                    <mat-expansion-panel-header class="accordion-header1" [style.background-color]="questionBackground? questionBackground: '#e0e0e0'"
+                                                        fxLayoutAlign="none center">
+                                                        <mat-panel-title fxLayoutAlign="none center">
+                                                            <span class="question playfairFont" [style.color]="questionTextColor? questionTextColor: null" fxLayoutAlign="none center">
+                                                                {{value.question}}
+                                                            </span>
+                                                        </mat-panel-title>
+                                                        <mat-panel-title fxLayoutAlign="end">
+                                                            <!-- <span class="question" fxLayoutAlign="end"> -->
+                                                            <mat-icon *ngIf="!question.expanded">add</mat-icon>
+                                                            <mat-icon *ngIf="question.expanded">remove</mat-icon>
+
+                                                            <!-- </span> -->
+                                                        </mat-panel-title>
+                                                    </mat-expansion-panel-header>
+                                                    <div class="answer playfairFont" fxLayoutAlign="none center">
+                                                        {{value.answer}}
+                                                    </div>
+                                                </mat-expansion-panel>
+                                            </mat-accordion>
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </div>
+            </div>
+
+            <div fxFlex.gt-sm="40" class="text-box-container">
+                <div class="text-box">
+                    <div class="text-box-text playfairFont" [innerHTML]="description? description : '' | safeHtml">
+                        <!-- <div fxLayout="column" class="text-container">
+                            <span class="text">Hittade du inte vilket svar på din fråga? Du kan alltid kontakta för mer specifik frågor.
+                            </span>
+                            <span class="horizontal-bar"></span>
+                            <div fxLayout="column">
+                                <div class="text-box-content-container" fxLayout="column">
+                                    <span class="text-box-content-title">Tel:</span>
+                                    <span class="text-box-content-desc">Telefonnummer här</span>
+                                </div>
+                                <div class="text-box-content-container" fxLayout="column">
+                                    <span class="text-box-content-title">E-post:</span>
+                                    <span class="text-box-content-desc">E -postadress här</span>
+                                </div>
+                                <div class="text-box-content-container" fxLayout="column">
+                                    <span class="text-box-content-title">Boka ett möte:</span>
+                                    <span class="text-box-content-desc" [routerLink]="'/scheduler'">Länk till mötet här</span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

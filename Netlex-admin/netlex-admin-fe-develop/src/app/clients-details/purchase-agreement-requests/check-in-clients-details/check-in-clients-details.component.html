@@ -1,0 +1,72 @@
+<!-- <div class="header-top" fxLayoutAlign="none center"><span>Klients Detaljer / Skapa Klients Detaljer</span></div> -->
+<div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-user-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <div class="inner_container">
+                <h3 fxLayoutAlign="center"><b>Klient</b></h3>
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="labels">Användarnamn</label>
+                            <input matInput type="text" placeholder="Namn" maxlength="100" class="custom_input"
+                                [value]="userData && userData.userName" disabled>
+                        </tr>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="labels">Personnummer</label>
+                            <input matInput type="text" placeholder="ååååmmddxxxx" maxlength="12" class="custom_input"
+                                [value]="userData && userData.ssn" disabled>
+                        </tr>
+                    </div>
+                </div>
+            </div>
+            <div class="inner_container">
+                <h3 fxLayoutAlign="center"><b>Motparter</b></h3>
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column" *ngFor="let item of allAnswers">
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="labels">Namn</label>
+                            <div (click)="errorFieldClickHandler(item,'answer1')" class="input_container">
+                                <input matInput type="text" placeholder="Namn" maxlength="100" class="custom_input"
+                                    [ngClass]="item.answer1ExistsInCounterparty ? 'error' : ''" [value]="item.answer1"
+                                    disabled>
+                            </div>
+                        </tr>
+                    </div>
+                    <div fxFlex.gt-sm="50" class="child-container-common">
+                        <tr fxLayout="column">
+                            <label class="labels">Personnummer</label>
+                            <div (click)="errorFieldClickHandler(item,'answer2')" class="input_container">
+                                <input matInput type="text" placeholder="ååååmmddxxxx" minlength="12" maxlength="12"
+                                    class="custom_input" [ngClass]="item.answer2ExistsInCounterparty ? 'error' : ''"
+                                    [value]="item.answer2" disabled>
+                            </div>
+                        </tr>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="end end">
+                <button (click)="closeViewDetailsHandler()" mat-button
+                    class="back-button"><mat-icon>chevron_left</mat-icon>
+                    Stänga</button>
+                &nbsp;&nbsp;
+                <!-- <button (click)="onsubmit()" mat-button class="user-create-button"><span
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span>
+                        Lägg Till</span>
+                </button> -->
+                <button (click)="updateRequest('rejected')" mat-button class="reject-button"><span>
+                        Avvisa</span>
+                </button>
+                &nbsp;&nbsp;
+                <button (click)="updateRequest('approved')" mat-button class="accept-button"><span
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span>
+                        Acceptera</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

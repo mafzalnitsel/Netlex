@@ -1,0 +1,47 @@
+<!-- <mat-toolbar class="toolbar">
+    <span class="documentTitle marginTitle" fxHide.lt-md>Kassa</span>
+    <span class="documentTitle" *ngIf="paymentCard" fxHide.gt-sm >{{'USERINPUTS.CHECKOUT' | translate}}</span>
+    <span class="documentTitle" *ngIf="paymentMethodNav" fxHide.gt-sm >{{'MY_PURCHASE.PAYMENT_METHOD' | translate}}</span>
+</mat-toolbar> -->
+
+
+
+<!-- <mat-card class="paymentPageCard" *ngIf="paymentCard"> -->
+    
+<mat-card class="paymentPageCard" >
+
+    
+    
+    <mat-card class="paymentInnerCard" fxHide.lt-md>
+
+
+        
+        <h3 class="paymentHeader">Schedule Details</h3>
+        <div class="divideLine"></div>
+
+
+        <div fxLayout="row" class="agreement-price">
+            <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">Heading:</h4>
+            <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{ScheduleDetails.heading}}</h4>
+        </div>
+       
+        <div fxLayout="row" class="price-details">
+            <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">Date:</h4>
+            <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{ScheduleDetails.dateOf}}</h4>
+        </div>
+        
+        <div fxLayout="row" class="price-details">
+            <h4 fxFlex="50" fxLayoutAlign="start" class="documentTitlePay">Time:</h4>
+            <h4 fxFlex="50" fxLayoutAlign="end" class="documentPricePaymOB">{{ScheduleDetails.time}}</h4>
+        </div>
+        <div class="divideLine"></div>
+        <div fxLayout="row" fxLayoutAlign="start">
+            <h4 class="payment-header-payment" fxLayoutAlign="start">{{'MY_PURCHASE.PAYMENT_METHOD' | translate}}</h4>
+            
+            
+        </div>
+        <button mat-button class="previewCheckoutBtnDeskTop" (click)="movePurchase()"><span fxLayoutAlign="center center" translate>USERINPUTS.CHECKOUT</span>
+        </button>
+    </mat-card>
+
+       

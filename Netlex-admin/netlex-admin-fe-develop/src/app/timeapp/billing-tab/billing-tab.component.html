@@ -1,0 +1,31 @@
+<mat-tab-group animationDuration="0ms" [selectedIndex]="0">
+    <!-- -----------------InnerTabs5-------Billing------------------------- -->
+    <mat-tab label="Fakturering">
+      <app-billing></app-billing>
+    </mat-tab>
+    <!-- ---------------InnerTabs5---------Templates------------------------- -->
+    <mat-tab label="Mallar">
+      <app-templates></app-templates>
+    </mat-tab>
+    <!-- ---------------InnerTabs5---Cast Invoives--(Kostnadsfakturering------- -->
+    <mat-tab label="Cast fakturor">
+      <app-cast-invoices></app-cast-invoices>
+    </mat-tab>
+    <!-- ---------------InnerTabs5---------Setting-------(Co-Fester)--- -->
+    <mat-tab label="Inställningar">
+      <app-setting></app-setting>
+    </mat-tab>
+    <!-- --vv-- To get Tab Index --vv-- -->
+    <!-- <mat-tab disabled></mat-tab> -->
+    <!-- --^^-- To get Tab Index --^^-- -->
+  </mat-tab-group>
+  <!-- <div *ngIf="ReportsTabIntial">
+    Klient
+  </div> -->
+
+  <!-- <label class="Heading_lable"><b>Billing:</b></label><br />
+  <label class="lable">Billing</label><br />
+  <label class="lable">Templates</label><br />
+  <label class="lable">Cast</label><br />
+  <label class="lable">Invoives</label><br />
+  <label class="lable">Setting(Payee,Message and texts , Fess, Accounting)</label><br /> -->

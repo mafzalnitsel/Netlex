@@ -1,0 +1,17 @@
+<div class="banner-warn-container" fxFlexAlign="center">
+    <span fxLayoutAlign="center">
+        <img alt="" class="indication-icon" src="assets/images/Ellipse%2031.svg">
+    </span>
+</div>
+
+<mat-dialog-actions fxLayout="column" class="button-container-save-for-later" fxFlexAlign="center">
+    <div class="loginBtn" (click)="login()">
+        <img alt="Login" src="assets/images/dialogLoginButton.svg">
+    </div>
+    <div class="loginBtn" (click)="register()">
+        <img alt="Register" src="assets/images/dialogRegisterButton.svg">
+    </div>
+    <div *ngIf="!saveForLater" class="loginBtn" (click)="skip()">
+        <img alt="Guest" src="assets/images/dialogGuestButton.svg">
+    </div>
+</mat-dialog-actions>

@@ -1,0 +1,38 @@
+<h2 class="example-h2 playfairFont">Result: {{value}}</h2>
+<div class="progress_bar_container">
+  <!-- /\/\/\/\/\/\/\/\ ------ All Tasks Gifs ----- /\/\/\/\/\/\/\/\ -->
+  <div class="all_Gifs">
+    <!-- |||||||| ------ No Task empty space ----- |||||||| -->
+    <div class="taskContainer"></div>
+    <!-- |||||||| ------------ Task 1 ------------ |||||||| -->
+    <div class="taskContainer">
+      <span class="task_name">BankID Verified</span>
+      <span class="gif_container">
+        <!-- <img  *ngIf="task1" src="assets/images/TaskDoneGifs/GifByNadeemMansha(red).gif" alt=""> -->
+        <img *ngIf="task1" src="assets/images/TaskDoneGifs/redSlow.gif" alt="">
+      </span>
+    </div>
+    <!-- |||||||| ------------ Task 2 ------------ |||||||| -->
+    <div class="taskContainer">
+      <span class="task_name">Signup User</span>
+      <span class="gif_container">
+        <!-- <img src="assets/images/TaskDoneGifs/GifByNadeemMansha(red).gif" alt=""> -->
+        <img *ngIf="task2" src="assets/images/TaskDoneGifs/blueSlow.gif" alt="">
+      </span>
+    </div>
+    <!-- |||||||| ------------ Task 3 ------------ |||||||| -->
+
+    <div class="taskContainer">
+      <span class="task_name">Account Registered</span>
+      <span class="gif_container">
+        <!-- <img src="assets/images/TaskDoneGifs/GifByNadeemMansha(red).gif" alt=""> -->
+        <img *ngIf="task3" src="assets/images/TaskDoneGifs/greenSlow.gif" alt="">
+      </span>
+
+    </div>
+  </div>
+</div>
+<div class="progress_bar_container">
+  <mat-progress-bar class="progress_bar" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+  </mat-progress-bar>
+</div>

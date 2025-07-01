@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+<!-- <ng-container *ngIf="(asyncTabs | async) === null">
+    Loading tabs...
+  </ng-container> -->
+<div class="header-top time-app-header" fxLayoutAlign="center"><b>Tid App</b></div>
+
+<mat-tab-group animationDuration="0ms" [selectedIndex]="2">
+  <!-- [backgroundColor]="'primary'" > -->
+  <!-- <mat-tab *ngFor="let tab of asyncTabs | async">
+      <ng-template mat-tab-label >{{tab.label}}</ng-template>
+      {{tab.content}}
+    </mat-tab> -->
+  <!-- /\/\/\/\/\/\/\--Tab1-------Accounting--/\/\/\/\/\/\/\/\/\ -->
+  <mat-tab label="Bokföring" translate [ngStyle]="{color: 'green'}">
+    <app-accounting-tab></app-accounting-tab>
+  </mat-tab>
+
+  <!-- /\/\/\/\/\/\/\--Tab2-------Register--/\/\/\/\/\/\/\/\/\/\ -->
+  <mat-tab label="Registrera" translate>
+    <app-register-tab></app-register-tab>
+  </mat-tab>
+
+  <!-- /\/\/\/\/\/\/\--Tab3-------My Pages--/\/\/\/\/\/\/\/\/\/\ -->
+  <mat-tab label="Mina Sidor" translate>
+    <app-my-pages-tab></app-my-pages-tab>
+  </mat-tab>
+
+  <!-- /\/\/\/\/\/\/\--Tab4-------Reports--/\/\/\/\/\/\/\/\/\/\/\ -->
+  <mat-tab label="Rapporter" translate>
+    <app-reports-tab></app-reports-tab>
+
+  </mat-tab>
+
+  <!-- /\/\/\/\/\/\/\--Tab5-------Billing--/\/\/\/\/\/\/\/\/\/\/\ -->
+  <mat-tab label="Fakturering" translate>
+    <app-billing-tab></app-billing-tab>
+  </mat-tab>
+  <!-- /\/\/\/\/\/\/\--Tab6-------Control Panel--/\/\/\/\/\/\/\/\ -->
+  <mat-tab label="Kontroll Panel" translate>
+    <app-control-panel-tab></app-control-panel-tab>
+  </mat-tab>
+
+</mat-tab-group>
+
+<!-- <div *ngIf="showValue">
+    <label class="Heading_lable"><b>Accounts:</b></label><br />
+    <label class="lable">My Account</label><br />
+    <label class="lable">All Account</label><br />
+
+    <label class="Heading_lable"><b>Register:</b></label><br />
+    <label class="lable">Klient</label><br />
+    <label class="lable">Materia</label><br />
+    <label class="lable">Motparter</label><br />
+    <label class="lable">Co-Fester</label><br />V
+
+    <label class="lable">Extended Search/Confilict Control</label><br />
+    <label class="Heading_lable"><b>My Pages:</b></label><br />
+    <label class="lable">Change Password</label><br />
+    <label class="lable">Setting</label><br />
+    <label class="lable">Favourites</label><br />
+    <label class="lable">Nyheter</label><br />
+
+    <label class="Heading_lable"><b>Reports:</b></label><br />
+    <label class="lable">Rapporter</label><br />
+    <label class="lable">Complilations</label><br />
+    <label class="lable">Rapporter</label><br/>
+    <label class="lable">Artiklar</label><br />
+    <label class="lable">Fakturering</label><br />
+    <label class="lable">Registrera</label><br />
+    <label class="lable">Diagram</label><br />
+
+    <label class="Heading_lable"><b>Billing:</b></label><br />
+    <label class="lable">Billing</label><br />
+    <label class="lable">Templates</label><br />
+    <label class="lable">Cast</label><br />
+    <label class="lable">Invoives</label><br />
+    <label class="lable">Setting(Payee,Message and texts , Fess, Accounting)</label><br />
+
+
+    <label class="Heading_lable"><b>Control Panel:</b></label><br />
+    <label class="lable">Control Panel (User Groups, Permission, Templates, User)</label><br />
+    <label class="lable">Activity</label><br />
+    <label class="lable">Integeration    </label><br />
+    <label class="lable">Codes</label><br />
+    <label class="lable">Codes Groups</label><br />
+    <label class="lable">Codes</label><br />
+    <label class="lable">Artices</label><br />
+
+
+</div> -->

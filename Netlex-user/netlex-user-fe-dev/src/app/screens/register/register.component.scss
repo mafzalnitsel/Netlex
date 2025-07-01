@@ -1,0 +1,639 @@
+$font-family:'Playfair Display,serif !important';
+.saveBtn {
+  background-color: var(--netlex-primary);
+  color: white;
+  width: 330px;
+  height: 55px;
+  border-radius: 6px;
+  font-family: $font-family;
+  letter-spacing: 0.07em;
+
+  span {
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  img {
+    padding-right: 14px;
+  }
+}
+
+.navbar {
+  height: 53px !important;
+  padding: 12px;
+  text-align: left;
+  background-color: var(--netlex-primary);
+  border-radius: unset;
+}
+
+.fields {
+  background-color: #FFFFFF;
+}
+
+.register {
+  display: grid;
+  place-items: center;
+  // padding-top: 22px;
+  height: 550px !important;
+}
+
+.required {
+  color: red;
+}
+
+.fields-labels {
+  font-family: $font-family;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.container-login {
+  background-color: #FFFFFF;
+  height: 100%;
+}
+
+.register-container {
+  width: 387px;
+  height: 100%;
+  border: 2px solid #1F2A53;
+  border-radius: 10px;
+}
+
+
+
+.content-top {
+  // padding: 58px 20px 20px 20px;
+  padding: 100px 20px 20px 20px;
+}
+
+
+
+.account {
+  width: 330px;
+  padding: 12px 0 8px 0;
+  text-align: left;
+
+  a {
+    color: cornflowerblue;
+    text-decoration: unset;
+
+    span {
+      cursor: pointer;
+    }
+  }
+}
+
+.ssn-input {
+  padding-left: 11px;
+  width: 330px;
+  height: 50px;
+  background: #FFFFFF;
+  border: 2px solid #A8B2D4;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #AAAAAA;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+}
+
+.ssn-input:focus {
+  outline: unset;
+}
+
+.ssn-input::placeholder {
+  color: #AAAAAA;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+}
+
+.ssn-input::-ms-input-placeholder {
+  color: #AAAAAA;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+}
+
+
+.mobile-radio {
+  cursor: pointer;
+  width: 330px;
+  height: 45px;
+  border-radius: 7px;
+  background-color: #A8B2D4;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: left;
+  letter-spacing: 0.07em;
+
+  span {
+    padding: 15px 0 11px 9px;
+  }
+
+  input[type='radio'] {
+    background-color: #FFFFFF;
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 25px;
+    outline: none;
+    border: 4px solid #ffffff;
+  }
+
+  input[type='radio']:checked {
+    border-color: #ffffff;
+    background: #DFDAD6 content-box;
+  }
+}
+
+.break {
+  height: 5px !important;
+}
+
+.button-container-top {
+  padding-top: 12px;
+}
+
+.ssn-padding {
+  padding: 0 26px 26px 26px;
+}
+
+.ssn-padding-mobile {
+  padding: 30px 26px 26px 26px;
+}
+
+@media only screen and (max-width: 960px) {
+
+  .saveBtn,
+  .ssn-input,
+  .mobile-radio {
+    //width: 280px !important;
+  }
+
+  .register-container {
+    width: 350px;
+    height: 640px;
+    border: unset;
+  }
+
+  .register-container-company {
+    width: 350px;
+    height: 640px;
+    border: unset;
+  }
+
+  .content-top {
+    padding-top: 45px;
+  }
+
+  .register {
+    padding-top: unset;
+  }
+
+  .account {
+    width: 280px;
+    padding: 12px 0 8px 0;
+  }
+}
+
+.mobile-header {
+  border: #DCD2C8 1px solid;
+  font-family: $font-family;
+  font-weight: 300;
+  font-size: 25px;
+
+  span {
+    padding: 9px 17px 9px 17px;
+  }
+}
+
+.netlex-logo {
+  cursor: pointer;
+  margin-left: 57px;
+}
+
+
+.prevBt {
+  height: 40px;
+  width: 110px;
+  border: 3px solid #1F2A53;
+}
+
+.mobile-header {
+  font-family: $font-family;
+  font-weight: 300;
+  font-size: 25px;
+
+  a {
+    color: #A8B2D4;
+  }
+
+  border: #DCD2C8 1px solid;
+
+  span {
+    padding: 9px 17px 9px 17px;
+  }
+}
+
+.status-chooser {
+  margin-bottom: 10px;
+}
+
+.saveBtn {
+  background-color: var(--netlex-primary);
+  color: white;
+  width: 330px;
+  height: 50px;
+  border-radius: 6px;
+  font-family: $font-family;
+  letter-spacing: 0.07em;
+
+
+  span {
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  img {
+    padding-right: 14px;
+  }
+}
+
+.fields {
+  background-color: #FFFFFF;
+}
+
+.register {
+  display: grid;
+  place-items: center;
+  // padding-top: 42px;
+  height: 550px !important;
+}
+
+.fields-labels {
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #0E0D0D;
+}
+
+.fields-labels-mobile {
+  font-family: $font-family;
+  font-size: 15px;
+  font-weight: 400;
+  padding-top: 30px;
+}
+
+.register-container {
+  width: 387px;
+  // height: 640px;
+  margin-top: 40px;
+  height: 510px;
+  border: 2px solid #1F2A53;
+  border-radius: 10px;
+}
+
+.register-container-org {
+  // height: 684px !important;
+  // height: auto !important;
+  height: 527px !important;
+
+  .fields-labels{
+    margin-top: 10px;
+  }
+}
+
+.register-container-mobile {
+  width: 387px;
+}
+.loading_after_QR {
+  height: 256px;
+  width: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-login {
+  // color: #1F2A53;
+  // font-family:'Playfair Display,serif !important';
+  // font-weight: 400;
+  // font-size: 25px;
+  // text-align: center;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  padding-top: 25px;
+}
+.content-top {
+  padding: 58px 20px 20px 20px;
+}
+
+.tittle-login-description {
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  padding-top: 14px;
+  letter-spacing: 0.04em;
+  padding: 10px;
+}
+
+.account {
+  width: 330px;
+  padding: 12px 0 8px 0;
+  text-align: left;
+  letter-spacing: 0.04em;
+
+  a {
+    color: cornflowerblue;
+    text-decoration: unset;
+
+    span {
+      cursor: pointer;
+    }
+  }
+}
+
+
+.mobile-radio {
+  cursor: pointer;
+  width: 330px;
+  height: 45px;
+  border-radius: 7px;
+  background-color: #A8B2D4;
+  color: #ffffff;
+  font-family: Roboto, medium, serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  font-size: 16px;
+  text-align: left;
+
+  span {
+    padding: 15px 0 11px 9px;
+  }
+
+  input[type='radio'] {
+    background-color: #FFFFFF;
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    border-radius: 25px;
+    outline: none;
+    border: 4px solid #ffffff;
+  }
+
+  input[type='radio']:checked {
+    border-color: #ffffff;
+    background: #DFDAD6 content-box;
+  }
+}
+
+.button-container-top {
+  padding-top: 12px;
+}
+
+.ssn-padding {
+  // padding-top: 46px;
+  padding-top: 20px;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+@media only screen and (max-width: 768px) {
+  
+  .account-selector-input-field-first,
+  .account-selector-input-field-second {
+    padding: 0 20px 0 20px;
+  }
+
+  .sign-up {
+    padding-top: unset !important;
+  }
+  .account-selector {
+    border: unset;
+    height: 100%;
+  }
+  .saveBtn,
+  .ssn-input,
+  .mobile-radio {
+    //width: 280px !important;
+    margin-top: 5px;
+    // margin-bottom: 14px;
+  }
+
+  .register-container {
+    width: 350px;
+    // height: 640px;
+    margin-top: 10px;
+    // border: unset;
+  }
+  .register-container-org {
+    // height: 684px !important;
+    // height: auto !important;
+    height: 600px !important;
+  }
+  .account-selector{
+    margin-top: 70px;
+  }
+  .content-top {
+    padding-top: 58px;
+  }
+
+  .register {
+    padding-top: unset;
+  }
+
+  .account {
+    width: 280px;
+    padding: 12px 0 8px 0;
+    margin-bottom: 13px !important;
+  }
+
+  .ssn-padding {
+    padding: unset;
+  }
+
+  input[type='radio'] {
+    background-color: #FFFFFF;
+    -webkit-appearance: none;
+    width: 17px;
+    height: 20px !important;
+    border-radius: 25px;
+    outline: none;
+    border: 4px solid #ffffff;
+  }
+
+  // .sign-up-desc {
+  //   width: unset;
+  // }
+}
+
+.mobile-header {
+  border: #DCD2C8 1px solid;
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 29px;
+  letter-spacing: 0.07em;
+  color: #1B1919;
+
+
+  span {
+    padding: 9px 17px 9px 17px;
+  }
+}
+
+.back-button {
+  height: 40px;
+  width: 110px;
+  border-radius: 6px;
+  border: 3px solid #1F2A53;
+}
+
+.bankId-logo-mobile {
+  width: 25px;
+  height: 23.37px;
+}
+
+.prev-button-container {
+  margin-top: 133px;
+}
+
+.input-height-mobile {
+  margin-top: 5px;
+}
+
+.paddingTop {
+  padding-top: 9px !important;
+}
+
+.account-selector {
+  border: 2px solid #1F2A53;
+  box-sizing: border-box;
+  // margin-top: 117px;
+  // margin-top: 100px;
+  margin: 100px 20px 20px 20px;
+  // height: 540px;
+  height: auto;
+  padding-bottom: 100px;
+  margin-bottom: 192px;
+  border-radius: 10px;
+}
+
+
+
+.account-selector-input-field-first {
+  padding: 0 28px 5px 29px;
+}
+
+.account-selector-input-field-second {
+  padding: 0 28px 0 29px;
+}
+
+
+
+.sign-up {
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  letter-spacing: 0.07em;
+  color: #1F2A53;
+  padding: 10px 0 14px 0;
+}
+
+.sign-up-desc {
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.04em;
+  color: #1B1919;
+  // padding-bottom: 31px;
+  width: 248px;
+}
+
+@media only screen and (max-width: 400px) {
+  .saveBtn,
+  .ssn-input{
+    margin-top: 5px;
+    width: 250px;
+  }
+  .mobile-radio {
+    margin-top: 5px;
+    width: 234px;
+  }
+  .ssn-padding {
+    padding-left: 20px;
+  }
+  // .account{
+  //   padding: 12px 10px 8px 15px;
+  // }
+}
+
+.mbl_bankid_link{
+  color: #000234;
+  padding: 10px;
+}
+.mobile-radio{
+  a{
+    color: white;
+    padding-left: 8px;
+    text-decoration: none;
+    
+  }
+}
+.progress_loading_container{
+  display: flex;
+  // background-color: palegreen;
+  justify-content: center;
+  align-items: center;
+}
+.progress_loading{
+  width: 100%;
+}
+.progress_overlay {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 70%);
+  z-index: 10;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+// .laws_logo_mobile {
+//   height: 30px;
+//   width: 30px;
+// }

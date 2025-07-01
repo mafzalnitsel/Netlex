@@ -1,0 +1,323 @@
+$font-family: Roboto, normal;
+.table thead tr th {
+  border: unset;
+  text-transform: capitalize;
+  color: gray;
+  font-size: 14px;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0 3px;
+}
+
+.navbar {
+  height: 75px !important;
+  padding: 12px;
+  text-align: left;
+  background-color: var(--netlex-primary);
+  border-radius: unset;
+}
+
+.ssn-input{
+  padding: 10px 0 10px 10px;
+  width: 100%;
+}
+
+.table tbody tr td {
+  user-select: none;
+  font-size: 15px;
+  border: unset;
+  background-color: #fff;
+}
+.header-top-documents {
+  height: 92px;
+  font-family:'Playfair Display,serif !important';  font-weight: 400;
+  font-size: 25px;
+  color: #1F2A53;
+  box-shadow: 2px 1px 3px 0.2px #888888;
+  span{
+    padding: 15px;
+  }
+}
+.input-container{
+  width: 200px!important;
+  height: 40px;
+  border: 2px solid rgba(168, 178, 212, 0.5);
+  border-radius: 7px;
+  color: #1F2A53;
+}
+.search-filter {
+  font-family:'Playfair Display,serif !important';
+  font-weight: 300;
+  font-size: 17px;
+  border: none;
+  outline: unset;
+  padding: 5px;
+  margin-left: 3px;
+}
+.mat-icon-center {
+  text-align: center;
+  vertical-align: middle;
+}
+.table tbody tr {
+  border: 0.2px solid #f8eded;
+  margin-top: 10px;
+}
+
+.table tbody tr:hover {
+  border-left: 3px solid #93c7c3;
+  cursor: pointer;
+}
+
+.table tbody tr:hover td {
+  background-color: #f4fffe;
+}
+
+.table tbody tr:hover .changecolor {
+  color: #3d857f;
+}
+
+.jobheader {
+  font-weight: bold;
+}
+
+.jobid {
+  color: gray;
+  font-size: 14px;
+}
+
+table tbody tr td .fa {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+$table-full-width: 100%;
+
+.h-container {
+  box-sizing: border-box;
+  padding: 10px 5px;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 1px;
+}
+
+.addBox {
+  width: 100%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.space {
+  padding: 10px !important;
+  flex: auto;
+}
+
+.mat-form-field-underline {
+  background-color: white !important;
+}
+
+.moveCenter {
+  margin-left: -5%;
+}
+
+.saveBtn {
+  background-color: var(--netlex-primary);
+  color: white;
+}
+
+.create-user-button {
+  width: 155px;
+  height: 40px;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.save-button-container {
+  padding: 40px 60px 40px 0;
+}
+
+.create-user-button-container {
+  padding: 40px 60px 40px 0;
+}
+
+@media only screen and(max-width: 960px) {
+  .create-user-button-container {
+    padding: 20px 0 20px 0;
+  }
+}
+
+
+.contentDiv {
+  overflow-y: scroll;
+  height: 60vh;
+}
+
+.profile-button {
+  color: #ffffff;
+  background-color: var(--netlex-primary);
+}
+
+.button-center {
+  text-align: center !important;
+}
+
+.table-size {
+  width: $table-full-width;
+  padding: 10px;
+}
+
+.text-center {
+  background-color: var(--netlex-primary);
+  width: 100%;
+  color: white;
+}
+
+article {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+}
+
+.left-half {
+  background-color: #f5f4f1;
+  position: absolute;
+  left: 0;
+  width: 50%;
+}
+
+.right-half {
+  background-color: #eeedeb;
+  width: 50%;
+}
+
+.pgn {
+  background-color: #eeedeb;
+}
+
+.edit-button {
+  background-color: #637ACB;
+  width: 35px;
+  height: 30px;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $font-family;
+}
+
+.delete-user-button {
+  color: #B70000;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $font-family;
+}
+
+.user-row {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: $font-family;
+}
+
+td{
+  padding: 15px;
+  text-align: center;
+}
+
+.table-header {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: $font-family;
+}
+
+@media only screen and(max-width: 960px) {
+  .table-container {
+    overflow: scroll;
+  }
+}
+
+.table-container {
+  border-top: var(--netlex-primary) 3px solid;
+}
+
+.pagination-button-container {
+  border-bottom: var(--netlex-primary) 3px solid;
+}
+
+
+
+
+.mat-select {
+  display: inline-block;
+  width: 10%;
+  outline: none;
+}
+p{
+  display: none;
+}
+.mat-select-value {
+  display: table-cell;
+  max-width: 0;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.status{
+
+}
+.table-th-bottom-border {
+  padding: 5px;
+  border-bottom: 1px solid rgba(138, 141, 138, 0.9);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.table-th{
+  width: 1100px;
+}
+
+.table-th-font {
+  font-family: Roboto, serif ;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  align-items: center;
+  letter-spacing: 0.07em;
+  color: #646464;
+}
+.table-tr-font {
+  font-family:'Playfair Display,serif !important';  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 20px;
+}
+
+.button-create {
+  width: 149px;
+  outline: none;
+  height: 34.99px;
+  border-radius: 13px;
+  background-color: #FFFFFF;
+  border: #97A9A0 2px solid;
+  font-size: 13px;
+  font-family:'Playfair Display,serif !important';  font-weight: 500;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 960px) {
+  .button-container{
+    padding: 10px;
+  }
+  .button-create-container{
+    padding-top: 10px;
+  }
+}
+
+.button-create-container{
+  padding-right: 10px;
+}

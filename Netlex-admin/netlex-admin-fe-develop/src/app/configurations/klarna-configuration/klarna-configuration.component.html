@@ -1,0 +1,43 @@
+<!-- <app-navbar xmlns="http://www.w3.org/1999/html"></app-navbar> -->
+<div class="header-top noMargin" fxLayoutAlign="none center"><span>Redigera Klarna Konfiguration</span></div>
+<div fxLayout.lt-lg="col" fxLayout.lg="row">
+    <div fxFlex.gt-md="100" class="create-about-us-table-container" fxLayout="column" fxLayoutAlign="none center">
+        <mat-card class="addBox" fxLayout="column">
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Klarna Användarnamn</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Klarna Användarnamn</mat-label> -->
+                    <textarea matInput type="text" [(ngModel)]="klarna_userName" required placeholder="Klarna Användarnamn"></textarea>
+                </mat-form-field>
+            </tr>
+            <tr fxLayout="column">
+                <label class="id-labels"><b>Klarna Lösenord</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <!-- <mat-label>Klarna Lösenord</mat-label> -->
+                    <textarea matInput type="text" [(ngModel)]="klarna_password" required placeholder="Klarna Lösenord"></textarea>
+                </mat-form-field>
+            </tr>
+            <!-- <tr fxLayout="column">
+                <label class="id-labels"><b>Klarna Confirm_URI</b></label>
+                <mat-form-field style="font-size:11px" appearance="outline">
+                    <mat-label>Klarna Confirm_URI</mat-label>
+                    <textarea matInput type="text" [(ngModel)]="klarna_confirm_url" required></textarea>
+                </mat-form-field>
+            </tr> -->
+
+
+            <div class="buttons-container" fxLayout="row" fxLayoutAlign="center center">
+                <!-- <button [routerLink]="'/home'" mat-button class="back-button" >
+                    <mat-icon>chevron_left</mat-icon>
+                    Tillbaka
+                </button> -->
+                &nbsp;&nbsp;
+                <button (click)="openDialog()" mat-button class="update-button"><span
+                        class="spinner-border spinner-border-sm" *ngIf="showloading" role="status"
+                        aria-hidden="true"></span><span *ngIf="!showloading">
+                        Uppdatering</span>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

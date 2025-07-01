@@ -1,0 +1,255 @@
+<div>
+    <!--    <mat-toolbar class="navbar" color="primary" fxHide.lt-md>-->
+    <!--        <img class="netlex-logo " height="35" width="118" src="assets/netlex.png" alt="Netlex"-->
+    <!--             [routerLink]="'/home'">-->
+    <!--    </mat-toolbar>-->
+    <!-- <div fxLayout="column" class="container-login" fxHide.lt-md> -->
+    <div fxLayout="column" class="container-login">
+        <div fxLayoutAlign="center center" class="content-top">
+            <div class="register-container" fxLayout="column">
+                <span fxLayoutAlign="center" class="title-login" translate>COMMON.LOGIN</span>
+                <span fxLayoutAlign="center" class="tittle-login-description" translate>
+                    LOGIN.LOGIN_WITH_YOUR_BANKID</span>
+                <div fxFlex="35" class="register fields" *ngIf="!ssnDone">
+                    <!-- <qrcode
+                        [qrdata]="'bankid.bbbb1030-98ba-457d-9507-8f95c37cb502.2.edf54d98b9d293839b39c3689abf2c13302b9568187be7b4ecea962081855a8d'"
+                        [width]="256" [errorCorrectionLevel]="'M'"></qrcode> -->
+                    <!-- <div fxLayoutAlign="center center">
+                        <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                            (click)="isMobileBankIdOnDevice = 'current'">
+                            <span fxFlex="90" translate>COMMON.MOBILE_BANKID</span>
+                            <input fxFlex="5.3" name="bankId" type="radio" value="current"
+                                [(ngModel)]="isMobileBankIdOnDevice">
+                        </div>
+                    </div>
+                    <span class="break"></span>
+                    <div>
+                        <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                            (click)="isMobileBankIdOnDevice = 'another'">
+                            <span fxFlex="90" translate>COMMON.MOBILE_BANKID_ON_ANOTHER_DEVICE</span>
+                            <input fxFlex="5.3" name="bankId" type="radio" value="another"
+                                [(ngModel)]="isMobileBankIdOnDevice">
+                        </div>
+                    </div> -->
+                    <div fxLayout="column" class="ssn-padding">
+                        <mat-label class="fields-labels" translate>COMMON.SSN<span class="required">*</span>
+                        </mat-label>
+                        <input maxlength="12" size="12" class="ssn-input" type="text" [(ngModel)]="ssn"
+                            placeholder="ååååmmddxxxx" required>
+                    </div>
+                    <span class="button-container-top"></span>
+                    <div fxLayoutAlign="center center" fxLayout="column">
+                        <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center"><span
+                                translate fxLayoutAlign="center center">
+                                <img width="25px" height="23.37px" src="assets/images/bankIdLogo.png"
+                                    alt="sign in">&nbsp;
+                                COMMON.SIGN_IN</span>
+                        </button>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="center" class="account playfairFont">
+                        <span translate>LOGIN.DONT_HAVE_AN_ACCOUNT<a [routerLink]="'/register'"
+                                translate>&nbsp;LOGIN.CREATE_AN_ACCOUNT</a></span>
+                    </div>
+                </div>
+                <div fxFlex="15" class="register fields" *ngIf="ssnDone">
+                    <!-- <qrcode
+                        [qrdata]="'bankid.bbbb1030-98ba-457d-9507-8f95c37cb502.2.edf54d98b9d293839b39c3689abf2c13302b9568187be7b4ecea962081855a8d'"
+                        [width]="256" [errorCorrectionLevel]="'M'"></qrcode> -->
+                    <qrcode *ngIf="!qrScannedLoading" [qrdata]="forQRCode" [width]="256" [errorCorrectionLevel]="'M'">
+                    </qrcode>
+                    <!-- <qrcode
+                        [qrdata]="'bankid.3a662a35-2d3c-4568-8901-360b685cc07e.0.02f117ad2ab118a1cd83d3ab9da9c2dc8cfdfe34eb072db185198d699ad0206d'"
+                        [width]="256" [errorCorrectionLevel]="'M'"></qrcode> -->
+                    <div class="loading_after_QR" *ngIf="qrScannedLoading">
+                        <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+                    </div>
+                    <!-- <img [src]="forQRCode" alt=""> -->
+                    <div fxLayoutAlign="center center" (click)="currentDeviceHandler()"  *ngIf="device!='Windows'">
+                        <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                            (click)="isMobileBankIdOnDevice = 'current'">
+                            <!-- <span fxFlex="90" translate>COMMON.MOBILE_BANKID_ON_CURRENT_DEVICE</span> -->
+                            <a  [href]="bankIdUrl" alt="" fxFlex="90" translate>COMMON.MOBILE_BANKID_ON_CURRENT_DEVICE</a>
+                            <input fxFlex="5.3" name="bankId" type="radio" value="current"
+                                [(ngModel)]="isMobileBankIdOnDevice" disabled>
+                        </div>
+                    </div>
+                    <div fxLayoutAlign="center center" *ngIf="device=='Windows'">
+                        <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                            (click)="isMobileBankIdOnDevice = 'current'">
+                            <span fxFlex="90" translate>COMMON.MOBILE_BANKID_ON_CURRENT_DEVICE</span>
+                            <input fxFlex="5.3" name="bankId" type="radio" value="current"
+                                [(ngModel)]="isMobileBankIdOnDevice">
+                        </div>
+                    </div>
+                    <span class="break"></span>
+                    <div>
+                        <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                            (click)="isMobileBankIdOnDevice = 'another'">
+                            <span fxFlex="90" translate>COMMON.MOBILE_BANKID_ON_ANOTHER_DEVICE</span>
+                            <input fxFlex="5.3" name="bankId" type="radio" value="another"
+                                [(ngModel)]="isMobileBankIdOnDevice">
+                        </div>
+                    </div>
+                    <!-- <div fxLayout="column" class="ssn-padding">
+                        <mat-label class="fields-labels" translate>COMMON.SSN<span class="required">*</span>
+                        </mat-label>
+                        <input maxlength="12" size="12" class="ssn-input" type="text" [(ngModel)]="ssn"
+                            placeholder="ååååmmddxxxx" required>
+                    </div>
+                    <span class="button-container-top"></span>
+                    <div fxLayoutAlign="center center" fxLayout="column">
+                        <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center"><span
+                                translate fxLayoutAlign="center center">
+                                <img width="25px" height="23.37px" src="assets/images/bankIdLogo.png"
+                                    alt="sign in">&nbsp;
+                                COMMON.SIGN_IN</span>
+                        </button>
+                    </div> -->
+                    <!-- <div fxLayout="column" fxLayoutAlign="center" class="account">
+                        <span translate>LOGIN.DONT_HAVE_AN_ACCOUNT<a [routerLink]="'/register'"
+                                translate>&nbsp;LOGIN.CREATE_AN_ACCOUNT</a></span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxHide.gt-sm style="display: none;">
+        <!--        <mat-toolbar class="navbar" color="primary">-->
+        <!--        <div fxFlex="50" fxLayoutAlign="start">-->
+        <!--            <div class="homebtn">-->
+        <!--                <img alt="NETLEX" class="imgNetlex paddingTop" height="35" width="118" src="assets/netlex.png"-->
+        <!--                     [routerLink]="'/home'">-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        </mat-toolbar>-->
+        <div *ngIf="!isCompany">
+            <div fxHide.gt-sm class="mobile-header" fxLayout="row" fxLayoutAlign="start">
+                <span translate>COMMON.SIGN_IN</span>
+            </div>
+            <div fxLayoutAlign="center center">
+                <div class="register-container-mobile" fxLayout="column">
+                    <span fxLayoutAlign="center" fxHide.lt-md class="title-login" translate>COMMON.LOGIN</span>
+                    <span fxLayoutAlign="center" fxHide.lt-md class="tittle-login-description" translate>
+                        LOGIN.LOGIN_WITH_YOUR_BANKID</span>
+                    <div fxFlex.gt-md="35" class="register-mobile fields" *ngIf="!ssnDone">
+                        <!-- <div fxFlex.gt-md="35" class="register-mobile fields" > -->
+                        <div>
+                            <!-- <div fxLayoutAlign="center none" class="mobile-radio-btn">
+                                <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                                    (click)="isMobileBankIdOnDevice = 'current'">
+                                    <span fxFlex="88" translate>COMMON.MOBILE_BANKID</span>
+                                    <input fxFlex="6.3" name="bankIdMobile" type="radio" value="current"
+                                        [(ngModel)]="isMobileBankIdOnDevice">
+                                </div>
+                            </div>
+                            <div fxLayoutAlign="center none" class="margin-small">
+                                <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                                    (click)="isMobileBankIdOnDevice = 'another'">
+                                    <span fxFlex="88" translate>COMMON.MOBILE_BANKID_ON_ANOTHER_DEVICE</span>
+                                    <input fxFlex="6.3" name="bankIdMobile" type="radio" value="another"
+                                        [(ngModel)]="isMobileBankIdOnDevice">
+                                </div>
+                            </div> -->
+                            <div fxLayout="column" class="ssn-padding">
+                                <div fxLayoutAlign="center">
+                                    <div fxLayout="column">
+                                        <mat-label class="fields-labels-mobile" translate>COMMON.SSN<span
+                                                class="required">*</span>
+                                        </mat-label>
+                                        <input type="text" maxlength="12" size="12" class="ssn-input" [(ngModel)]="ssn"
+                                            placeholder="ååååmmddxxxx">
+                                    </div>
+                                </div>
+                                <div fxLayoutAlign="center center" class="signBtn" fxLayout="column">
+                                    <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center">
+                                        <span translate fxLayoutAlign="center center">
+                                            <img width="25px" height="23.37px" src="assets/images/bankIdLogo.png"
+                                                alt="sign in">&nbsp;
+                                            COMMON.SIGN_IN    
+                                        </span>
+                                    </button>
+                                </div>
+                                <div fxLayoutAlign="center">
+                                    <div fxLayout="row" fxLayoutAlign="center" class="account playfairFont">
+                                        <span translate>LOGIN.DONT_HAVE_AN_ACCOUNT
+                                            <a [routerLink]="'/register'" translate>
+                                                &nbsp;LOGIN.CREATE_AN_ACCOUNT</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-md="15" class="register-mobile fields" *ngIf="ssnDone">
+                        <!-- <div fxFlex.gt-md="15" class="register-mobile fields"> -->
+                        <div>
+                            <!-- <div fxLayoutAlign="center none" class="mobile-radio-btn">
+                                <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                                    (click)="isMobileBankIdOnDevice = 'current'">
+                                    <span fxFlex="88" translate>COMMON.MOBILE_BANKID</span>
+                                    <input fxFlex="6.3" name="bankIdMobile" type="radio" value="current"
+                                        [(ngModel)]="isMobileBankIdOnDevice">
+                                </div>
+                            </div>
+                            <div fxLayoutAlign="center none" class="margin-small">
+                                <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                                    (click)="isMobileBankIdOnDevice = 'another'">
+                                    <span fxFlex="88" translate>COMMON.MOBILE_BANKID_ON_ANOTHER_DEVICE</span>
+                                    <input fxFlex="6.3" name="bankIdMobile" type="radio" value="another"
+                                        [(ngModel)]="isMobileBankIdOnDevice">
+                                </div>
+                            </div> -->
+                            <div fxLayoutAlign="center none" class="margin-small">
+                                <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                                    (click)="isMobileBankIdOnDevice = 'another'">
+                                    <span fxFlex="88" translate>COMMON.MOBILE_BANKID_ON_ANOTHER_DEVICE</span>
+                                    <input fxFlex="6.3" name="bankIdMobile" type="radio" value="another"
+                                        [(ngModel)]="isMobileBankIdOnDevice">
+                                </div>
+                            </div>
+                            <div fxLayoutAlign="center none" class="mobile-radio-btn">
+                                <div class="mobile-radio" fxLayout="row" fxLayoutAlign="none center"
+                                    (click)="isMobileBankIdOnDevice = 'current'">
+                                    <span fxFlex="88" translate>COMMON.MOBILE_BANKID_ON_CURRENT_DEVICE</span>
+                                    <input fxFlex="6.3" name="bankIdMobile" type="radio" value="current"
+                                        [(ngModel)]="isMobileBankIdOnDevice">
+                                </div>
+                            </div>
+                            <!-- <div fxLayout="column" class="ssn-padding">
+                                <div fxLayoutAlign="center">
+                                    <div fxLayout="column">
+                                        <mat-label class="fields-labels-mobile" translate>COMMON.SSN<span
+                                                class="required">*</span>
+                                        </mat-label>
+                                        <input type="text" maxlength="12" size="12" class="ssn-input" [(ngModel)]="ssn"
+                                            placeholder="ååååmmddxxxx">
+                                    </div>
+                                </div>
+                                <div fxLayoutAlign="center center" class="signBtn" fxLayout="column">
+                                    <button mat-button class="saveBtn" (click)="submit()" fxLayoutAlign="center center">
+                                        <span translate fxLayoutAlign="center center">
+                                            <img width="25px" height="23.37px" src="assets/images/bankIdLogo.png"
+                                                alt="sign in">&nbsp;
+                                            COMMON.SIGN_IN
+                                        </span>
+                                    </button>
+                                </div>
+                                <div fxLayoutAlign="center">
+                                    <div fxLayout="row" fxLayoutAlign="center" class="account">
+                                        <span translate>LOGIN.DONT_HAVE_AN_ACCOUNT
+                                            <a [routerLink]="'/register'" translate>
+                                                &nbsp;LOGIN.CREATE_AN_ACCOUNT</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showLoader" fxLayout="row" fxLayoutAlign="space-around center" class="overlay">
+        <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+    </div>
+</div>

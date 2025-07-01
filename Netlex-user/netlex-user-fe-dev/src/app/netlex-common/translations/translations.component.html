@@ -1,0 +1,10 @@
+<!-- <mat-select class="language-select" panelClass="language-select__panel" [value]="currentLang" -->
+<mat-select class="language-select" [value]="currentLang"
+
+            (valueChange)="setTranslation($event)">
+  <mat-option
+    *ngFor="let language of languages; trackBy: trackBy"
+    [value]="language.value"
+  >{{ language.label }}
+  </mat-option>
+</mat-select>

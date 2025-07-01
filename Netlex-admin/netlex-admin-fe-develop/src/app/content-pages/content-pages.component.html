@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<!-- <ng-container *ngIf="(asyncTabs | async) === null">
+    Loading tabs...
+  </ng-container> -->
+  
+  <mat-tab-group animationDuration="500ms" [selectedIndex]="tabID" class="content-pages-container">
+    <!-- <mat-tab *ngFor="let tab of asyncTabs | async">
+      <ng-template mat-tab-label >{{tab.label}}</ng-template>
+      {{tab.content}}
+    </mat-tab> -->
+    <mat-tab label="Hem" translate><app-home></app-home></mat-tab>
+    <mat-tab label="Färger" ><app-colors></app-colors></mat-tab>
+    <mat-tab label="Fråga och Svar" ><app-question-and-answer></app-question-and-answer></mat-tab>
+    <mat-tab label="Om oss" ><app-about-us></app-about-us></mat-tab>
+    <mat-tab label="Rubrik bilder" ><app-all-hero-banners></app-all-hero-banners></mat-tab>
+    <mat-tab label="Hitta oss" ><app-find-us></app-find-us></mat-tab>
+    <mat-tab label="Mer" >
+      <mat-tab-group animationDuration="500ms">
+        <mat-tab label="Aktivitetsområde" ><app-activity-areas></app-activity-areas></mat-tab>
+        <mat-tab label="Villkor och betingelser" ><app-terms-and-conditions></app-terms-and-conditions></mat-tab>
+        <mat-tab label="Integritet och Politik" ><app-privacy-and-policy></app-privacy-and-policy></mat-tab>
+      </mat-tab-group>
+    </mat-tab>
+  </mat-tab-group>

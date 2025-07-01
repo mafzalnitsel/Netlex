@@ -1,0 +1,167 @@
+<div class="new_container">
+    <div class="inner_container">
+        <!-- <div class="row_container" *ngIf="questionIndex<1">
+            <span class="fields-labels" translate>Antal person<span class="required">*</span></span>
+            <mat-select panelClass="width-mat" class="selectWidth" name="answer" required [(ngModel)]="mainSelectValue">
+                <mat-option class='option' *ngFor="let item of mainSelectOptions" [value]="item.label"
+                    (click)=" mainSelectHandler(item)">
+                    {{item.label}}
+                </mat-option>
+            </mat-select>
+        </div> -->
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="">
+            <div fxFlex.gt-sm="80" class=" ">
+                <div class="agreement_confirm_title">
+                    Jävsprövning
+                </div>
+                <div class="agreement_confirm_description">
+                    Enligt regler som fastställts av Advokatsamfundet för advokatbyråer är vi skyldiga att utföra jävsprövning.
+                    Uppge samtliga personer som skall vara med i avtalet.
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+            <!-- (ngModelChange)="onSsnChange($event,i)" -->
+            <!-- <div fxLayout.gt-sm="column" class="first_coulmns">
+                <span fxLayout.gt-sm="row" class="fields-labels" translate>qwert <span class="required">*</span></span>
+                <input matInput class="input_field_unEditable" type="text"
+                    (ngModelChange)="numberOfPersonsHandler($event)" placeholder="99" [(ngModel)]="numberOfPersons"
+                    min="0" max="99" size="1" maxlength="2" required>
+            </div> -->
+            <div fxLayout.gt-sm="column" class="first_coulmns">
+                <span fxLayout.gt-sm="row" class="fields-labels" translate>Användarnamn <span
+                        class="required">*</span></span>
+                <input matInput class="input_field_unEditable" type="text" [(ngModel)]="userName" disabled>
+            </div>
+            <div fxLayout.gt-sm="column" class="first_coulmns">
+                <span fxLayout.gt-sm="row" class="fields-labels" translate>Personnummer <span
+                        class="required">*</span></span>
+                <!-- <input matInput class="input_field_unEditable" [style.width]="allQuestions.length>2? '':'157px'" type="text" [(ngModel)]="userSSN" disabled> -->
+                <input matInput class="input_field_unEditable" type="text" [(ngModel)]="userSSN" disabled>
+            </div>
+            <!-- <div fxLayout.gt-sm="column" >
+                <span fxLayout.gt-sm="row" class="fields-labels" translate>personnummer <span class="required">*</span></span>
+                <input matInput class="input_field0" type="text" (ngModelChange)="numberOfPersonsHandler($event)"
+                placeholder="99" [(ngModel)]="numberOfPersons" min="0" max="99" size="1" maxlength="2" required>
+            </div> -->
+            <div fxLayout.gt-sm="column" class="first_coulmns">
+                <span fxLayout.gt-sm="row" class="fields-labels" translate>Hur många personer<span
+                        class="required">*</span></span>
+                <input matInput class="input_field_unEditable" type="text"
+                    (ngModelChange)="numberOfPersonsHandler($event - 1)" placeholder="99" [(ngModel)]="numberOfPersons"
+                    min="0" max="99" size="1" maxlength="2" required>
+            </div>
+        </div>
+        <div *ngIf="inputFieldsData.length != 1">
+            <div *ngFor="let person of inputFieldsData;let i=index">
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxLayout.gt-sm="column" class="labelAndInput">
+                        <span fxLayout.gt-sm="row" class="fields-labels" translate>{{person.question1}}
+                            <span class="required">*</span></span>
+                        <input fxLayout.gt-sm="row" fxLayout.lt-md="column" [placeholder]="person.placeholder1" matInput name="code_{{i}}"
+                        class="input_field"  [type]="person.type1" required [(ngModel)]="person.answer1" (ngModelChange)="answerInputHandler($event,i,person.question1)">
+                    </div>
+                    <div fxLayout.gt-sm="column" class="labelAndInput">
+                        <span fxLayout.gt-sm="row" class="fields-labels" translate>{{person.question2}}
+                            <span class="required">*</span></span>
+                        <input fxLayout.gt-sm="row" fxLayout.lt-md="column" [placeholder]="person.placeholder2" matInput
+                        class="input_field" [type]="person.type2" required [(ngModel)]="person.answer2">
+                    </div>
+                    <div fxLayout.gt-sm="column" class="labelAndInput" *ngIf="person.question3">
+                        <span fxLayout.gt-sm="row" class="fields-labels" translate>{{person.question3}}
+                            <span class="required">*</span></span>
+                        <input fxLayout.gt-sm="row" fxLayout.lt-md="column" [placeholder]="person.placeholder3" matInput
+                        class="input_field" [type]="person.type3" required [(ngModel)]="person.answer3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="conditionchecker">
+            <div *ngFor="let person of inputFieldsData;let i=index">
+                <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+                    <div fxLayout.gt-sm="column" class="labelAndInput">
+                        <span fxLayout.gt-sm="row" class="fields-labels" translate>{{person.question1}}
+                            <span class="required">*</span></span>
+                        <input fxLayout.gt-sm="row" fxLayout.lt-md="column" [placeholder]="person.placeholder1" matInput name="code_{{i}}"
+                        class="input_field"  [type]="person.type1" required [(ngModel)]="person.answer1" (ngModelChange)="answerInputHandler($event,i,person.question1)">
+                    </div>
+                    <div fxLayout.gt-sm="column" class="labelAndInput">
+                        <span fxLayout.gt-sm="row" class="fields-labels" translate>{{person.question2}}
+                            <span class="required">*</span></span>
+                        <input fxLayout.gt-sm="row" fxLayout.lt-md="column" [placeholder]="person.placeholder2" matInput
+                        class="input_field" [type]="person.type2" required [(ngModel)]="person.answer2">
+                    </div>
+                    <div fxLayout.gt-sm="column" class="labelAndInput" *ngIf="person.question3">
+                        <span fxLayout.gt-sm="row" class="fields-labels" translate>{{person.question3}}
+                            <span class="required">*</span></span>
+                        <input fxLayout.gt-sm="row" fxLayout.lt-md="column" [placeholder]="person.placeholder3" matInput
+                        class="input_field" [type]="person.type3" required [(ngModel)]="person.answer3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <button mat-button class="button-submit marginTop" fxLayoutAlign="center center" (click)="submit()">
+                <!-- <span translate>USERINPUTS.SUBMIT</span> -->
+                <span translate>Begäran</span>
+            </button>
+        </div>
+        <!-- <div *ngIf="!showloading" fxLayout="row" fxLayoutAlign="space-around center" >
+            <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+        </div> -->
+
+
+
+
+
+        <!-- ========== (Disabled) Show next question one after one by Nadeem Mansha ======== -->
+        <div class="preNextButtons" style="display:none">
+            <!-- <button [disabled]="isPreviousButtonDisable" *ngIf="!this.isEdit" fxLayoutAlign="center center" mat-button -->
+            <button mat-button [disabled]="questionIndex<1" fxLayoutAlign="center center" class="button-nav marginTop"
+                (click)="onPre()">
+                <!-- class="button-nav" (click)="onPrev()"> -->
+                <mat-icon class="mat_icon_L" [ngStyle]="{'color': questionIndex<1 ? '#00000042':'#000234'}">
+                    chevron_left
+                </mat-icon>
+                <!-- <span translate>USERINPUTS.PREVIOUS</span> -->
+                <span translate>Tidigare</span>
+            </button>
+            <!-- <button mat-button class="next-button btn" (click)="onNext()" fxLayoutAlign="center center" *ngIf="this.nextBtn"> -->
+            <button mat-button [disabled]="mainSelectId<2 || mainSelectId==questionIndex"
+                *ngIf="mainSelectId>1 && mainSelectId!=(questionIndex+1)" class="next-button btn marginTop"
+                fxLayoutAlign="center center" (click)="onNext()">
+                <!-- <span translate>USERINPUTS.NEXT</span> -->
+                <span translate>Nästa</span>
+                <mat-icon class="mat_icon_R">chevron_right</mat-icon>
+            </button>
+            <button mat-button class="button-submit marginTop" *ngIf="mainSelectId>1 && mainSelectId==(questionIndex+1)"
+                fxLayoutAlign="center center" (click)="submit()">
+                <!-- <span translate>USERINPUTS.SUBMIT</span> -->
+                <span translate>Begäran</span>
+            </button>
+        </div>
+        <!-- ========== (Disabled) Run Time Validator by Nadeem Mansha ======== -->
+        <form [formGroup]="javskonrollForm" style="display:none">
+            <div class="row_container" *ngFor="let person of inputFieldsData;let i=index">
+
+                <!-- Question1 Fields -->
+                <span class="fields-labels" translate>{{person.question1}} {{person.id}}<span
+                        class="required">*</span></span>
+                <input [placeholder]="person.placeholder1" matInput class="input_field" type="text" required>
+                <!-- [(ngModel)]="person.answer1"> -->
+
+                <!-- Question2 Fields -->
+                <span class="fields-labels" translate>{{person.question2}} {{person.id}}<span
+                        class="required">*</span></span>
+                <input [placeholder]="person.placeholder2" matInput class="input_field" type="text" minlength="12"
+                    maxlength="12" size="12" required formControlName="ssnField1" (ngModelChange)="ssnInputHandler(i)">
+
+                <!-- Invalid Field Error -->
+                <!-- <div class="required" *ngIf="SsnValidator[i].invalidSsn">
+                    {{'HOMEPAGE.INVALID_SSN' | translate}}
+                </div> -->
+            </div>
+        </form>
+    </div>
+</div>

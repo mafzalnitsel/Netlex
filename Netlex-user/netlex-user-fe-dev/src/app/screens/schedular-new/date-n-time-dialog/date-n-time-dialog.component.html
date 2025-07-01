@@ -1,0 +1,48 @@
+<div class="cross_button_container">
+    <button class="cross_button" (click)="closeDateSelectionDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div class="date_time_header" fxLayoutAlign="center">Välj datum och tid</div>
+<!-- <full-calendar class="contentDiv" [options]="calendarOptions"></full-calendar> -->
+<!-- <div class="input-container">
+    <input type="date"/>
+</div> -->
+<!-- <mat-card class="demo-inline-calendar-card">
+    <mat-calendar [(selected)]="selected"></mat-calendar>
+</mat-card> -->
+<div fxLayout.gt-sm="row" fxLayout.lt-md="column" class="date_n_time_main" id="date_n_time_main">
+    <!-- <div fxFlex.gt-md="50" fxFlex.gt-sm="50" class="" fxLayout="column" class="calendar_container"> -->
+    <div fxFlex.gt-md="50" class="" fxLayout="column" class="calendar_container">
+        <mat-card class="addBox" fxLayout="column">
+            <div>
+                <full-calendar class="contentDiv" [options]="calendarOptions"></full-calendar>
+            </div>
+        </mat-card>
+    </div>
+    <div fxFlex.gt-md="50" class="" fxLayout="column" class="times_radios" *ngIf="onDate">
+        <div class="available_times_heading">
+            <div class="heading_bg playfairFont">Tillgänglig tid</div>
+        </div>
+        <!-- <div class="available_times_container" *ngIf="onDate"> -->
+        <div class="available_times_container">
+            <div fxLayout="row" fxLayoutAlign="space-around center" class="timeLoader" *ngIf="showLoader">
+                <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+                
+            </div>
+            <div *ngIf="showLoader" class="timeLoaderText playfairFont">Vänligen dröj, letar efter lediga tider</div>
+
+            <div *ngIf="!showLoader">
+                <mat-radio-group name="servicesBgType" (change)="timeHandler($event)"  *ngIf="timesOptions.length>0">
+                    <mat-radio-button color="primary" *ngFor="let time of timesOptions" [checked]="time.checked"
+                        value="{{time.value}}">{{time.value}}
+                    </mat-radio-button>
+                </mat-radio-group>
+                <div class="noTimeAvailable playfairFont" *ngIf="timesOptions.length<1">
+                    <strong> Förlåt, {{selectedLawyerName}} är inte tillgänglig på {{onDate}}</strong>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
