@@ -121,7 +121,8 @@ module.exports = {
     process.env.OAUTH_SCOPES ||
     "user.read,calendars.readwrite,mailboxsettings.read",
   OAUTH_AUTHORITY:
-    process.env.OAUTH_AUTHORITY || "https://login.microsoftonline.com/",
+    process.env.OAUTH_AUTHORITY ||
+    "https://login.microsoftonline.com/d5f30a23-9f41-44eb-b01e-ef86baa59af2",
   OAUTH_GRAPH_ENDPOINT:
     process.env.OAUTH_GRAPH_ENDPOINT || "https://graph.microsoft.com/",
   GRAPH_SCHEDULE_URI: process.env.GRAPH_SCHEDULE_URI || "v1.0/users/",

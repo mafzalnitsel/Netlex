@@ -6,8 +6,6 @@ const EmailConfiguration = require("../models/emailConfiguration");
 const Schedule = require("../models/schedule");
 const LawyerBusyTime = require("../models/lawyerBusyTime");
 
-
-
 exports.getActiveLawyers = getActiveLawyers;
 
 async function getActiveLawyers() {
@@ -211,9 +209,9 @@ exports.getLawyersWithAvailabilityold = async (req, res) => {
 
   const schedule = await fetch.postApi(
     environment.OAUTH_GRAPH_ENDPOINT +
-    environment.GRAPH_SCHEDULE_URI +
-    emailConfiguration[0].user_id +
-    "/calendar/getSchedule",
+      environment.GRAPH_SCHEDULE_URI +
+      emailConfiguration[0].user_id +
+      "/calendar/getSchedule",
     authResponse.accessToken,
     body
   );
@@ -244,18 +242,15 @@ exports.getLawyersWithAvailabilityold = async (req, res) => {
   return res.json({ lawyerListWithSchedule });
 };
 
-
-  
 //Working Function with new Configuration
 exports.getLawyersWithAvailability = async (req, res) => {
-  const { selectedDate, lawyerId } = req.query; 
+  const { selectedDate, lawyerId } = req.query;
 
   // if(!selectedDate) {
   //     return res.status(200).json({status: "Error", msg: "Bad Request"});
   // }
-  
-  timesOptions = [
 
+  timesOptions = [
     { value: "00:00:00 - 00:30:00", checked: false },
     { value: "00:30:00 - 01:00:00", checked: false },
     { value: "01:00:00 - 01:30:00", checked: false },
@@ -293,7 +288,7 @@ exports.getLawyersWithAvailability = async (req, res) => {
     { value: "17:30:00 - 18:00:00", checked: false },
     { value: "18:00:00 - 18:30:00", checked: false },
     { value: "18:30:00 - 19:00:00", checked: false },
-    
+
     { value: "19:30:00 - 20:00:00", checked: false },
     { value: "20:00:00 - 20:30:00", checked: false },
     { value: "20:30:00 - 21:00:00", checked: false },
@@ -303,10 +298,6 @@ exports.getLawyersWithAvailability = async (req, res) => {
     { value: "22:30:00 - 23:00:00", checked: false },
     { value: "23:00:00 - 23:30:00", checked: false },
     { value: "23:30:00 - 24:00:00", checked: false },
-
-
-
-
   ];
   //Get Email Configuration
   let emailConfiguration = await EmailConfiguration.find({
@@ -315,22 +306,22 @@ exports.getLawyersWithAvailability = async (req, res) => {
   // console.log("EmailConfiguration", emailConfiguration[0]);
   // const lawyer = await Lawyer.findById('62fcf5a4419a5e3cec802c03');
   const lawyer = await Lawyer.findById(lawyerId);
-  let lawyerEmail = '';
+  let lawyerEmail = "";
   // console.log('lawyer', lawyer);
   if (!lawyer) {
-    console.log('lawyer not found', lawyer);
+    console.log("lawyer not found", lawyer);
     res.status(500).json({ status: "Error", msg: "LawyerNotFound" });
   }
   if (lawyer) {
     lawyerEmail = lawyer.email;
-    console.log('lawyer exist', lawyerEmail);
+    console.log("lawyer exist", lawyerEmail);
   }
   const scheduleList = await Schedule.find({ dateOf: selectedDate, lawyerId });
   // console.log('scheduleList',scheduleList);
 
   //Filtering from all schedules database
   // let filteredTimesOptions = [];
-  if (scheduleList.length > 0) {
+  if (scheduleList && scheduleList?.length > 0) {
     // console.log("scheduleList", scheduleList);
     //Loop of founded meetings with this lawyer on selected date
     for (let i = 0; i < scheduleList.length; i++) {
@@ -342,7 +333,10 @@ exports.getLawyersWithAvailability = async (req, res) => {
     // return timesOptions;
   }
   //Filtering from lawyer busy time database
-  let lawyerBusyTimeExist = await LawyerBusyTime.find({ lawyerId, date: selectedDate });
+  let lawyerBusyTimeExist = await LawyerBusyTime.find({
+    lawyerId,
+    date: selectedDate,
+  });
   // console.log('lawyerBusyTimeExist', lawyerBusyTimeExist);
   if (lawyerBusyTimeExist.length > 0) {
     let allTimes = lawyerBusyTimeExist[0].times;
@@ -355,7 +349,7 @@ exports.getLawyersWithAvailability = async (req, res) => {
     }
     // return timesOptions;
   }
-  console.log('timesOptions 12121212', timesOptions);
+  console.log("timesOptions 12121212", timesOptions);
   const startDateTime = selectedDate + "T08:30:01"; //Fetching schedule for the whole day (working hours)
   const endDateTime = selectedDate + "T18:30:00";
   const authResponse = await auth.getToken();
@@ -372,6 +366,8 @@ exports.getLawyersWithAvailability = async (req, res) => {
   //     "availabilityViewInterval": 30
   // }
   // console.log('lawyerEmailList',lawyerEmailList);
+  console.log({ lawyerEmail });
+
   const body = {
     innerBody: {
       // schedules: lawyerEmailList,
@@ -394,9 +390,9 @@ exports.getLawyersWithAvailability = async (req, res) => {
 
   const schedule = await fetch.postApi(
     environment.OAUTH_GRAPH_ENDPOINT +
-    environment.GRAPH_SCHEDULE_URI +
-    emailConfiguration[0].user_id +
-    "/calendar/getSchedule",
+      environment.GRAPH_SCHEDULE_URI +
+      emailConfiguration[0].user_id +
+      "/calendar/getSchedule",
     authResponse.accessToken,
     body
   );
@@ -433,7 +429,7 @@ exports.getLawyersWithAvailability = async (req, res) => {
   //     return allScheduledMeetings;
   //   }
   // });
-  if (scheduleFullList.length > 0) {
+  if (scheduleFullList && scheduleFullList?.length > 0) {
     let scheduleFullListNew = scheduleFullList[0].scheduleItems;
     // console.log('scheduleFullListNew',scheduleFullListNew);
     if (scheduleFullListNew.length > 0) {
@@ -441,10 +437,13 @@ exports.getLawyersWithAvailability = async (req, res) => {
       scheduleFullListNew.forEach((scheduleItem, index) => {
         // console.log('scheduleItem', scheduleItem);
         // allScheduledMeetings.push(scheduleItem);
-        if (scheduleItem.status == 'tentative' || scheduleItem.status == 'busy') {
+        if (
+          scheduleItem.status == "tentative" ||
+          scheduleItem.status == "busy"
+        ) {
           allScheduledMeetings.push(scheduleItem);
         }
-        if (index === (scheduleFullListNew.length - 1)) {
+        if (index === scheduleFullListNew.length - 1) {
           allScheduledMeetings.forEach((element, i) => {
             // console.log('element', element);
             // console.log('startDateTime', element.start.dateTime.split("T")[1].split(".")[0]);
@@ -469,14 +468,18 @@ exports.getLawyersWithAvailability = async (req, res) => {
                   return d3.getMilliseconds() - d0.getMilliseconds();
                 },
                 toString: function () {
-                  return this.getHours() + ":" +
-                    this.getMinutes() + ":" +
-                    this.getMilliseconds();
+                  return (
+                    this.getHours() +
+                    ":" +
+                    this.getMinutes() +
+                    ":" +
+                    this.getMilliseconds()
+                  );
                 },
               };
-            }
+            };
             diff = getDuration(d1, d2);
-            console.log('diff.toString()', diff.toString());
+            console.log("diff.toString()", diff.toString());
             // //------Removing time for 1hour meeting------
             // if (diff.toString() == '1:0:0') {
             //   console.log('1 hour meeting');
@@ -499,24 +502,24 @@ exports.getLawyersWithAvailability = async (req, res) => {
             //     }
             //   })
             // }
-            if (diff.toString() !== '0:0:0') {
+            if (diff.toString() !== "0:0:0") {
               //---------- Busy more than half hour --------
-              if (diff.toString() !== '0:30:0') {
-                console.log('Meeting time greater than 30Mins');
+              if (diff.toString() !== "0:30:0") {
+                console.log("Meeting time greater than 30Mins");
                 // console.log('diff.getHours()',diff.getHours());
                 // console.log('diff.getMinutes()',diff.getMinutes());
                 let removeIndexes = diff.getHours() * 2;
                 if (diff.getMinutes() == 30) {
                   removeIndexes = removeIndexes + 1;
                 }
-                console.log('removeIndexes', removeIndexes);
+                console.log("removeIndexes", removeIndexes);
                 timesOptions.forEach((item, ii) => {
-                  let split1 = item.value.split(' - ')[0];
+                  let split1 = item.value.split(" - ")[0];
                   if (split1 == startTime) {
                     // console.log('ii', ii);
-                    timesOptions.splice(ii, removeIndexes)
+                    timesOptions.splice(ii, removeIndexes);
                   }
-                })
+                });
               }
               //---------- Busy Half Hour  --------
               else {
@@ -524,7 +527,7 @@ exports.getLawyersWithAvailability = async (req, res) => {
                 let meetingTime = startTime + " - " + endTime;
                 // console.log('startTime', startTime);
                 // console.log('endTime', endTime);
-                console.log('meetingTime', meetingTime);
+                console.log("meetingTime", meetingTime);
                 //------Remove time which is not available-----
                 timesOptions = timesOptions.filter((element) => {
                   return element.value !== meetingTime;
@@ -537,15 +540,14 @@ exports.getLawyersWithAvailability = async (req, res) => {
             }
 
             // }
-            if (i === (allScheduledMeetings.length - 1)) {
+            if (i === allScheduledMeetings.length - 1) {
               // console.log('timesOptions', timesOptions);
               res.send(timesOptions);
             }
-          })
+          });
           // return allScheduledMeetings;
         }
-
-      })
+      });
     } else {
       res.send(timesOptions);
     }
