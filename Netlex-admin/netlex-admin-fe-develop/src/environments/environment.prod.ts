@@ -9,6 +9,8 @@ export const environment = {
   // webURL: "http://localhost:4200/",
 
   //=============== Live ===============
+
+  mailserviceURL: "https://api.netlex.se/",
   serviceURL: "https://admin-api.netlex.se/",
   webURL: "https://netlex.se/",
 };

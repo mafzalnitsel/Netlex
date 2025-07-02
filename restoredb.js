@@ -7,8 +7,8 @@ const { exec } = require("child_process");
 const BACKUP_DIR = "/Users/zeeshan/Desktop/Afzal/AIOT/MongoDB_dump";
 // const MONGO_URI = 'mongodb+srv://mafzal:qEZBM5tMUB9DflS9@cluster0.dgqyzm9.mongodb.net'; // Replace with your Atlas URI
 // const MONGO_URI = "mongodb://localhost"; // Replace with your Atlas URI
-const MONGO_URI =
-  "mongodb+srv://netlex:Dqza3lNbulzSuVCQ@cluster0.txoyysd.mongodb.net";
+const MONGO_URI = "mongodb://81.88.25.32:27017";
+// "mongodb+srv://netlex:Dqza3lNbulzSuVCQ@cluster0.txoyysd.mongodb.net";
 
 function restoreDatabase(dbPath) {
   const dbName = path.basename(dbPath);

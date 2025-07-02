@@ -3,7 +3,7 @@ module.exports = {
   // SERVER_URL:'http://localhost:30000/',
   // Live
   // SERVER_URL:'https://server.netlex.se:30000/',
-  SERVER_URL: "https://admin-api.netlex.se",
+  SERVER_URL: "https://admin-api.netlex.se/",
 
   // KLARNA_PAYMENT_URL: process.env.KLARNA_PAYMENT_URL || 'https://api.playground.klarna.com',
   KLARNA_PAYMENT_URL:
