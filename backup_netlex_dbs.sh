@@ -14,7 +14,7 @@ mkdir -p "$BACKUP_ROOT/$DATE"
 echo "=== Backup started at $DATE ===" >> "$LOG_FILE"
 
 # === GET LIST OF DBS STARTING WITH netlex ===
-DBS=$(mongo --quiet --host $MONGO_HOST --port $MONGO_PORT --eval "db.adminCommand('listDatabases').databases.m>
+DBS=$(/usr/bin/mongosh --quiet --host $MONGO_HOST --port $MONGO_PORT --eval "db.adminCommand('listDatabases').databases.m>
 
 # === BACKUP EACH MATCHING DB ===
 for DB in $DBS; do
