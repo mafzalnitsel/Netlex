@@ -1,10 +1,10 @@
-
 const QuestionAndAnswer = require("../models/question-and-answer");
 bcrypt = require("bcryptjs");
 
-
 exports.getActiveQuestionAndAnswer = function (req, res) {
   QuestionAndAnswer.find().exec(function (err, doc) {
+    console.log(doc);
+
     if (err) {
       console.log("Error in finding QuestionAndAnswer from DB");
       return res.status(500).json({ err });

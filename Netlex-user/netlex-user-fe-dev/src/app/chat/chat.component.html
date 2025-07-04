@@ -1,0 +1,66 @@
+<!-- Fixed Support Button -->
+<button class="support-button" (click)="toggleModal()">Support</button>
+
+<!-- Fullscreen Chat Modal -->
+<div class="chat-modal" *ngIf="modalVisible">
+  <div class="chat-modal-content">
+    <!-- Your existing chat app UI -->
+    <div class="chat-app">
+      <button class="close-button" (click)="toggleModal()">&times;</button>
+      <header class="app-header">
+        <h1>Netlex Assistant</h1>
+        <p>Your AI Legal Assistant</p>
+      </header>
+
+      <main class="chat-window">
+        <div
+          class="message-container"
+          *ngFor="let msg of messages"
+          [ngClass]="msg.sender"
+        >
+          <div
+            class="message-bubble"
+            [ngClass]="[msg.sender, msg.isError ? 'error' : '']"
+          >
+            <div [innerHTML]="parseMarkdown(msg.text)"></div>
+            <div
+              class="loading-dots"
+              *ngIf="loading && msg.sender === 'ai' && !msg.text"
+            >
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div #messagesEndRef></div>
+      </main>
+
+      <footer class="input-area">
+        <p class="error-message" *ngIf="error">{{ error }}</p>
+        <form (submit)="sendMessage(); $event.preventDefault()">
+          <textarea
+            [(ngModel)]="input"
+            name="input"
+            placeholder="Ställ en juridisk fråga..."
+            [disabled]="loading"
+            (keydown)="onKeyDown($event)"
+          ></textarea>
+          <button type="submit" [disabled]="loading">
+            <div *ngIf="loading" class="loader"></div>
+            <svg
+              *ngIf="!loading"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              width="24"
+              height="24"
+            >
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg>
+          </button>
+        </form>
+      </footer>
+    </div>
+  </div>
+</div>

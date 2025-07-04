@@ -1,0 +1,946 @@
+[
+  {
+    "role": "user",
+    "parts": [{ "text": "Kan jag ta bort mitt användarkonto?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja! Du kan alltid ta bort ditt användarkonto genom att gå in på användarkonto och klicka på “Ta bort konto”."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Hur vet jag vilket avtal jag behöver?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Vi är alltid redo att hjälpa dig med de frågor och funderingar som kan uppstå när du ska välja ett avtal samt när du skapar ett avtal. Du når oss enklast via chatten."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Kan jag känna mig säker på att avtalen är juridiskt korrekta?"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, det kan du. Alla våra avtal är skapade och granskade av våra jurister och advokater."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Hur kommer jag i kontakt med er?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Du kan snabbt komma i kontakt med oss via chatten. Om vi inte är tillgängliga kan du skicka ett mail till netlex@mirlex.se. Om du önskar rådgivning kan du enklast boka in ett möte kan alltid boka ett möte med våra jurister och advokater. Vi erbjuder rådgivning på flera olika språk."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vilka betalningsmetoder är tillgängliga?" }]
+  },
+  {
+    "role": "model",
+    "parts": [{ "text": "Vi erbjuder Swish och Klarna som betalningsmetoder." }]
+  },
+  { "role": "user", "parts": [{ "text": "Kan jag betala med faktura?" }] },
+  {
+    "role": "model",
+    "parts": [{ "text": "Ja! Klarna erbjuder betalning med faktura." }]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Kan jag ändra i avtalet om jag inte är nöjd?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Det är tyvärr inte möjligt att redigera ett avtal efter att du har betalat och fått avtalet som en PDF fil mailat till dig. Vi har dock en Nöjd-Kund garanti! Om något inte stämmer kan du maila oss på netlex@mirlex.se så hjälper vi dig."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är ett andrahandskontrakt och när behövs det? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett andrahandskontrakt är ett avtal som ska upprättas när en bostadsrättsinnehavare eller förstahandshyresgäst ska hyra ut sin bostad/hyresrätt till någon. Personen som ska hyra bostaden blir andrahandshyresgäst. Ett andrahandskontrakt behövs när parterna skriftligen ska komma överens om vilka villkor och regler som ska gälla under hyresperioden. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Krävs tillstånd för uthyrning i andrahand?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Vid en andrahandsuthyrning av bostadsrätt krävs ett samtycke från bostadsrättsföreningens styrelse. Vid en andrahandsuthyrning av hyresrätt krävs tillstånd från hyresvärden. Om bostadsrättsföreningens styrelse/hyresvärden inte tillåter en andrahandsuthyrning kan tillstånd inhämtas från hyresnämnden."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "\nFinns det formkrav för avtal om andrahandsuthyrning?\n" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Nej, det finns inga formkrav för ett avtal om andrahandsuthyrning. Detta innebär att en överenskommelse om andrahandsuthyrning är giltig oavsett om den är skriftlig eller muntlig. Vi rekommenderar dock att ett skriftligt andrahandskontrakt upprättas då det är fördelaktigt ur ett bevishänseende om det skulle uppstå en tvist. Ett skriftligt andrahandskontrakt medför en bättre överblick över vilka villkor och regler som ska gälla under hyresperioden. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Hur länge kan man hyra ut en bostadsrätt/hyresrätt?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "För andrahandsuthyrning av en bostadsrätt bestäms den maximala uthyrningsperioden av bostadsrättsföreningens styrelse och brukar ofta vara angiven i föreningens stadgar eller tillhörande bilagor om andrahandsuthyrning. För andrahandsuthyrning av en hyresrätt bestäms den maximala uthyrningsperioden av hyresvärden. I båda fallen är det vanligt att samtycke ges för ett år och framåt. Därefter är det bara att söka på nytt. Kom ihåg att vid uthyrning av en hyresrätt för en längre period än två år, träder besittningsskyddet in.  "
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Hur mycket kan jag ta i hyra?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Vid andrahandsuthyrning av bostadsrätt har du rätt att ta ut en hyra som motsvarar de kapitalkostnader och driftkostnader som du har för bostaden. Kapitalkostnaden är avkastningsräntan beräknat utifrån bostadens marknadsvärde. Driftkostnader inkluderar bostadens månadsavgift, kostnader för el, värme, bredband, vatten med mera. Vid andrahandsuthyrning av hyresrätt har du rätt att ta ut de kostnader som du faktiskt har för din egen hyra. Detta inkluderar månadsavgiften, men även tillägg för till exempel parkering, el, bredband med mera. Om bostadsrätten eller hyresrätten hyrs ut möblerad kan du lägga till ett extra påslag på hyran för slitage. "
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad innebär besittningsskydd?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Besittningsskydd gäller endast vid uthyrning av en hyresrätt. Det innebär att andrahandshyresgästen har rätt att bo kvar i hyresrätten om uthyrningsperioden har varat längre än två år. Du kan dock avtala bort besittningsskyddet. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Vad händer om andrahandshyresgästen bryter mot hyreskontraktet?"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Om andrahandshyresgästen orsakat skador eller inte betalat hyran har du rätt att kräva andrahandshyresgästen på ersättning. Bryter andrahandshyresgästen mot kontraktet på annat sätt har du rätt att förverka kontraktet, vilket innebär att det sägs upp med omedelbar verkan, om inget annat har avtalats. Innan ett förverkande måste andrahandshyresgästen få en möjlighet till rättelse. Kom ihåg att det alltid är du som är ansvarig för bostaden, även om den hyrs ut i andrahand. Om andrahandshyresgästen till exempel inte betalat hyran i tid en månad, måste du fortfarande se till att hyran blir betald.  Detta på grund av att det inte finns ett avtal mellan bostadsrättsföreningen/hyresvärden och andrahandshyresgästen."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Vad är ett bodelningsavtal mellan makar och när behövs det?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "I ett bodelningsavtal ska du och din make dela upp era tillgångar och skulder. Bodelningsavtalet måste vara skriftligt och undertecknas av båda makar. Ett bodelningsavtal kan upprättas i samband med en skilsmässa eller under pågående äktenskap. Bodelningsavtalet kommer framför allt till hands om ni ska, var och en för sig, ha möjlighet till att ta nya bolån. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är giftorättsgods och vad är enskild egendom? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "All egendom som makar äger enskilt eller tillsammans, och som inte är enskild egendom, är giftorättsgods. Egendom kan endast vara enskild egendom genom att det angetts i ett äktenskapsförord, gåvobrev, testamente eller förmånstagarförordnande i försäkring som har tecknats av någon annan än ens make. Det är endast giftorättsgods som kan omfattas av en bodelning."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Måste man göra en anmälan om bodelning?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Vid bodelning under äktenskap ska en anmälan skickas till Skatteverket. Det görs innan bodelningen."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad gäller om det finns ett äktenskapsförord?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Om ni har upprättat ett äktenskapsförord måste detta tas hänsyn till. Om det till exempel är angivet att en viss egendom är enskild egendom ska den inte omfattas av en bodelning och därmed uteslutas från bodelningsavtalet."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Vad gäller om man genom bodelningen tilldelats mark eller en fastighet?"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Om du genom bodelning tilldelats mark eller en fastighet måste du ansöka om lagfart inom tre månader från att bodelningsavtalet upprättades för att ägandet ska bli giltigt. Genom att ansöka om lagfart registreras du som ägare av fastigheten. Ansökan skickas till Lantmäteriet tillsammans med bodelningsavtalet.  "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Vad är ett bodelningsavtal mellan sambor och när behövs det?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "När ett samboförhållande upphör kan ett bodelningsavtal upprättas. I bodelningsavtalet kommer ni sambor överens om hur er samboegendom, avräknat de skulder som kan hänföras till samboegendomen, ska fördelas mellan er. Det finns inget krav på bodelningsavtal men det rekommenderas då banker ofta kräver detta i samband med ansökan om nytt bolån."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad avses med sambor?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Sambor är två personer som stadigvarande bor tillsammans i ett parförhållande och har ett gemensamt hushåll. "
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad är samboegendom? " }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Gemensam bostad och gemensamt bohag som ni har införskaffat för gemensam användning. Bohag utgör till exempel möbler, hushållsmaskiner och annat inre lösöre som införskaffats för gemensam användning i hushållet. Det egendom som ni ägde innan ni blev sambon är inte samboegendom, även om egendomen används gemensamt under samboförhållandet."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Kan ett bodelningsavtal upprättas under ett bestående samboförhållande?"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Nej, sambor kan endast upprätta ett bodelningsavtal i samband med att samboförhållandet upphör. En begäran om bodelning måste framställas inom ett år från att samboförhållandet upphörde."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad gäller om det finns ett samboavtal?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Om ni har upprättat ett samboavtal måste detta tas hänsyn till. Om det till exempel är angivet att en viss egendom inte ska omfattas av en bodelning ska egendomen uteslutas från bodelningsavtalet. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Måste bodelningsavtalet registreras?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Nej, ett bodelningsavtal mellan sambor kan inte registreras hos Skatteverket."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är fullmakt och när behövs det?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "En fullmakt är ett intyg som ger någon rätt att utföra uppdrag för någon annans räkning. Vad för typ av uppdrag en person eller ett företag ska ha rätt att utföra anges i fullmakten. En fullmakt behövs när någon själv inte har möjlighet att genomföra ett uppdrag. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är en fullmaktsgivare och en fullmaktshavare? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Fullmaktsgivaren kallas den person som ger fullmakt till någon. Den som får fullmakten kallas för fullmaktshavare. Fullmaktshavaren kan med hjälp av fullmakten för fullmaktsgivarens räkning utföra uppdrag, som står angivna i fullmakten. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Kan ett företag vara fullmaktsgivare eller fullmaktshavare?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, både privatpersoner och företag kan anges som fullmaktsgivare och fullmaktshavare. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Finns det formkrav för en fullmakt? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Fullmakt för köp, byte eller gåva av fast egendom eller bostadsrätt måste vara skriftlig. Fast egendom är mark, fastigheter och fastighetstillbehör. I övrigt finns det inga formkrav. "
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Hur länge gäller fullmakten?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Fullmakten gäller till och med det datum som står angivet i fullmakten. Om det inte finns ett slutdatum gäller fullmakten tills vidare och tills den återkallats av fullmaktsgivaren. Är fullmakten skriftlig kan fullmaktsgivaren återkalla fullmakten genom att förstöra eller ta tillbaka dokumentet."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Vad händer om fullmaktsgivaren avlider eller går i konkurs?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Fullmakten fortsätter att gälla om fullmaktsgivaren avlider, om inget annat angetts i fullmakten. Om fullmaktsgivaren försätts i konkurs slutar fullmakten att gälla. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är framtidsfullmakt och när behövs det? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "En framtidsfullmakt är ett intyg där du kan ange vem som i framtiden ska ta hand om dina personliga eller ekonomiska angelägenheter. Detta kan behövas om du blir förhindrad att göra detta, till exempel på grund av sjukdom. Du anger själv vad framtidsfullmakten ska omfatta. Framtidsfullmakten får dock inte omfatta beslut om medicinsk vård."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "När börjar framtidsfullmakten att gälla? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Fullmaktsgivaren anger i framtidsfullmakten på vilket sätt fullmakten ska börja gälla. Antingen bestämmer fullmaktshavaren detta eller kan fullmaktsgivaren få det prövat av en domstol."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Finns det formkrav för en framtidsfullmakt? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, framtidsfullmakten måste vara skriftlig och fullmaktsgivaren måste ha fyllt 18 år samt förstå dess innebörd. Framtidsfullmakten ska bevittnas av två vittnen vid ett och samma tillfälle. Som vittne krävs att man är 15 år och har insikt och förståelse för vad som bevittnas. \nFullmaktsgivaren och fullmaktshavaren får inte bevittna framtidsfullmakten, inte heller deras släktningar eller någon som av en annan orsak har ett intresse i fullmaktens innehåll. \n"
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Hur länge gäller framtidsfullmakten?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Framtidsfullmakten gäller tills vidare om inte annat anges. Fullmaktsgivaren kan själv återkalla framtidsfullmakten genom att förstöra eller ta tillbaka dokumentet. Detta kräver dock att fullmaktsgivaren har en förmåga att ta beslut. Framtidsfullmakten slutar gälla om fullmaktsgivaren får en förvaltare eller god man."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är ett gåvobrev och när behövs det? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett gåvobrev är ett skriftligt dokument som visar att en gåva har överlåtits från en person (gåvogivare) till någon annan (gåvomottagare). I gåvobrevet beskriver gåvogivaren den gåva som ska överlåtas och anger vilka villkor som ska gälla för den. Ett gåvobrev kan behövas när någon vill ge bort en gåva av större värde under vissa villkor. "
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad är fast egendom?" }] },
+  {
+    "role": "model",
+    "parts": [
+      { "text": "Fast egendom är mark, fastigheter och fastighetstillbehör." }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Behöver man ansöka om lagfart?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "För att gåvan ska bli giltigt behöver gåvomottagaren ansöka om lagfart inom tre månader från att gåvobrevet upprättades. Genom att ansöka om lagfart registreras gåvomottagaren som ägare av fastigheten. Ansökan skickas till Lantmäteriet tillsammans med gåvobrevet. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Finns det formkrav för ett gåvobrev? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, vid överlåtelse av fast egendom som gåva är gåvobrev ett krav. Gåvobrevet måste innehålla en gåvoförklaring från gåvogivaren till gåvomottagaren, det vill säga en förklaring att man överlåter den fasta egendomen som gåva, och ange fastighetsbeteckningen. Gåvobrevet ska sedan undertecknas av gåvogivaren och gåvomottagaren. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Vad innebär det att gåvan ska vara gåvomottagarens enskilda egendom?"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Gåvogivaren kan villkora att gåvan ska vara gåvomottagarens enskilda egendom. Detta innebär att egendomen inte kan omfattas av en eventuell framtida bodelning. Vid gåva som överlåts mellan makar med önskan om att vara enskild egendom behöver utöver ett gåvobrev även ett äktenskapsförord upprättas. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Måste gåvobrev för fast egendom registreras?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett gåvobrev för fast egendom mellan makar måste registreras hos Skatteverket för att en ansökan om lagfart hos Lantmäteriet ska vara möjligt. En gåva som inte är registrerad hos Skatteverket kan utmätas, det vill säga att egendom tas av Kronofogdemyndigheten, om ena maken försätts i konkurs.  "
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Kan ett gåvobrev återkallas?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett gåvobrev kan som huvudregel inte återkallas. men om de villkor som angetts i gåvobrevet inte efterföljs av gåvomottagaren har gåvogivaren rätt att återkalla gåvobrevet."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Är gåva förskott på arv?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Om inget annat anges i gåvobrevet är gåva förskott på arv. Detta innebär att gåvans värde vid gåvotillfället dras av på det framtida arvet. Om gåvogivaren inte vill att gåvan ska vara ett förskott på arv måste detta anges i gåvobrevet."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "\nÄr det en gåva om gåvomottagaren betalar för gåvan?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Överlåtelse av fast egendom mot viss betalning utgör inte en gåva om betalningen överstiger den fasta egendomens taxeringsvärde. Taxeringsvärdet är det samlade värdet av hela fastigheten eller tomträtten. Om betalningen understiger taxeringsvärdet är överlåtelsen en gåva. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "\nVad är ett gåvobrev och när behövs det? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett gåvobrev är ett skriftligt dokument som visar att en gåva har överlåtits från en person (gåvogivare) till en annan (gåvomottagare). I gåvobrevet beskriver gåvogivaren den gåva som ska överlåtas och anger vilka villkor som ska gälla för den. Ett gåvobrev kan behövas när någon vill ge bort en gåva av större värde under vissa villkor. "
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "\nVad är lös egendom?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Allt som inte är fast egendom, dvs. mark, fastigheter eller fastighetstillbehör, är lös egendom. Detta kan till exempel vara bilar, båtar, smycken, pengar, djur, aktiebrev, bostadsrätter med mera."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Finns det formkrav för ett gåvobrev?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      { "text": "Nej, det finns inga formkrav för gåvobrev av lös egendom. " }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Måste gåvobrevet för lös egendom registreras?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett gåvobrev kan endast registreras för gåva mellan makar. Registreringen är frivillig och görs hos Skatteverket. Registrering för gåvobrev avseende lös egendom rekommenderas om gåvan är av högre värde. En gåva som inte är registrerad hos Skatteverket kan utmätas, det vill säga att egendom tas av Kronofogdemyndigheten, om ena maken försätts i konkurs.  "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "\nVad innebär det att gåvan ska vara gåvomottagarens enskilda egendom?"
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Gåvogivaren kan villkora att gåvan ska vara gåvomottagarens enskilda egendom. Det innebär att egendomen inte kan omfattas av en eventuell framtida bodelning. Vid gåva som överlåts mellan makar med önskan om att vara enskild egendom behöver utöver ett gåvobrev även ett äktenskapsförord upprättas."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad gäller vid gåva som är en bostadsrätt?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Vid överlåtelse av en bostadsrätt som gåva är gåvobrev ett krav. Gåvobrevet måste innehålla en gåvoförklaring från givaren till gåvomottagaren, det vill säga en förklaring av att man överlåter egendomen som gåva, och uppgifter om bostadsrätten (bland annat adress, överlåten andel, lägenhetsnummer m.m.). Gåvobrevet måste sedan undertecknas av gåvogivaren och gåvomottagaren och därefter skickas till bostadsrättsföreningen. Gåvomottagaren behöver ansöka om medlemskap i bostadsrättsföreningen, vars styrelse måste godkänna medlemskapet för att gåvan ska bli giltig."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Är det en gåva om gåvomottagaren betalar för gåvan?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Överlåtelse av lös egendom mot viss betalning utgör inte en gåva om betalningen överstiger egendomens marknadsvärde. Marknadsvärdet är det pris som egendomen är värd på marknaden. Om betalningen understiger marknadsvärdet utgör mellanskillnaden mellan betalningen och gåvans marknadsvärde själva gåvan och resten är ett köp."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Vad är ett köpekontrakt för bostadsrätt och när behövs det?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett köpekontrakt för bostadsrätt är ett skriftligt avtal som måste upprättas vid försäljning av en bostadsrätt. I avtalet ska köpare och säljare ange de villkor som ska gälla för köpet. Ett skriftligt kontrakt är ett krav vid försäljning av en bostadsrätt."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Finns det formkrav för ett köpekontrakt för bostadsrätt?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, ett köpekontrakt måste vara skriftligt och undertecknad av både köpare och säljare och innehålla uppgifter om bostadsrätten såsom bostadsrättens beteckning, lägenhetsnummer, adress, boyta m.m. Det måste även framgå till vilket pris bostadsrätten säljs. Köparen måste ansöka om medlemskap i bostadsrättsföreningen, vars styrelse måste godkänna medlemskapet. Godkänns inte medlemskapet blir köpet inte giltigt. Säljaren måste begära utträde ur bostadsrättsföreningen i samband med att köparen ansöker om medlemskap."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Vad innebär det att säljaren har en upplysningsplikt?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Säljarens upplysningsplikt är att informera köparen om eventuella fel i bostadsrätten som säljaren känner till eller borde känna till och som köparen kan ha svårt att upptäcka. Köparen kan aldrig åberopa fel som säljaren upplyst köparen om innan köpet. Om säljaren väljer att inte informera köparen om fel i bostadsrätten kan köparen kräva prisavdrag eller ersättning för skada. Detta kräver att felen är väsentliga, det vill säga att det handlar om fel som annars kunde ha påverkat köparens beslut om att köpa bostadsrätten. Säljaren har dock ingen allmän upplysningsplikt, vilket innebär att säljaren inte är skyldig att informera om alla fel. Säljaren ansvarar inte för de fel som köparen haft möjlighet att upptäcka."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Vad innebär det att köparen har en undersökningsplikt?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Innan ett köp äger rum är det viktigt att köparen undersöker bostadsrätten för att kunna upptäcka eventuella fel. Fel som köparen borde ha upptäckt vid en undersökning kan inte åberopas i efterhand. Säljaren svarar endast för de fel som köparen inte kan upptäcka vid en undersökning (dolda fel). Säljaren svarar dock inte för dolda fel som köparen borde ha räknat med, med hänsyn tagen till bostadsrättens ålder, pris och skick."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Vad är ett köpekontrakt för lös egendom och när behövs det?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett köpekontrakt är ett skriftligt avtal som kan upprättas vid köp av lös egendom mellan privatpersoner eller mellan företag."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad är lös egendom?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Allt som inte är fast egendom, dvs. mark, fastighet eller fastighetstillbehör är lös egendom. Det kan till exempel vara bilar, båtar, smycken, pengar, djur, aktiebrev, bostadsrätt med mera."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Finns det formkrav?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Nej, det finns inga formkrav för köpekontrakt för lös egendom. Det är viktigt att köpekontraktet är noggrant skrivet för att det inte ska uppstå oklarheter om vad som överenskommits. Specificera egendomen så ingående som möjligt och tänk igenom vilka villkor som ska gälla."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är ett regressavtal och när behövs det?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett regressavtal är en överenskommelse om betalningsansvar mellan låntagare som tagit ett gemensamt lån. Hos en bank är alla låntagare solidariskt betalningsansvariga. Detta innebär att banken kan vända sig till en låntagare och kräva återbetalning på hela lånebeloppet. När flera låntagare står på ett lån och tar del av olika stora delar av lånet faller det sig naturligt att låntagarna även ska betala tillbaka olika mycket. Det är dock inget krav om det inte finns ett avtal om betalningsansvar mellan låntagarna. Genom att upprätta ett regressavtal kan en låntagare som betalar tillbaka mer än sin egen andel kräva resterande låntagare på deras andel av skulden."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      { "text": "Vad är det för skillnad mellan regressavtal och skuldebrev?" }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett regressavtal visar betalningsansvaret mellan låntagare för ett gemensamt lån medan ett skuldebrev bekräftar ett skuldförhållande där en person eller ett företag direkt lånat ut pengar till en annan person eller ett företag."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är ett samboavtal och när behövs det?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett samboavtal reglerar hur samboegendom ska fördelas vid en eventuell framtida separation. Om ett samboavtal inte finns ska samboegendomen enligt lag delas upp lika mellan er genom en bodelning. Detta oavsett vem som betalat för samboegendomen. För att reglerna om bodelning enligt sambolagen ska bli tillämpliga krävs det att ni skrivit ett samboavtal."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad avses med sambor? " }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Sambor är två personer som stadigvarande bor tillsammans i ett parförhållande och har ett gemensamt hushåll."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad är samboegendom?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Samboegendom är er gemensamma bostad samt det bohag som ni har köpt för gemensam användning. Bohag utgör till exempel möbler, hushållsmaskiner och annat inre lösöre som införskaffats för gemensam användning i hushållet. Det egendom som ni ägde innan ni blev sambon är inte samboegendom, även om egendomen använts gemensamt under samboförhållandet. Bilar, båtar och fritidshus är inte heller samboegendom."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Kan samboavtalet ändras eller upphävas?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, ett samboavtal kan ändras eller upphävas genom att ett nytt samboavtal upprättas. En sambo kan inte ensidigt ändra eller upphäva samboavtalet utan det kräver bådas samtycke. "
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Har ni olika kontantinsatser vid köp av bostad?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Enligt sambolagen ska pengar från försäljning av gemensam bostad fördelas lika även om ni gått in med olika kontaktinsatser. För att undvika denna situation måste ni kombinera ert samboavtal med ett skuldebrev. I skuldebrevet kommer det framgå att den av er som gått in med en lägre kontantinsats, står i skuld till den andre som gått in med en högre kontantinsats. För att förhindra att bostaden omfattas av en bodelning ska det i samboavtalet anges att bostaden och de skulder som kan hänförs till den inte ska ingå i en bodelning. Om detta inte anges i samboavtalet blir skuldebrevet ogiltigt."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är ett skuldebrev och när behövs det? " }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett skuldebrev är ett skriftligt bevis på att en privatperson eller ett företag har en skuld till en annan privatperson eller ett företag. Ett skuldebrev kan behövas när du lånar ut en större summa pengar till någon."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad betyder borgenär och gäldenär?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Borgenär kallas den som lånat ut pengar. Den som borgenären lånat ut pengarna till, och som därmed har en skuld till borgenären, kallas för gäldenär."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Finns det preskriptionstid på skuldebrev?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Preskription av ett skuldebrev innebär att borgenären förlorar sin rätt att få skulden betald av gäldenären. Preskriptionstiden för skuldebrev är tio år efter att skulden tillkommit. För att undvika att skulden preskriberas kan preskriptionsavbrott ske, vilket innebär att preskriptionstiden avbryts och startas om på nytt. Detta kan till exempel ske genom att gäldenären erkänner skulden, betalar en del av skulden eller får ett skriftligt krav om skulden."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Finns det formkrav? " }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, för att ett skuldebrev ska vara giltig måste det vara ensidigt, vilket innebär att betalningen av skulden inte ska vara beroende av en motprestation. Skuldebrevet måste upprättas skriftligt, undertecknas av borgenären och gäldenären, ge uttryck för en fordran (skuld) och innehålla ett åtagande om att gäldenären ska återbetala skulden. Skulden ska vara ett visst belopp i pengar."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad händer när skulden är betald?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "När hela skulden är betalad ska detta antecknas på skuldebrevet, i syfte att inte riskera att gäldenären betalar samma skuld flera gånger. Efter det rekommenderas att skuldebrevet ges tillbaka till gäldenären eller förstörs. Vid delbetalning antecknas den betalade summan på skuldebrevet och behålls av borgenären till dess att hela skulden är betald."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Vad är ett testamente och när behövs det?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ett testamente är ett dokument där du anger vem eller vilka som ska ärva dina tillgångar efter din bortgång. Om du inte skriver ett testamente fördelas tillgångarna lika mellan efterlevande arvingar såsom det anges i lag. Om du vill frångå den arvsordning som finns i lagen behöver du upprätta ett testamente. Till exempel om du vill att en särskild arvinge ska tilldelas en viss egendom eller att en arvtagare som inte tillhör familj ska ha rätt att ta del av arvet."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Finns det formkrav för ett testamente?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, ett testamente måste upprättas skriftligt, vara undertecknat av testamentsgivaren och bevittnas av två vittnen. Vittnena måste närvara samtidigt när testamentsgivarna undertecknar testamentet för att bevittningen ska vara giltig. Som vittne måste man vara minst 15 år och ha förståelse för vad man bevittnar. Vittnena får alltså inte lida av en psykisk störning som påverkar deras insikt och förståelse. Det finns inget krav på att vittnena ska informeras om testamentets innehåll. Testamentsgivarens partner, familj och vissa släktingar får inte bevittna testamentet. Inte heller de personer som testamentsgivarna nämner i testamentet kan agera som vittnen."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vem är särkullbarn?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Särkullbarn är det barn som du har från en tidigare relation. Särkullbarn har rätt att ta del av sin laglott direkt när dennes förälder går bort. Gemensamma barn (bröstarvingar) får sin laglott först när båda föräldrarna gått bort."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vem är bröstarvinge?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "De barn som du har tillsammans med din make är bröstarvingar. Om ni har barn räknas de som bröstarvingar. Om ni har ett barn som inte längre lever är era barnbarn bröstarvingar och på så vis fortsätter det i ett nedstigande led."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad är arvslott?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Arvslott är de tillgångar som arvingar enligt lag har rätt att ärva om det inte finns ett testamente."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad är laglott?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Laglotten är hälften av arvslotten. Bröstarvingar har alltid rätt till sin laglott oavsett vad som angetts i ett testamente. En testamentsgivare som har bröstarvingar kan därmed endast testamentera bort hälften av arvslotten."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad innebär full äganderätt?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Egendom som testamenteras bort till efterlevande make med full äganderätt innebär att maken får bestämma över egendomen. Maken kan därmed fritt spendera, sälja, skänka eller testamentera bort egendomen som man önskar."
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "Vad innebär fri förfoganderätt?" }] },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Egendom som testamenteras bort till efterlevande make med fri förfoganderätt innebär att maken får bestämma över arvet på det sätt som önskas, med vissa undantag. Det är inte tillåtet för den efterlevande maken att testamentera bort eller skänka bort större delar av arvet i gåva. I övrigt är maken fri att bestämma över arvet."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Hur mycket kan man testamentera bort?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Bröstarvingar har alltid rätt till sin laglott, vilket är hälften av arvslotten och detta kan inte testamenteras bort. Men du kan testamentera bort den andra halvan av arvslotten."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [{ "text": "Kan man återkalla ett testamente?" }]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Ja, det är möjligt att återkalla ett testamente. En återkallelse kan ske genom att testamentsgivaren upprättar ett nytt testamente. Ett senare testamente gäller alltid framför ett tidigare, vilket gör att det gamla testamentet förlorar sin giltighet vid upprättande av ett nytt testamente. Återkallelse kan även ske genom att testamentsgivarna förstör testamentet eller muntligt uttrycker att testamentet ska återkallas då dess innehåll inte längre representerar testamentsgivarnas vilja. En muntlig återkallelse är dock inte att rekommendera då det kan leda till bevissvårigheter vid en eventuell framtida tvist."
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "{\"error\":\"The \\\"cb\\\" argument must be of type function. Received type string ('utf-8')\"}"
+      }
+    ]
+  },
+  { "role": "user", "parts": [{ "text": "asdf" }] },
+  { "role": "model", "parts": [{ "text": "Something went wrong." }] },
+  { "role": "user", "parts": [{ "text": "asdf" }] },
+  { "role": "model", "parts": [{ "text": "Something went wrong." }] },
+  { "role": "user", "parts": [{ "text": "oka" }] },
+  { "role": "model", "parts": [{ "text": "Something went wrong." }] },
+  { "role": "user", "parts": [{ "text": "asd" }] },
+  { "role": "model", "parts": [{ "text": "Something went wrong." }] },
+  { "role": "user", "parts": [{ "text": "sadf" }] }
+]

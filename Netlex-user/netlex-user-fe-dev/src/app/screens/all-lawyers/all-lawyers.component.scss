@@ -793,7 +793,7 @@
 
 .lawyer_img_backside_btn {
     height: 33px;
-    width: 100px;
+    // width: 100px;
     // background-color: #1F2A53;
     background-color: #5f6c7c80;
     border: 0;
@@ -801,6 +801,7 @@
     border-radius: 10px;
     cursor: pointer;
     margin-top: 43px;
+    white-space: nowrap;
 
     span {
         font-family:'Playfair Display,serif !important';        letter-spacing: 0.1em;
